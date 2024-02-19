@@ -1,13 +1,22 @@
 const datepicker = new Datepicker(document.querySelector('div#date'), {
-    inline: true
+    inline: true,
+    language: 'fr',
+    minDate: new Date()
 });
 
 let hiddenInput = document.createElement('input');
 hiddenInput.type = 'hidden';
 hiddenInput.name = 'datePicker';
+hiddenInput.required = true;
 document.querySelector('form').appendChild(hiddenInput);
-hiddenInput.value = datepicker.getDate('yyyy-mm-dd');
 
-datepicker.element.addEventListener('changeDate', function() {
+datepicker.element.addEventListener('changeDate', function () {
     hiddenInput.value = datepicker.getDate('yyyy-mm-dd');
+});
+
+document.querySelector('form').addEventListener('submit', function(event) {
+    if (hiddenInput.value == '') {
+        event.preventDefault();
+        alert('Veuillez sélectionner une date.');
+    }
 });
