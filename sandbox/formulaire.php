@@ -1,3 +1,5 @@
+<?php include("../scripts/database.php"); ?>
+
 <!DOCTYPE html>
 <html lang="fr">
 
@@ -27,13 +29,22 @@
             <div class="boutons"><button type="button" class="confirmer">Suivant</button></div>
         </div>
         <div id="step2">
-            <div class="boutons"><button class="retour" type="button">Retour</button><button type="button" class="confirmer">Suivant</button></div>
+            <?php
+            foreach ($manager->getAllFormules() as $key => $value) { ?>
+                <label for="formule<?php echo $value->getId_formule() ?>"><?php echo $value->getNom_formule() ?></label><input type="number" min="0" max="10" step="1" value="0" name="formule<?php echo $value->getId_formule() ?>" id="formule<?php echo $value->getId_formule() ?>"><br>
+            <?php } ?>
+            <div class="boutons"><button class="retour" type="button">Retour</button><button type="button"
+                    class="confirmer">Suivant</button></div>
         </div>
         <div id="step3">
-            <div class="boutons"><button class="retour" type="button">Retour</button><button type="button" class="confirmer">Suivant</button></div>
+            <label for="prenom">Prenom</label><input type="text" name="prenom" id="prenom"><br>
+            <label for="nom">Nom</label><input type="text" name="nom" id="nom"><br>
+            <label for="mail">Adresse mail</label><input type="email" name="mail" id="mail">
+            <div class="boutons"><button class="retour" type="button">Retour</button><button type="button"
+                    class="confirmer">Suivant</button></div>
         </div>
         <div id="step4">
-            <input type="submit">
+            <div class="boutons"><button class="retour" type="button">Retour</button><input type="submit"></div>
         </div>
     </form>
     <script src="https://cdn.jsdelivr.net/npm/vanillajs-datepicker@1.3.4/dist/js/datepicker-full.min.js"></script>
