@@ -57,3 +57,9 @@ form {
 form>div:not(form>div:first-child) {
     display: none;
 }
+
+.resumeChamp {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}

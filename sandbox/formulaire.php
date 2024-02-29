@@ -15,6 +15,7 @@
 <body>
     <form action="./test.php" method="post">
         <div id="step1">
+            <h2>Date et Heure</h2>
             <div id="date"></div>
             <div class="heure">
                 <input type="radio" name="heure" value="10:00:00" id="h10"> <label for="h10" tabindex="0">10h00</label>
@@ -29,14 +30,20 @@
             <div class="boutons"><button type="button" class="confirmer">Suivant</button></div>
         </div>
         <div id="step2">
+            <h2>Choisissez vos formules</h2>
             <?php
             foreach ($manager->getAllFormules() as $key => $value) { ?>
-                <label for="formule<?php echo $value->getId_formule() ?>"><?php echo $value->getNom_formule() ?></label><input type="number" min="0" max="10" step="1" value="0" name="formule<?php echo $value->getId_formule() ?>" id="formule<?php echo $value->getId_formule() ?>"><br>
+                <label for="formule<?php echo $value->getId_formule() ?>">
+                    <?php echo $value->getNom_formule() ?>
+                </label><input type="number" min="0" max="10" step="1" value="0"
+                    name="formule<?php echo $value->getId_formule() ?>"
+                    id="formule<?php echo $value->getId_formule() ?>"><br>
             <?php } ?>
             <div class="boutons"><button class="retour" type="button">Retour</button><button type="button"
                     class="confirmer">Suivant</button></div>
         </div>
         <div id="step3">
+            <h2>Vos coordonnées</h2>
             <label for="prenom">Prenom</label><input type="text" name="prenom" id="prenom"><br>
             <label for="nom">Nom</label><input type="text" name="nom" id="nom"><br>
             <label for="mail">Adresse mail</label><input type="email" name="mail" id="mail">
@@ -44,6 +51,42 @@
                     class="confirmer">Suivant</button></div>
         </div>
         <div id="step4">
+            <h2>Date et Heure</h2>
+
+            <div class="resumeChamp">
+                <p>25/04/2024</p>
+                <button type="button">modifier</button>
+            </div>
+
+            <div class="resumeChamp">
+                <p>15h00</p>
+                <button type="button">modifier</button>
+            </div>
+
+
+            <h2>Votre commande</h2>
+
+            <div class="formuleResumeDynamique">
+            </div>
+            <button type="button">modifier</button>
+
+
+            <h2>Vos coordonnées</h2>
+            <div class="resumeChamp">
+                <p>Morgan</p>
+                <button type="button">modifier</button>
+            </div>
+
+            <div class="resumeChamp">
+                <p>ZARKA</p>
+                <button type="button">modifier</button>
+            </div>
+
+            <div class="resumeChamp">
+                <p>morgan.zarka@edu.univ-eiffel.fr</p>
+                <button type="button">modifier</button>
+            </div>
+
             <div class="boutons"><button class="retour" type="button">Retour</button><input type="submit"></div>
         </div>
     </form>

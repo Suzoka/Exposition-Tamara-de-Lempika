@@ -28,6 +28,10 @@ document.querySelectorAll("button.confirmer").forEach(button => {
     });
 });
 
+document.querySelector("button.confirmer:last-of-type").addEventListener('click', function(event) {    
+    document.querySelector('div.resume').appendChild(resume1)
+});
+
 document.querySelectorAll("button.retour").forEach(button => {
     button.addEventListener('click', function(event) {
         changeStep(-1, event)
