@@ -54,12 +54,12 @@
             <h2>Date et Heure</h2>
 
             <div class="resumeChamp">
-                <p class="date">25/04/2024</p>
+                <p class="dateResume">25/04/2024</p>
                 <button type="button">modifier</button>
             </div>
 
             <div class="resumeChamp">
-                <p class="heure">15h00</p>
+                <p class="heureResume">15h00</p>
                 <button type="button">modifier</button>
             </div>
 
@@ -73,17 +73,17 @@
 
             <h2>Vos coordonnées</h2>
             <div class="resumeChamp">
-                <p class="prenom">Morgan</p>
+                <p class="prenomResume">Morgan</p>
                 <button type="button">modifier</button>
             </div>
 
             <div class="resumeChamp">
-                <p class="nom">ZARKA</p>
+                <p class="nomResume">ZARKA</p>
                 <button type="button">modifier</button>
             </div>
 
             <div class="resumeChamp">
-                <p class="mail">morgan.zarka@edu.univ-eiffel.fr</p>
+                <p class="mailResume">morgan.zarka@edu.univ-eiffel.fr</p>
                 <button type="button">modifier</button>
             </div>
 

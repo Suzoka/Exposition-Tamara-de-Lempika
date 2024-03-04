@@ -61,8 +61,8 @@ const goToStep = (step, event) => {
 };
 
 const updateResume = () => {
-    document.querySelector('.date').innerHTML = hiddenInput.value;
-    document.querySelector('.heure').innerHTML = document.querySelector('input[name="heure"]:checked').nextElementSibling.innerHTML;
+    document.querySelector('.dateResume').innerHTML = hiddenInput.value;
+    document.querySelector('.heureResume').innerHTML = document.querySelector('input[name="heure"]:checked').nextElementSibling.innerHTML;
     document.querySelector('.formuleResumeDynamique').innerHTML = "";
 
     document.querySelectorAll('#step2 input[type="number"]').forEach(input => {
@@ -73,7 +73,7 @@ const updateResume = () => {
         }
     });
 
-    document.querySelector('.prenom').innerHTML = document.querySelector('input[name="prenom"]').value;
-    document.querySelector('.nom').innerHTML = document.querySelector('input[name="nom"]').value;
-    document.querySelector('.mail').innerHTML = document.querySelector('input[name="mail"]').value;
+    document.querySelector('.prenomResume').innerHTML = document.querySelector('input[name="prenom"]').value;
+    document.querySelector('.nomResume').innerHTML = document.querySelector('input[name="nom"]').value;
+    document.querySelector('.mailResume').innerHTML = document.querySelector('input[name="mail"]').value;
 };
