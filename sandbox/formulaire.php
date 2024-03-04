@@ -48,42 +48,42 @@
             <label for="nom">Nom</label><input type="text" name="nom" id="nom"><br>
             <label for="mail">Adresse mail</label><input type="email" name="mail" id="mail">
             <div class="boutons"><button class="retour" type="button">Retour</button><button type="button"
-                    class="confirmer">Suivant</button></div>
+                    class="confirmer resumeButton">Suivant</button></div>
         </div>
         <div id="step4">
             <h2>Date et Heure</h2>
 
             <div class="resumeChamp">
-                <p>25/04/2024</p>
+                <p class="date">25/04/2024</p>
                 <button type="button">modifier</button>
             </div>
 
             <div class="resumeChamp">
-                <p>15h00</p>
+                <p class="heure">15h00</p>
                 <button type="button">modifier</button>
             </div>
 
 
             <h2>Votre commande</h2>
 
-            <div class="formuleResumeDynamique">
-            </div>
+            <ul class="formuleResumeDynamique">
+            </ul>
             <button type="button">modifier</button>
 
 
             <h2>Vos coordonnées</h2>
             <div class="resumeChamp">
-                <p>Morgan</p>
+                <p class="prenom">Morgan</p>
                 <button type="button">modifier</button>
             </div>
 
             <div class="resumeChamp">
-                <p>ZARKA</p>
+                <p class="nom">ZARKA</p>
                 <button type="button">modifier</button>
             </div>
 
             <div class="resumeChamp">
-                <p>morgan.zarka@edu.univ-eiffel.fr</p>
+                <p class="mail">morgan.zarka@edu.univ-eiffel.fr</p>
                 <button type="button">modifier</button>
             </div>
 

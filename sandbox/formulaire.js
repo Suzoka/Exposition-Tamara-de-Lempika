@@ -14,7 +14,7 @@ datepicker.element.addEventListener('changeDate', function () {
 });
 
 document.querySelectorAll("div.heure label").forEach(label => {
-    label.addEventListener('keydown', function(event) {
+    label.addEventListener('keydown', function (event) {
         if (event.key === 'Enter' || event.keyCode === 13) {
             let radioButton = document.querySelector('#' + this.getAttribute('for'));
             radioButton.checked = true;
@@ -23,37 +23,57 @@ document.querySelectorAll("div.heure label").forEach(label => {
 });
 
 document.querySelectorAll("button.confirmer").forEach(button => {
-    button.addEventListener('click', function(event) {
+    button.addEventListener('click', function (event) {
         changeStep(1, event)
     });
 });
 
-document.querySelector("button.confirmer:last-of-type").addEventListener('click', function(event) {    
-    document.querySelector('div.resume').appendChild(resume1)
+document.querySelector(".resumeButton").addEventListener('click', function (event) {
+    updateResume();
 });
 
 document.querySelectorAll("button.retour").forEach(button => {
-    button.addEventListener('click', function(event) {
+    button.addEventListener('click', function (event) {
         changeStep(-1, event)
     });
 });
 
-
-//sens =1 pour passer à la page suivante, =-1 pour la page précédente
-function changeStep (sens, event) {
-    document.querySelector('#' + event.target.parentElement.parentElement.getAttribute('id')).style.display = 'none';
-    document.querySelector('#step' + (parseInt(event.target.parentElement.parentElement.getAttribute('id').replace("step",""))+sens)).style.display = 'block';
-}
-
 const formules = document.querySelectorAll('#step2 input[type="number"]')
 formules.forEach(input => {
-    input.addEventListener('change', function() {
+    input.addEventListener('change', function () {
         let cumul = 0;
         formules.forEach(input => {
             cumul += parseInt(input.value);
         });
-        if (cumul>10) {
-            input.value = input.value - (cumul-10);
+        if (cumul > 10) {
+            input.value = input.value - (cumul - 10);
         }
     });
 });
+
+//sens =1 pour passer à la page suivante, =-1 pour la page précédente
+const changeStep = (sens, event) => {
+    document.querySelector('#' + event.target.parentElement.parentElement.getAttribute('id')).style.display = 'none';
+    document.querySelector('#step' + (parseInt(event.target.parentElement.parentElement.getAttribute('id').replace("step", "")) + sens)).style.display = 'block';
+}
+
+const goToStep = (step, event) => {
+};
+
+const updateResume = () => {
+    document.querySelector('.date').innerHTML = hiddenInput.value;
+    document.querySelector('.heure').innerHTML = document.querySelector('input[name="heure"]:checked').nextElementSibling.innerHTML;
+    document.querySelector('.formuleResumeDynamique').innerHTML = "";
+
+    document.querySelectorAll('#step2 input[type="number"]').forEach(input => {
+        if (input.value > 0) {
+            let formule = document.createElement('li');
+            formule.innerHTML = document.querySelector('label[for="'+input.getAttribute('id')+'"]').innerHTML + " : " + input.value;
+            document.querySelector('.formuleResumeDynamique').appendChild(formule);
+        }
+    });
+
+    document.querySelector('.prenom').innerHTML = document.querySelector('input[name="prenom"]').value;
+    document.querySelector('.nom').innerHTML = document.querySelector('input[name="nom"]').value;
+    document.querySelector('.mail').innerHTML = document.querySelector('input[name="mail"]').value;
+};
