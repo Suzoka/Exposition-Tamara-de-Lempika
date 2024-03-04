@@ -1,0 +1,56 @@
+@font-face {
+	font-family: 'Delauney';
+	font-weight: 400;
+    font-style: normal;
+	src: url('../fonts/DelauneyRegular-8MArM.woff2') format('woff2'),
+        url('../font/DelauneyRegular-8MArM.woff') format('woff');
+}
+
+@font-face {
+	font-family: 'Lucida';
+	font-weight: 400;
+    font-style: normal;
+	src: url('../fonts/Lucida-Bright-Regular.woff2') format('woff2'),
+        url('../font/Lucida-Bright-Regular.woff') format('woff');
+}
+
+*,
+*::after,
+*::before {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+}
+
+header {
+    background-color: black;
+    font-family: 'Lucida', sans-serif;
+}
+
+nav {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    align-items: center;
+}
+
+.menu {
+    text-align: center;
+}
+
+.menu-user {
+    text-align: right;
+}
+
+#compte {
+    margin-left:7%;
+    margin-right: 40px;
+}
+
+.menu a, .menu-user a {
+    color: white;
+    text-decoration: none;
+    padding: 10px;
+}
+
