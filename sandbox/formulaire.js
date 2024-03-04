@@ -25,7 +25,7 @@ document.querySelectorAll("div.heure label").forEach(label => {
 document.querySelectorAll("button.confirmer").forEach(button => {
     button.addEventListener('click', function (event) {
         if (checkStep(event)) {
-            changeStep(1, event)
+            goToStep(this.getAttribute('data-goto'), this.getAttribute('data-from'));
         }
     });
 });
@@ -34,9 +34,9 @@ document.querySelector(".resumeButton").addEventListener('click', function (even
     updateResume();
 });
 
-document.querySelectorAll("button.retour").forEach(button => {
-    button.addEventListener('click', function (event) {
-        changeStep(-1, event)
+document.querySelectorAll("button.retour, button.edit").forEach(button => {
+    button.addEventListener('click', function () {
+        goToStep(this.getAttribute('data-goto'), this.getAttribute('data-from'));
     });
 });
 
@@ -93,13 +93,9 @@ const checkStep = (event) => {
     }
 };
 
-//sens =1 pour passer à la page suivante, =-1 pour la page précédente
-const changeStep = (sens, event) => {
-    document.querySelector('#' + event.target.parentElement.parentElement.getAttribute('id')).style.display = 'none';
-    document.querySelector('#step' + (parseInt(event.target.parentElement.parentElement.getAttribute('id').replace("step", "")) + sens)).style.display = 'block';
-}
-
-const goToStep = (step, event) => {
+const goToStep = (goto, from) => {
+    document.querySelector('#step' + from).style.display = 'none';
+    document.querySelector('#step' + goto).style.display = 'block';
 };
 
 const updateResume = () => {

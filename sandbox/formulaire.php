@@ -27,7 +27,8 @@
                 <input type="radio" name="heure" value="16:00:00" id="h16"> <label for="h16" tabindex="0">16h00</label>
                 <input type="radio" name="heure" value="17:00:00" id="h17"> <label for="h17" tabindex="0">17h00</label>
             </div>
-            <div class="boutons"><button type="button" class="confirmer">Suivant</button></div>
+            <div class="boutons"><button type="button" class="confirmer" data-goto="2" data-from="1">Suivant</button>
+            </div>
         </div>
         <div id="step2">
             <h2>Choisissez vos formules</h2>
@@ -39,55 +40,57 @@
                     name="formule<?php echo $value->getId_formule() ?>"
                     id="formule<?php echo $value->getId_formule() ?>"><br>
             <?php } ?>
-            <div class="boutons"><button class="retour" type="button">Retour</button><button type="button"
-                    class="confirmer">Suivant</button></div>
+            <div class="boutons"><button class="retour" type="button" data-goto="1" data-from="2">Retour</button><button type="button"
+                    class="confirmer" data-goto="3" data-from="2">Suivant</button></div>
         </div>
         <div id="step3">
             <h2>Vos coordonnées</h2>
             <label for="prenom">Prenom</label><input type="text" name="prenom" id="prenom" required><br>
             <label for="nom">Nom</label><input type="text" name="nom" id="nom" required><br>
             <label for="mail">Adresse mail</label><input type="email" name="mail" id="mail" required>
-            <div class="boutons"><button class="retour" type="button">Retour</button><button type="button"
-                    class="confirmer resumeButton">Suivant</button></div>
+            <div class="boutons"><button class="retour" type="button" data-goto="2" data-from="3">Retour</button><button type="button"
+                    class="confirmer resumeButton" data-goto="4" data-from="3">Suivant</button></div>
         </div>
         <div id="step4">
             <h2>Date et Heure</h2>
 
             <div class="resumeChamp">
                 <p class="dateResume">25/04/2024</p>
-                <button type="button">modifier</button>
+                <button type="button" data-goto="1" data-from="4" class="edit">modifier</button>
             </div>
 
             <div class="resumeChamp">
                 <p class="heureResume">15h00</p>
-                <button type="button">modifier</button>
+                <button type="button" data-goto="1" data-from="4" class="edit">modifier</button>
             </div>
 
 
             <h2>Votre commande</h2>
 
-            <ul class="formuleResumeDynamique">
-            </ul>
-            <button type="button">modifier</button>
+            <div class="formulesResume">
+                <ul class="formuleResumeDynamique">
+                </ul>
+                <button type="button" data-goto="2" data-from="4" class="edit">modifier</button>
+            </div>
 
 
             <h2>Vos coordonnées</h2>
             <div class="resumeChamp">
                 <p class="prenomResume">Morgan</p>
-                <button type="button">modifier</button>
+                <button type="button" data-goto="3" data-from="4" class="edit">modifier</button>
             </div>
 
             <div class="resumeChamp">
                 <p class="nomResume">ZARKA</p>
-                <button type="button">modifier</button>
+                <button type="button" data-goto="3" data-from="4" class="edit">modifier</button>
             </div>
 
             <div class="resumeChamp">
                 <p class="mailResume">morgan.zarka@edu.univ-eiffel.fr</p>
-                <button type="button">modifier</button>
+                <button type="button" data-goto="3" data-from="4" class="edit">modifier</button>
             </div>
 
-            <div class="boutons"><button class="retour" type="button">Retour</button><input type="submit"></div>
+            <div class="boutons"><button class="retour" type="button" data-goto="3" data-from="4">Retour</button><input type="submit"></div>
         </div>
     </form>
     <script src="https://cdn.jsdelivr.net/npm/vanillajs-datepicker@1.3.4/dist/js/datepicker-full.min.js"></script>
