@@ -44,9 +44,9 @@
         </div>
         <div id="step3">
             <h2>Vos coordonnées</h2>
-            <label for="prenom">Prenom</label><input type="text" name="prenom" id="prenom"><br>
-            <label for="nom">Nom</label><input type="text" name="nom" id="nom"><br>
-            <label for="mail">Adresse mail</label><input type="email" name="mail" id="mail">
+            <label for="prenom">Prenom</label><input type="text" name="prenom" id="prenom" required><br>
+            <label for="nom">Nom</label><input type="text" name="nom" id="nom" required><br>
+            <label for="mail">Adresse mail</label><input type="email" name="mail" id="mail" required>
             <div class="boutons"><button class="retour" type="button">Retour</button><button type="button"
                     class="confirmer resumeButton">Suivant</button></div>
         </div>

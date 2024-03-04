@@ -24,7 +24,9 @@ document.querySelectorAll("div.heure label").forEach(label => {
 
 document.querySelectorAll("button.confirmer").forEach(button => {
     button.addEventListener('click', function (event) {
-        changeStep(1, event)
+        if (checkStep(event)) {
+            changeStep(1, event)
+        }
     });
 });
 
@@ -51,6 +53,46 @@ formules.forEach(input => {
     });
 });
 
+const checkStep = (event) => {
+    let step = event.target.parentElement.parentElement.getAttribute('id');
+    switch (step) {
+        case "step1":
+            if (hiddenInput.value === "") {
+                alert("Veuillez choisir une date");
+                return false;
+            }
+            if (document.querySelector('input[name="heure"]:checked') === null) {
+                alert("Veuillez choisir une heure");
+                return false;
+            }
+            return true;
+        case "step2":
+            let cumul = 0;
+            formules.forEach(input => {
+                cumul += parseInt(input.value);
+            });
+            if (cumul === 0) {
+                alert("Veuillez choisir au moins une formule");
+                return false;
+            }
+            return true;
+        case "step3":
+            if (document.querySelector('input[name="prenom"]').validity.valid == false) {
+                alert("Veuillez renseigner votre prénom");
+                return false;
+            }
+            if (document.querySelector('input[name="nom"]').validity.valid == false) {
+                alert("Veuillez renseigner votre nom");
+                return false;
+            }
+            if (document.querySelector('input[name="mail"]').validity.valid == false) {
+                alert("Veuillez renseigner un mail valide");
+                return false;
+            }
+            return true;
+    }
+};
+
 //sens =1 pour passer à la page suivante, =-1 pour la page précédente
 const changeStep = (sens, event) => {
     document.querySelector('#' + event.target.parentElement.parentElement.getAttribute('id')).style.display = 'none';
@@ -68,7 +110,7 @@ const updateResume = () => {
     document.querySelectorAll('#step2 input[type="number"]').forEach(input => {
         if (input.value > 0) {
             let formule = document.createElement('li');
-            formule.innerHTML = document.querySelector('label[for="'+input.getAttribute('id')+'"]').innerHTML + " : " + input.value;
+            formule.innerHTML = document.querySelector('label[for="' + input.getAttribute('id') + '"]').innerHTML + " : " + input.value;
             document.querySelector('.formuleResumeDynamique').appendChild(formule);
         }
     });
