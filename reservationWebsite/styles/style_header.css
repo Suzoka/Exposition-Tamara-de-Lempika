@@ -2,9 +2,11 @@
 	font-family: 'Lucida';
 	font-weight: 400;
     font-style: normal;
-	src: url('../fonts/Lucida-Bright-Regular.woff2') format('font/woff2'),
-        url('../fonts/Lucida-Bright-Regular.woff') format('font/woff');
+	src: url('../fonts/lucida-bright.woff2') format('font/woff2'),
+        url('../fonts/lucida-bright.woff') format('font/woff');
 }
+
+
 
 *,
 *::after,
@@ -23,6 +25,7 @@ header {
     top: 0;
     width: 100vw;
     height: 12vh;
+    z-index: 4;
 }
 
 #logo {
