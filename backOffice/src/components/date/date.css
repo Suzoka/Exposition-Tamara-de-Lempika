@@ -1,0 +1,28 @@
+.date__container {
+    width: fit-content;
+    padding: 3px 10px;
+    border-radius: 30px;
+    /* color: blue; */
+    transition: 0.3s;
+    border: none;
+
+    font-family: 'Inter', sans-serif;
+    font-size: 1rem;
+    font-weight: 400;
+}
+
+.date__container:hover {
+    cursor: pointer;
+    opacity: 0.6;
+}
+
+.date__container--day {
+    background-color: var(--black);
+    color: var(--white);
+}
+
+.date__container--hour {
+    background-color: var(--light-grey);
+    color: var(--black);
+}
+
