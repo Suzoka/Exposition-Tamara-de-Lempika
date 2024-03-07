@@ -73,6 +73,35 @@ h1 {
     left: 22%;
 }
 
+.imgBanniere {
+    overflow: hidden;
+    width: 67%;
+}
+
+.imgBanniere img {
+    position: relative;
+    top: 7.5%;
+}
+
+.scroll {
+    position: absolute;
+    bottom: 3%;
+    left: 46%;
+    width: 63px;
+    height: 63px;
+    rotate: 90deg;
+    z-index: 1;
+    background-color: #000000;
+    border-radius: 50%;
+}
+
+.scroll img {
+    width: 40px;
+    position: relative;
+    top: 17%;
+    left: 22%;
+}
+
 /* ---- Teaser ---- */
 
 .teaser {
