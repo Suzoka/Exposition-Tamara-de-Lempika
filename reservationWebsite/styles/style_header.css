@@ -1,5 +1,3 @@
-
-
 @font-face {
 	font-family: 'Lucida';
 	font-weight: 400;
@@ -21,6 +19,10 @@ body {
 header {
     background-color: black;
     font-family: 'Lucida', sans-serif;
+}
+
+#logo {
+    width: 90%;
 }
 
 nav {
