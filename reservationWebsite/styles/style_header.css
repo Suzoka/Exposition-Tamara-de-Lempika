@@ -19,15 +19,20 @@ body {
 header {
     background-color: black;
     font-family: 'Lucida', sans-serif;
+    position: fixed;
+    top: 0;
+    width: 100vw;
+    height: 12vh;
 }
 
 #logo {
-    width: 90%;
+    width: 12vh;
+    margin-left: 5%;
 }
 
 nav {
     display: grid;
-    grid-template-columns: 15% 1fr 1fr;
+    grid-template-columns: 15% auto 1fr;
     align-items: center;
 }
 
