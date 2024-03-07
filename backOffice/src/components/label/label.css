@@ -1,0 +1,21 @@
+.label__container {
+    width: fit-content;
+    padding: 3px 10px;
+    border-radius: 30px;
+    /* color: blue; */
+}
+
+.label__container--blue {
+    background-color: var(--light-blue);
+    color: var(--dark-blue);
+}
+
+.label__container--green {
+    background-color: var(--light-green);
+    color: var(--dark-green);
+}
+
+.label__container--yellow {
+    background-color: var(--light-yellow);
+    color: var(--dark-yellow);
+}
