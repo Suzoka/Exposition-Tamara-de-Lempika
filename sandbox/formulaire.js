@@ -98,8 +98,13 @@ const goToStep = (goto, from) => {
     document.querySelector('#step' + goto).style.display = 'block';
 };
 
+let date;
+const mois = ["Janvier", "Février", "Mars", "Avril", "Mai", "Juin", "Juillet", "Août", "Septembre", "Octobre", "Novembre", "Décembre"];
+
+
 const updateResume = () => {
-    document.querySelector('.dateResume').innerHTML = hiddenInput.value;
+    date = new Date(hiddenInput.value);
+    document.querySelector('.dateResume').innerHTML = date.getDate() + " " + mois[date.getMonth()] + " " + date.getFullYear();
     document.querySelector('.heureResume').innerHTML = document.querySelector('input[name="heure"]:checked').nextElementSibling.innerHTML;
     document.querySelector('.formuleResumeDynamique').innerHTML = "";
 
