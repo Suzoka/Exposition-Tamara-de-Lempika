@@ -1,9 +1,17 @@
 @font-face {
-	font-family: 'Delauney';
-	font-weight: 400;
+    font-family: 'Carambola';
+    font-weight: 400;
     font-style: normal;
-	src: url('./fonts/DelauneyRegular-8MArM.woff2') format('font/woff2'),
-        url('./fonts/DelauneyRegular-8MArM.woff') format('font/woff');
+    src: url('../fonts/carambola.woff2') format('font/woff2'),
+        url('../fonts/carambola.woff') format('font/woff');
+}
+
+@font-face {
+    font-family: 'Delauney';
+    font-weight: 400;
+    font-style: normal;
+    src: url('../fonts/DelauneyRegular-8MArM.woff') format('font/woff2'),
+        url('../fonts/DelauneyRegular-8MArM.woff2') format('font/woff');
 }
 
 /* ---- Bannière ---- */
@@ -29,7 +37,7 @@
 }
 
 h1 {
-    font-family: 'Delauney', sans-serif;
+    font-family: 'Carambola', sans-serif;
     font-size: 3.50rem;
 }
 
@@ -48,6 +56,35 @@ h1 {
     margin-top: 35px;
 }
 
+.imgBanniere {
+    overflow: hidden;
+    width: 67%;
+}
+
+.imgBanniere img {
+    position: relative;
+    top: 7.5%;
+}
+
+.scroll {
+    position: absolute;
+    bottom: 3%;
+    left: 46%;
+    width: 63px;
+    height: 63px;
+    rotate: 90deg;
+    z-index: 1;
+    background-color: #000000;
+    border-radius: 50%;
+}
+
+.scroll img {
+    width: 40px;
+    position: relative;
+    top: 17%;
+    left: 22%;
+}
+
 /* ---- Teaser ---- */
 
 .teaser {
@@ -63,7 +100,7 @@ h1 {
 }
 
 h2 {
-    font-family: 'Delauney', sans-serif;
+    font-family: 'Carambola', sans-serif;
     font-size: 2.75rem;
     margin-top: 10vh;
     margin-bottom: 4%;
@@ -86,21 +123,51 @@ h2 {
         width: 100%;
         height: 100%;
         border: none;
+
+        border-top-left-radius: 15px;
+        border-bottom-left-radius: 15px;
     }
 
-.present {
+.presentation {
     background-color: #ECE9DE;
-    padding: 25px;
+    padding: 30px;
     font-family: 'Lucida', sans-serif;
+    border-top-right-radius: 15px;
+    border-bottom-right-radius: 15px;
 }
 
-.info {
+#textPresent {
+    margin-top: 7%;
+    line-height: 23px;
+}
+
+.infos {
     display: flex;
-    background-color: #21594F;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.info, #reservation {
+    display: flex;
     color: white;
-    padding: 0 7px;
+    padding: 0 10px;
     width: -webkit-fit-content;
     width: -moz-fit-content;
     width: fit-content;
     border-radius: 10px;
+}
+
+.info img, #reservation img {
+    margin-right: 10px;
+}
+
+.info {
+    background-color: #21594F;
+}
+
+#reservation {
+    background-color: #000000;
+    text-decoration: none;
+    font-family: 'Carambola', sans-serif;
+    float: right;
 }
