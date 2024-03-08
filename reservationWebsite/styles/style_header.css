@@ -1,11 +1,18 @@
 @font-face {
-	font-family: 'Lucida';
-	font-weight: 400;
+    font-family: 'Lucida';
+    font-weight: normal;
     font-style: normal;
-	src: url('../fonts/lucida-bright.woff2') format('font/woff2'),
-        url('../fonts/lucida-bright.woff') format('font/woff');
+    src: url('../fonts/lucida-bright.woff2') format('woff2'),
+         url('../fonts/lucida-bright.woff') format('woff');
 }
 
+@font-face {
+    font-family: 'Carambola';
+    font-weight: 400;
+    font-style: normal;
+    src: url('../fonts/carambola.woff2') format('woff2'),
+        url('../fonts/carambola.woff') format('woff');
+}
 
 
 *,
@@ -16,15 +23,17 @@
 
 body {
     margin: 0;
+    font-family: 'Lucida', serif;
 }
 
 header {
     background-color: black;
-    font-family: 'Lucida', sans-serif;
+
     position: fixed;
     top: 0;
     width: 100vw;
     height: 12vh;
+    min-height: 80px;
     z-index: 4;
 }
 
@@ -35,8 +44,9 @@ header {
 
 nav {
     display: grid;
-    grid-template-columns: 15% auto 1fr;
+    grid-template-columns: 15% 1fr 1fr;
     align-items: center;
+    justify-content: space-between;
 }
 
 .menu {

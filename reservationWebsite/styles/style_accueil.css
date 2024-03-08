@@ -86,9 +86,9 @@ h1 {
 .scroll {
     position: absolute;
     bottom: 3%;
-    left: 46%;
-    width: 63px;
-    height: 63px;
+    left: 48%;
+    width: 50px;
+    height: 50px;
     rotate: 90deg;
     z-index: 1;
     background-color: #000000;
@@ -96,9 +96,9 @@ h1 {
 }
 
 .scroll img {
-    width: 40px;
+    width: 33px;
     position: relative;
-    top: 17%;
+    top: 16%;
     left: 22%;
 }
 
