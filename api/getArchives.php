@@ -7,10 +7,10 @@ switch ($request_method) {
     case 'GET':
 
         if (!isset($_GET['search'])) {
-            $result = getAllReservedFormulesNotArchived()->fetchAll(PDO::FETCH_ASSOC);
+            $result = getAllArchives()->fetchAll(PDO::FETCH_ASSOC);
         } else {
             $search = $_GET['search'];
-            $result = searchReservedFormulesNotArchived($search)->fetchAll(PDO::FETCH_ASSOC);
+            $result = searchArchives($search)->fetchAll(PDO::FETCH_ASSOC);
         }
 
         header('Content-Type: application/json');
