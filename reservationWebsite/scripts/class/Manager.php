@@ -33,16 +33,15 @@ class Manager
             if (strpos($key, 'formule') !== false) {
                 $id_formule = substr($key, 7);
 
-                for ($i = 0; $i < $value; $i++) {
-                    $stmt = $this->db->prepare("INSERT INTO `reservations` (`ext_id_user`, `ext_id_formule`, `date`) VALUES (:ext_id_user, :ext_id_formule, :date)");
+                $stmt = $this->db->prepare("INSERT INTO `reservations` (`ext_id_user`, `ext_id_formule`, `date`, `quantite`) VALUES (:ext_id_user, :ext_id_formule, :date, :quantite)");
 
-                    //Changer par l'id stocké en session
-                    $stmt->bindParam(':ext_id_user', $id, PDO::PARAM_INT);
+                //Changer par l'id stocké en session
+                $stmt->bindParam(':ext_id_user', $id, PDO::PARAM_INT);
 
-                    $stmt->bindParam(':ext_id_formule', $id_formule, PDO::PARAM_INT);
-                    $stmt->bindParam(':date', $date, PDO::PARAM_STR);
-                    $stmt->execute();
-                }
+                $stmt->bindParam(':ext_id_formule', $id_formule, PDO::PARAM_INT);
+                $stmt->bindParam(':date', $date, PDO::PARAM_STR);
+                $stmt->bindParam(':quantite', $value, PDO::PARAM_INT);
+                $stmt->execute();
             }
         }
     }
