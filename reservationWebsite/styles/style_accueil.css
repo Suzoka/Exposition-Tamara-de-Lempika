@@ -1,19 +1,3 @@
-@font-face {
-    font-family: 'Carambola';
-    font-weight: 400;
-    font-style: normal;
-    src: url('../fonts/carambola.woff2') format('font/woff2'),
-        url('../fonts/carambola.woff') format('font/woff');
-}
-
-@font-face {
-    font-family: 'Delauney';
-    font-weight: 400;
-    font-style: normal;
-    src: url('../fonts/DelauneyRegular-8MArM.woff') format('font/woff2'),
-        url('../fonts/DelauneyRegular-8MArM.woff2') format('font/woff');
-}
-
 /* ---- Bannière ---- */
 
 .banniere {
@@ -51,7 +35,7 @@ h1 {
 
 .text p {
     font-size: 1.25rem;
-    font-family: 'Lucida', sans-serif;
+    
     width: 90%;
     margin-top: 35px;
 }
@@ -69,9 +53,9 @@ h1 {
 .scroll {
     position: absolute;
     bottom: 3%;
-    left: 46%;
-    width: 63px;
-    height: 63px;
+    left: 48%;
+    width: 50px;
+    height: 50px;
     rotate: 90deg;
     z-index: 1;
     background-color: #000000;
@@ -79,16 +63,16 @@ h1 {
 }
 
 .scroll img {
-    width: 40px;
+    width: 33px;
     position: relative;
-    top: 17%;
+    top: 16%;
     left: 22%;
 }
 
 /* ---- Teaser ---- */
 
 .teaser {
-    height: 90vh;
+    height: 80vh;
     width: 85vw;
     margin: auto;
 }
@@ -102,23 +86,26 @@ h1 {
 h2 {
     font-family: 'Carambola', sans-serif;
     font-size: 2.75rem;
-    margin-top: 10vh;
+    margin-top: 8vh;
     margin-bottom: 4%;
-    color: #21594F;
-    border-bottom: #21594F 3px solid;
     padding: 0 5px 0 0;
     width: -webkit-fit-content;
     width: -moz-fit-content;
     width: fit-content;
 }
 
-.iframeResponsive {
+.teaser h2 {
+    color: #21594F;
+    border-bottom: #21594F 3px solid;
+}
+
+.teaser .iframeResponsive {
     position: relative;
     width: 300%;
     aspect-ratio: 16 / 9;
 }
 
-    .iframeResponsive iframe {
+    .teaser .iframeResponsive iframe {
         position: absolute;
         width: 100%;
         height: 100%;
@@ -131,7 +118,7 @@ h2 {
 .presentation {
     background-color: #ECE9DE;
     padding: 30px;
-    font-family: 'Lucida', sans-serif;
+    
     border-top-right-radius: 15px;
     border-bottom-right-radius: 15px;
 }
@@ -141,27 +128,32 @@ h2 {
     line-height: 23px;
 }
 
-.infos {
+.infosTeaser {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
 }
 
-.info, #reservation {
+.infoTeaser, #reservation {
     display: flex;
     color: white;
-    padding: 0 10px;
+    padding: 0 13px;
     width: -webkit-fit-content;
     width: -moz-fit-content;
     width: fit-content;
     border-radius: 10px;
 }
 
-.info img, #reservation img {
+.infoTeaser img, #reservation img {
     margin-right: 10px;
 }
 
-.info {
+.infoTeaser p, #reservation p {
+    margin-top: 13px;
+    margin-bottom: 13px;
+}
+
+.infoTeaser {
     background-color: #21594F;
 }
 
@@ -170,4 +162,63 @@ h2 {
     text-decoration: none;
     font-family: 'Carambola', sans-serif;
     float: right;
+}
+
+/* ---- Accès ---- */
+.access {
+    background-color: #21594F;
+    height: 88vh;
+}
+
+.access h2 {
+    color: #FFFFFF;
+    border-bottom: #FFFFFF 3px solid;
+    margin: auto;
+    margin-bottom: 4%;
+    padding-top: 8vh;
+}
+
+.contentAccess {
+    display: flex;
+    flex-direction: row;
+    gap: 5%;
+    margin-top: 5%;
+    width: 85vw;
+    margin: auto;
+}
+
+.plan iframe {
+    border-radius: 15px;
+}
+
+.infosAccess {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+}
+
+.infoAccess {
+    background-color: #ECE9DE;
+    border-radius: 15px;
+    padding: 20px;
+}
+
+.infoAccess img {
+    width: 50px;
+    float: left;
+}
+
+.infoAccess h3 {
+    margin-left: 25%;
+    font-family: 'Carambola', sans-serif;
+    margin-bottom: 30px;
+}
+
+.infoAccess ul {
+    list-style-type: none;
+    padding-left: 10px;
+}
+
+.infoAccess li {
+    margin-top: 10px;
 }
