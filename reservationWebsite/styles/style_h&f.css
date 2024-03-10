@@ -26,6 +26,9 @@ body {
     font-family: 'Lucida', serif;
 }
 
+
+/* ---- HEADER ---- */
+
 header {
     background-color: black;
 
@@ -37,12 +40,12 @@ header {
     z-index: 4;
 }
 
-#logo {
+header .logo {
     width: 12vh;
     margin-left: 5%;
 }
 
-nav {
+header nav {
     display: grid;
     grid-template-columns: 15% 1fr 1fr;
     align-items: center;
@@ -73,3 +76,54 @@ nav {
     padding: 10px;
 }
 
+
+
+/* ---- FOOTER ---- */
+footer {
+    background-color: #000000;
+    color: #FFFFFF;
+
+    display: flex;  
+    justify-content: space-around;
+    /*align-items: center;*/
+    padding-top: 15px;
+    padding-bottom: 25px;
+}
+
+footer .logo {
+    width: 17vh;
+}
+
+.apropos, .planSite {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.test {
+   display: flex;
+   align-items: center;
+}
+
+.apropos h3, .planSite h3 {
+    border-bottom: 2px solid #FFFFFF;
+    padding: 7px;
+    width: -webkit-fit-content;
+    width: -moz-fit-content;
+    width: fit-content;
+}
+
+.apropos a, .planSite a {
+    color: #FFFFFF;
+    text-decoration: none;
+    margin: 3px;
+}
+
+.reseaux {
+    display: flex;
+    align-items: center;
+}
+
+.reseaux img {
+    width: 85%;
+}

@@ -33,11 +33,15 @@ h1 {
     font-size: 2.25rem;
 }
 
+.text h2 {
+    font-weight: 900;
+    margin: 0;
+    margin-top: 5%;
+}
+
 .text p {
-    font-size: 1.25rem;
-    
+    font-size: 1.25rem; 
     width: 90%;
-    margin-top: 35px;
 }
 
 .imgBanniere {
@@ -83,7 +87,7 @@ h1 {
     width: 100%;
 }
 
-h2 {
+.teaser h2, .access h2{
     font-family: 'Carambola', sans-serif;
     font-size: 2.75rem;
     margin-top: 8vh;
@@ -181,20 +185,29 @@ h2 {
 .contentAccess {
     display: flex;
     flex-direction: row;
+    justify-content: space-between;
     gap: 5%;
     margin-top: 5%;
     width: 85vw;
     margin: auto;
 }
 
+.plan {
+    position: relative;
+    width: 50%;
+}
+
 .plan iframe {
     border-radius: 15px;
+    position: absolute;
+    width: 100%;
+    height: 100%;
 }
 
 .infosAccess {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 10px;
+    gap: 18px;
 }
 
 .infoAccess {
@@ -204,14 +217,14 @@ h2 {
 }
 
 .infoAccess img {
-    width: 50px;
+    width: 24%;
     float: left;
 }
 
 .infoAccess h3 {
-    margin-left: 25%;
+    margin-left: 26%;
     font-family: 'Carambola', sans-serif;
-    margin-bottom: 30px;
+    margin-bottom: 25px;
 }
 
 .infoAccess ul {
