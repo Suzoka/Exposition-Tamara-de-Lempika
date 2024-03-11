@@ -33,4 +33,11 @@ function searchArchives($search) {
     return $stmt;
 }
 
+function deleteReservation($id) {
+    global $db;
+    $stmt = $db->prepare("DELETE FROM `reservations` WHERE id_ticket = :id");
+    $stmt->bindParam(':id', $id, PDO::PARAM_INT);
+    return $stmt->execute();
+}
+
 ?>
