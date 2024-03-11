@@ -1,0 +1,19 @@
+.button__container {
+    display: flex;
+    padding: 8px 10px;
+    font-size: 1rem;
+    border-radius: 10px;
+    cursor: pointer;
+    background-color: var(--light-red);
+    color: var(--dark-red);
+    border: none;
+}
+
+.button__container:hover {
+    background-color: #D19999;
+}
+
+.button__container--icon {
+    padding: 8px 8px;
+    /* height: 19px; */
+}
