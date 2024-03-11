@@ -1,5 +1,7 @@
 <?php
 var_dump($_POST);
 
-echo "Date = ".$_POST["datePicker"]." ".$_POST["heure"];
+include("../scripts/database.php");
+$manager->createReservation($_POST);
+
 ?>
