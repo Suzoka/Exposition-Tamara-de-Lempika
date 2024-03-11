@@ -1,0 +1,47 @@
+.table__head {
+    height: 40px;
+}
+
+.table__head > * {
+    border-bottom: 1px solid var(--dark-grey);
+    color: var(--dark-grey);
+    text-align: left;
+}
+
+.table__head :nth-child(1) {
+    padding-left: 10px;
+    width: 100px;
+}
+
+.table__head :nth-child(2) {
+    width: 230px;
+}
+
+.table__head :nth-child(3) {
+    width: 125px;
+}
+
+.table__head :nth-child(4) {
+    width: 85px;
+}
+
+.table__head :nth-child(5) {
+    width: 110px;
+}
+
+.table__head :nth-child(6) {
+    width: 300px;
+}
+
+.table__head :nth-child(7) {
+    width: 50px;
+}
+
+.table__head :nth-child(8) {
+    width: 80px;
+}
+
+.table__head :nth-child(9) {
+    width: 200px;
+    padding-right: 10px;
+}
