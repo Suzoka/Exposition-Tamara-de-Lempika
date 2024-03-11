@@ -1,0 +1,191 @@
+.banniere {
+    margin: 0;
+    background-image: url("../img/TamaraPaint2.png");
+    height: 88vh;
+}
+
+h1 {
+    margin: 0;
+    font-family: 'Carambola', sans-serif;
+    color: #FFFFFF;
+    font-size: 3.75rem;
+    margin-left: 7%;
+    position: relative;
+    top: 15%;
+}
+
+h1 span {
+    font-size: 9.375rem;
+}
+
+form {
+    width: 85%;
+    margin: auto;
+}
+
+form>div:not(form>div:first-child) {
+    display: none;
+}
+
+
+h2 {
+    margin-top: 50px;
+    font-family: 'Carambola', sans-serif;
+    font-size: 2.18rem;
+}
+
+h2 span {
+    background-color: #21594F;
+    color: #FFFFFF;
+    padding: 15px 27px;
+    border-radius: 50%;
+    margin-right: 20px;
+}
+
+/* ---- Step 1 ---- */
+#step1 {
+    display: grid;
+    grid-template-columns: 1fr 1fr; 
+     grid-template-areas: 
+    "Titre Titre "
+    "Calendar hour"
+    ". bouton"; 
+}
+.title {grid-area: Titre;}
+.calendar { grid-area: Calendar; }
+.hour { grid-area: hour; }
+.boutons { grid-area: bouton; }
+
+#step1 p {
+    font-size: 1.3rem;
+    color: #21594F;
+}
+
+            /* ---- Calendar ---- */
+.calendar {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.datepicker-picker {
+    background-color: #ECE9DE ;
+    padding: 20px;
+    font-family: 'Carambola', sans-serif;
+    border-radius: 15px;
+}
+
+span.dow{
+    text-transform: capitalize;
+}
+
+button.button.prev-button.prev-btn, button.button.view-switch, button.button.next-button.next-btn {
+    background-color: #ECE9DE;
+    font-size: 1.3rem;
+}
+
+button.button.view-switch {
+    font-family: 'Carambola', sans-serif;
+}
+
+.datepicker-header .datepicker-controls .button:hover {
+    background-color: #c0bba9;
+
+}
+
+.days-of-week {
+    color: #21594F;
+    gap: 3px;
+}
+
+.datepicker .days-of-week {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+}
+
+.datepicker-grid span {
+    color: #21594F;
+    border: #21594F 1px solid;
+    border-radius: 50%;
+}
+
+.datepicker-grid {
+    display: flex;
+    justify-content: space-between;
+}
+
+
+                /* ---- Hour ---- */    
+.hour {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+div.heure {
+    margin-top: 20px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 10px;
+}
+
+input[name="heure"] {
+    display: none;
+}
+
+input[name="heure"] + label {
+    padding: 10px 20px;
+    text-align: center;
+    font-family: 'Carambola', sans-serif;
+    font-size: 1.1rem;
+    color: #21594F;
+    background-color: #FFFFFF;
+    border: 2px solid #21594F;
+    cursor: pointer;
+    border-radius: 30px;
+}
+
+input[name="heure"]:hover + label {
+    background-color: #21594F;
+    color: #fff;
+}
+
+input[name="heure"]:checked + label {
+    background-color: #21594F;
+    color: #fff;
+}
+
+            /* ---- Boutons ---- */      
+
+div.boutons {
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    margin-top: 15px;
+    margin-bottom: 30px;
+    width: 100%;
+}
+
+button {
+    font-family: 'Carambola', sans-serif;
+    font-size: 1.1rem;
+    background-color: #000000;
+    color: #FFFFFF;
+    border: none;
+    border-radius: 10px;
+    padding: 10px 20px;
+
+}
+
+button.confirmer {
+    margin-right: 18%;
+}
+
+button.retour {
+    margin-right: auto;
+}
+
+.resumeChamp {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
