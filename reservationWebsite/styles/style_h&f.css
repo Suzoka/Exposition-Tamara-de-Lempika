@@ -1,0 +1,133 @@
+@font-face {
+    font-family: 'Lucida';
+    font-weight: normal;
+    font-style: normal;
+    src: url('../fonts/lucida-bright.woff2') format('woff2'),
+         url('../fonts/lucida-bright.woff') format('woff');
+}
+
+@font-face {
+    font-family: 'Carambola';
+    font-weight: 400;
+    font-style: normal;
+    src: url('../fonts/carambola.woff2') format('woff2'),
+        url('../fonts/carambola.woff') format('woff');
+}
+
+
+*,
+*::after,
+*::before {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    font-family: 'Lucida', serif;
+}
+
+
+/* ---- HEADER ---- */
+
+header {
+    background-color: black;
+    position: -webkit-sticky;
+    position: sticky;
+    top: 0;
+    width: 100vw;
+    height: 12vh;
+    min-height: 80px;
+    z-index: 4;
+}
+
+header .logo {
+    width: 12vh;
+    margin-left: 5%;
+}
+
+header nav {
+    display: grid;
+    grid-template-columns: 15% 1fr 1fr;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.menu {
+    text-align: right;
+}
+
+.menu-user {
+    text-align: right;
+}
+
+#compte {
+    margin-right: 40px;
+}
+    #compte img {
+        width: 30px;
+        height: 30px;
+        border-radius: 50%;
+    }
+
+
+.menu a, .menu-user a {
+    color: white;
+    text-decoration: none;
+    padding: 10px;
+}
+
+
+
+/* ---- FOOTER ---- */
+footer {
+    background-color: #000000;
+    color: #FFFFFF;
+
+    display: flex;  
+    justify-content: space-around;
+    /*align-items: center;*/
+    padding-top: 15px;
+    padding-bottom: 25px;
+}
+
+footer .logo {
+    width: 17vh;
+}
+
+.apropos, .planSite {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.test {
+   display: flex;
+   align-items: center;
+}
+
+.apropos h3, .planSite h3 {
+    border-bottom: 2px solid #FFFFFF;
+    padding: 7px;
+    width: -webkit-fit-content;
+    width: -moz-fit-content;
+    width: fit-content;
+}
+
+.apropos a, .planSite a {
+    color: #FFFFFF;
+    text-decoration: none;
+    margin: 3px;
+}
+
+.reseaux {
+    display: flex;
+    align-items: center;
+}
+
+.reseaux img {
+    width: 85%;
+}
