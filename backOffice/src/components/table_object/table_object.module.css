@@ -1,0 +1,28 @@
+.table__ligne {
+    border-bottom: 1px solid var(--light-grey);
+}
+
+.table__ligne > * {
+    padding: 0 10px;
+    text-align: left;
+    height: 60px;
+}
+
+.table__cellule--action {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.table__cellule--user {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 5px;
+}
+
+.user__icon {
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+}
