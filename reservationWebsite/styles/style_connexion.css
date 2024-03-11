@@ -41,7 +41,8 @@ p {
 }
 
 input[type="text"],
-input[type="password"] {
+input[type="password"],
+input[type="email"] {
     display: block;
     border-radius: 3rem;
     border: 5px solid #21594F;

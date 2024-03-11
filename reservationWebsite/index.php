@@ -18,17 +18,22 @@ switch ($page) {
         break;
 
     case "checkConnection":
-        $manager->connectUser($_POST["login"], $_POST["password"]);
-        header("Location: ./accueil");
+        if ($manager->connectUser($_POST["login"], $_POST["password"])) {
+            header("Location: ./accueil");
+        } else {
+            header("Location: ./connexion?error=1");
+        }
         break;
-
     case "inscription":
         include("./views/inscription.php");
         break;
 
     case "checkInscription":
-        $manager->createUser($_POST);
-        header("Location: ./accueil");
+        if ($manager->createUser($_POST)) {
+            header("Location: ./accueil");
+        } else {
+            header("Location: ./inscription?error=1");
+        }
         break;
 
     case "deconnexion":

@@ -64,16 +64,15 @@ class Manager
     public function createUser($datas)
     {
         $stmt = $this->db->prepare("select * from `utilisateurs` where `username` = :username");
-        $stmt->bindParam(':username', $datas['username'], PDO::PARAM_STR);
+        $stmt->bindParam(':username', $datas['login'], PDO::PARAM_STR);
         $stmt->execute();
         if ($stmt->rowCount() == 0) {
             $password = password_hash($datas['password'], PASSWORD_DEFAULT);
 
-            $stmt = $this->db->prepare("INSERT INTO `utilisateurs` (`username`, `mail`, `password`, `role`, `nom`, `prenom`) VALUES (:username, :mail, :password, :role, :nom, :prenom)");
-            $stmt->bindParam(':username', $datas['username'], PDO::PARAM_STR);
+            $stmt = $this->db->prepare("INSERT INTO `utilisateurs` (`username`, `mail`, `password`, `role`, `nom`, `prenom`) VALUES (:username, :mail, :password, 0, :nom, :prenom)");
+            $stmt->bindParam(':username', $datas['login'], PDO::PARAM_STR);
             $stmt->bindParam(':mail', $datas['mail'], PDO::PARAM_STR);
             $stmt->bindParam(':password', $password, PDO::PARAM_STR);
-            $stmt->bindParam(':role', $datas['role'], PDO::PARAM_STR);
             $stmt->bindParam(':nom', $datas['nom'], PDO::PARAM_STR);
             $stmt->bindParam(':prenom', $datas['prenom'], PDO::PARAM_STR);
             $stmt->execute();
