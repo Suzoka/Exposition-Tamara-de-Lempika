@@ -8,7 +8,7 @@ spl_autoload_register('autoLoad');
 
 $serveur = "localhost";
 $login = "root";
-$password = "";
+$password = "root";
 $bdd = "resaexpo";
 
 $db = new PDO("mysql:host=$serveur;dbname=$bdd;charset=utf8", $login, $password);
