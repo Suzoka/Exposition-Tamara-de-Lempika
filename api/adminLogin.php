@@ -8,6 +8,7 @@ switch ($request_method) {
         if (isset($_POST["login"]) && isset($_POST["password"])) {
             if (connexionAdmin($_POST["login"], $_POST["password"])) {
                 header('Content-Type: application/json');
+                // ! TODO : Création token JWT à faire ici
                 echo json_encode(array("auth" => "true"), JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE);
             } else {
                 header('Content-Type: application/json');
