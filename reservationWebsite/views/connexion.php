@@ -26,7 +26,7 @@
                         name="password" id="password" required>
                 </div>
                     <a href="./lostPassword">Mot de passe oublié ?</a>
-                    <a href="./inscription">Créer un compte</a>
+                    <a href="./inscription" class="required">Créer un compte</a>
             </div>
             <input type="submit" value="Se connecter">
         </form>

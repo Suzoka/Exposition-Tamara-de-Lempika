@@ -135,5 +135,5 @@ footer .logo {
 }
 
 .required {
-    color: red;
+    color: red !important;
 }
