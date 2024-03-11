@@ -52,7 +52,7 @@
             </div>
         </section>
 
-        <section class="access">
+        <section class="access" id="access">
             <h2>Accès</h2>
             <div class="contentAccess">
                 <div class="plan">

@@ -21,6 +21,10 @@
     box-sizing: border-box;
 }
 
+html {
+    scroll-behavior: smooth;
+}
+
 body {
     margin: 0;
     font-family: 'Lucida', serif;
@@ -31,8 +35,8 @@ body {
 
 header {
     background-color: black;
-
-    position: fixed;
+    position: -webkit-sticky;
+    position: sticky;
     top: 0;
     width: 100vw;
     height: 12vh;
