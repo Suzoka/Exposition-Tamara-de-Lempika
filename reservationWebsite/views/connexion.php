@@ -16,12 +16,18 @@
         <p>Veuillez renseignez vos informations de connexion <br>
             Les champs précédés d’un astérisque <span class="required">*</span> doivent être remplis</p>
         <form action="./checkConnection" method="POST">
-            <label for="login"><span class="required">*</span>Login</label><input type="text" name="login" id="login"
-                required><br>
-            <label for="password"></label><span class="required">*</span>Mot de passe<input type="password"
-                name="password" id="password" required><br>
-                <a href="./lostPassword">Mot de passe oublié ?</a>
-                <a href="./inscription">Créer un compte</a>
+            <div class="formulaire">
+                <div class="relative">
+                    <label for="login"><span class="required">*</span> Login</label><input type="text" name="login" id="login"
+                        required>
+                </div>
+                <div class="relative">
+                    <label for="password"><span class="required">*</span> Mot de passe</label><input type="password"
+                        name="password" id="password" required>
+                </div>
+                    <a href="./lostPassword">Mot de passe oublié ?</a>
+                    <a href="./inscription">Créer un compte</a>
+            </div>
             <input type="submit" value="Se connecter">
         </form>
     </main>
