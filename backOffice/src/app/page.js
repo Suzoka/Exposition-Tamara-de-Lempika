@@ -6,6 +6,7 @@ import { Button } from "@/components/button/button";
 import { Date } from "@/components/date/date";
 import { Label } from "@/components/label/label";
 import { Table } from '@/components/table/table';
+import { SearchBar } from '@/components/search_bar/search_bar';
 
 const reservation = [
   {
@@ -104,6 +105,7 @@ export default function Home() {
       <h1>Home</h1>
       <h2>Reservation</h2>
       < Table donnee={reservation} />
+      < SearchBar content="Rechercher une reservation..."/>
     </main>
   );
 }
