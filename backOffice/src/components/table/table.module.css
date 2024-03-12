@@ -10,7 +10,13 @@
 }
 
 .table__container::-webkit-scrollbar {
-    display: none;
+    width: 5px;
+    background-color: #ffffff00;
+}
+
+.table__container::-webkit-scrollbar-thumb {
+    border-radius: 5px;
+    background-color: var(--light-grey);
 }
 
 .table__head {
