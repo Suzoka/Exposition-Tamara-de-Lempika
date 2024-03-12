@@ -84,6 +84,7 @@ class Manager
         $last = $_SESSION["from"];
         $_SESSION = array();
         session_destroy();
+        session_start();
         $_SESSION["from"] = $last;
     }
 }
