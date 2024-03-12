@@ -5,9 +5,9 @@ $request_method = $_SERVER["REQUEST_METHOD"];
 switch ($request_method) {
 
     case 'POST':
-        if (isset($_POST["login"]) && isset($_POST["password"])) {
-            if (connexionAdmin($_POST["login"], $_POST["password"])) {
-                header('Content-Type: application/json');
+        $data = json_decode(file_get_contents("php://input"), true);
+        if (isset($data["login"]) && isset($data["password"])) {
+            if (connexionAdmin($data["login"], $data["password"])) {
                 // ! TODO : Création token JWT à faire ici
 
                 require_once 'includes/config.php';
@@ -18,14 +18,9 @@ switch ($request_method) {
                     'alg' => 'HS256'
                 ];
 
-                // TODO : Réfléxion sur les infos à mettre dans le token
                 $payload = [
-                    'user_id' => 123,
-                    'roles' => [
-                        'ROLE_ADMIN',
-                        'ROLE_USER'
-                    ],
-                    'email' => 'contact@demo.fr'
+                    'login' => $data["login"],
+                    'role' => 'admin'
                 ];
 
                 $jwt = new JWT();
@@ -33,16 +28,13 @@ switch ($request_method) {
                 $token = $jwt->generate($header, $payload, SECRET);
                 echo json_encode(["auth" => "true", "token"=>$token], JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE);
             } else {
-                header('Content-Type: application/json');
                 echo json_encode(["auth" => "false", "token"=>null], JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE);
             }
         } else {
-            header('Content-Type: application/json');
             echo json_encode(["message" => "Veuillez indiquer un login et un mot de passe"], JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE);
         }
         break;
     default:
-        header('Content-Type: application/json');
         echo json_encode(["message" => "Méthode non autorisée"], JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE);
         break;
 }
