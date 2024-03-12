@@ -4,16 +4,76 @@
     font-size: 1rem;
     border-radius: 10px;
     cursor: pointer;
-    background-color: var(--light-red);
-    color: var(--dark-red);
+    background-color: var(--light-primary);
+    color: var(--dark-primary);
     border: none;
 }
 
 .button__container:hover {
-    background-color: #D19999;
+    background-color: var(--secondary);
 }
 
 .button__container--icon {
     padding: 8px 8px;
-    /* height: 19px; */
+    /* height: 19px;
+    width: 19px; */
 }
+
+.button__container--icon > .icon_alt {
+    display: none;
+}
+
+.button__container--icon::before {
+    content: "";
+    display: inline-block;
+    /* position: relative; */
+    /* top: 8px; */
+    width: 19px;
+    height: 19px;
+    background-color: currentColor;
+    mask: no-repeat center center;
+    mask-size: contain;
+    /* margin-right: 8px; */
+}
+
+.button__icon--trash::before {
+    mask-image: url("../../../public/asset/icon/Trash-2.svg");
+}
+
+.button__icon--eye::before {
+    mask-image: url("../../../public/asset/icon/Eye.svg") ;
+}
+
+
+/* .social .social__link {
+    display: inline-block;
+    padding: 5px 10px 3px;
+    border-radius: 40px;
+    background-color: #FFFFFF;
+    color: #00809B;
+    text-decoration: none;
+  }
+  .social .social__link:hover {
+    background-color: #d9d9d9;
+  }
+  .social .social__link::before {
+    content: "";
+    display: inline-block;
+    position: relative;
+    top: 1px;
+    width: 12px;
+    height: 12px;
+    background-color: currentColor;
+    mask: no-repeat center center;
+    mask-size: contain;
+    margin-right: 7px;
+  }
+  .social .social__link--twitter::before {
+    mask-image: url("images/x.svg");
+  }
+  .social .social__link--linkedin::before {
+    mask-image: url("images/linkedin.svg");
+  }
+  .social .social__link--github::before {
+    mask-image: url("images/github.svg");
+  } */
