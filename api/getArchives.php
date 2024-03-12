@@ -18,7 +18,7 @@ switch ($request_method) {
         break;
     default:
         header('Content-Type: application/json');
-        echo json_encode(array("message" => "Méthode non autorisée"), JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE);
+        echo json_encode(["message" => "Méthode non autorisée"], JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE);
         break;
 }
 ?>

@@ -21,19 +21,19 @@ switch ($request_method) {
             $id = $_GET['id'];
             if (deleteReservation($id)) {
                 header('Content-Type: application/json');
-                echo json_encode(array("message" => "Réservation supprimée"), JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE);
+                echo json_encode(["message" => "Réservation supprimée"], JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE);
             }
             else {
                 header('Content-Type: application/json');
-                echo json_encode(array("message" => "Erreur lors de la suppression"), JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE);
+                echo json_encode(["message" => "Erreur lors de la suppression"], JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE);
             }
         } else {
             header('Content-Type: application/json');
-            echo json_encode(array("message" => "Veuillez indiquer un ID"), JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE);
+            echo json_encode(["message" => "Veuillez indiquer un ID"], JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE);
         }
     default:
         header('Content-Type: application/json');
-        echo json_encode(array("message" => "Méthode non autorisée"), JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE);
+        echo json_encode(["message" => "Méthode non autorisée"], JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE);
         break;
 }
 ?>
