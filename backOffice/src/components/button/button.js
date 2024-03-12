@@ -1,15 +1,13 @@
 import './button.css';
 
-export const Button = ({ children, variant, format }) => {
+export const Button = ({ children, icon, format }) => {
 
-    const className = `button__container 
-    ${
-        variant === 'primary' ? 'button__container--primary' 
-        : variant === 'secondary' ? 'button__container--secondary' 
-        : ''
-    }
-    ${
+    const className = `button__container ${
         format === 'icon' ? 'button__container--icon' 
+        : ''
+    } ${
+        icon === 'trash' ? 'button__icon--trash' 
+        : icon === 'eye' ? 'button__icon--eye' 
         : ''
     }`;
 

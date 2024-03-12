@@ -8,17 +8,22 @@
 
     --black: #2F2E2E;
     --white: #F8F8F8;
+
+    --bkg-primary:#fff8f8;
+    --bkg-secondary: #FAE9E9;
+
+    --dark-primary: #660708;
+    --light-primary: #FFDCDC;
+    --secondary: #FFA5A5;
     
     --light-blue: #DCE1FF;
     --light-green: #C2FFD7;
     --light-yellow: #FFE4BC;
-    --light-red: #FFDCDC;
     --light-grey: #D9D9D9;
 
     --dark-blue: #1328A7;
     --dark-green: #23511b;
     --dark-yellow: #5A3B0D;
-    --dark-red: #660708;
     --dark-grey: #484848;
 }
 
