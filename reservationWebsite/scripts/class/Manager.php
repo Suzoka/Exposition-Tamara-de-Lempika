@@ -16,7 +16,7 @@ class Manager
     public function getAllFormules()
     {
         $listeFormules = [];
-        $stmt = $this->db->prepare("SELECT * FROM `formules` order by `nom_formule` asc");
+        $stmt = $this->db->prepare("SELECT * FROM `formules`");
         $stmt->execute();
         while ($data = $stmt->fetch(PDO::FETCH_ASSOC)) {
             $listeFormules[] = new Formule($data);

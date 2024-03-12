@@ -32,6 +32,7 @@ h2 {
     margin-top: 50px;
     font-family: 'Carambola', sans-serif;
     font-size: 2.18rem;
+    margin-bottom: 15px;
 }
 
 h2 span {
@@ -42,26 +43,26 @@ h2 span {
     margin-right: 20px;
 }
 
+form h3 {
+    font-size: 1.3rem;
+    color: #21594F;
+}
+
 /* ---- Step 1 ---- */
 #step1 {
     display: grid;
     grid-template-columns: 1fr 1fr; 
-     grid-template-areas: 
-    "Titre Titre "
-    "Calendar hour"
-    ". bouton"; 
+    grid-template-areas: 
+        "Titre Titre"
+        "Calendar hour"
+        ". bouton"; 
 }
 .title {grid-area: Titre;}
 .calendar { grid-area: Calendar; }
 .hour { grid-area: hour; }
 .boutons { grid-area: bouton; }
 
-#step1 p {
-    font-size: 1.3rem;
-    color: #21594F;
-}
-
-            /* ---- Calendar ---- */
+        /* ---- Calendar ---- */
 .calendar {
     display: flex;
     flex-direction: column;
@@ -113,8 +114,19 @@ button.button.view-switch {
     justify-content: space-between;
 }
 
+.datepicker-cell:not(.disabled):hover, .datepicker-cell.selected {
+    background-color: #21594F;
+    color: #FFFFFF;
+    cursor: pointer;
+}
 
-                /* ---- Hour ---- */    
+.datepicker-cell.disabled {
+    color: #5E5E5E;
+    background-color: #d9d9d9;
+}
+
+
+        /* ---- Hour ---- */    
 .hour {
     display: flex;
     flex-direction: column;
@@ -154,35 +166,138 @@ input[name="heure"]:checked + label {
     color: #fff;
 }
 
+#step1 button.confirmer {
+    margin-right: 30%;
+}
+
+/* ---- STEP 2 ---- */
+#step2 {
+    grid-template-rows: 100px 1fr;
+    grid-template-areas: 
+        "Titre"
+        "Tickets"
+        "Bouton";
+    margin-bottom: 20px;
+}
+.title {grid-area: Titre; height: -webkit-fit-content; height: -moz-fit-content; height: fit-content;}
+.tickets { grid-area: Tickets; }
+.boutons { grid-area: Bouton; }
+
+.tickets {
+    width: 80%;
+    margin: auto;
+}
+
+.ticket {
+    background-color: #ECE9DE;
+    padding: 5px 20px;
+    border-radius: 10px;
+    margin-bottom: 15px;
+}
+
+.ticket .info {
+    display: grid;
+    grid-template-columns: 1fr 1fr 120px;
+    gap: 5px;
+    align-items: center;
+}
+
+.ticket label {
+    font-family: 'Carambola', sans-serif;
+    font-size: 1.7rem;
+}
+
+.price {
+    text-align: end;
+    font-family: 'Carambola', sans-serif;
+    font-size: 1.2rem;
+}
+
+.quantity {
+    display: flex;
+    flex-wrap: nowrap;
+}
+
+.quantity button {
+    font-family: 'Carambola', sans-serif;
+    background-color: #21594F;
+    border-radius: 50%;
+    width: 17px;
+    padding: 9px 19px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.quantity input {
+    font-family: 'Carambola', sans-serif;
+    font-size: 1.2rem;
+    color: #21594F;
+    text-align: center;
+    border: none;
+    background-color: #ECE9DE;
+}
+
+/* hide controls number input  Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
+}
+
+p.ticket {
+    font-size: 1rem;
+    color: #000000;
+}
+
+#step2 .boutons {
+    width: 85%;
+    margin: auto;
+}
+
+
+
+
             /* ---- Boutons ---- */      
 
-div.boutons {
-    display: flex;
-    justify-content: end;
-    align-items: center;
-    margin-top: 15px;
-    margin-bottom: 30px;
-    width: 100%;
-}
+            div.boutons {
+                display: flex;
+                justify-content: end;
+                align-items: center;
+                margin-top: 15px;
+                margin-bottom: 30px;
+                width: 100%;
+            }
+            
+            button {
+                font-family: 'Carambola', sans-serif;
+                font-size: 1.1rem;
+                background-color: #000000;
+                color: #FFFFFF;
+                border: none;
+                border-radius: 10px;
+                padding: 10px 20px;
+            }
 
-button {
-    font-family: 'Carambola', sans-serif;
-    font-size: 1.1rem;
-    background-color: #000000;
-    color: #FFFFFF;
-    border: none;
-    border-radius: 10px;
-    padding: 10px 20px;
+            button.confirmer, button.retour {
+                background-color: #FFFFFF;
+                color: #000000;
+                border: #000000 2px solid;
+            }
 
-}
-
-button.confirmer {
-    margin-right: 18%;
-}
-
-button.retour {
-    margin-right: auto;
-}
+            button.confirmer:hover, button.retour:hover {
+                background-color: #000000;
+                color: #FFFFFF;
+            }
+            
+            button.retour {
+                margin-right: auto;
+            }
 
 .resumeChamp {
     display: flex;
