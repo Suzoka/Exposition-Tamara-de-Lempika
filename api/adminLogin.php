@@ -8,8 +8,7 @@ switch ($request_method) {
         $data = json_decode(file_get_contents("php://input"), true);
         if (isset($data["login"]) && isset($data["password"])) {
             if (connexionAdmin($data["login"], $data["password"])) {
-                // ! TODO : Création token JWT à faire ici
-
+                
                 require_once 'includes/config.php';
                 require_once 'classes/JWT.php';
 
