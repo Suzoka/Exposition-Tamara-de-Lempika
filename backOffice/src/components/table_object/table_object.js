@@ -52,12 +52,12 @@ export const Table_object = ({ liste, variant }) => {
                 {/* Action */}
                 < Button variant="primary">Modifier</Button>
 
-                < Button format="icon">
-                    < Image src={Trash} alt="Supprimer" />
+                < Button format="icon" icon="trash">
+                    <span className='icon_alt'>Supprimer</span>
                 </Button>
 
-                < Button format="icon">
-                    < Image src={Eye} alt="Voir" />
+                < Button format="icon" icon="eye">
+                    <span className='icon_alt'>Voir</span>
                 </Button>
             </td>
         </tr>
