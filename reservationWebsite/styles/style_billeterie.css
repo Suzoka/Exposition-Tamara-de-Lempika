@@ -1,6 +1,8 @@
 .banniere {
     margin: 0;
     background-image: url("../img/TamaraPaint2.png");
+    background-repeat: no-repeat;
+    background-size: cover;
     height: 88vh;
 }
 
@@ -18,6 +20,87 @@ h1 span {
     font-size: 9.375rem;
 }
 
+/* ---- Ariane ---- */
+.ariane {
+    display: flex;
+    width: 85%;
+    margin: auto;
+    position: relative;
+    justify-content: space-between;
+    margin-top: 30px;
+    margin-bottom: 10px;
+}
+
+.etat:not(:last-child)::before {
+    content: "";
+    display: block;
+    position: relative;
+    top: 37px;
+    left: 11.5vw;
+    width: 15vw;
+    border: #000000 1px solid;
+}
+
+.etat {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: unset;
+}
+
+.etat h3 {
+    font-family: 'Carambola', sans-serif;
+    border: 2px solid #21594F;
+    color: #21594F;
+    width: -webkit-fit-content;
+    width: -moz-fit-content;
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.etat:not(.active):hover {
+    cursor: pointer;
+}
+
+.etat:hover p, .etat.active h3, .etat.active p {
+    background-color: #21594F;
+    color: #FFFFFF;
+}
+
+.etat:not(.active):hover h3{
+    background-color: #ECE9DE;
+}
+
+.etat p {
+    font-family: 'Carambola', sans-serif;
+    font-size: 1rem;
+    border: 2px solid #21594F;
+    color: #21594F;
+    padding: 10px 20px;
+    height: 45px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0;
+}
+
+.past h3, .past p {
+    background-color: #ECE9DE;
+    color: #5E5E5E;
+    border: none;
+}
+
+.past:hover h3 {
+    border: 2px solid #21594F;
+}
+
+
+/* ---- Form ---- */
 form {
     width: 85%;
     margin: auto;
@@ -26,7 +109,6 @@ form {
 form>div:not(form>div:first-child) {
     display: none;
 }
-
 
 h2 {
     margin-top: 50px;
@@ -48,19 +130,17 @@ form h3 {
     color: #21594F;
 }
 
-/* ---- Step 1 ---- */
+/* ---- STEP 1 ---- */
 #step1 {
     display: grid;
     grid-template-columns: 1fr 1fr; 
     grid-template-areas: 
         "Titre Titre"
-        "Calendar hour"
-        ". bouton"; 
+        "Calendar Hour"; 
 }
-.title {grid-area: Titre;}
+.title {grid-area: Titre; line-height: 4rem;}
 .calendar { grid-area: Calendar; }
-.hour { grid-area: hour; }
-.boutons { grid-area: bouton; }
+.hour { grid-area: Hour; }
 
         /* ---- Calendar ---- */
 .calendar {
@@ -166,8 +246,10 @@ input[name="heure"]:checked + label {
     color: #fff;
 }
 
-#step1 button.confirmer {
-    margin-right: 30%;
+#step1 .boutons {
+    width: 85%;
+    margin: auto;
+    margin-bottom: 30px;
 }
 
 /* ---- STEP 2 ---- */
@@ -184,7 +266,7 @@ input[name="heure"]:checked + label {
 .boutons { grid-area: Bouton; }
 
 .tickets {
-    width: 80%;
+    width: 85%;
     margin: auto;
 }
 
@@ -261,6 +343,140 @@ p.ticket {
 }
 
 
+/* ---- STEP 3 ---- */
+#step3 {
+    grid-template-rows: 140px 1fr;
+    grid-template-areas: 
+        "Titre"
+        "Coordo"
+        "Bouton";
+    margin-bottom: 30px;
+    min-height: 60vh;
+}
+.title {grid-area: Titre; height: -webkit-fit-content; height: -moz-fit-content; height: fit-content;}
+.coordo { grid-area: Coordo; }
+.boutons { grid-area: Bouton; }
+
+.coordo {
+    width: 85%;
+    margin: auto;
+    background-color: #ECE9DE;
+    padding: 30px 25px 10px 25px;
+    border-radius: 15px;
+    display: grid;
+    grid-template-rows: 1fr 1fr;
+    grid-template-areas: 
+        "Firstname Name"
+        "Mail Mail";
+    gap: 15px;
+}
+.firstname { grid-area: Firstname; }
+.name { grid-area: Name; }
+.mail { grid-area: Mail;}
+
+.coordo div {
+    position: relative;
+}
+
+.firstname, .name {
+    margin-top: 15px;
+    margin-bottom: 20px;
+}
+
+.coordo input {
+    display: block;
+    border-radius: 3rem;
+    border: 3px solid #21594F;
+    background: #FFF;
+    width: 100%;
+    height: 4rem;
+    font-family: 'Lucida', serif;
+    font-size: 1.2rem;
+    padding-left: 1.5rem;
+    padding-top: 0.5rem;
+}
+
+.coordo label {
+    position: absolute;
+    top: -13px;
+    left: 30px;
+    font-size: 0.8rem;
+
+    border-radius: 20px;
+    background-color: #21594F;
+    padding: 7px 23px;
+
+    font-family: 'Carambola', sans-serif;
+    color: #FFFFFF;
+    font-size: 1rem;
+    display: flex;
+    align-items: center;
+}
+
+.coordo label img {
+    margin-right: 7px;
+}
+
+#step3 .boutons {
+    width: 85%;
+    margin: auto;
+    margin-top: 20px;
+}
+
+
+/* ---- STEP 4 ---- */
+#step4 {
+    grid-template-columns: 1fr;
+    grid-template-areas: 
+        "Titre"
+        "Coordo"
+        "Bouton";
+    margin-bottom: 30px;
+    min-height: 60vh;
+}
+.title {grid-area: Titre; height: -webkit-fit-content; height: -moz-fit-content; height: fit-content;}
+.coordo { grid-area: Coordo; }
+.boutons { grid-area: Bouton; }
+
+
+.resumes {
+    background-color: #ECE9DE;
+    width: 85%;
+    margin: auto;
+    margin-top: 15px;
+    padding: 0px 25px 25px 25px;
+    border-radius: 15px;
+}
+
+.resume {
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+}
+
+#step4 h3 {
+    color: #000000;
+    font-family: 'Carambola', sans-serif;
+    font-size: 1.8rem;
+    margin-bottom: 7px;
+}
+
+.resumes button {
+    background-color: #ECE9DE;
+    color: #21594F;
+    border: #21594F 2px solid;
+    font-size: 1rem;
+    padding: 5px 12px;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+#step4 .boutons {
+    width: 85%;
+    margin: auto;
+    margin-top: 30px;
+}
 
 
             /* ---- Boutons ---- */      
@@ -274,7 +490,7 @@ p.ticket {
                 width: 100%;
             }
             
-            button {
+            button, input[type="submit"] {
                 font-family: 'Carambola', sans-serif;
                 font-size: 1.1rem;
                 background-color: #000000;
@@ -284,13 +500,13 @@ p.ticket {
                 padding: 10px 20px;
             }
 
-            button.confirmer, button.retour {
+            button.confirmer, button.retour, input[type="submit"] {
                 background-color: #FFFFFF;
                 color: #000000;
                 border: #000000 2px solid;
             }
 
-            button.confirmer:hover, button.retour:hover {
+            button.confirmer:hover, button.retour:hover, input[type="submit"]:hover {
                 background-color: #000000;
                 color: #FFFFFF;
             }
@@ -299,8 +515,4 @@ p.ticket {
                 margin-right: auto;
             }
 
-.resumeChamp {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-end;
-}
+
