@@ -3,7 +3,7 @@
     font-weight: normal;
     font-style: normal;
     src: url('../fonts/lucida-bright.woff2') format('woff2'),
-         url('../fonts/lucida-bright.woff') format('woff');
+        url('../fonts/lucida-bright.woff') format('woff');
 }
 
 @font-face {
@@ -62,19 +62,18 @@ header nav {
 
 .menu-user {
     text-align: right;
-}
-
-#compte {
     margin-right: 40px;
 }
-    #compte img {
-        width: 30px;
-        height: 30px;
-        border-radius: 50%;
-    }
+
+#compte img {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+}
 
 
-.menu a, .menu-user a {
+.menu a,
+.menu-user a {
     color: white;
     text-decoration: none;
     padding: 10px;
@@ -87,7 +86,7 @@ footer {
     background-color: #000000;
     color: #FFFFFF;
 
-    display: flex;  
+    display: flex;
     justify-content: space-around;
     /*align-items: center;*/
     padding-top: 15px;
@@ -98,18 +97,20 @@ footer .logo {
     width: 17vh;
 }
 
-.apropos, .planSite {
+.apropos,
+.planSite {
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
 .test {
-   display: flex;
-   align-items: center;
+    display: flex;
+    align-items: center;
 }
 
-.apropos h3, .planSite h3 {
+.apropos h3,
+.planSite h3 {
     border-bottom: 2px solid #FFFFFF;
     padding: 7px;
     width: -webkit-fit-content;
@@ -117,7 +118,8 @@ footer .logo {
     width: fit-content;
 }
 
-.apropos a, .planSite a {
+.apropos a,
+.planSite a {
     color: #FFFFFF;
     text-decoration: none;
     margin: 3px;
@@ -130,4 +132,8 @@ footer .logo {
 
 .reseaux img {
     width: 85%;
+}
+
+.required {
+    color: red !important;
 }
