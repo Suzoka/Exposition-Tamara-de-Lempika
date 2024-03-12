@@ -1,6 +1,7 @@
 <?php
 include("./scripts/database.php");
 session_start();
+var_dump($_SESSION);
 
 $path = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
 $path = trim($path, '/');
@@ -29,7 +30,7 @@ switch ($page) {
         break;
 
     case "checkInscription":
-        if ($manager->createUser($_POST)) {
+        if ($manager->createUser(new User(['username' => $_POST["login"], 'mail' => $_POST["mail"], 'password' => password_hash($_POST["password"], PASSWORD_DEFAULT), 'role' => '0', 'nom' => $_POST["nom"], 'prenom' => $_POST["prenom"]]))) {
             header("Location: ./accueil");
         } else {
             header("Location: ./inscription?error=1");

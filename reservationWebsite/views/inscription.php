@@ -41,7 +41,7 @@
                     <label for="prenom"><span class="required">*</span> Prenom</label><input type="text" name="prenom"
                         id="prenom" required>
                 </div>
-                <a href="./inscription">Vous avez déjà un compte ? Se connecter</a>
+                <a href="./connexion">Vous avez déjà un compte ? Se connecter</a>
             </div>
             <input type="submit" value="S'inscrire">
         </form>
