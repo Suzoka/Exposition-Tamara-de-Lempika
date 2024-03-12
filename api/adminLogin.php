@@ -5,24 +5,36 @@ $request_method = $_SERVER["REQUEST_METHOD"];
 switch ($request_method) {
 
     case 'POST':
-        if (isset($_POST["login"]) && isset($_POST["password"])) {
-            if (connexionAdmin($_POST["login"], $_POST["password"])) {
-                header('Content-Type: application/json');
-                // ! TODO : Création token JWT à faire ici
-                echo json_encode(array("auth" => "true"), JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE);
+        $data = json_decode(file_get_contents("php://input"), true);
+        if (isset($data["login"]) && isset($data["password"])) {
+            if (connexionAdmin($data["login"], $data["password"])) {
+                
+                require_once 'includes/config.php';
+                require_once 'classes/JWT.php';
+
+                $header = [
+                    'typ' => 'JWT',
+                    'alg' => 'HS256'
+                ];
+
+                $payload = [
+                    'login' => $data["login"],
+                    'role' => 'admin'
+                ];
+
+                $jwt = new JWT();
+
+                $token = $jwt->generate($header, $payload, SECRET);
+                echo json_encode(["auth" => "true", "token"=>$token], JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE);
             } else {
-                header('Content-Type: application/json');
-                echo json_encode(array("auth" => "false"), JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE);
+                echo json_encode(["auth" => "false", "token"=>null], JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE);
             }
-        }
-        else {
-            header('Content-Type: application/json');
-            echo json_encode(array("message" => "Veuillez indiquer un login et un mot de passe"), JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE);
+        } else {
+            echo json_encode(["message" => "Veuillez indiquer un login et un mot de passe"], JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE);
         }
         break;
     default:
-        header('Content-Type: application/json');
-        echo json_encode(array("message" => "Méthode non autorisée"), JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE);
+        echo json_encode(["message" => "Méthode non autorisée"], JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE);
         break;
 }
 

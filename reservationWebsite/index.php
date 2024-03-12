@@ -11,6 +11,7 @@ $page = explode('?', end($segments))[0];
 switch ($page) {
     case "accueil":
     default:
+        $_SESSION["from"] = "accueil";
         include("./views/accueil.php");
         break;
     case "connexion":
@@ -19,7 +20,7 @@ switch ($page) {
 
     case "checkConnection":
         if ($manager->connectUser($_POST["login"], $_POST["password"])) {
-            header("Location: ./accueil");
+            header("Location: ./".$_SESSION["from"]);
         } else {
             header("Location: ./connexion?error=1");
         }
@@ -29,8 +30,8 @@ switch ($page) {
         break;
 
     case "checkInscription":
-        if ($manager->createUser($_POST)) {
-            header("Location: ./accueil");
+        if ($manager->createUser(new User(['username' => $_POST["login"], 'mail' => $_POST["mail"], 'password' => password_hash($_POST["password"], PASSWORD_DEFAULT), 'role' => '0', 'nom' => $_POST["nom"], 'prenom' => $_POST["prenom"]]))) {
+            header("Location: ./".$_SESSION["from"]);
         } else {
             header("Location: ./inscription?error=1");
         }
@@ -38,7 +39,7 @@ switch ($page) {
 
     case "deconnexion":
         $manager->disconnection();
-        header("Location: ./accueil");
+        header("Location: ./".$_SESSION["from"]);
         break;
 }
 ?>
