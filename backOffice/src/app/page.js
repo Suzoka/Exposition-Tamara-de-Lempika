@@ -1,6 +1,6 @@
 import Image from 'next/image';
-import Trash  from '../../public/asset/icon/Trash-2.svg';
-import Eye  from '../../public/asset/icon/Eye.svg';
+import Trash from '../../public/asset/icon/Trash-2.svg';
+import Eye from '../../public/asset/icon/Eye.svg';
 
 import { Button } from "@/components/button/button";
 import { Date } from "@/components/date/date";
@@ -40,15 +40,70 @@ const reservation = [
     mail: "leseul7750@gmail.com",
     prix: "5",
     quantite: 1
+  },
+  {
+    id: 4,
+    img: "https://awarewomenartists.com/wp-content/uploads/2017/05/portrait_tamara-de-lempicka_aware_women-artists_artistes-femmes-1076x1500.jpg",
+    utilisateur: "Alice Leseul",
+    date: "08/03/2024",
+    creneau: "11:30",
+    formule: "Jeune",
+    mail: "alice@gmail.com",
+    prix: "20",
+    quantite: 3
+  },
+  {
+    id: 5,
+    img: "https://awarewomenartists.com/wp-content/uploads/2017/05/portrait_tamara-de-lempicka_aware_women-artists_artistes-femmes-1076x1500.jpg",
+    utilisateur: "Bob Leseul",
+    date: "09/03/2024",
+    creneau: "12:30",
+    formule: "Adulte",
+    mail: "bob@gmail.com",
+    prix: "25",
+    quantite: 2
+  },
+  {
+    id: 6,
+    img: "https://awarewomenartists.com/wp-content/uploads/2017/05/portrait_tamara-de-lempicka_aware_women-artists_artistes-femmes-1076x1500.jpg",
+    utilisateur: "Charlie Leseul",
+    date: "10/03/2024",
+    creneau: "13:30",
+    formule: "Handicap",
+    mail: "charlie@gmail.com",
+    prix: "30",
+    quantite: 1
+  },
+  {
+    id: 7,
+    img: "https://media.tenor.com/heNpt7nplrkAAAAM/davegrohl-dave.gif",
+    utilisateur: "Dave Grohl",
+    date: "11/03/2024",
+    creneau: "14:30",
+    formule: "Handicap",
+    mail: "dave@gmail.com",
+    prix: "35",
+    quantite: 2
+  },
+  {
+    id: 8,
+    img: "https://awarewomenartists.com/wp-content/uploads/2017/05/portrait_tamara-de-lempicka_aware_women-artists_artistes-femmes-1076x1500.jpg",
+    utilisateur: "Eve Leseul",
+    date: "12/03/2024",
+    creneau: "15:30",
+    formule: "Adulte",
+    mail: "eve@gmail.com",
+    prix: "40",
+    quantite: 3
   }
 ]
 
 export default function Home() {
   return (
-    <main> 
+    <main>
       <h1>Home</h1>
       <h2>Reservation</h2>
-      < Table donnee={reservation}/>
+      < Table donnee={reservation} />
     </main>
   );
 }
