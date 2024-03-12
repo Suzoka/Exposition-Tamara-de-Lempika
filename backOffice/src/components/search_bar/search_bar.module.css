@@ -1,0 +1,31 @@
+.searchbar__container {
+    display: flex;
+    border: 1px solid var(--light-primary);
+    border-radius: 10px;
+    padding: 8px;
+    gap: 8px;
+    background-color: #fff;
+    width: 300px;
+}
+
+.searchbar__container:hover {
+    background-color: var(--white);
+}
+
+.searchbar__input {
+    border: none;
+    outline: none;
+    width: 100%;
+    font-size: 0.812rem;
+    color: var(--black);
+    background-color: #ffffff00;
+    font-family: 'Inter', sans-serif;
+}
+
+.searchbar__input::placeholder {
+    color: var(--dark-grey);
+}
+
+.searchbar__input:focus  {
+    color: var(--dark-primary);
+}
