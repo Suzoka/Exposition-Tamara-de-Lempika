@@ -1,7 +1,8 @@
 const datepicker = new Datepicker(document.querySelector('div#date'), {
     inline: true,
     language: 'fr',
-    minDate: new Date()
+    minDate: new Date(),
+    maxDate: new Date('2024-04-28')
 });
 
 let hiddenInput = document.createElement('input');
@@ -95,7 +96,7 @@ const checkStep = (event) => {
 
 const goToStep = (goto, from) => {
     document.querySelector('#step' + from).style.display = 'none';
-    document.querySelector('#step' + goto).style.display = 'block';
+    document.querySelector('#step' + goto).style.display = 'grid';
 };
 
 let date;

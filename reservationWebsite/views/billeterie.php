@@ -29,11 +29,11 @@
 
                         <h2 class="title"><span>1</span>Etape 1 : Sélection de l’heure et la date </h2>
                         <div class="calendar">
-                            <p>Choisissez la date de votre visite</p>
+                            <h3>Choisissez la date de votre visite</h3>
                             <div id="date"></div>
                         </div>
                         <div class="hour">
-                            <p>Choisissez votre horaire</p>
+                            <h3>Choisissez votre horaire</h3>
                             <div class="heure">
                             <input type="radio" name="heure" value="10:00:00" id="h10"> <label for="h10" tabindex="0">10h00</label>
                             <input type="radio" name="heure" value="10:30:00" id="h1030"> <label for="h1030" tabindex="0">10h30</label>
@@ -56,15 +56,29 @@
                         </div>
                     </div>
                     <div id="step2">
-                        <h2>Choisissez vos formules</h2>
-                        <?php
-                        foreach ($manager->getAllFormules() as $key => $value) { ?>
-                            <label for="formule<?php echo $value->getId_formule() ?>">
-                                <?php echo $value->getNom_formule() ?>
-                            </label><input type="number" min="0" max="10" step="1" value="0"
-                                name="formule<?php echo $value->getId_formule() ?>"
-                                id="formule<?php echo $value->getId_formule() ?>"><br>
-                        <?php } ?>
+                        <h2 class="title"><span>2</span>Etape 2 :Choisissez vos formules</h2>
+                        <div class="tickets">
+                            <h3>Choisissez la quantité</h3>
+                            <?php
+                            foreach ($manager->getAllFormules() as $key => $value) { ?>
+                                <div class="ticket">
+                                    <div class="info">
+                                        <label for="formule<?php echo $value->getId_formule() ?>">
+                                            <?php echo $value->getNom_formule() ?>
+                                        </label>
+                                        <p class="price">Gratuit</p>
+                                        <div class="quantity">
+                                            <button class="minus"> - </button>
+                                            <input type="number" min="0" max="10" step="1" value="0"
+                                            name="formule<?php echo $value->getId_formule() ?>"
+                                            id="formule<?php echo $value->getId_formule() ?>">
+                                            <button class="plus"> + </button>
+                                        </div>
+                                    </div>
+                                    <p class="description">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ducimus, atque, temporibus earum dolor odio ipsum quibusdam ea nisi quidem tempore repellendus, quia mollitia sapiente esse! Voluptates sed quos minima natus.</p>
+                                </div> 
+                            <?php } ?>
+                        </div>
                         <div class="boutons"><button class="retour" type="button" data-goto="1" data-from="2">Retour</button><button type="button"
                                 class="confirmer" data-goto="3" data-from="2">Suivant</button></div>
                     </div>
