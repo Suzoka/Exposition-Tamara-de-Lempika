@@ -81,8 +81,10 @@ class Manager
     }
 
     public function disconnection(){
+        $last = $_SESSION["from"];
         $_SESSION = array();
         session_destroy();
+        $_SESSION["from"] = $last;
     }
 }
 
