@@ -1,0 +1,16 @@
+.header__container {
+    position: fixed;
+    display: flex;
+    justify-content: space-between;
+    width: 100vw;
+    align-items: center;
+    padding: 16px 24px;
+    background-color: var(--white);
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.05);
+    z-index: 100;
+}
+
+.header__logo {
+    height: 50px;
+    width: 50px;
+}
