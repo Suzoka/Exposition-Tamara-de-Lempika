@@ -7,10 +7,10 @@ require_once 'classes/JWT.php';
 
 $jwt = new JWT();
 
-if (isset($_SERVER['HTTP_AUTHORIZATION'])) {
+if ($_SERVER['HTTP_AUTHORIZATION'] != null) {
 
     $token = str_replace('Bearer ', '', $_SERVER['HTTP_AUTHORIZATION']);
-    if ($jwt->check($token, SECRET) && !$jwt->isExpired($token) && $jwt->isValid($token)) {
+    if (!empty($token) && $jwt->isValid($token) && $jwt->check($token, SECRET) && !$jwt->isExpired($token)) {
 
         switch ($request_method) {
 
@@ -37,6 +37,43 @@ if (isset($_SERVER['HTTP_AUTHORIZATION'])) {
                         echo json_encode(["message" => "Réservation supprimée"], JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE);
                     } else {
                         echo json_encode(["message" => "Erreur lors de la suppression"], JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE);
+                    }
+                } else {
+                    echo json_encode(["message" => "Veuillez indiquer un ID"], JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE);
+                }
+                break;
+            case 'PUT':
+                if (isset($parts[4]) && $parts[4] != null) {
+                    $id = $parts[4];
+                    $data = json_decode(file_get_contents('php://input'));
+                    echo json_encode($data);
+                    if (checkId($id)) {
+                        foreach ($data as $key => $value) {
+                            switch ($key) {
+                                case 'date':
+                                    updateDate($id, $value);
+                                    break;
+                                case 'quantite':
+                                    if ($value < 1) {
+                                        deleteReservation($id);
+                                        break;
+                                    }
+                                    updateQuantite($id, $value);
+                                    break;
+                                case 'nom':
+                                    updateNom($id, $value);
+                                    break;
+                                case 'prenom':
+                                    updatePrenom($id, $value);
+                                    break;
+                                case 'mail':
+                                    updateMail($id, $value);
+                                    break;
+                            }
+                        }
+                        echo json_encode(["message" => "Réservation modifiée"], JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE);
+                    } else {
+                        echo json_encode(["message" => "ID inconnu"], JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE);
                     }
                 } else {
                     echo json_encode(["message" => "Veuillez indiquer un ID"], JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE);

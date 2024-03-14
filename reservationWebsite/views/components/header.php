@@ -5,7 +5,7 @@
         <div class="menu">
             <a href="#teaser">Exposition virtuelle</a>
             <a href="#access">Infos pratiques</a>
-            <a href="">Billeterie</a>
+            <a href="">billetterie</a>
         </div>
         <div class="menu-user">
             <?php echo isset($_SESSION["user"]) ? "<a href=\"./deconnexion\">Se déconnecter</a><a id=\"compte\" href=\"\"><img src=\"\" alt=\"Mon compte\"></a>" : "<a href=\"./connexion\">Se connecter</a>
