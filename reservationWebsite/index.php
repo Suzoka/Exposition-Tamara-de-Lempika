@@ -42,6 +42,7 @@ switch ($page) {
         header("Location: ./".$_SESSION["from"]);
         break;
     case "billetterie":
+        $_SESSION["from"] = "billetterie";
         include("./views/billetterie.php");
         break;
 }
