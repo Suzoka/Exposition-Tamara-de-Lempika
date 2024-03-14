@@ -12,6 +12,18 @@
     background-color: var(--white);
 }
 
+.searchbar__container::before {
+    content: "";
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    color: var(--dark-primary);
+    background-color: currentColor;
+    mask: no-repeat center center;
+    mask-size: contain;
+    mask-image: url("../../../public/asset/icon/Search.svg");
+}
+
 .searchbar__input {
     border: none;
     outline: none;
