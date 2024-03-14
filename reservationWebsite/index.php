@@ -41,5 +41,8 @@ switch ($page) {
         $manager->disconnection();
         header("Location: ./".$_SESSION["from"]);
         break;
+    case "billeterie":
+        include("./views/billeterie.php");
+        break;
 }
 ?>

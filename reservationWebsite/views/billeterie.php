@@ -1,5 +1,3 @@
-<?php include '../scripts/database.php'  ?>
-
 <!DOCTYPE html>
 <html lang="fr">
     <head>
