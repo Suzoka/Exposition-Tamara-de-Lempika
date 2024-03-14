@@ -1,16 +1,82 @@
 .header__container {
     position: fixed;
+    top: 0;
+    left: 0;
     display: flex;
     justify-content: space-between;
     width: 100vw;
     align-items: center;
-    padding: 16px 24px;
+    padding: 10px 20px;
     background-color: var(--white);
     box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.05);
+    /* border: 1px solid black; */
     z-index: 100;
+}
+
+.header__title {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    /* border: 1px solid black; */
+    text-decoration: none;
+    color: var(--black);
+}
+
+.headerTitle__text {
+    font-size: 1.250rem;
+    font-weight: 600;
 }
 
 .header__logo {
     height: 50px;
     width: 50px;
+}
+
+.header__menu {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    /* border: 1px solid black; */
+}
+
+.header__link {
+    text-decoration: none;
+    color: var(--black);
+    display: flex;
+    gap: 5px;
+    padding: 13px 15px;
+    font-size: 1rem;
+    border-radius: 10px;
+    background-color: var(--light-primary);
+    color: var(--dark-primary);
+    border: none;
+}
+
+.header__link:hover {
+    background-color: var(--secondary);
+}
+
+.header__link::before {
+    content: "";
+    display: inline-block;
+    /* position: relative; */
+    /* top: 8px; */
+    width: 19px;
+    height: 19px;
+    background-color: currentColor;
+    mask: no-repeat center center;
+    mask-size: contain;
+    /* margin-right: 8px; */
+}
+
+.header__link--cart::before {
+    mask-image: url("../../../public/asset/icon/Shopping-basket.svg");
+}
+
+.header__link--user::before {
+    mask-image: url("../../../public/asset/icon/Users-2.svg") ;
+}
+
+.header__link--stat::before {
+    mask-image: url("../../../public/asset/icon/Bar-chart-4.svg") ;
 }
