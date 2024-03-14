@@ -19,7 +19,7 @@
         <h3>Plan du site</h3>
         <a href="">Exposition virtuelle</a>
         <a href="">Infos pratiques</a>
-        <a href="">Billeterie</a>
+        <a href="">billetterie</a>
         <a href="">Se connecter</a>
         <a href="">S'inscrire</a>
     </nav>

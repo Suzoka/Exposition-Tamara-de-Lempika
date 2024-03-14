@@ -5,8 +5,8 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/vanillajs-datepicker@1.3.4/dist/css/datepicker.min.css">
         <link rel="stylesheet" href="../styles/style_h&f.css">
-        <link rel="stylesheet" href="../styles/style_billeterie.css">
-        <title>Billeterie - Expo Tamara de Lempicka - Les années folles</title>
+        <link rel="stylesheet" href="../styles/style_billetterie.css">
+        <title>billetterie - Expo Tamara de Lempicka - Les années folles</title>
     </head>
 
     <body>
@@ -14,7 +14,7 @@
         <main>
             <section class="banniere">
                 <h1>Exposition 
-                    <br><span>Billeterie</span>
+                    <br><span>billetterie</span>
                 </h1>
             </section>
             <section>
