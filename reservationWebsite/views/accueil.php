@@ -4,8 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../styles/style_h&f.css">
-    <link rel="stylesheet" href="../styles/style_accueil.css">
+    <link rel="stylesheet" href="./styles/style_h&f.css">
+    <link rel="stylesheet" href="./styles/style_accueil.css">
     <title>Expo Tamara de Lempicka - Les années folles</title>
 </head>
 
@@ -22,10 +22,10 @@
                     interrogateurs de Tamara </p>
             </div>
             <div class="imgBanniere">
-                <img id="tamaraPaint" src="../img/TamaraPaint.png" alt="">
+                <img id="tamaraPaint" src="./img/TamaraPaint.png" alt="">
             </div>
             <a href="#teaser" class="scroll">
-                <img src="../img/icons/scroll.svg" alt="scroll">
+                <img src="./img/icons/scroll.svg" alt="scroll">
             </a>
         </section>
 
@@ -38,11 +38,11 @@
                 <div class="presentation">
                     <div class="infosTeaser">
                         <div class="infoTeaser">
-                            <img src="../img/icons/place.svg" alt="">
+                            <img src="./img/icons/place.svg" alt="">
                             <p>IUT de Marne-la-Vallée</p>
                         </div>
                         <div class="infoTeaser">
-                            <img src="../img/icons/time.svg" alt="">
+                            <img src="./img/icons/time.svg" alt="">
                             <p>30min</p>
                         </div>
                     </div>
@@ -56,7 +56,7 @@
                         de découvrir les tableaux d’une toute nouvelle manière.
                     </p>
                     <a id="reservation" href="">
-                        <img src="../img/icons/ticket.svg" alt="">
+                        <img src="./img/icons/ticket.svg" alt="">
                         <p>Réserver</p>
                     </a>
                 </div>
@@ -74,7 +74,7 @@
                 </div>
                 <div class="infosAccess">
                     <div class="infoAccess">
-                        <img src="../img/icons/transport.svg" alt="">
+                        <img src="./img/icons/transport.svg" alt="">
                         <h3>Venir en transport</h3>
                         <ul>
                             <li>RER A - Noisy-Champs</li>
@@ -83,7 +83,7 @@
                         </ul>
                     </div>
                     <div class="infoAccess">
-                        <img src="../img/icons/voiture.svg" alt="">
+                        <img src="./img/icons/voiture.svg" alt="">
                         <h3>Venir en voiture</h3>
                         <ul>
                             <li>Via A4 </li>
@@ -92,7 +92,7 @@
                         </ul>
                     </div>
                     <div class="infoAccess">
-                        <img src="../img/icons/velo.svg" alt="">
+                        <img src="./img/icons/velo.svg" alt="">
                         <h3>Venir en vélo</h3>
                         <ul>
                             <li>Via Av. de Gravelle</li>
@@ -101,7 +101,7 @@
                         </ul>
                     </div>
                     <div class="infoAccess">
-                        <img src="../img/icons/pied.svg" alt="">
+                        <img src="./img/icons/pied.svg" alt="">
                         <h3>Venir à pied</h3>
                         <ul>
                             <li>Via D120</li>
