@@ -1,0 +1,5 @@
+.section__container {
+    display: grid;
+    gap: 20px;
+    padding-top: 100px;
+}
