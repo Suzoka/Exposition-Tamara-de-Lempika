@@ -8,6 +8,7 @@ import { Label } from "@/components/label/label";
 import { Table } from '@/components/table/table';
 import { SearchBar } from '@/components/search_bar/search_bar';
 import { Header } from '@/components/header/header';
+import { Section } from '@/components/section/section';
 
 const reservation = [
   {
@@ -104,11 +105,13 @@ export default function Home() {
   return (
     <div>
       < Header />
-      <main>
-        <h1>Home</h1>
-        <h2>Reservation</h2>
-        < Table donnee={reservation} />
-        < SearchBar content="Rechercher une reservation..."/>
+      <main id='main'>
+        <h1>Bienvenue sur votre Back office.</h1>
+        <p>Ici vous pouvez consulter et gérer les réservations et les utilisateurs, ainsi que visualiser les statistiques de votre exposition <span className='bold'>Tamara de Lempicka, les années folles</span>.</p>
+        
+        < Section id="stat" nom="Statistiques" type="stat" />
+        < Section id="resa" nom="Réservations" donnee={reservation} type="table" contentSearch="Rechercher une reservation..."  />
+        < Section id="user" nom="Utilisateurs" donnee={reservation} type="table" contentSearch="Rechercher un utilisateur..." />
       </main>
     </div>
   );

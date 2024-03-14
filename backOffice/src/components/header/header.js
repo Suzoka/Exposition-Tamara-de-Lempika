@@ -3,7 +3,7 @@ import classes from './header.module.css';
 export const Header = () => {
     return (
         <header className={classes['header__container']}>
-            <a href="/" className={classes['header__title']}>
+            <a href="#main" className={classes['header__title']}>
                 <img src="./asset/logoSiny.svg" alt="logo" className={classes['header__logo']} />
                 <p className={classes['headerTitle__text']}>Back office TDL</p>
             </a>

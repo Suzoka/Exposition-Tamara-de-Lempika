@@ -4,7 +4,7 @@
     border-radius: 10px;
     max-height: 500px;
     /* padding: 20px; */
-    width: fit-content;
+    width: 100%;
     overflow-x: hidden;
     overflow-y: scroll;
 }
@@ -17,6 +17,11 @@
 .table__container::-webkit-scrollbar-thumb {
     border-radius: 5px;
     background-color: var(--light-grey);
+}
+
+.table__object {
+    width: 100%;
+    border-collapse: collapse;
 }
 
 .table__head {

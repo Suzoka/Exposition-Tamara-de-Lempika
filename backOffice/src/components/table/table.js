@@ -5,7 +5,7 @@ export const Table = ({donnee}) => {
 
     return (
         <section className={classes['table__container']}>
-            <table>
+            <table className={classes['table__object']}>
                 <thead>
                     <tr className={classes['table__head']}>
                         <th>Id</th>
