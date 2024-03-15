@@ -23,7 +23,6 @@ img#compte  {
 
 .change {
     margin-top: 25px;
-    width: 70vw;
 }
 
 .boutons {
@@ -90,6 +89,8 @@ img#compte  {
     flex-direction: row;
     justify-content: center;
     gap: 20px;
+    width: 70vw;
+    margin: auto;
 }
 
 .billet {
@@ -155,7 +156,7 @@ p.price {
     margin-bottom: 50px;
 }
 .place h3 {
-    margin: 0;
+    margin-top: 40px;
     margin-bottom: 25px;
 }
 

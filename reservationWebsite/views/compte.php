@@ -54,45 +54,46 @@
                             <p class="price">Gratuit</p>
                         </div>
                     </div>
+                    <div class="place">
+                        <h3>Localisation</h3>
+                        <div class="infosAccess">
+                            <div class="infoAccess">
+                                <img src="../img/icons/transport.svg" alt="Transport en commun">
+                                <ul>
+                                    <li>RER A - Noisy-Champs</li>
+                                    <li>Bus 213 - Espace Descartes</li>
+                                    <li>Bus 312 - Nobel</li>
+                                </ul>
+                            </div>
+                            <div class="infoAccess">
+                                <img src="../img/icons/voiture.svg" alt="Voiture">
+                                <ul>
+                                    <li>Via A4 </li>
+                                    <li>Bd du Ru du Nesles N370</li>
+                                    <li>Rue Albert Einstein</li>
+                                </ul>
+                            </div>
+                            <div class="infoAccess">
+                                <img src="../img/icons/velo.svg" alt="Vélo">
+                                <ul>
+                                    <li>Via Av. de Gravelle</li>
+                                    <li>Via Av de Gravelle et D4</li>
+                                    <li>Via D120</li>
+                                </ul>
+                            </div>
+                            <div class="infoAccess">
+                                <img src="../img/icons/pied.svg" alt="a pied">
+                                <ul>
+                                    <li>Via D120</li>
+                                    <li>Via D143</li>
+                                    <li>Via N302</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </section>
-            <section class="place">
-                <h3>Localisation</h3>
-                <div class="infosAccess">
-                    <div class="infoAccess">
-                        <img src="../img/icons/transport.svg" alt="Transport en commun">
-                        <ul>
-                            <li>RER A - Noisy-Champs</li>
-                            <li>Bus 213 - Espace Descartes</li>
-                            <li>Bus 312 - Nobel</li>
-                        </ul>
-                    </div>
-                    <div class="infoAccess">
-                        <img src="../img/icons/voiture.svg" alt="Voiture">
-                        <ul>
-                            <li>Via A4 </li>
-                            <li>Bd du Ru du Nesles N370</li>
-                            <li>Rue Albert Einstein</li>
-                        </ul>
-                    </div>
-                    <div class="infoAccess">
-                        <img src="../img/icons/velo.svg" alt="Vélo">
-                        <ul>
-                            <li>Via Av. de Gravelle</li>
-                            <li>Via Av de Gravelle et D4</li>
-                            <li>Via D120</li>
-                        </ul>
-                    </div>
-                    <div class="infoAccess">
-                        <img src="../img/icons/pied.svg" alt="a pied">
-                        <ul>
-                            <li>Via D120</li>
-                            <li>Via D143</li>
-                            <li>Via N302</li>
-                        </ul>
-                    </div>
-                </div>
-            </section>
+            
         </main>
         <?php include 'components/footer.php'; ?>
     </body>
