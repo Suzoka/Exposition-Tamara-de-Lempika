@@ -20,7 +20,7 @@ if ($_SERVER['HTTP_AUTHORIZATION'] != null) {
                     $result = getAllReservedFormulesNotArchived()->fetchAll(PDO::FETCH_ASSOC);
                 } else {
                     $search = $parts[4];
-                    $result = searchReservedFormulesNotArchived($search)->fetchAll(PDO::FETCH_ASSOC);
+                    $result = searchReservedFormulesNotArchived($search)->fetch(PDO::FETCH_ASSOC);
                 }
 
                 if ($result == null) {
@@ -46,7 +46,6 @@ if ($_SERVER['HTTP_AUTHORIZATION'] != null) {
                 if (isset($parts[4]) && $parts[4] != null) {
                     $id = $parts[4];
                     $data = json_decode(file_get_contents('php://input'));
-                    echo json_encode($data);
                     if (checkId($id)) {
                         foreach ($data as $key => $value) {
                             switch ($key) {
@@ -68,6 +67,9 @@ if ($_SERVER['HTTP_AUTHORIZATION'] != null) {
                                     break;
                                 case 'mail':
                                     updateMail($id, $value);
+                                    //TODO : Renvoyer le mail
+                                    break;
+                                default:
                                     break;
                             }
                         }
