@@ -14,7 +14,6 @@ if (isset($_SERVER['HTTP_AUTHORIZATION'])) {
         switch ($request_method) {
 
             case 'GET':
-
                 if (!isset($parts[4]) || $parts[4] == null) {
                     $result = getAllArchives()->fetchAll(PDO::FETCH_ASSOC);
                 } else {

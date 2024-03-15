@@ -47,6 +47,8 @@
         </form>
     </main>
     <?php include './views/components/footer.php'; ?>
+
+    <script src="../scripts/formulaire.js" type="module"></script>
 </body>
 
 </html>

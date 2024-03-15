@@ -6,6 +6,7 @@ class Manager
     public function __construct($db)
     {
         $this->setDb($db);
+        $this->db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     }
 
     public function setDb(PDO $db)
@@ -26,18 +27,23 @@ class Manager
 
     public function createReservation($datas)
     {
-        foreach ($datas as $key => $value) {
-            if (strpos($key, 'formule') !== false) {
-                $stmt = $this->db->prepare("INSERT INTO `reservations` (`ext_id_user`, `ext_id_formule`, `date`, `quantite`, `nom`, `prenom`, `mail`) VALUES (:ext_id_user, :ext_id_formule, :date, :quantite, :nom, :prenom, :mail)");
-                $stmt->bindValue(':ext_id_user', $_SESSION['user']->getId_user(), PDO::PARAM_INT);
-                $stmt->bindValue(':ext_id_formule', substr($key, 7), PDO::PARAM_INT);
-                $stmt->bindValue(':date', $datas['datePicker'] . " " . $datas['heure'], PDO::PARAM_STR);
-                $stmt->bindValue(':quantite', $value, PDO::PARAM_INT);
-                $stmt->bindValue(':nom', $datas['nom'], PDO::PARAM_STR);
-                $stmt->bindValue(':prenom', $datas['prenom'], PDO::PARAM_STR);
-                $stmt->bindValue(':mail', $datas['mail'], PDO::PARAM_STR);
-                $stmt->execute();
+        try {
+            foreach ($datas as $key => $value) {
+                if (strpos($key, 'formule') !== false) {
+                    $stmt = $this->db->prepare("INSERT INTO `reservations` (`ext_id_user`, `ext_id_formule`, `date`, `quantite`, `nom`, `prenom`, `mail`) VALUES (:ext_id_user, :ext_id_formule, :date, :quantite, :nom, :prenom, :mail)");
+                    $stmt->bindValue(':ext_id_user', $_SESSION['user']->getId_user(), PDO::PARAM_INT);
+                    $stmt->bindValue(':ext_id_formule', substr($key, 7), PDO::PARAM_INT);
+                    $stmt->bindValue(':date', $datas['datePicker'] . " " . $datas['heure'], PDO::PARAM_STR);
+                    $stmt->bindValue(':quantite', $value, PDO::PARAM_INT);
+                    $stmt->bindValue(':nom', $datas['nom'], PDO::PARAM_STR);
+                    $stmt->bindValue(':prenom', $datas['prenom'], PDO::PARAM_STR);
+                    $stmt->bindValue(':mail', $datas['mail'], PDO::PARAM_STR);
+                    $stmt->execute();
+                }
             }
+            return true;
+        } catch (Exception $e) {
+            return false;
         }
     }
 
@@ -83,7 +89,8 @@ class Manager
         }
     }
 
-    public function disconnection(){
+    public function disconnection()
+    {
         $last = $_SESSION["from"];
         $_SESSION = [];
         session_destroy();

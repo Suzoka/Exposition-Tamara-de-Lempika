@@ -10,30 +10,30 @@ $jwt = new JWT();
 if ($_SERVER['HTTP_AUTHORIZATION'] != null) {
 
     $token = str_replace('Bearer ', '', $_SERVER['HTTP_AUTHORIZATION']);
-    if (!empty($token) && $jwt->isValid($token) && $jwt->check($token, SECRET) && !$jwt->isExpired($token)) {
+    if (!empty ($token) && $jwt->isValid($token) && $jwt->check($token, SECRET) && !$jwt->isExpired($token)) {
 
         switch ($request_method) {
 
             case 'GET':
-                if (!isset($parts[4]) || $parts[4] == null) {
-                    $result = getAllReservedFormulesNotArchived()->fetchAll(PDO::FETCH_ASSOC);
+                if (!isset ($parts[4]) || $parts[4] == null) {
+                    $result = getAllUsers()->fetchAll(PDO::FETCH_ASSOC);
                 } else {
                     $search = $parts[4];
-                    $result = searchReservedFormulesNotArchived($search)->fetch(PDO::FETCH_ASSOC);
+                    $result = searchUser($search)->fetch(PDO::FETCH_ASSOC);
                 }
 
                 if ($result == null) {
                     http_response_code(404);
-                    echo json_encode(["message" => "Aucun résultat n'a été trouvé"], JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE);
+                    echo json_encode(["message" => "Aucun utilisateur n'a été trouvé"], JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE);
                 } else {
                     echo json_encode($result, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE);
                 }
                 break;
             case 'DELETE':
-                if (isset($parts[4]) && $parts[4] != null) {
+                if (isset ($parts[4]) && $parts[4] != null) {
                     $id = $parts[4];
-                    if (deleteReservation($id)) {
-                        echo json_encode(["message" => "Réservation supprimée"], JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE);
+                    if (deleteUser($id)) {
+                        echo json_encode(["message" => "utilisateur supprimé"], JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE);
                     } else {
                         echo json_encode(["message" => "Erreur lors de la suppression"], JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE);
                     }
@@ -42,37 +42,32 @@ if ($_SERVER['HTTP_AUTHORIZATION'] != null) {
                 }
                 break;
             case 'PUT':
-                if (isset($parts[4]) && $parts[4] != null) {
+                if (isset ($parts[4]) && $parts[4] != null) {
                     $id = $parts[4];
                     $data = json_decode(file_get_contents('php://input'));
-                    if (checkId($id)) {
+                    if (checkIdUser($id)) {
                         foreach ($data as $key => $value) {
                             switch ($key) {
-                                case 'date':
-                                    updateDate($id, $value);
+                                case "username":
+                                    updateUsername($id, $value);
                                     break;
-                                case 'quantite':
-                                    if ($value < 1) {
-                                        deleteReservation($id);
-                                        break;
-                                    }
-                                    updateQuantite($id, $value);
+                                case "mail":
+                                    updateUserMail($id, $value);
                                     break;
-                                case 'nom':
-                                    updateNom($id, $value);
+                                case "nom":
+                                    updateUserNom($id, $value);
                                     break;
-                                case 'prenom':
-                                    updatePrenom($id, $value);
+                                case "prenom":
+                                    updateUserPrenom($id, $value);
                                     break;
-                                case 'mail':
-                                    updateMail($id, $value);
-                                    //TODO : Renvoyer le mail
+                                case "role":
+                                    updateUserRole($id, $value);
                                     break;
                                 default:
                                     break;
                             }
                         }
-                        echo json_encode(["message" => "Réservation modifiée"], JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE);
+                        echo json_encode(["message" => "Utilisateur modifié"], JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE);
                     } else {
                         echo json_encode(["message" => "ID inconnu"], JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE);
                     }
