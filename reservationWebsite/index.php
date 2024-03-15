@@ -1,5 +1,5 @@
 <?php
-include("./scripts/database.php");
+include ("./scripts/database.php");
 session_start();
 
 $path = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
@@ -12,26 +12,26 @@ switch ($page) {
     case "accueil":
     default:
         $_SESSION["from"] = "accueil";
-        include("./views/accueil.php");
+        include ("./views/accueil.php");
         break;
     case "connexion":
-        include("./views/connexion.php");
+        include ("./views/connexion.php");
         break;
 
     case "checkConnection":
         if ($manager->connectUser($_POST["login"], $_POST["password"])) {
-            header("Location: ./".$_SESSION["from"]);
+            header("Location: ./" . $_SESSION["from"]);
         } else {
             header("Location: ./connexion?error=1");
         }
         break;
     case "inscription":
-        include("./views/inscription.php");
+        include ("./views/inscription.php");
         break;
 
     case "checkInscription":
         if ($manager->createUser(new User(['username' => $_POST["login"], 'mail' => $_POST["mail"], 'password' => password_hash($_POST["password"], PASSWORD_DEFAULT), 'role' => '0', 'nom' => $_POST["nom"], 'prenom' => $_POST["prenom"]]))) {
-            header("Location: ./".$_SESSION["from"]);
+            header("Location: ./" . $_SESSION["from"]);
         } else {
             header("Location: ./inscription?error=1");
         }
@@ -39,12 +39,21 @@ switch ($page) {
 
     case "deconnexion":
         $manager->disconnection();
-        header("Location: ./".$_SESSION["from"]);
+        header("Location: ./" . $_SESSION["from"]);
         break;
-        
+
     case "billetterie":
         $_SESSION["from"] = "billetterie";
-        include("./views/billetterie.php");
+        include ("./views/billetterie.php");
         break;
+
+    case "newReservation":
+        if ($manager->createReservation($_POST)) {
+            header("Location: ./validation");
+        } else {
+            header("Location: ./billetterie?error=1");
+        }
+        break;
+
 }
 ?>

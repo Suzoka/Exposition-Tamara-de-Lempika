@@ -2,6 +2,7 @@
 class Formule {
     private $id_formule;
     private $nom_formule;
+    private $explication_formule;
     private $tarif;
 
     public function getId_formule()
@@ -22,6 +23,16 @@ class Formule {
     public function setNom_formule($nom_formule)
     {
         $this->nom_formule = $nom_formule;
+    }
+
+    public function getExplication_formule()
+    {
+        return $this->explication_formule;
+    }
+
+    public function setExplication_formule($explication_formule)
+    {
+        $this->explication_formule = $explication_formule;
     }
 
     public function getTarif()

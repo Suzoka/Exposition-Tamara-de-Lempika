@@ -118,4 +118,100 @@ function updateMail($id, $mail)
     $stmt->bindValue(':id', $id, PDO::PARAM_INT);
     $stmt->execute();
 }
+
+function getAllUsers()
+{
+    global $db;
+    $stmt = $db->prepare("SELECT id_user, username, mail, nom, prenom, role FROM `utilisateurs` order by id_user");
+    $stmt->execute();
+    return $stmt;
+}
+
+function searchUser($search)
+{
+    global $db;
+    $stmt = $db->prepare("SELECT id_user, username, mail, nom, prenom, role FROM `utilisateurs` WHERE username LIKE :search OR mail like :search OR id_user like :search OR nom like :search OR prenom like :search order by id_user");
+    $stmt->bindValue(':search', "%$search%", PDO::PARAM_STR);
+    $stmt->execute();
+    return $stmt;
+}
+
+function deleteUser($id)
+{
+    global $db;
+    $stmt = $db->prepare("DELETE FROM `utilisateurs` WHERE id_user = :id");
+    $stmt->bindValue(':id', $id, PDO::PARAM_INT);
+    if ($stmt->execute()) {
+        return deleteAllTicketOfUser($id);
+    }
+    else {
+        return false;
+    }
+}
+
+function deleteAllTicketOfUser($id)
+{
+    global $db;
+    $stmt = $db->prepare("DELETE FROM `reservations` WHERE ext_id_user = :id");
+    $stmt->bindValue(':id', $id, PDO::PARAM_INT);
+    return $stmt->execute();
+}
+
+function checkIdUser($id)
+{
+    global $db;
+    $stmt = $db->prepare("SELECT * FROM `utilisateurs` WHERE id_user = :id");
+    $stmt->bindValue(':id', $id, PDO::PARAM_INT);
+    $stmt->execute();
+    if ($stmt->rowCount() == 1) {
+        return true;
+    } else {
+        return false;
+    }
+}
+
+function updateUsername($id, $username)
+{
+    global $db;
+    $stmt = $db->prepare("UPDATE `utilisateurs` SET username = :username WHERE id_user = :id");
+    $stmt->bindValue(':username', $username, PDO::PARAM_STR);
+    $stmt->bindValue(':id', $id, PDO::PARAM_INT);
+    $stmt->execute();
+}
+
+function updateUserMail($id, $mail)
+{
+    global $db;
+    $stmt = $db->prepare("UPDATE `utilisateurs` SET mail = :mail WHERE id_user = :id");
+    $stmt->bindValue(':mail', $mail, PDO::PARAM_STR);
+    $stmt->bindValue(':id', $id, PDO::PARAM_INT);
+    $stmt->execute();
+}
+
+function updateUserNom($id, $nom)
+{
+    global $db;
+    $stmt = $db->prepare("UPDATE `utilisateurs` SET nom = :nom WHERE id_user = :id");
+    $stmt->bindValue(':nom', $nom, PDO::PARAM_STR);
+    $stmt->bindValue(':id', $id, PDO::PARAM_INT);
+    $stmt->execute();
+}
+
+function updateUserPrenom($id, $prenom)
+{
+    global $db;
+    $stmt = $db->prepare("UPDATE `utilisateurs` SET prenom = :prenom WHERE id_user = :id");
+    $stmt->bindValue(':prenom', $prenom, PDO::PARAM_STR);
+    $stmt->bindValue(':id', $id, PDO::PARAM_INT);
+    $stmt->execute();
+}
+
+function updateUserRole($id, $role)
+{
+    global $db;
+    $stmt = $db->prepare("UPDATE `utilisateurs` SET role = :role WHERE id_user = :id");
+    $stmt->bindValue(':role', $role, PDO::PARAM_INT);
+    $stmt->bindValue(':id', $id, PDO::PARAM_INT);
+    $stmt->execute();
+}
 ?>
