@@ -1,0 +1,199 @@
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+h1 {
+    font-family: 'Carambola', sans-serif;
+    font-size: 3.50rem;
+}
+
+h2 {
+    font-family: 'Carambola', sans-serif;
+    font-size: 2.25rem;
+}
+
+img#compte  {
+    width: 20%;
+    border-radius: 50%;
+    border: 5px solid #000000;
+}
+
+.change {
+    margin-top: 25px;
+    width: 70vw;
+}
+
+.boutons {
+    display: flex;
+    justify-content: space-between;
+    width: 60vw;
+    margin: auto;
+    border-bottom: 2px solid #000000;
+}
+
+.boutons a {
+    font-family: 'Carambola', sans-serif;
+    text-decoration: none;
+    color: #000000;
+    font-size: 1.25rem;
+    padding: 10px 20px;
+    border: 2px solid #000000;
+    border-bottom: none;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    background-color: #ECE9DE;
+}
+
+.boutons a:hover {
+    background-color: #000000;
+    color: #FFFFFF;
+}
+
+.boutons .active {
+    background-color: #000000;
+    color: #FFFFFF;
+}
+
+
+/* ---- INFORMATIONS ---- */
+.infos {
+    display: none;
+    margin-top: 35px;
+    margin-bottom: 35px;
+    background-color: #ECE9DE;
+    padding: 20px 30px;
+    border-radius: 10px;
+}
+
+.infos p {
+    margin-left: 10px;
+}
+
+/* ---- RESERVATIONS ---- */
+.reservations {
+    margin-top: 45px;
+    margin-bottom: 50px;
+}
+
+.reservations h3, .place h3{
+    text-align: center;
+    font-family: 'Carambola', sans-serif;
+    font-size: 1.75rem;
+    margin-bottom: 40px;
+}
+
+.billets {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 20px;
+}
+
+.billet {
+    background-color: #ECE9DE;
+    padding: 30px;
+    border-radius: 10px;
+    width: 40vw;
+}
+
+.timeDates {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-bottom: 25px;
+}
+
+.date, .time {
+    background-color: #21594F;
+    display: flex;
+    color: white;
+    padding: 0 13px;
+    width: -webkit-fit-content;
+    width: -moz-fit-content;
+    width: fit-content;
+    border-radius: 10px;
+    font-family: 'Carambola', sans-serif;
+}
+
+.date p, .time p {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+h4 {
+    font-family: 'Carambola', sans-serif;
+    font-size: 1.5rem;
+    padding-bottom: 4px;
+    border-bottom: 2px solid #000000;
+    width: -webkit-fit-content;
+    width: -moz-fit-content;
+    width: fit-content;
+    margin: auto;
+    margin-bottom: 25px;
+}
+
+.billet p {
+    font-size: 0.9rem;
+}
+
+p.price {
+    text-decoration: none;
+    font-family: 'Carambola', sans-serif;
+    float: right;
+    font-size: 1.2rem;
+    margin: 0;
+    margin-top: 10px;
+}
+
+
+/* ---- LOCALISATION ---- */
+.place {
+    margin-top: 20px;
+    margin-bottom: 50px;
+}
+.place h3 {
+    margin: 0;
+    margin-bottom: 25px;
+}
+
+.infosAccess {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    width: 80vw;
+}
+
+.infoAccess {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.infoAccess img {
+    width: 35%;
+}
+
+.infoAccess ul {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background-color: #ECE9DE;
+    border-radius: 10px;
+    list-style-type: none;
+    padding: 10px 15px;
+    width: 19vw;
+    height: 10vw;
+    max-height: 110px;
+    max-width: 210px;
+}
+
+.infoAccess li {
+    font-size: 0.75rem;
+    margin-bottom: 5px;
+    text-align: center;
+}

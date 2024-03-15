@@ -1,6 +1,6 @@
 <header>
     <nav>
-        <a href="accueil.php"><img class="logo" src="../img/fond_noir-colore_expo.png" width="128"
+        <a href="./accueil"><img class="logo" src="../img/fond_noir-colore_expo.png" width="128"
                 alt="Accueil site de l'Exposition Tamara de Lempicka: Les années folles"></a>
         <div class="menu">
             <a href="./accueil#teaser">Exposition virtuelle</a>

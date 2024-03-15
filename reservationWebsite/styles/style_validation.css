@@ -1,15 +1,51 @@
-
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 75vh;
+    padding: 20px 0;
+}
 
 h1 {
     margin: 0;
     font-family: 'Carambola', sans-serif;
     color: #21594F;
-    font-size: 3.75rem;
-    position: relative;
-    top: 15%;
+    font-size: 3.2rem;
     text-align: center;
+    width: 70vw;
+    margin: auto;
+    margin-bottom: 20px;
+    line-height: 60px;
 }
 
-.banniere p {
+main p {
+    font-family: 'Lucida', sans-serif;
+    font-size: 1.2rem;
+    color: #21594F;
+    width: 60vw;
+    text-align: center;
+    margin: auto;
+}
 
+img {
+    border-radius: 10px;
+    width: 35vw;
+    margin: auto;
+}
+
+#accueil {
+    text-decoration: none;
+    background-color: #000000;
+    color: #FFFFFF;
+    font-weight: bold;
+    font-size: 1.2rem;
+
+    padding: 10px 15px;
+    border-radius: 7px;
+}
+
+p a {
+    color: #21594F;
+    font-weight: bold;
 }
