@@ -2,13 +2,15 @@
 include "api_model.php";
 $request_method = $_SERVER["REQUEST_METHOD"];
 
+require_once 'includes/config.php';
+require_once 'classes/JWT.php';
+
 $jwt = new JWT();
 
 if (isset($_SERVER['HTTP_AUTHORIZATION'])) {
 
     $token = str_replace('Bearer ', '', $_SERVER['HTTP_AUTHORIZATION']);
-    if ($jwt->check($token, SECRET) && !$jwt->isExpired($token) && $jwt->isValid($token)) {
-
+    if (!empty($token) && $jwt->isValid($token) && $jwt->check($token, SECRET) && !$jwt->isExpired($token)) {
         switch ($request_method) {
 
             case 'GET':
@@ -17,7 +19,7 @@ if (isset($_SERVER['HTTP_AUTHORIZATION'])) {
                     $result = getAllArchives()->fetchAll(PDO::FETCH_ASSOC);
                 } else {
                     $search = $parts[4];
-                    $result = searchArchives($search)->fetchAll(PDO::FETCH_ASSOC);
+                    $result = searchArchives($search)->fetch(PDO::FETCH_ASSOC);
                 }
 
                 if ($result == null) {
