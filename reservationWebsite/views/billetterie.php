@@ -5,8 +5,8 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/vanillajs-datepicker@1.3.4/dist/css/datepicker.min.css">
         <link rel="stylesheet" href="../styles/style_h&f.css">
-        <link rel="stylesheet" href="../styles/style_billeterie.css">
-        <title>Billeterie - Expo Tamara de Lempicka - Les années folles</title>
+        <link rel="stylesheet" href="../styles/style_billetterie.css">
+        <title>billetterie - Expo Tamara de Lempicka - Les années folles</title>
     </head>
 
     <body>
@@ -14,10 +14,13 @@
         <main>
             <section class="banniere">
                 <h1>Exposition 
-                    <br><span>Billeterie</span>
+                    <br><span>Billetterie</span>
                 </h1>
+                <a href="#teaser" class="scroll">
+                    <img src="../img/icons/scroll.svg" alt="scroll">
+                </a>
             </section>
-            <section>
+            <section class="notLoged">
                 <div class="ariane">
                     <button class="etat past">
                         <h3>1</h3>
@@ -37,6 +40,13 @@
                     </button>
                 </div>
                 <div class="etape">
+                    <div class="popup">
+                        <h2>Connectez-vous ou inscrivez-vous pour commander</h2>
+                        <div class="link">
+                            <a href="">Connexion</a>
+                            <a href="">Inscription</a>
+                        </div>
+                    </div>
                     <form action="./test.php" method="post">
                         <div id="step1">
 
@@ -92,8 +102,10 @@
                                     </div> 
                                 <?php } ?>
                             </div>
-                            <div class="boutons"><button class="retour" type="button" data-goto="1" data-from="2">Retour</button><button type="button"
-                                    class="confirmer" data-goto="3" data-from="2">Suivant</button></div>
+                            <div class="boutons">
+                                <button class="retour" type="button" data-goto="1" data-from="2">Retour</button>
+                                <button type="button" class="confirmer" data-goto="3" data-from="2">Suivant</button>
+                            </div>
                         </div>
                         <div id="step3">
                             <h2 class="title"><span>3</span>Etape 3 : Entrez vos coordonnées</h2>
@@ -116,7 +128,7 @@
                                 <button type="button"
                                     class="confirmer resumeButton" data-goto="4" data-from="3">Suivant</button>
                             </div>
-                                </div>
+                        </div>
                         <div id="step4">
                             <h2 class="title"><span>4</span>Etape 4 : Confirmation</h2>
                             <div class="resumes">

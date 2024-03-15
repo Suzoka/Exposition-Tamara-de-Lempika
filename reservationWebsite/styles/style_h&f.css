@@ -88,9 +88,9 @@ footer {
 
     display: flex;
     justify-content: space-around;
-    /*align-items: center;*/
     padding-top: 15px;
     padding-bottom: 25px;
+    z-index: 4;
 }
 
 footer .logo {
@@ -134,6 +134,15 @@ footer .logo {
     width: 85%;
 }
 
+    @media (max-width: 1010px) {
+        .adress {
+            width: 25vw;
+        }
+    }
+
+
+
+/* ---- Form ---- */
 .required {
     color: red !important;
 }

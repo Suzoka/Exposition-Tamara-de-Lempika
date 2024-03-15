@@ -34,6 +34,8 @@ h1 {
 }
 
 p {
+    width: -webkit-fit-content;
+    width: -moz-fit-content;
     width: fit-content;
     margin-right: auto;
     margin-left: auto;
@@ -100,4 +102,8 @@ input[type="submit"] {
 div.formulaire a {
     margin-right: 20px;
     color: #000000;
+}
+
+div.formulaire .signUp {
+    color : #BA181B;
 }
