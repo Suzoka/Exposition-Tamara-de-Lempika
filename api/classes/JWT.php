@@ -53,6 +53,10 @@ class JWT
         $header = $this->getHeader($token);
         $payload = $this->getPayload($token);
 
+        if ($header === null || $payload === null) {
+            return false;
+        }
+
         // On génère un token de vérification
         $verifToken = $this->generate($header, $payload, $secret, 0);
 
