@@ -14,7 +14,7 @@
         <main>
             <section class="banniere">
                 <h1>Exposition 
-                    <br><span>billetterie</span>
+                    <br><span>Billetterie</span>
                 </h1>
                 <a href="#teaser" class="scroll">
                     <img src="../img/icons/scroll.svg" alt="scroll">

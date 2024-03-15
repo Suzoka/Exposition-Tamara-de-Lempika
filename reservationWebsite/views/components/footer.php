@@ -12,21 +12,20 @@
     <nav class="apropos">
         <h3> A propos </h3>
         <a href="https://sinyart.fr/">🔗 Agence</a>
-        <a href="">Exposition</a>
+        <a href="./accueil">Exposition</a>
         <a href="">Mentions légales</a>
     </nav>
     <nav class="planSite">
         <h3>Plan du site</h3>
-        <a href="">Exposition virtuelle</a>
-        <a href="">Infos pratiques</a>
-        <a href="">billetterie</a>
-        <a href="">Se connecter</a>
-        <a href="">S'inscrire</a>
+        <a href="./accueil">Accueil</a>
+        <a href="./billetterie">Billetterie</a>
+        <a href="./connexion">Se connecter</a>
+        <a href="./inscription">S'inscrire</a>
     </nav>
     <nav class="reseaux">
-        <a href=""><img src="../img/icons/insta.png" alt="Instagram"></a>
-        <a href=""><img src="../img/icons/twitter.png" alt="Twitter"></a>
-        <a href=""><img src="../img/icons/linkedin.png" alt="LinkedIn"></a>
-        <a href=""><img src="../img/icons/youtube.png" alt="Youtube"></a>
+        <a href="https://www.instagram.com/sinyart_off?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="><img src="../img/icons/insta.png" alt="Instagram"></a>
+        <a href="https://x.com/SinyArt_Off?t=dGRRfIjYQe2ObBzVnyOgPQ&s=09"><img src="../img/icons/twitter.png" alt="Twitter"></a>
+        <a href="https://www.linkedin.com/in/agence-sinyart?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"><img src="../img/icons/linkedin.png" alt="LinkedIn"></a>
+        <a href="https://www.youtube.com/@SinyArt_Off"><img src="../img/icons/youtube.png" alt="Youtube"></a>
     </nav>
 </footer>
