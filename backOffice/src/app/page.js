@@ -38,7 +38,7 @@ export default function Home() {
 
   useEffect(() => {
     const fetchReservation = async () => {
-      await fetch('https://api.sinyart.fr/reservations"', {
+      await fetch('https://api.sinyart.fr/reservations', {
         method: 'GET',
         headers: {
           'Authorization': user.token
@@ -72,7 +72,7 @@ export default function Home() {
           <p>Chargement des données...</p>
         )}
 
-        < Section id="stat" nom="Statistiques" type="stat" />
+        < Section id="stat" nom="Statistiques" type="stat" donnee={loadReservation ? (reservationData) : (reservation)} />
         < Section id="resa" nom="Réservations" donnee={loadReservation ? (reservationData) : (reservation)} type="table" contentSearch="Rechercher une reservation..." DelModViewResa={DelModViewResa} />
         < Section id="user" nom="Utilisateurs" donnee={loadReservation ? (reservationData) : (reservation)} type="table" contentSearch="Rechercher un utilisateur..." DelModViewResa={DelModViewResa} />
         < Section id="arch" nom="Archives" donnee={loadReservation ? (reservationData) : (reservation)} type="table" contentSearch="Rechercher une reservation archivé..." DelModViewResa={DelModViewResa} />
