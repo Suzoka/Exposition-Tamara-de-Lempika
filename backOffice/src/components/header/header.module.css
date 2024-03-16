@@ -6,21 +6,28 @@
     justify-content: space-between;
     width: 99vw;
     align-items: center;
-    padding: 10px 20px;
     background-color: #fff;
     box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.05);
     /* border: 1px solid black; */
     border-radius: 30px;
     z-index: 100;
+    overflow: hidden;
 }
 
 .header__title {
     display: flex;
     align-items: center;
+    padding: 10px 20px;
     gap: 8px;
+    background-color: var(--light-primary);
     /* border: 1px solid black; */
     text-decoration: none;
     color: var(--black);
+    cursor: pointer;
+}
+
+.header__title:hover {
+    background-color: var(--secondary);
 }
 
 .headerTitle__text {
@@ -37,6 +44,7 @@
     display: flex;
     align-items: center;
     gap: 10px;
+    padding: 10px 20px;
     /* border: 1px solid black; */
 }
 
