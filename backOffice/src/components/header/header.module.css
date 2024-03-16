@@ -89,3 +89,7 @@
 .header__link--stat::before {
     mask-image: url("../../../public/asset/icon/Bar-chart-4.svg") ;
 }
+
+.header__link--arch::before {
+    mask-image: url("../../../public/asset/icon/Archive.svg") ;
+}

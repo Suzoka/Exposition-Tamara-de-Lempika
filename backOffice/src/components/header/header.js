@@ -11,6 +11,7 @@ export const Header = () => {
                 <a href="#stat" className={classes['header__link'] + ' ' + classes['header__link--stat']}>Statistiques</a>
                 <a href="#resa" className={classes['header__link'] + ' ' + classes['header__link--cart']}>Réservations</a>
                 <a href="#user" className={classes['header__link'] + ' ' + classes['header__link--user']}>Utilisateurs</a>
+                <a href="#arch" className={classes['header__link'] + ' ' + classes['header__link--arch']} title='Archive'></a>
             </nav>
         </header>
     );
