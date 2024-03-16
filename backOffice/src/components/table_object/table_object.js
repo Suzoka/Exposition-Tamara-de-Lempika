@@ -9,7 +9,7 @@ import { Label } from "@/components/label/label";
 import classes from './table_object.module.css';
 
 
-export const Table_object = ({ liste, variant }) => {
+export const Table_object = ({ liste, variant, DelModViewResa }) => {
 
     let formattedId = '# ' + liste.id.toString().padStart(5, '0');
 
@@ -50,13 +50,13 @@ export const Table_object = ({ liste, variant }) => {
             </td>
             <td className={classes['table__cellule--action']}>
                 {/* Action */}
-                < Button variant="primary">Modifier</Button>
+                < Button variant="primary" title="Modifier" idElement={liste.id} action={DelModViewResa['modifyResa']}>Modifier</Button>
 
-                < Button format="icon" icon="trash">
+                < Button format="icon" title="Suprimer" icon="trash" idElement={liste.id} action={DelModViewResa['deleteResa']}>
                     <span className='icon_alt'>Supprimer</span>
                 </Button>
 
-                < Button format="icon" icon="eye">
+                < Button format="icon" title="Voir" icon="eye" idElement={liste.id} action={DelModViewResa['viewResa']}>
                     <span className='icon_alt'>Voir</span>
                 </Button>
             </td>
