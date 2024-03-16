@@ -36,8 +36,26 @@
     /* margin-right: 8px; */
 }
 
+.button__icon--trash {
+    background-color: var(--light-red);
+    color: var(--dark-red);
+}
+
+.button__icon--trash:hover {
+    background-color: var(--secondary-red);
+}
+
 .button__icon--trash::before {
     mask-image: url("../../../public/asset/icon/Trash-2.svg");
+}
+
+.button__icon--eye {
+    background-color: var(--light-blue);
+    color: var(--dark-blue);
+}
+
+.button__icon--eye:hover {
+    background-color: var(--secondary-blue);
 }
 
 .button__icon--eye::before {

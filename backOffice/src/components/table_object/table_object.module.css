@@ -3,7 +3,7 @@
 }
 
 .table__ligne:hover {
-    background-color: var(--bkg-secondary) ;
+    background-color: var(--bkg-primary); ;
 }
 
 .table__ligne > * {

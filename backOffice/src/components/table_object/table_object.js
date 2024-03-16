@@ -22,7 +22,7 @@ export const Table_object = ({ liste, variant }) => {
             <td className={classes['table__cellule--user']}>
                 {/* Utilisateur */}
                 <img src={liste.img} className={classes['user__icon']} alt=""/>
-                {liste.utilisateur}
+                {liste.prenom} {liste.nom}
             </td>
             <td>
                 {/* Date de la réservation */}
