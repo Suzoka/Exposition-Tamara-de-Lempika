@@ -6,6 +6,10 @@
     margin: 0;
 }
 
+.label__container::first-letter {
+    text-transform: uppercase;
+}
+
 .label__container--blue {
     background-color: var(--light-blue);
     color: var(--dark-blue);
