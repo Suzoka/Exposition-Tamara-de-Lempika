@@ -6,21 +6,27 @@
 
 :root {
 
-    --black: #2F2E2E;
+    --black: #131212;
     --white: #F8F8F8;
 
-    --bkg-primary:#fff8f8;
-    --bkg-secondary: #FAE9E9;
+    --bkg-primary:#F3FFF4;
+    --bkg-secondary: #e1ffe3;
 
-    --dark-primary: #660708;
-    --light-primary: #FFDCDC;
-    --secondary: #FFA5A5;
+    --dark-primary: #23511B;
+    --light-primary: #E3FFEB;
+    --secondary: #A5D1B1;
     
+    --light-red: #FFDCDC;
     --light-blue: #DCE1FF;
     --light-green: #C2FFD7;
     --light-yellow: #FFE4BC;
     --light-grey: #D9D9D9;
+    
+    --secondary-red: #ff7f7f;
+    --secondary-yellow: #f5c983;
+    --secondary-blue: #aebafd;
 
+    --dark-red: #660708;
     --dark-blue: #1328A7;
     --dark-green: #23511b;
     --dark-yellow: #5A3B0D;
