@@ -6,7 +6,7 @@ export const reservation = [
         prenom: "Lorem",
         date: "07/03/2024",
         creneau: "10:30",
-        formule: "Adulte",
+        formule: "adulte",
         mail: "lorem.leseul@gmail.com",
         prix: "15",
         quantite: 2
@@ -18,7 +18,7 @@ export const reservation = [
         prenom: "Jaqueline",
         date: "07/03/2024",
         creneau: "10:30",
-        formule: "Jeune",
+        formule: "jeune",
         mail: "jaqueline@gmail.com",
         prix: "10",
         quantite: 1
@@ -30,7 +30,7 @@ export const reservation = [
         prenom: "Jean",
         date: "07/03/2024",
         creneau: "10:30",
-        formule: "Handicap",
+        formule: "handicap",
         mail: "leseul7750@gmail.com",
         prix: "5",
         quantite: 1
@@ -42,7 +42,7 @@ export const reservation = [
         prenom: "Alice",
         date: "08/03/2024",
         creneau: "11:30",
-        formule: "Jeune",
+        formule: "jeune",
         mail: "alice@gmail.com",
         prix: "20",
         quantite: 3
@@ -54,7 +54,7 @@ export const reservation = [
         prenom: "Bob",
         date: "09/03/2024",
         creneau: "12:30",
-        formule: "Adulte",
+        formule: "adulte",
         mail: "bob@gmail.com",
         prix: "25",
         quantite: 2
@@ -66,7 +66,7 @@ export const reservation = [
         prenom: "Charlie",
         date: "10/03/2024",
         creneau: "13:30",
-        formule: "Handicap",
+        formule: "handicap",
         mail: "charlie@gmail.com",
         prix: "30",
         quantite: 1
@@ -78,7 +78,7 @@ export const reservation = [
         prenom: "Dave",
         date: "11/03/2024",
         creneau: "14:30",
-        formule: "Handicap",
+        formule: "adulte",
         mail: "dave@gmail.com",
         prix: "35",
         quantite: 2
@@ -90,7 +90,7 @@ export const reservation = [
         prenom: "Eve",
         date: "12/03/2024",
         creneau: "15:30",
-        formule: "Adulte",
+        formule: "adulte",
         mail: "eve@gmail.com",
         prix: "40",
         quantite: 3
