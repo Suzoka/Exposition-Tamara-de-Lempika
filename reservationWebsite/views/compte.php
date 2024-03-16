@@ -53,6 +53,19 @@
                             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Totam quod quo odio dolorum porro, est rem, nulla veritatis cum officia voluptatibus? Maxime ullam nihil autem nemo velit, veniam ipsa vel.</p>
                             <p class="price">Gratuit</p>
                         </div>
+                        <div class="billet">
+                            <div class="timeDates">
+                                <div class="date">
+                                    <p>le 28 Mars 2024</p>
+                                </div>
+                                <div class="time">
+                                    <p>à 11h30</p>
+                                </div>
+                            </div>
+                            <h4>Billet Jeune x1</h4>
+                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Totam quod quo odio dolorum porro, est rem, nulla veritatis cum officia voluptatibus? Maxime ullam nihil autem nemo velit, veniam ipsa vel.</p>
+                            <p class="price">Gratuit</p>
+                        </div>
                     </div>
                     <div class="place">
                         <h3>Localisation</h3>
@@ -96,5 +109,9 @@
             
         </main>
         <?php include 'components/footer.php'; ?>
+
+        <script src="../scripts/burger.js"></script>
     </body>
+
+   
 </html>

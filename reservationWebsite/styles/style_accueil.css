@@ -102,11 +102,13 @@ h1 {
 }
 
 /* ---- Teaser ---- */
-
 .teaser {
-    height: 80vh;
+    height: 89vh;
     width: 85vw;
     margin: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
 .contentTeaser {
@@ -118,7 +120,6 @@ h1 {
 .teaser h2, .access h2{
     font-family: 'Carambola', sans-serif;
     font-size: 2.75rem;
-    margin-top: 8vh;
     margin-bottom: 4%;
     padding: 0 5px 0 0;
     width: -webkit-fit-content;
@@ -129,6 +130,7 @@ h1 {
 .teaser h2 {
     color: #21594F;
     border-bottom: #21594F 3px solid;
+    margin-top: 0;
 }
 
 .teaser .iframeResponsive {
@@ -200,6 +202,10 @@ h1 {
 .access {
     background-color: #21594F;
     height: 88vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
 }
 
 .access h2 {
@@ -207,7 +213,6 @@ h1 {
     border-bottom: #FFFFFF 3px solid;
     margin: auto;
     margin-bottom: 4%;
-    padding-top: 8vh;
 }
 
 .contentAccess {

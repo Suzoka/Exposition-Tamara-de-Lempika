@@ -3,18 +3,19 @@ main {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    height: 75vh;
-    padding: 20px 0;
+    height: 80vh;
+    margin-bottom: 10px;
+    background-color: #FFFFFF;
 }
 
 h1 {
-    margin: 0;
     font-family: 'Carambola', sans-serif;
     color: #21594F;
     font-size: 3.2rem;
     text-align: center;
     width: 70vw;
     margin: auto;
+    margin-top: 20px;
     margin-bottom: 20px;
     line-height: 60px;
 }
@@ -26,12 +27,16 @@ main p {
     width: 60vw;
     text-align: center;
     margin: auto;
+    margin-top: 15px;
+    margin-bottom: 20px;
 }
 
-img {
+main img {
     border-radius: 10px;
     width: 35vw;
     margin: auto;
+    margin-top: 10px;
+    margin-bottom: 15px;
 }
 
 #accueil {
@@ -49,3 +54,51 @@ p a {
     color: #21594F;
     font-weight: bold;
 }
+
+/* ----- RESPONSIVE ----- */
+    @media (max-width: 899px) {
+        main {
+            height: 65vh;
+        }
+        
+        h1{
+            font-size: 2.9rem;
+            width: 80vw;
+        }
+        
+        main img {
+            width: 45vw;
+            margin: 20px;
+        }
+
+        main p {
+            margin-bottom: 20px;
+            margin-top: 20px;
+        }
+
+        #accueil {
+            margin-top: 20px;
+        }
+    }
+
+    @media (max-width: 599px) {
+        main {
+            height: 85vh;
+        }
+
+        h1{
+            width: 75vw;
+            font-size: 2.2rem;
+            line-height: 45px;
+        }
+
+        main img {
+            width: 55vw;
+        }
+
+        main p {
+            width: 80vw;
+            font-size: 1rem;
+            margin-bottom: 5px;
+        }
+    }
