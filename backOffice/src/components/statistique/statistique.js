@@ -1,13 +1,16 @@
 import { useEffect, useState } from 'react';
+import { StatistiqueCards } from '../statistique_cards/statistique_cards';
 
-export const Statistique = ({donnee}) => {
+import classes from './statistique.module.css';
+
+export const Statistique = ({ donnee }) => {
 
     const [stat, setStat] = useState(null);
     const [loadStat, setLoadStat] = useState(false);
 
     useEffect(() => {
         const trie = async () => {
-            console.log(donnee);
+            // console.log(donnee);
 
             const nbFormAdulte = donnee.reduce((total, i) => i.formule === "adulte" ? total + i.quantite : total, 0);
             const nbFormJeune = donnee.reduce((total, i) => i.formule === "jeune" ? total + i.quantite : total, 0);
@@ -15,17 +18,39 @@ export const Statistique = ({donnee}) => {
             const nbBillet = donnee.reduce((total, i) => total + i.quantite, 0);
             const nbReservation = donnee.length;
 
-            console.log("Adulte : ",nbFormAdulte, "| Jeune : ",nbFormJeune, "| Handicap : ", nbFormHandicap);
+            // console.log("Adulte : ", nbFormAdulte, "| Jeune : ", nbFormJeune, "| Handicap : ", nbFormHandicap);
+
+            const days = ['Dimanche', 'Lundi', 'Mardi', 'Mercredi', 'Jeudi', 'Vendredi', 'Samedi'];
+
+            const reservationsByDay = donnee.reduce((total, i) => {
+                const [day, month, year] = i.date.split("/");
+                const isoDateStr = `${year}-${month}-${day}`;
+                const date = new Date(isoDateStr);
+                const dayOfWeek = date.getDay();
+
+                if (!total[days[dayOfWeek]]) {
+                    total[days[dayOfWeek]] = 0;
+                }
+
+                total[days[dayOfWeek]] += i.quantite;
+
+                return total;
+            }, {});
+
+            // console.log(reservationsByDay);
 
             setStat({
-                "nbAdulte": nbFormAdulte,
-                "nbJeune": nbFormJeune,
-                "nbHandicap": nbFormHandicap,
+                "formule": {
+                    "adulte": nbFormAdulte,
+                    "jeune": nbFormJeune,
+                    "handicap": nbFormHandicap
+                },
                 "nbBillet": nbBillet,
-                "nbReservation": nbReservation
+                "nbReservation": nbReservation,
+                "reservationsByDay": reservationsByDay
             });
 
-            console.log(stat);
+            // console.log(stat);
 
             setLoadStat(true);
         }
@@ -35,9 +60,14 @@ export const Statistique = ({donnee}) => {
 
     return (
         <div>
-            {loadStat ? console.log(stat) : <p>Chargement des statistiques...</p>}
-            {loadStat && <p>Adulte : {stat.nbAdulte} | Jeune : {stat.nbJeune} | Handicap : {stat.nbHandicap}</p>}
-            {loadStat && <p>Nombre de billet : {stat.nbBillet} | Nombre de reservation : {stat.nbReservation}</p>}
+            {loadStat ? <p>Nombre de billet : {stat.nbBillet} | Nombre de reservation : {stat.nbReservation}</p> : <p>Chargement des statistiques...</p>}
+            {loadStat ? console.log(stat) : ''}
+            {loadStat ? (
+                <div className={classes['statistique__container']}>
+                    < StatistiqueCards donnee={stat.formule} type="cammembert" titre="Répartition des réservations par formule" />
+                    < StatistiqueCards donnee={stat.reservationsByDay} type="barJOUR" titre="Réservation par jour" />
+                </div>
+            ) : ''}
         </div>
     );
 }
