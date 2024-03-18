@@ -2,6 +2,9 @@ import React, { useEffect, useRef } from 'react';
 import * as d3 from 'd3';
 
 export const Graph_Bar = ({ data, total }) => {
+
+    console.log(data);
+
     const ref = useRef();
 
     useEffect(() => {
@@ -12,7 +15,7 @@ export const Graph_Bar = ({ data, total }) => {
             .enter()
             .append("div");
 
-        divs.style("width", d => `${(d.value/total) * 100}px`)
+        divs.style("width", d => `${(d.value/total) * 100}%`)
             .attr("class", "graphBar__element")
             .style("height", "20px")
             .style("background-color", "steelblue")

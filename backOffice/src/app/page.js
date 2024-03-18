@@ -39,6 +39,21 @@ export default function Home() {
 
   const deleteResa = (id) => {
     console.log('Suppresion de la réservation n°', id);
+
+    fetch(`https://api.sinyart.fr/reservations/${id}`, {
+      method: 'DELETE',
+      headers: {
+        'Authorization': user.token
+      }
+    })
+      .then(response => response.json())
+      .then(data => {
+        console.log(data)
+        //data contient le message de confirmation
+      })
+      .catch((error) => {
+        console.error('Error:', error);
+      });
   }
 
   const modifyResa = (id) => {
@@ -108,6 +123,7 @@ export default function Home() {
 
     if (loadReservation && loadArchived) {
       setLoadEnd(true);
+      console.log('Données chargées')
     }
   }, []);
 

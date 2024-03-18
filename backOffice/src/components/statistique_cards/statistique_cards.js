@@ -18,9 +18,9 @@ export const StatistiqueCards = ({ donnee, type, titre, total }) => {
                         </div>
                         <div className='statCards__Legend'>
                             {
-                                Object.entries(donnee).map(([key, value]) => {
+                                Object.entries(donnee).map(([key, value], index) => {
                                     return (
-                                        <div className='legend__element'>
+                                        <div key={index}className='legend__element'>
                                             < Label variant={key} >{key}</Label>
                                             <p>{value}</p>      
                                         </div>            

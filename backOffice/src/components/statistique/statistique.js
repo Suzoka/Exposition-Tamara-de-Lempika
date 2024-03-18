@@ -23,9 +23,7 @@ export const Statistique = ({ donnee }) => {
             const days = ['Lundi', 'Mardi', 'Mercredi', 'Jeudi', 'Vendredi', 'Samedi', 'Dimanche'];
 
             const reservationsByDay = donnee.reduce((total, i) => {
-                const [day, month, year] = i.date.split("/");
-                const isoDateStr = `${year}-${month}-${day}`;
-                const date = new Date(isoDateStr);
+                const date = new Date(i.date);
                 const dayOfWeek = date.getDay();
 
                 if (!total[days[dayOfWeek]]) {
