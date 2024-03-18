@@ -12,9 +12,9 @@ export const Statistique = ({ donnee }) => {
         const trie = async () => {
             // console.log(donnee);
 
-            const nbFormAdulte = donnee.reduce((total, i) => i.formule === "adulte" ? total + i.quantite : total, 0);
-            const nbFormJeune = donnee.reduce((total, i) => i.formule === "jeune" ? total + i.quantite : total, 0);
-            const nbFormHandicap = donnee.reduce((total, i) => i.formule === "handicap" ? total + i.quantite : total, 0);
+            const nbFormAdulte = donnee.reduce((total, i) => i.nom_formule === "adulte" ? total + i.quantite : total, 0);
+            const nbFormJeune = donnee.reduce((total, i) => i.nom_formule === "jeune" ? total + i.quantite : total, 0);
+            const nbFormHandicap = donnee.reduce((total, i) => i.nom_formule === "handicap" ? total + i.quantite : total, 0);
             const nbBillet = donnee.reduce((total, i) => total + i.quantite, 0);
             const nbReservation = donnee.length;
 

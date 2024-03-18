@@ -3,7 +3,7 @@ import Trash  from '../../../public/asset/icon/Trash-2.svg';
 import Eye  from '../../../public/asset/icon/Eye.svg';
 
 import { Button } from "@/components/button/button";
-import { Date } from "@/components/date/date";
+import { DatePills } from "@/components/datePills/datePills";
 import { Label } from "@/components/label/label";
 
 import classes from './table_object.module.css';
@@ -11,7 +11,10 @@ import classes from './table_object.module.css';
 
 export const Table_object = ({ liste, variant, DelModViewResa }) => {
 
-    let formattedId = '# ' + liste.id.toString().padStart(5, '0');
+    let formattedId = '# ' + liste.id_ticket;
+    const date = new Date(liste.date);
+    let Jour =`${date.getDate()}/${(date.getMonth() + 1).toString().padStart(2, '0')}/${date.getFullYear()}`;
+    let Heure =`${date.getHours().toString().padStart(2, '0')}:${date.getMinutes().toString().padStart(2, '0')}`;
 
     return (
         <tr className={classes['table__ligne']}>
@@ -26,15 +29,15 @@ export const Table_object = ({ liste, variant, DelModViewResa }) => {
             </td>
             <td>
                 {/* Date de la réservation */}
-                < Date variant="day">{liste.date}</Date>
+                < DatePills variant="day">{Jour}</DatePills>
             </td>
             <td>
                 {/* Créneau réservé */}
-                < Date variant="hour">{liste.creneau}</Date>
+                < DatePills variant="hour">{Heure}</DatePills>
             </td>
             <td>
                 {/* Formule choisie */}
-                < Label variant={liste.formule}>{liste.formule}</Label>
+                < Label variant={liste.nom_formule}>{liste.nom_formule}</Label>
             </td>
             <td>
                 {/* Mail */}

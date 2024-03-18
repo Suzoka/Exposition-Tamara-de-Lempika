@@ -10,8 +10,30 @@ import { reservation } from '@/components/reservation';
 console.log('---------');
 
 const user = {
-  'token': 'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJsb2dpbiI6InN1em9rYSIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTcxMDUyMDQ2MSwiZXhwIjoxNzEwNjA2ODYxfQ.WwY1yrGn4mqRYYUUv7XvletxUgYeVq9nfazgFysxNLM'
+  'token': 'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJsb2dpbiI6InN1em9rYSIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTcxMDc1Nzk0NiwiZXhwIjoxNzEwODQ0MzQ2fQ.-0tfWAE-6v7sIDYWP1VANVDa0BZYmX2i9VxqKNfjSKE'
 };
+
+// fetch("https://api.sinyart.fr/adminLogin", {
+//   method: 'POST',
+//   headers: {
+//     'Content-Type': 'application/json'
+//   },
+//   body: JSON.stringify({
+//     'login': 'suzoka',
+//     'password': 'azerty'
+//   })
+// })
+// .then(response => response.json())
+// .then(data => {
+//   if (data.auth === "true") {
+//     console.log(data.token);
+//   } else {
+//     console.log('Authentication failed');
+//   }
+// })
+// .catch((error) => {
+//   console.error('Error:', error);
+// });
 
 export default function Home() {
 
@@ -35,6 +57,9 @@ export default function Home() {
 
   const [reservationData, setReservation] = useState(null);
   const [loadReservation, setLoadReservation] = useState(false);
+  const [archivedData, setArchived] = useState(null);
+  const [loadArchived, setLoadArchived] = useState(false);
+  const [loadEnd, setLoadEnd] = useState(false);
 
   useEffect(() => {
     const fetchReservation = async () => {
@@ -44,20 +69,49 @@ export default function Home() {
           'Authorization': user.token
         }
       }).then(response => response.json())
-      .then(data => {
-        console.log(data)
+        .then(data => {
+          console.log(data)
 
-        setReservation(data);
-        setLoadReservation(true);
-        console.log('reservation', reservationData);
+          setReservation(data);
+          setLoadReservation(true);
+          console.log('reservation', reservationData);
 
-      }).catch((error) => {
-        console.error('Error:', error);
-      });
-      
+        }).catch((error) => {
+          console.error('Error:', error);
+        });
+
     };
+
+    const fetchArchived = async () => {
+      fetch("https://api.sinyart.fr/archives", {
+        method: 'GET',
+        headers: {
+          'Authorization': user.token
+        }
+      })
+        .then(response => response.json())
+        .then(data => {
+          console.log(data)
+
+          setArchived(data);
+          setLoadArchived(true);
+          console.log('archives', archivedData);
+
+        })
+        .catch((error) => {
+          console.error('Error:', error);
+        });
+    };
+
     fetchReservation();
+    fetchArchived();
+
+    if (loadReservation && loadArchived) {
+      setLoadEnd(true);
+    }
   }, []);
+
+  // console.log('reservationData', reservationData);
 
   return (
     <div>
@@ -65,8 +119,8 @@ export default function Home() {
       <main id='main'>
         <h1>Bienvenue sur votre Back office.</h1>
         <p>Ici vous pouvez consulter et gérer les réservations et les utilisateurs, ainsi que visualiser les statistiques de votre exposition <span className='bold'>Tamara de Lempicka, les années folles</span>.</p>
-        
-        {loadReservation ? (
+
+        {loadEnd ? (
           <p>Données chargées</p>
         ) : (
           <p>Chargement des données...</p>
@@ -75,7 +129,7 @@ export default function Home() {
         < Section id="stat" nom="Statistiques" type="stat" donnee={loadReservation ? (reservationData) : (reservation)} />
         < Section id="resa" nom="Réservations" donnee={loadReservation ? (reservationData) : (reservation)} type="table" contentSearch="Rechercher une reservation..." DelModViewResa={DelModViewResa} />
         < Section id="user" nom="Utilisateurs" donnee={loadReservation ? (reservationData) : (reservation)} type="table" contentSearch="Rechercher un utilisateur..." DelModViewResa={DelModViewResa} />
-        < Section id="arch" nom="Archives" donnee={loadReservation ? (reservationData) : (reservation)} type="table" contentSearch="Rechercher une reservation archivé..." DelModViewResa={DelModViewResa} />
+        < Section id="arch" nom="Archives" donnee={loadArchived ? (archivedData) : (reservation)} type="table" contentSearch="Rechercher une reservation archivé..." DelModViewResa={DelModViewResa} />
       </main>
       < Footer />
     </div>
