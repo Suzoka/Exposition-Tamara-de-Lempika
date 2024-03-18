@@ -13,4 +13,14 @@
     display: grid;
     grid-template-columns: 2fr 1fr;
     gap: 20px;
+    height: 280px;
+}
+
+.statCards__Graph {
+    height: 280px;
+}
+.legend__element {
+    display: flex;
+    align-items: center;
+    gap: 10px;
 }
