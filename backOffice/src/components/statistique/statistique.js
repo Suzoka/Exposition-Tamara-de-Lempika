@@ -20,7 +20,7 @@ export const Statistique = ({ donnee }) => {
 
             // console.log("Adulte : ", nbFormAdulte, "| Jeune : ", nbFormJeune, "| Handicap : ", nbFormHandicap);
 
-            const days = ['Dimanche', 'Lundi', 'Mardi', 'Mercredi', 'Jeudi', 'Vendredi', 'Samedi'];
+            const days = ['Lundi', 'Mardi', 'Mercredi', 'Jeudi', 'Vendredi', 'Samedi', 'Dimanche'];
 
             const reservationsByDay = donnee.reduce((total, i) => {
                 const [day, month, year] = i.date.split("/");
@@ -37,6 +37,11 @@ export const Statistique = ({ donnee }) => {
                 return total;
             }, {});
 
+
+            const reservationsByDayOrder = Object.entries(reservationsByDay)
+                .sort(([keyA], [keyB]) => days.indexOf(keyA) - days.indexOf(keyB))
+                .map(([key, value]) => ({ key, value }));
+
             // console.log(reservationsByDay);
 
             setStat({
@@ -47,7 +52,7 @@ export const Statistique = ({ donnee }) => {
                 },
                 "nbBillet": nbBillet,
                 "nbReservation": nbReservation,
-                "reservationsByDay": reservationsByDay
+                "reservationsByDay": reservationsByDayOrder
             });
 
             // console.log(stat);
@@ -64,8 +69,8 @@ export const Statistique = ({ donnee }) => {
             {loadStat ? console.log(stat) : ''}
             {loadStat ? (
                 <div className={classes['statistique__container']}>
-                    < StatistiqueCards donnee={stat.formule} type="cammembert" titre="Répartition des réservations par formule" />
-                    < StatistiqueCards donnee={stat.reservationsByDay} type="barJOUR" titre="Réservation par jour" />
+                    < StatistiqueCards donnee={stat.formule} type="cammembert" titre="Répartition des formules" />
+                    < StatistiqueCards donnee={stat.reservationsByDay} total={stat.nbBillet} type="barJOUR" titre="Réservation par jour de la semaine" />
                 </div>
             ) : ''}
         </div>
