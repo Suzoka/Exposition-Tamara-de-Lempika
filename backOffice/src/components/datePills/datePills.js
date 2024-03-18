@@ -1,6 +1,6 @@
-import './date.css';
+import './datePills.css';
 
-export const Date = ({ children, variant }) => {
+export const DatePills = ({ children, variant }) => {
 
     const className = `date__container 
     ${
