@@ -38,9 +38,17 @@ function searchArchives($search)
 function deleteReservation($id)
 {
     global $db;
-    $stmt = $db->prepare("DELETE FROM `reservations` WHERE id_ticket = :id");
+    $stmt = $db->prepare("select * from `reservations` where id_ticket = :id AND date>NOW()");
     $stmt->bindValue(':id', $id, PDO::PARAM_INT);
-    return $stmt->execute();
+    $stmt->execute();
+    if ($stmt->rowCount() == 1) {
+        $stmt = $db->prepare("DELETE FROM `reservations` WHERE id_ticket = :id AND date>NOW()");
+        $stmt->bindValue(':id', $id, PDO::PARAM_INT);
+        return $stmt->execute();
+    }
+    else {
+        return false;
+    }
 }
 
 function connexionAdmin($login, $password)
