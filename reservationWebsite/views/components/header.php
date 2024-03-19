@@ -16,4 +16,5 @@
             <img class="burgerClose" src="../img/icons/burgerClose.svg" alt="Fermer le menu">
         </button>
     </nav>
+    <script src="../scripts/burger.js" defer></script>
 </header>

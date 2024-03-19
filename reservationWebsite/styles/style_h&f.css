@@ -129,6 +129,7 @@ header nav {
             box-shadow: 0 2px 28px 3px rgba(0,0,0,0.75);
             -webkit-box-shadow: 0 2px 28px 3px rgba(0,0,0,0.75);
             -moz-box-shadow: 0 2px 28px 3px rgba(0,0,0,0.75);
+            text-align: start;
         }
 
         .menu a {
@@ -139,12 +140,36 @@ header nav {
             width: 37vw;
             display: flex;
             justify-content: space-between;
+            align-items: center;
+            gap: 10px;
         }
 
         .menu a img {
             display: block;
             width: 3vw;
             height: 3vw;
+        }
+    }
+
+    @media (max-width: 569px) {
+        .menu a img{
+            width: 4vw;
+            height: 4vw;
+        }
+    }
+
+    @media (max-width: 449px) {
+        header nav {
+            grid-template-columns: 15% 1fr 15%;
+        }
+        .menu a {
+            width: 63vw;
+            font-size: 1rem;
+        }
+        
+        .menu a img{
+            width: 6vw;
+            height: 6vw;
         }
     }
 
