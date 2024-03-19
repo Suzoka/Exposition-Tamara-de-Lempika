@@ -10,6 +10,8 @@
         <div class="menu-user">
             <?php echo isset($_SESSION["user"]) ? "<a href=\"./deconnexion\">Se déconnecter</a><a id=\"compte\" href=\"\"><img src=\"\" alt=\"Mon compte\"></a>" : "<a href=\"./connexion\">Se connecter</a>
                 <a href=\"./inscription\">S'inscrire</a>" ?>
+            <a class="langInactive" href="./languageFR?from=<?php echo $page ?>"><img class="language" src="../img/icons/fr.svg" alt=""></a>
+            <a class="" href="./languageEN?from=<?php echo $page ?>"><img class="language" src="../img/icons/en.svg" alt=""></a>
         </div>
         <button class="burger">
             <img class="burgerOpen" src="../img/icons/burger.svg" alt="Ouvrir le menu">
