@@ -60,5 +60,19 @@ switch ($page) {
         include ("./views/compte.php");
         break;
 
+    case "compte":
+        $_SESSION["from"] = "compte";
+        include ("./views/compte.php");
+        break;
+
+    case "languageFR" :
+        $_SESSION["lang"] = "fr";
+        header("Location: ./" . $_GET["from"]);
+        break;
+
+    case "languageEN" :
+        $_SESSION["lang"] = "en";
+        header("Location: ./" . $_GET["from"]);
+        break;
 }
 ?>
