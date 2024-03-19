@@ -25,8 +25,10 @@
                     <label for="password"><span class="required">*</span> Mot de passe</label><input type="password"
                         name="password" id="password" required>
                 </div>
+                <div class="link">
                     <a href="./lostPassword">Mot de passe oublié ?</a>
                     <a href="./inscription" class="signUp">Créer un compte</a>
+                </div>
             </div>
             <input type="submit" value="Se connecter">
         </form>
