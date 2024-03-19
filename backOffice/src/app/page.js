@@ -6,6 +6,7 @@ import { Header } from '@/components/header/header';
 import { Section } from '@/components/section/section';
 import { Footer } from '@/components/footer/footer';
 import { reservation } from '@/components/reservation';
+import { Pop_up } from '@/components/pop_up/pop_up';
 
 console.log('---------');
 
@@ -39,6 +40,13 @@ export default function Home() {
 
   const [modificationFlag, setModificationFlag] = useState(0);
 
+  const [popupClosed, setPopupClosed] = useState(true);
+  const [popupDonnee, setPopupDonnee] = useState(null);
+
+  const closePopUp = () => {
+    setPopupClosed(true);
+  }
+
   const deleteResa = (id) => {
     console.log('Suppresion de la réservation n°', id);
 
@@ -66,6 +74,10 @@ export default function Home() {
 
   const viewResa = (id) => {
     console.log('Visualisation de la réservation n°', id);
+    const reservation = reservationData.find(resa => resa.id_ticket == id);
+    console.log('Données réservation', reservation);
+    setPopupDonnee(reservation);
+    setPopupClosed(false);
   }
 
   const DelModViewResa = {
@@ -176,6 +188,7 @@ export default function Home() {
         < Section id="resa" nom="Réservations" donnee={loadReservation ? (reservationData) : (reservation)} type="table" contentSearch="Rechercher une reservation..." DelModViewResa={DelModViewResa} modification />
         < Section id="user" utilisateur nom="Utilisateurs" donnee={loadUserList ? (userList) : (reservation)} type="table" contentSearch="Rechercher un utilisateur..." DelModViewResa='' />
         < Section id="arch" nom="Archives" donnee={loadArchived ? (archivedData) : (reservation)} type="table" contentSearch="Rechercher une reservation archivé..." DelModViewResa='' />
+        < Pop_up data={popupDonnee != null ? popupDonnee : ''} close={popupClosed} closeAction={closePopUp} />
       </main>
       < Footer />
     </div>
