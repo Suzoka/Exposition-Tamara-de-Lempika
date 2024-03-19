@@ -10,7 +10,7 @@ import { reservation } from '@/components/reservation';
 console.log('---------');
 
 const user = {
-  'token': 'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJsb2dpbiI6InN1em9rYSIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTcxMDc1Nzk0NiwiZXhwIjoxNzEwODQ0MzQ2fQ.-0tfWAE-6v7sIDYWP1VANVDa0BZYmX2i9VxqKNfjSKE'
+  'token': 'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJsb2dpbiI6InN1em9rYSIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTcxMDgzNjU5NCwiZXhwIjoxNzEwOTIyOTk0fQ.aVogAbbGk65vXeyxtrUItWyJv9T2RfvAilPE_GaLpvM'
 };
 
 // fetch("https://api.sinyart.fr/adminLogin", {
@@ -37,6 +37,8 @@ const user = {
 
 export default function Home() {
 
+  const [modificationFlag, setModificationFlag] = useState(0);
+
   const deleteResa = (id) => {
     console.log('Suppresion de la réservation n°', id);
 
@@ -54,6 +56,8 @@ export default function Home() {
       .catch((error) => {
         console.error('Error:', error);
       });
+
+    setModificationFlag(modificationFlag + 1);
   }
 
   const modifyResa = (id) => {
@@ -85,11 +89,12 @@ export default function Home() {
         }
       }).then(response => response.json())
         .then(data => {
-          console.log(data)
+          // console.log(data)
 
           setReservation(data);
           setLoadReservation(true);
-          console.log('reservation', reservationData);
+          // console.log('reservation', reservationData);
+        console.log('Données réservations chargées')
 
         }).catch((error) => {
           console.error('Error:', error);
@@ -106,11 +111,13 @@ export default function Home() {
       })
         .then(response => response.json())
         .then(data => {
-          console.log(data)
+          // console.log(data)
 
           setArchived(data);
           setLoadArchived(true);
-          console.log('archives', archivedData);
+          // console.log('archives', archivedData);
+          console.log('Données archives chargées')
+
 
         })
         .catch((error) => {
@@ -120,12 +127,13 @@ export default function Home() {
 
     fetchReservation();
     fetchArchived();
+  }, [modificationFlag]);
 
+  useEffect(() => {
     if (loadReservation && loadArchived) {
       setLoadEnd(true);
-      console.log('Données chargées')
     }
-  }, []);
+  }, [loadReservation, loadArchived]);
 
   // console.log('reservationData', reservationData);
 

@@ -53,13 +53,13 @@ export const Table_object = ({ liste, variant, DelModViewResa }) => {
             </td>
             <td className={classes['table__cellule--action']}>
                 {/* Action */}
-                < Button variant="primary" title="Modifier" idElement={liste.id} action={DelModViewResa['modifyResa']}>Modifier</Button>
+                < Button variant="primary" title="Modifier" idElement={liste.id_ticket} action={DelModViewResa['modifyResa']}>Modifier</Button>
 
-                < Button format="icon" title="Suprimer" icon="trash" idElement={liste.id} action={DelModViewResa['deleteResa']}>
+                < Button format="icon" title="Suprimer" icon="trash" idElement={liste.id_ticket} action={DelModViewResa['deleteResa']}>
                     <span className='icon_alt'>Supprimer</span>
                 </Button>
 
-                < Button format="icon" title="Voir" icon="eye" idElement={liste.id} action={DelModViewResa['viewResa']}>
+                < Button format="icon" title="Voir" icon="eye" idElement={liste.id_ticket} action={DelModViewResa['viewResa']}>
                     <span className='icon_alt'>Voir</span>
                 </Button>
             </td>
