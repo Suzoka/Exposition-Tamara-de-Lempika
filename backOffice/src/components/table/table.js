@@ -16,7 +16,9 @@ export const Table = ({donnee, DelModViewResa, variant}) => {
                         <th>Mail</th>
                         <th>Prix</th>
                         <th>Quantité</th>
-                        <th>Action</th>
+                        { variant==='modification' ? (
+                            <th>Action</th>
+                        ) : ''}
                     </tr>
                 </thead>
                 <tbody>
