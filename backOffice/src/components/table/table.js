@@ -54,7 +54,7 @@ const Table_object = ({ liste, variant, DelModViewResa }) => {
 
     let formattedId = '# ' + (liste.id_ticket ? liste.id_ticket : liste.id_user);
     const date = new Date(liste.date);
-    let Jour = `${date.getDate()}/${(date.getMonth() + 1).toString().padStart(2, '0')}/${date.getFullYear()}`;
+    let Jour = `${date.getDate().toString().padStart(2, '0')}/${(date.getMonth() + 1).toString().padStart(2, '0')}/${date.getFullYear()}`;
     let Heure = `${date.getHours().toString().padStart(2, '0')}:${date.getMinutes().toString().padStart(2, '0')}`;
 
     return (
