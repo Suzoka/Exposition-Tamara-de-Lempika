@@ -99,6 +99,11 @@ input[type="submit"] {
     cursor: pointer;
 }
 
+.link {
+    display: flex;
+    flex-direction: row;
+}
+
 div.formulaire a {
     margin-right: 20px;
     color: #000000;
@@ -106,4 +111,18 @@ div.formulaire a {
 
 div.formulaire .signUp {
     color : #BA181B;
+}
+
+/* ---- RESPONSIVE ---- */
+@media (max-width: 599px) {
+    p {
+        text-align: center;
+        width: 83%;
+    }
+
+    .link {
+        flex-direction: column;
+        align-items: center;
+        width: 110%;
+    }
 }

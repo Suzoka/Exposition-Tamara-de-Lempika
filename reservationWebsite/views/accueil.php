@@ -74,8 +74,10 @@
                 </div>
                 <div class="infosAccess">
                     <div class="infoAccess">
-                        <img src="../img/icons/transport.svg" alt="">
-                        <h3>Venir en transport</h3>
+                        <div class="h3">
+                            <img src="../img/icons/transport.svg" alt="">
+                            <h3>Venir en transport</h3>
+                        </div>
                         <ul>
                             <li>RER A - Noisy-Champs</li>
                             <li>Bus 213 - Espace Descartes</li>
@@ -83,8 +85,10 @@
                         </ul>
                     </div>
                     <div class="infoAccess">
-                        <img src="../img/icons/voiture.svg" alt="">
-                        <h3>Venir en voiture</h3>
+                        <div class="h3">
+                            <img src="../img/icons/voiture.svg" alt="">
+                            <h3>Venir en voiture</h3>
+                        </div>    
                         <ul>
                             <li>Via A4 </li>
                             <li>Bd du Ru du Nesles N370</li>
@@ -92,8 +96,10 @@
                         </ul>
                     </div>
                     <div class="infoAccess">
-                        <img src="../img/icons/velo.svg" alt="">
-                        <h3>Venir en vélo</h3>
+                        <div class="h3">
+                            <img src="../img/icons/velo.svg" alt="">
+                            <h3>Venir en vélo</h3>
+                        </div>
                         <ul>
                             <li>Via Av. de Gravelle</li>
                             <li>Via Av de Gravelle et D4</li>
@@ -101,8 +107,10 @@
                         </ul>
                     </div>
                     <div class="infoAccess">
-                        <img src="../img/icons/pied.svg" alt="">
-                        <h3>Venir à pied</h3>
+                        <div class="h3">
+                            <img src="../img/icons/pied.svg" alt="">
+                            <h3>Venir à pied</h3>
+                        </div>
                         <ul>
                             <li>Via D120</li>
                             <li>Via D143</li>

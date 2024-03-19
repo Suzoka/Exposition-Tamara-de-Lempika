@@ -109,9 +109,5 @@
             
         </main>
         <?php include 'components/footer.php'; ?>
-
-        <script src="../scripts/burger.js"></script>
     </body>
-
-   
 </html>

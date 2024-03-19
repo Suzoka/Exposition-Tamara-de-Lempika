@@ -18,9 +18,9 @@ function burger() {
             burgerOpen.style.display = "block";
             burgerClose.style.display = "none";
             etat = 0;
-        }
-        
-    })
+        }   
+    });
+    console.log(etat);
 };
 
 document.addEventListener('DOMContentLoaded', function () {
