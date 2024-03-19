@@ -78,6 +78,8 @@ export default function Home() {
   const [loadReservation, setLoadReservation] = useState(false);
   const [archivedData, setArchived] = useState(null);
   const [loadArchived, setLoadArchived] = useState(false);
+  const [userList, setUserList] = useState(null);
+  const [loadUserList, setLoadUserList] = useState(false);
   const [loadEnd, setLoadEnd] = useState(false);
 
   useEffect(() => {
@@ -94,7 +96,7 @@ export default function Home() {
           setReservation(data);
           setLoadReservation(true);
           // console.log('reservation', reservationData);
-        console.log('Données réservations chargées')
+          console.log('Données réservations chargées')
 
         }).catch((error) => {
           console.error('Error:', error);
@@ -125,15 +127,35 @@ export default function Home() {
         });
     };
 
+    const fetchUser = async () => {
+      fetch("https://api.sinyart.fr/users", {
+        method: 'GET',
+        headers: {
+          'Authorization': user.token
+        }
+      })
+        .then(response => response.json())
+        .then(data => {
+          console.log('données utilisateurs', data);
+          setUserList(data);
+          setLoadUserList(true);
+          console.log('Données utilisateurs chargées')
+        })
+        .catch((error) => {
+          console.error('Error:', error);
+        });
+    };
+
     fetchReservation();
     fetchArchived();
+    fetchUser();
   }, [modificationFlag]);
 
   useEffect(() => {
-    if (loadReservation && loadArchived) {
+    if (loadReservation && loadArchived && loadUserList) {
       setLoadEnd(true);
     }
-  }, [loadReservation, loadArchived]);
+  }, [loadReservation, loadArchived, loadUserList]);
 
   // console.log('reservationData', reservationData);
 
@@ -151,9 +173,9 @@ export default function Home() {
         )}
 
         < Section id="stat" nom="Statistiques" type="stat" donnee={loadReservation ? (reservationData) : (reservation)} />
-        < Section id="resa" nom="Réservations" donnee={loadReservation ? (reservationData) : (reservation)} type="table" contentSearch="Rechercher une reservation..." DelModViewResa={DelModViewResa} />
-        < Section id="user" nom="Utilisateurs" donnee={loadReservation ? (reservationData) : (reservation)} type="table" contentSearch="Rechercher un utilisateur..." DelModViewResa={DelModViewResa} />
-        < Section id="arch" nom="Archives" donnee={loadArchived ? (archivedData) : (reservation)} type="table" contentSearch="Rechercher une reservation archivé..." DelModViewResa={DelModViewResa} />
+        < Section id="resa" nom="Réservations" donnee={loadReservation ? (reservationData) : (reservation)} type="table" contentSearch="Rechercher une reservation..." DelModViewResa={DelModViewResa} modification />
+        < Section id="user" utilisateur nom="Utilisateurs" donnee={loadUserList ? (userList) : (reservation)} type="table" contentSearch="Rechercher un utilisateur..." DelModViewResa='' />
+        < Section id="arch" nom="Archives" donnee={loadArchived ? (archivedData) : (reservation)} type="table" contentSearch="Rechercher une reservation archivé..." DelModViewResa='' />
       </main>
       < Footer />
     </div>
