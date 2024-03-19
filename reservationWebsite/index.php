@@ -54,6 +54,11 @@ switch ($page) {
             header("Location: ./billetterie?error=1");
         }
         break;
+    
+    case "compte":
+        $_SESSION["from"] = "compte";
+        include ("./views/compte.php");
+        break;
 
 }
 ?>
