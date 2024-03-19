@@ -41,40 +41,40 @@
     text-align: left;
 } */
 
-.table__head :nth-child(1) {
+.table__head--Id {
     padding-left: 10px;
     width: 100px;
 }
 
-.table__head :nth-child(2) {
+.table__head--User {
     width: 230px;
 }
 
-.table__head :nth-child(3) {
+.table__head--Date {
     width: 125px;
 }
 
-.table__head :nth-child(4) {
+.table__head--Creneau {
     width: 85px;
 }
 
-.table__head :nth-child(5) {
+.table__head--Formule {
     width: 110px;
 }
 
-.table__head :nth-child(6) {
+.table__head--Mail {
     width: 300px;
 }
 
-.table__head :nth-child(7) {
+.table__head--Prix {
     width: 50px;
 }
 
-.table__head :nth-child(8) {
+.table__head--Quantite {
     width: 80px;
 }
 
-.table__head :nth-child(9) {
+.table__head--Action {
     width: 200px;
     padding-right: 10px;
 }
