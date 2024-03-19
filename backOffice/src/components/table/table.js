@@ -1,7 +1,7 @@
 import { Table_object } from "../table_object/table_object";
 import classes from './table.module.css';
 
-export const Table = ({donnee, DelModViewResa}) => {
+export const Table = ({donnee, DelModViewResa, variant}) => {
 
     return (
         <section className={classes['table__container']}>
@@ -22,7 +22,7 @@ export const Table = ({donnee, DelModViewResa}) => {
                 <tbody>
                     {
                         donnee.map((item, index) => {
-                            return <Table_object key={index} liste={item} DelModViewResa={DelModViewResa} />
+                            return <Table_object key={index} liste={item} DelModViewResa={DelModViewResa} variant={variant==='modification' ? 'modification' : ''} />
                         })
                     }
                 </tbody>
