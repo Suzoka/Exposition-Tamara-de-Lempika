@@ -11,7 +11,7 @@
     <body>
         <?php include 'components/header.php'; ?>
         <main>
-                <h1>Merci Lou-Anne Dubille pour votre réservation !</h1>
+                <h1>Merci <?php echo $_POST['prenom'] ?> <?php echo $_POST['npm'] ?> pour votre réservation !</h1>
                 <p>Elle a bien été prise en compte. Vous pouvez la retrouver dans votre espace <a href="./compte">"Mon compte"</a>.</p>
                 <img src="../img/validation.png" alt="">
                 <a id="accueil" href="">Retour à l'accueil</a>

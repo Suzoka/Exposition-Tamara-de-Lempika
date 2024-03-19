@@ -92,10 +92,6 @@ header nav {
     width: 30px;
 }
 
-.langInactive {
-    display: none;
-}
-
     /* ---- HEADER RESPONSIVE ---- */
     @media (max-width: 899px) {
         header nav {
@@ -347,4 +343,31 @@ p.error {
 
 .hidden {
     display: none;
+}
+
+/* ---- Bouton de réservation ---- */
+.infoTeaser, #reservation {
+    display: flex;
+    color: white;
+    padding: 0 13px;
+    width: -webkit-fit-content;
+    width: -moz-fit-content;
+    width: fit-content;
+    border-radius: 10px;
+}
+
+.infoTeaser img, #reservation img {
+    margin-right: 10px;
+}
+
+.infoTeaser p, #reservation p {
+    margin-top: 13px;
+    margin-bottom: 13px;
+}
+
+#reservation {
+    background-color: #000000;
+    text-decoration: none;
+    font-family: 'Carambola', sans-serif;
+    float: right;
 }

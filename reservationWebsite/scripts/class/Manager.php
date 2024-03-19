@@ -97,6 +97,15 @@ class Manager
         session_start();
         $_SESSION["from"] = $last;
     }
+
+    function getReservationsOfUser($id)
+    {
+        global $db;
+        $stmt = $this->db->prepare("SELECT * FROM `reservations` r inner join `formules` f on r.ext_id_formule = f.id_formule WHERE `ext_id_user` = :id");
+        $stmt->bindValue(':id', $id, PDO::PARAM_INT);
+        $stmt->execute();
+        return $stmt;
+    }
 }
 
 ?>

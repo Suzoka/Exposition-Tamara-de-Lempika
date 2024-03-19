@@ -8,6 +8,10 @@ $segments = explode('/', $path);
 
 $page = explode('?', end($segments))[0];
 
+if (!isset($_SESSION["lang"])) {
+    $_SESSION["lang"] = "fr";
+}
+
 switch ($page) {
     case "accueil":
     default:
@@ -49,7 +53,7 @@ switch ($page) {
 
     case "newReservation":
         if ($manager->createReservation($_POST)) {
-            header("Location: ./validation");
+            include ("./views/validation.php");
         } else {
             header("Location: ./billetterie?error=1");
         }
@@ -57,6 +61,12 @@ switch ($page) {
     
     case "compte":
         $_SESSION["from"] = "compte";
+        if (isset($_GET['page'])) {
+            $activePage = $_GET['page'];
+        }
+        else {
+            $activePage = "infos";
+        }
         include ("./views/compte.php");
         break;
 

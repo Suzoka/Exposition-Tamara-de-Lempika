@@ -1,71 +1,93 @@
 <!DOCTYPE html>
 <html lang="fr">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="../styles/style_h&f.css">
-        <link rel="stylesheet" href="../styles/style_compte.css">
-        <title>Mon compte - Expo Tamara de Lempicka - Les années folles</title>
-    </head>
 
-    <body>
-        <?php include 'components/header.php'; ?>
-        <main>
-            <h1>Mon compte</h1>
-            <img id="compte" src="../img/compte.png" alt="">
-            <h2>Lou-Anne Dubille</h2>
-            <section class="change">
-                <div class="boutons">
-                    <a class="" href="./compte?page=infos">Mes informations</a>
-                    <a class="active" href="./compte?page=reserv">Mes réservations</a>
-                </div>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../styles/style_h&f.css">
+    <link rel="stylesheet" href="../styles/style_compte.css">
+    <title>Mon compte - Expo Tamara de Lempicka - Les années folles</title>
+</head>
+
+<body>
+    <?php include 'components/header.php'; ?>
+    <main>
+        <h1>Mon compte</h1>
+        <img id="compte" src="../img/compte.png" alt="">
+        <h2>
+            <?php echo $_SESSION['user']->getPrenom() ?>
+            <?php echo $_SESSION['user']->getNom() ?>
+        </h2>
+        <section class="change">
+            <div class="boutons">
+                <a class="<?php if ($activePage == "infos") {
+                    echo "active";
+                } ?>" href="./compte?page=infos">Mes
+                    informations</a>
+                <a class="<?php if ($activePage == "reserv") {
+                    echo "active";
+                } ?>" href="./compte?page=reserv">Mes
+                    réservations</a>
+            </div>
+            <?php if ($activePage == "infos") { ?>
                 <div class="infos">
-                    <p>Nom : Dubille</p>
-                    <p>Prénom : Lou-Anne</p>
-                    <p>Adresse mail :kjbkhjcbd</p>
+                    <p>Nom :
+                        <?php echo $_SESSION['user']->getNom() ?>
+                    </p>
+                    <p>Prénom :
+                        <?php echo $_SESSION['user']->getPrenom() ?>
+                    </p>
+                    <p>Adresse mail :
+                        <?php echo $_SESSION['user']->getMail() ?>
+                    </p>
                 </div>
+            <?php } else { ?>
                 <div class="reservations">
                     <h3>Tamara de Lempicka - Les années folles</h3>
                     <div class="billets">
-                        <div class="billet">
-                            <div class="timeDates">
-                                <div class="date">
-                                    <p>le 28 Mars 2024</p>
+
+                        <?php
+                        $tickets = $manager->getReservationsOfUser($_SESSION['user']->getId_user());
+                        if ($tickets->rowCount() == 0) {
+                            echo "<p>Vous n'avez pas encore de réservation</p>
+                            <a id=\"reservation\" href=\"./billetterie\">
+                            <img src=\"../img/icons/ticket.svg\" alt=\"\">
+                            <p>Réserver maintenant</p>
+                        </a>";
+                        } else {
+                            foreach ($tickets->fetchAll(PDO::FETCH_ASSOC) as $key => $value) {
+                                ?>
+                                <div class="billet">
+                                    <div class="timeDates">
+                                        <div class="date">
+                                            <p>le
+                                                <?php $date = new DateTime($value['date']);
+                                                $formatter = new IntlDateFormatter('fr_FR', IntlDateFormatter::LONG, IntlDateFormatter::NONE);
+                                                echo $formatter->format($date); ?>
+                                            </p>
+                                        </div>
+                                        <div class="time">
+                                            <p>à
+                                                <?php echo str_replace(":", "h", $date->format('H:i')) ?>
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <h4>Billet
+                                        <?php echo $value['nom_formule'] ?>
+                                        x<?php echo $value['quantite'] ?>
+                                    </h4>
+                                    <p>
+                                        <?php echo $value['explication_formule'] ?>
+                                    </p>
+                                    <p class="price">
+                                        <?php echo $value['tarif'] == 0 ? "Gratuit" : $value['tarif'] * $value['quantite'] ?>
+                                    </p>
                                 </div>
-                                <div class="time">
-                                    <p>à 11h30</p>
-                                </div>
-                            </div>
-                            <h4>Billet Adulte x2</h4>
-                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Totam quod quo odio dolorum porro, est rem, nulla veritatis cum officia voluptatibus? Maxime ullam nihil autem nemo velit, veniam ipsa vel.</p>
-                            <p class="price">Gratuit</p>
-                        </div>
-                        <div class="billet">
-                            <div class="timeDates">
-                                <div class="date">
-                                    <p>le 28 Mars 2024</p>
-                                </div>
-                                <div class="time">
-                                    <p>à 11h30</p>
-                                </div>
-                            </div>
-                            <h4>Billet Jeune x1</h4>
-                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Totam quod quo odio dolorum porro, est rem, nulla veritatis cum officia voluptatibus? Maxime ullam nihil autem nemo velit, veniam ipsa vel.</p>
-                            <p class="price">Gratuit</p>
-                        </div>
-                        <div class="billet">
-                            <div class="timeDates">
-                                <div class="date">
-                                    <p>le 28 Mars 2024</p>
-                                </div>
-                                <div class="time">
-                                    <p>à 11h30</p>
-                                </div>
-                            </div>
-                            <h4>Billet Jeune x1</h4>
-                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Totam quod quo odio dolorum porro, est rem, nulla veritatis cum officia voluptatibus? Maxime ullam nihil autem nemo velit, veniam ipsa vel.</p>
-                            <p class="price">Gratuit</p>
-                        </div>
+
+                            <?php }
+                        } ?>
+
+
                     </div>
                     <div class="place">
                         <h3>Localisation</h3>
@@ -105,9 +127,11 @@
                         </div>
                     </div>
                 </div>
-            </section>
-            
-        </main>
-        <?php include 'components/footer.php'; ?>
-    </body>
+            <?php } ?>
+        </section>
+
+    </main>
+    <?php include 'components/footer.php'; ?>
+</body>
+
 </html>
