@@ -5,6 +5,8 @@ const datepicker = new Datepicker(document.querySelector('div#date'), {
     maxDate: new Date('2024-04-28')
 });
 
+let step = 1;
+
 let hiddenInput = document.createElement('input');
 hiddenInput.type = 'hidden';
 hiddenInput.name = 'datePicker';
@@ -26,10 +28,17 @@ document.querySelectorAll("div.heure label").forEach(label => {
 document.querySelectorAll("button.confirmer").forEach(button => {
     button.addEventListener('click', function (event) {
         if (checkStep(event)) {
-            goToStep(this.getAttribute('data-goto'), this.getAttribute('data-from'));
+            goToStep(this.getAttribute('data-goto'));
         }
     });
 });
+
+document.querySelectorAll('.ariane button').forEach((element) =>
+    element.addEventListener('click', function () {
+        if (this.getAttribute('data-goto')<step) {
+            goToStep(this.getAttribute('data-goto'));
+        }
+    }));
 
 document.querySelector(".resumeButton").addEventListener('click', function (event) {
     updateResume();
@@ -37,7 +46,7 @@ document.querySelector(".resumeButton").addEventListener('click', function (even
 
 document.querySelectorAll("button.retour, button.edit").forEach(button => {
     button.addEventListener('click', function () {
-        goToStep(this.getAttribute('data-goto'), this.getAttribute('data-from'));
+        goToStep(this.getAttribute('data-goto'));
     });
 });
 
@@ -94,10 +103,28 @@ const checkStep = (event) => {
     }
 };
 
-const goToStep = (goto, from) => {
-    document.querySelector('#step' + from).style.display = 'none';
-    document.querySelector('#step' + goto).style.display = 'grid';
+const goToStep = (goto) => {
+    const oldStep = document.querySelector('div.current')
+    const newStep = document.querySelector('#step' + goto);
+    oldStep.style.display = 'none';
+    oldStep.classList.remove('current');
+    newStep.style.display = 'grid';
+    newStep.classList.add('current');
+    step = goto;
+
+    updateAriane();
 };
+
+const updateAriane = () => {
+    document.querySelector('.ariane .active').classList.remove('active');
+    document.querySelector('.ariane .step' + step).classList.add('active');
+    document.querySelectorAll('.ariane .etat').forEach((etat, i) => {
+        etat.classList.remove('past');
+        if (i < step - 1) {
+            etat.classList.add('past');
+        }
+    });
+}
 
 let date;
 const mois = ["Janvier", "Février", "Mars", "Avril", "Mai", "Juin", "Juillet", "Août", "Septembre", "Octobre", "Novembre", "Décembre"];
@@ -121,3 +148,17 @@ const updateResume = () => {
     document.querySelector('.nomResume').innerHTML = document.querySelector('input[name="nom"]').value;
     document.querySelector('.mailResume').innerHTML = document.querySelector('input[name="mail"]').value;
 };
+
+document.querySelectorAll('.ticket .info button').forEach(element => {
+    const input = document.querySelector('input#formule' + element.getAttribute('id').replace('minus', '').replace('plus', ''));
+    element.addEventListener('click', function (button) {
+        if (this.classList.contains('plus')) {
+            input.value++;
+        }
+        else {
+            if (input.value > 0) {
+                input.value--;
+            }
+        }
+    })
+});

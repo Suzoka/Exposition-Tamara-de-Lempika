@@ -81,16 +81,22 @@ h1 span {
     justify-content: center;
 }
 
-.etat:not(.active):hover {
+.etat.past:not(.active):hover {
     cursor: pointer;
 }
 
-.etat:hover p, .etat.active h3, .etat.active p {
+.etat:not(.past, .active):hover {
+    cursor: not-allowed;
+}
+
+.etat.past:hover p,
+.etat.active h3,
+.etat.active p {
     background-color: #21594F;
     color: #FFFFFF;
 }
 
-.etat:not(.active):hover h3{
+.etat.past:not(.active):hover h3 {
     background-color: #ECE9DE;
 }
 
@@ -108,7 +114,8 @@ h1 span {
     margin: 0;
 }
 
-.past h3, .past p {
+.past h3,
+.past p {
     background-color: #ECE9DE;
     color: #5E5E5E;
     border: none;
@@ -131,16 +138,16 @@ h1 span {
     margin: auto;
     background-color: #ECE9DE;
     border-radius: 10px;
-    box-shadow: 0px 0px 40px 11px rgba(0,0,0,0.409);
+    box-shadow: 0px 0px 40px 11px rgba(0, 0, 0, 0.409);
     -webkit-box-shadow: 0px 0px 40px 11px rgba(0, 0, 0, 0.409);
-    -moz-box-shadow: 0px 0px 40px 11px rgba(0,0,0,0.409);
-    cursor: default;
+    -moz-box-shadow: 0px 0px 40px 11px rgba(0, 0, 0, 0.409);
+    cursor: auto;
 }
 
 .popup h2 {
     font-family: 'Lucida', serif;
-    font-size: 1.5rem; 
-    text-align: center; 
+    font-size: 1.5rem;
+    text-align: center;
     margin-top: 60px;
     margin-bottom: 9vh;
 }
@@ -155,7 +162,7 @@ h1 span {
     font-family: 'Carambola', sans-serif;
     font-size: 2rem;
     color: #21594F;
-    text-decoration: none;  
+    text-decoration: none;
 }
 
 .popup a:hover {
@@ -196,33 +203,46 @@ form h3 {
 /* ---- STEP 1 ---- */
 #step1 {
     display: grid;
-    grid-template-columns: 1fr 1fr; 
-    grid-template-areas: 
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas:
         "Titre Titre"
-        "Calendar Hour"; 
+        "Calendar Hour";
 }
-.title {grid-area: Titre; line-height: 4rem;}
-.calendar { grid-area: Calendar; }
-.hour { grid-area: Hour; }
 
-        /* ---- Calendar ---- */
+.title {
+    grid-area: Titre;
+    line-height: 4rem;
+}
+
+.calendar {
+    grid-area: Calendar;
+}
+
+.hour {
+    grid-area: Hour;
+}
+
+/* ---- Calendar ---- */
 .calendar {
     display: flex;
     flex-direction: column;
     align-items: center;
 }
+
 .datepicker-picker {
-    background-color: #ECE9DE ;
+    background-color: #ECE9DE;
     padding: 20px;
     font-family: 'Carambola', sans-serif;
     border-radius: 15px;
 }
 
-span.dow{
+span.dow {
     text-transform: capitalize;
 }
 
-button.button.prev-button.prev-btn, button.button.view-switch, button.button.next-button.next-btn {
+button.button.prev-button.prev-btn,
+button.button.view-switch,
+button.button.next-button.next-btn {
     background-color: #ECE9DE;
     font-size: 1.3rem;
 }
@@ -257,7 +277,8 @@ button.button.view-switch {
     justify-content: space-between;
 }
 
-.datepicker-cell:not(.disabled):hover, .datepicker-cell.selected {
+.datepicker-cell:not(.disabled):hover,
+.datepicker-cell.selected {
     background-color: #21594F;
     color: #FFFFFF;
     cursor: pointer;
@@ -269,7 +290,7 @@ button.button.view-switch {
 }
 
 
-        /* ---- Hour ---- */    
+/* ---- Hour ---- */
 .hour {
     display: flex;
     flex-direction: column;
@@ -287,7 +308,7 @@ input[name="heure"] {
     display: none;
 }
 
-input[name="heure"] + label {
+input[name="heure"]+label {
     padding: 10px 20px;
     text-align: center;
     font-family: 'Carambola', sans-serif;
@@ -299,12 +320,12 @@ input[name="heure"] + label {
     border-radius: 30px;
 }
 
-input[name="heure"]:hover + label {
+input[name="heure"]:hover+label {
     background-color: #21594F;
     color: #fff;
 }
 
-input[name="heure"]:checked + label {
+input[name="heure"]:checked+label {
     background-color: #21594F;
     color: #fff;
 }
@@ -318,15 +339,27 @@ input[name="heure"]:checked + label {
 /* ---- STEP 2 ---- */
 #step2 {
     grid-template-rows: 100px 1fr;
-    grid-template-areas: 
+    grid-template-areas:
         "Titre"
         "Tickets"
         "Bouton";
     margin-bottom: 20px;
 }
-.title {grid-area: Titre; height: -webkit-fit-content; height: -moz-fit-content; height: fit-content;}
-.tickets { grid-area: Tickets; }
-.boutons { grid-area: Bouton; }
+
+.title {
+    grid-area: Titre;
+    height: -webkit-fit-content;
+    height: -moz-fit-content;
+    height: fit-content;
+}
+
+.tickets {
+    grid-area: Tickets;
+}
+
+.boutons {
+    grid-area: Bouton;
+}
 
 .tickets {
     width: 85%;
@@ -372,6 +405,7 @@ input[name="heure"]:checked + label {
     display: flex;
     align-items: center;
     justify-content: space-around;
+    cursor: pointer;
 }
 
 .quantity input {
@@ -386,13 +420,13 @@ input[name="heure"]:checked + label {
 /* hide controls number input  Chrome, Safari, Edge, Opera */
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
-  -webkit-appearance: none;
-  margin: 0;
+    -webkit-appearance: none;
+    margin: 0;
 }
 
 /* Firefox */
 input[type=number] {
-  -moz-appearance: textfield;
+    -moz-appearance: textfield;
 }
 
 p.ticket {
@@ -409,16 +443,28 @@ p.ticket {
 /* ---- STEP 3 ---- */
 #step3 {
     grid-template-rows: 140px 1fr;
-    grid-template-areas: 
+    grid-template-areas:
         "Titre"
         "Coordo"
         "Bouton";
     margin-bottom: 30px;
     min-height: 60vh;
 }
-.title {grid-area: Titre; height: -webkit-fit-content; height: -moz-fit-content; height: fit-content;}
-.coordo { grid-area: Coordo; }
-.boutons { grid-area: Bouton; }
+
+.title {
+    grid-area: Titre;
+    height: -webkit-fit-content;
+    height: -moz-fit-content;
+    height: fit-content;
+}
+
+.coordo {
+    grid-area: Coordo;
+}
+
+.boutons {
+    grid-area: Bouton;
+}
 
 .coordo {
     width: 85%;
@@ -428,20 +474,30 @@ p.ticket {
     border-radius: 15px;
     display: grid;
     grid-template-rows: 1fr 1fr;
-    grid-template-areas: 
+    grid-template-areas:
         "Firstname Name"
         "Mail Mail";
     gap: 15px;
 }
-.firstname { grid-area: Firstname; }
-.name { grid-area: Name; }
-.mail { grid-area: Mail;}
+
+.firstname {
+    grid-area: Firstname;
+}
+
+.name {
+    grid-area: Name;
+}
+
+.mail {
+    grid-area: Mail;
+}
 
 .coordo div {
     position: relative;
 }
 
-.firstname, .name {
+.firstname,
+.name {
     margin-top: 15px;
     margin-bottom: 20px;
 }
@@ -490,16 +546,28 @@ p.ticket {
 /* ---- STEP 4 ---- */
 #step4 {
     grid-template-columns: 1fr;
-    grid-template-areas: 
+    grid-template-areas:
         "Titre"
         "Coordo"
         "Bouton";
     margin-bottom: 30px;
     min-height: 60vh;
 }
-.title {grid-area: Titre; height: -webkit-fit-content; height: -moz-fit-content; height: fit-content;}
-.coordo { grid-area: Coordo; }
-.boutons { grid-area: Bouton; }
+
+.title {
+    grid-area: Titre;
+    height: -webkit-fit-content;
+    height: -moz-fit-content;
+    height: fit-content;
+}
+
+.coordo {
+    grid-area: Coordo;
+}
+
+.boutons {
+    grid-area: Bouton;
+}
 
 
 .resumes {
@@ -542,41 +610,51 @@ p.ticket {
 }
 
 
-            /* ---- Boutons ---- */      
+/* ---- Boutons ---- */
 
-            div.boutons {
-                display: flex;
-                justify-content: end;
-                align-items: center;
-                margin-top: 15px;
-                margin-bottom: 30px;
-                width: 100%;
-            }
-            
-            button, input[type="submit"] {
-                font-family: 'Carambola', sans-serif;
-                font-size: 1.1rem;
-                background-color: #000000;
-                color: #FFFFFF;
-                border: none;
-                border-radius: 10px;
-                padding: 10px 20px;
-            }
+div.boutons {
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    margin-top: 15px;
+    margin-bottom: 30px;
+    width: 100%;
+}
 
-            button.confirmer, button.retour, input[type="submit"] {
-                background-color: #FFFFFF;
-                color: #000000;
-                border: #000000 2px solid;
-            }
+button,
+input[type="submit"] {
+    font-family: 'Carambola', sans-serif;
+    font-size: 1.1rem;
+    background-color: #000000;
+    color: #FFFFFF;
+    border: none;
+    border-radius: 10px;
+    padding: 10px 20px;
+}
 
-            button.confirmer:hover, button.retour:hover, input[type="submit"]:hover {
-                background-color: #000000;
-                color: #FFFFFF;
-            }
-            
-            button.retour {
-                margin-right: auto;
-            }
+button.etat {
+    padding: 10px 10px;
+    margin: 0 5px;
+}
+
+button.confirmer,
+button.retour,
+input[type="submit"] {
+    background-color: #FFFFFF;
+    color: #000000;
+    border: #000000 2px solid;
+}
+
+button.confirmer:hover,
+button.retour:hover,
+input[type="submit"]:hover {
+    background-color: #000000;
+    color: #FFFFFF;
+}
+
+button.retour {
+    margin-right: auto;
+}
 
 
 .notLoged {
@@ -598,5 +676,4 @@ p.ticket {
 
 .notLoged .ariane {
     margin-top: 0;
-}
 }
