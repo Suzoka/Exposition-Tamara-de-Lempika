@@ -35,7 +35,7 @@ document.querySelectorAll("button.confirmer").forEach(button => {
 
 document.querySelectorAll('.ariane button').forEach((element) =>
     element.addEventListener('click', function () {
-        if (this.getAttribute('data-goto')<step) {
+        if (this.getAttribute('data-goto') < step) {
             goToStep(this.getAttribute('data-goto'));
         }
     }));
@@ -65,42 +65,44 @@ formules.forEach(input => {
 
 const checkStep = (event) => {
     let step = event.target.parentElement.parentElement.getAttribute('id');
+    let okay = true;
     switch (step) {
         case "step1":
             if (hiddenInput.value === "") {
-                alert("Veuillez choisir une date");
-                return false;
+                document.getElementById('errorDate').classList.remove('hidden');
+                okay = false;
             }
             if (document.querySelector('input[name="heure"]:checked') === null) {
-                alert("Veuillez choisir une heure");
-                return false;
+                document.getElementById('errorHeure').classList.remove('hidden');
+                okay = false;
             }
-            return true;
+            break;
         case "step2":
             let cumul = 0;
             formules.forEach(input => {
                 cumul += parseInt(input.value);
             });
             if (cumul === 0) {
-                alert("Veuillez choisir au moins une formule");
-                return false;
+                document.getElementById('errorFormule').classList.remove('hidden');
+                okay = false;
             }
-            return true;
+            break;
         case "step3":
             if (document.querySelector('input[name="prenom"]').validity.valid == false) {
-                alert("Veuillez renseigner votre prénom");
-                return false;
+                document.getElementById('errorPrenom').classList.remove('hidden');
+                okay = false;
             }
             if (document.querySelector('input[name="nom"]').validity.valid == false) {
-                alert("Veuillez renseigner votre nom");
-                return false;
+                document.getElementById('errorNom').classList.remove('hidden');
+                okay = false;
             }
             if (document.querySelector('input[name="mail"]').validity.valid == false) {
-                alert("Veuillez renseigner un mail valide");
-                return false;
+                document.getElementById('errorMail').classList.remove('hidden');
+                okay = false;
             }
-            return true;
+            break;
     }
+    return okay;
 };
 
 const goToStep = (goto) => {
@@ -111,6 +113,8 @@ const goToStep = (goto) => {
     newStep.style.display = 'grid';
     newStep.classList.add('current');
     step = goto;
+
+    document.querySelectorAll('.error:not(.hidden)').forEach(error => error.classList.add('hidden'));
 
     updateAriane();
 };

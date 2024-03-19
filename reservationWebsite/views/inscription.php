@@ -20,6 +20,9 @@
                 <div class="relative">
                     <label for="login"><span class="required">*</span> Login</label><input type="text" name="login"
                         id="login" required>
+                    <?php if (isset ($_GET['error'])) {
+                        echo "<p class=\"error\">Ce nom d'utilisateur est déjà utilisé</p>";
+                    } ?>
                 </div>
                 <div class="relative">
                     <label for="password"><span class="required">*</span> Mot de passe</label><input type="password"
@@ -28,6 +31,7 @@
                 <div class="relative">
                     <label for="passwordCheck"><span class="required">*</span> Vérifier le mot de passe</label><input
                         type="password" name="passwordCheck" id="passwordCheck" required>
+                        <p class="error hidden">Veillez rentrer deux mot de passe identiques</p>
                 </div>
                 <div class="relative">
                     <label for="mail"><span class="required">*</span> Adresse mail</label><input type="email"
@@ -48,7 +52,7 @@
     </main>
     <?php include './views/components/footer.php'; ?>
 
-    <script src="../scripts/formulaire.js" type="module"></script>
+    <script src="../scripts/inscription.js" type="module"></script>
 </body>
 
 </html>

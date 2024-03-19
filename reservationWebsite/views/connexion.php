@@ -25,6 +25,9 @@
                     <label for="password"><span class="required">*</span> Mot de passe</label><input type="password"
                         name="password" id="password" required>
                 </div>
+                <?php if(isset($_GET['error'])) {
+                    echo "<p class=\"error\">Login ou mot de passe incorrect</p>";
+                } ?>
                     <a href="./lostPassword">Mot de passe oublié ?</a>
                     <a href="./inscription" class="signUp">Créer un compte</a>
             </div>

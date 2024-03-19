@@ -58,6 +58,7 @@
                         <div class="calendar">
                             <h3>Choisissez la date de votre visite</h3>
                             <div id="date"></div>
+                            <p class="error hidden" id="errorDate">Veillez renseigner une date</p>
                         </div>
                         <div class="hour">
                             <h3>Choisissez votre horaire</h3>
@@ -93,6 +94,7 @@
                                 <input type="radio" name="heure" value="17:30:00" id="h1730"> <label for="h1730"
                                     tabindex="0">17h30</label>
                             </div>
+                            <p class="error hidden" id="errorHeure">Veillez renseigner une heure</p>
                         </div>
                         <div class="boutons"><button type="button" class="confirmer" data-goto="2">Suivant</button>
                         </div>
@@ -126,6 +128,7 @@
                                     </p>
                                 </div>
                             <?php } ?>
+                            <p class="error hidden" id="errorFormule">Veillez choisir au moins une formule</p>
                         </div>
                         <div class="boutons">
                             <button class="retour" type="button" data-goto="1">Retour</button>
@@ -139,16 +142,19 @@
                                 <label for="prenom"><img src="../img/icons/profil.svg" alt=""> Prénom</label>
                                 <input type="text" name="prenom" id="prenom" required
                                     value="<?php echo $_SESSION["user"]->getPrenom() ?>">
+                                    <p class="error hidden" id="errorPrenom">Veillez renseigner votre prénom</p>
                             </div>
                             <div class="name">
                                 <label for="nom"><img src="../img/icons/profil.svg" alt=""> Nom</label>
                                 <input type="text" name="nom" id="nom" required
                                     value="<?php echo $_SESSION["user"]->getNom() ?>">
+                                    <p class="error hidden" id="errorNom">Veillez renseigner votre nom</p>
                             </div>
                             <div class="mail">
                                 <label for="mail"><img src="../img/icons/mail.svg" alt=""> Adresse mail</label>
                                 <input type="email" name="mail" id="mail" required
                                     value="<?php echo $_SESSION["user"]->getMail() ?>">
+                                    <p class="error hidden" id="errorMail">Veillez renseigner un mail</p>
                             </div>
                         </div>
                         <div class="boutons">
