@@ -61,8 +61,10 @@ header nav {
 }
 
 .menu-user {
-    text-align: right;
-    margin-right: 40px;
+    margin-right: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
 }
 
 #compte img {
@@ -86,8 +88,16 @@ header nav {
     display: none;;
 }
 
+.language {
+    width: 30px;
+}
+
+.langInactive {
+    display: none;
+}
+
     /* ---- HEADER RESPONSIVE ---- */
-    @media (max-width: 849px) {
+    @media (max-width: 899px) {
         header nav {
             grid-template-columns: 15% 1fr 10%;
             grid-template-areas: 
@@ -107,6 +117,10 @@ header nav {
 
             background-color: #000000;
             border: none;
+            width: -webkit-fit-content;
+            width: -moz-fit-content;
+            width: fit-content;
+            padding: 10px;
         }
 
         .burger img {
@@ -160,7 +174,7 @@ header nav {
 
     @media (max-width: 449px) {
         header nav {
-            grid-template-columns: 15% 1fr 15%;
+            grid-template-columns: 15% 1fr 12%;
         }
         .menu a {
             width: 63vw;
@@ -170,6 +184,11 @@ header nav {
         .menu a img{
             width: 6vw;
             height: 6vw;
+        }
+
+        .menu-user a {
+            padding: 7px;
+            font-size: 0.9rem;
         }
     }
 
