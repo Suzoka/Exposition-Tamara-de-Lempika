@@ -24,12 +24,27 @@
             <div class="imgBanniere">
                 <img id="tamaraPaint" src="../img/TamaraPaint.png" alt="">
             </div>
-            <a href="#teaser" class="scroll">
+            <a href="#teaser" class="scroll" id="teaser">
                 <img src="../img/icons/scroll.svg" alt="scroll">
             </a>
         </section>
 
-        <section class="teaser" id="teaser">
+        <section class="tamara">
+            <h2>Tamara de Lempicka</h2>
+            <div class="contentTamara">
+                <p class="t1">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                <br>reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id  
+                </p>
+                <img class="imgBig" src="../img/tamaraAccueil2.png" alt="Peinture d'une femme en tunique rouge de Tamara">
+                <img class="imgSmall s1" src="../img/tamara.png" alt="Photo de Tamara">
+                <img class="imgSmall s2" src="../img/tamaraAccueil.png" alt="Autoportrait de Tamara dans une Bugatti verte">
+                <p class="t2">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. 
+                <br>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sin velit esse cillum dolore eu 
+                </p>
+            </div>
+        </section>
+
+        <section class="teaser">
             <h2>Teaser</h2>
             <div class="contentTeaser">
                 <div class="iframeResponsive">
