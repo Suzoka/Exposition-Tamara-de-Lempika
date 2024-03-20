@@ -51,7 +51,7 @@ h1 {
 
 .imgBanniere img {
     position: relative;
-    top: 8.5%;
+    top: 11%;
 }
 
 .scroll {
@@ -61,7 +61,7 @@ h1 {
     width: 50px;
     height: 50px;
     rotate: 90deg;
-    z-index: 1;
+    z-index: 3;
     background-color: #000000;
     border-radius: 50%;
 }
@@ -253,37 +253,12 @@ h1 {
     justify-content: space-between;
 }
 
-.infoTeaser, #reservation {
-    display: flex;
-    color: white;
-    padding: 0 13px;
-    width: -webkit-fit-content;
-    width: -moz-fit-content;
-    width: fit-content;
-    border-radius: 10px;
-}
-
-.infoTeaser img, #reservation img {
-    margin-right: 10px;
-}
-
-.infoTeaser p, #reservation p {
-    margin-top: 13px;
-    margin-bottom: 13px;
-}
-
 .infoTeaser {
     background-color: #21594F;
     display: flex;
     align-items: center;
 }
 
-#reservation {
-    background-color: #000000;
-    text-decoration: none;
-    font-family: 'Carambola', sans-serif;
-    float: right;
-}
 
     /* ---- TEASER RESPONSIVE ---- */
     @media (max-width: 600px) {

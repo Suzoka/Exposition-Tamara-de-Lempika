@@ -15,7 +15,7 @@ h2 {
     font-size: 2.25rem;
 }
 
-img#compte  {
+img#compte {
     width: 20%;
     border-radius: 50%;
     border: 5px solid #000000;
@@ -56,63 +56,62 @@ img#compte  {
     color: #FFFFFF;
 }
 
-    /* ---- RESPONSIVE ---- */
-    @media (max-width: 675px) {
-        h1 {
-            font-size: 2.8rem;
-        }
-        
-        .boutons {
-            width: 70vw;
-        }
-
-        img#compte {
-            width: 30%;
-        }
+/* ---- RESPONSIVE ---- */
+@media (max-width: 675px) {
+    h1 {
+        font-size: 2.8rem;
     }
 
-    @media (max-width: 575px) {
-        .boutons {
-            border: none;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            gap: 10px;
-        }
-
-        .boutons a {
-            border-bottom: 2px solid #000000;
-            border-radius: 5px;
-            text-align: center;
-            padding: 10px 20px;
-            width: 42vw; 
-            font-size: 1rem;
-        }
+    .boutons {
+        width: 70vw;
     }
 
-    @media (max-width: 399px) {
-        h1 {
-            font-size: 2.5rem;
-        }
+    img#compte {
+        width: 30%;
+    }
+}
 
-        h2 {
-            font-size: 2rem;
-        }
-
-        img#compte {
-            width: 40%;
-        }  
+@media (max-width: 575px) {
+    .boutons {
+        border: none;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
     }
 
-    @media (max-width: 299px) {
-        .boutons a {
-            width: 50vw;
-        }
+    .boutons a {
+        border-bottom: 2px solid #000000;
+        border-radius: 5px;
+        text-align: center;
+        padding: 10px 20px;
+        width: 42vw;
+        font-size: 1rem;
     }
+}
+
+@media (max-width: 399px) {
+    h1 {
+        font-size: 2.5rem;
+    }
+
+    h2 {
+        font-size: 2rem;
+    }
+
+    img#compte {
+        width: 40%;
+    }
+}
+
+@media (max-width: 299px) {
+    .boutons a {
+        width: 50vw;
+    }
+}
 
 /* ---- INFORMATIONS ---- */
 .infos {
-    display: none;
     margin-top: 35px;
     margin-bottom: 35px;
     background-color: #ECE9DE;
@@ -133,28 +132,32 @@ img#compte  {
     align-items: center;
 }
 
-.reservations h3, .place h3{
+.reservations h3,
+.place h3 {
     text-align: center;
     font-family: 'Carambola', sans-serif;
     font-size: 1.75rem;
     margin-bottom: 40px;
 }
 
-    @media (max-width: 599px) {
-        .reservations, .place {
-            margin-top: 10px;
-        }
-        .reservations h3 {
-            width: 80vw;
-            line-height: 40px;
-        }
+@media (max-width: 599px) {
+
+    .reservations,
+    .place {
+        margin-top: 10px;
     }
 
-    @media (max-width: 399px) {
-        .reservations h3 {
-            font-size: 1.5rem;
-        }
+    .reservations h3 {
+        width: 80vw;
+        line-height: 40px;
     }
+}
+
+@media (max-width: 399px) {
+    .reservations h3 {
+        font-size: 1.5rem;
+    }
+}
 
 .billets {
     display: flex;
@@ -172,6 +175,16 @@ img#compte  {
     margin-bottom: 20px;
 }
 
+.billets>p {
+    width: 100%;
+    text-align: center;
+}
+
+.billets>a {
+    margin-right: auto;
+    margin-left: auto;
+}
+
 .timeDates {
     display: flex;
     flex-direction: row;
@@ -179,7 +192,8 @@ img#compte  {
     margin-bottom: 25px;
 }
 
-.date, .time {
+.date,
+.time {
     background-color: #21594F;
     display: flex;
     color: white;
@@ -191,7 +205,8 @@ img#compte  {
     font-family: 'Carambola', sans-serif;
 }
 
-.date p, .time p {
+.date p,
+.time p {
     margin-top: 10px;
     margin-bottom: 10px;
 }
@@ -221,34 +236,34 @@ p.price {
     margin-top: 10px;
 }
 
-    /* ---- BILLETS RESPONSIVE ---- */
-        @media (max-width: 899px) {
-            .billets {
-                flex-direction: column;
-                align-items: center;
-            }
+/* ---- BILLETS RESPONSIVE ---- */
+@media (max-width: 899px) {
+    .billets {
+        flex-direction: column;
+        align-items: center;
+    }
 
-            .billet {
-                width: 50vw;
-            }
-        }
+    .billet {
+        width: 50vw;
+    }
+}
 
-        @media (max-width: 549px) {
-            .billet {
-                width: 70vw;
-            }
-        }
+@media (max-width: 549px) {
+    .billet {
+        width: 70vw;
+    }
+}
 
-        @media (max-width: 389px) {
-            .timeDates {
-                flex-direction: column;
-                gap: 5px;
-            }
+@media (max-width: 389px) {
+    .timeDates {
+        flex-direction: column;
+        gap: 5px;
+    }
 
-            h4 {
-                font-size: 1.25rem;
-            }
-        }
+    h4 {
+        font-size: 1.25rem;
+    }
+}
 
 
 /* ---- LOCALISATION ---- */
@@ -256,6 +271,7 @@ p.price {
     margin-top: 20px;
     margin-bottom: 50px;
 }
+
 .place h3 {
     margin-top: 40px;
     margin-bottom: 25px;
@@ -272,6 +288,7 @@ p.price {
     flex-direction: column;
     align-items: center;
 }
+
 .infoAccess img {
     width: 35%;
 }
@@ -296,42 +313,42 @@ p.price {
     text-align: center;
 }
 
-    /* ---- LOCALISATION RESPONSIVE ---- */
-    @media (max-width: 899px) {
-        .infosAccess {
-            grid-template-columns: repeat(2, 1fr);
-        }
-
-        .infoAccess ul {
-            width: 35vw;
-            height: 15vw;
-        }
-
-        .infoAccess img {
-            width: 25%;
-        }
+/* ---- LOCALISATION RESPONSIVE ---- */
+@media (max-width: 899px) {
+    .infosAccess {
+        grid-template-columns: repeat(2, 1fr);
     }
 
-    @media (max-width: 535px) {
-        .infoAccess ul {
-            width: 36vw;
-            height: 22vw;
-            padding: 10px 10px;
-        }
-
-        .infoAccess img {
-            width: 25%;
-        }
+    .infoAccess ul {
+        width: 35vw;
+        height: 15vw;
     }
 
-    @media (max-width: 415px) {
-        .infosAccess {
-            grid-template-columns: repeat(1, 1fr);
-        }
-        
-        .infoAccess ul {
-            width: 70vw;
-            height: 30vw;
-            padding: 10px 10px;
-        }
+    .infoAccess img {
+        width: 25%;
     }
+}
+
+@media (max-width: 535px) {
+    .infoAccess ul {
+        width: 36vw;
+        height: 22vw;
+        padding: 10px 10px;
+    }
+
+    .infoAccess img {
+        width: 25%;
+    }
+}
+
+@media (max-width: 415px) {
+    .infosAccess {
+        grid-template-columns: repeat(1, 1fr);
+    }
+
+    .infoAccess ul {
+        width: 70vw;
+        height: 30vw;
+        padding: 10px 10px;
+    }
+}

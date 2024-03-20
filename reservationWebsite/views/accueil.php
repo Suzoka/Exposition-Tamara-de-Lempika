@@ -55,7 +55,7 @@
                         exposition interactive unique, vous aurez la chance de vous inviter dans l’univers de Tamara et
                         de découvrir les tableaux d’une toute nouvelle manière.
                     </p>
-                    <a id="reservation" href="">
+                    <a id="reservation" href="./billetterie">
                         <img src="../img/icons/ticket.svg" alt="">
                         <p>Réserver</p>
                     </a>
