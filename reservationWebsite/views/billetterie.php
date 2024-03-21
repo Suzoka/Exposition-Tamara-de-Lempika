@@ -21,9 +21,9 @@
                 <img src="../img/icons/scroll.svg" alt="scroll">
             </a>
         </section>
-        <section <?php //if (!isset ($_SESSION['user'])) {
-            //echo 'class="notLoged"';
-        //} ?>>
+        <section <?php if (!isset ($_SESSION['user'])) {
+            echo 'class="notLoged"';
+        } ?>>
             <div class="ariane" id="ariane">
                 <button class="etat step1 active" data-goto="1">
                     <p>1</p>
@@ -43,7 +43,7 @@
                 </button>
             </div>
             <div class="etape">
-                <!--<?php //if (!isset ($_SESSION['user'])) { ?>
+                <?php if (!isset ($_SESSION['user'])) { ?>
                     <div class="popup">
                         <h2>Connectez-vous ou inscrivez-vous pour commander</h2>
                         <div class="link">
@@ -51,7 +51,7 @@
                             <a href="./inscription">Inscription</a>
                         </div>
                     </div>
-                <?php //} ?>-->
+                <?php } ?>
                 <form action="./test.php" method="post">
                     <div id="step1" class="current">
                         <h2 class="title"><span>1</span>Etape 1 : Sélection de l’heure et la date </h2>

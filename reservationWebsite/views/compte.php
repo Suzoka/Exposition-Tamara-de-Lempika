@@ -56,7 +56,12 @@
                             <p>Adresse mail :
                                 <?php echo $_SESSION['user']->getMail() ?>
                             </p>
-                            <a class="edit" href="./compte?page=edit"><img src="../img/icons/edit.svg" alt="">Modifier mes
+                            <a class="edit" href="./compte?page=edit">
+                                <img class="noHover" src="../img/icons/editG.svg"
+                                            alt="">
+                                <img class="Hover" src="../img/icons/editW.svg"
+                                            alt="">
+                                Modifier mes
                         informations</a>
                         <?php } else { ?>
                             <form action="./editCompteInfos" method="POST">
