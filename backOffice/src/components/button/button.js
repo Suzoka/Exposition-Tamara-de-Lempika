@@ -1,6 +1,6 @@
 import './button.css';
 
-export const Button = ({ children, icon, format, action, idElement, title, classe }) => {
+export const Button = ({ children, icon, format, action, title, classe }) => {
 
     const className = `button__container ${
         format === 'icon' ? 'button__container--icon' 
@@ -15,7 +15,7 @@ export const Button = ({ children, icon, format, action, idElement, title, class
     }`;
 
     return (
-        <button title={title} onClick={() => action(idElement)} className={className}>
+        <button title={title} onClick={() => action()} className={className}>
             {children}
         </button>
     );

@@ -98,13 +98,13 @@ const Table_object = ({ liste, variant, DelModViewResa }) => {
                     {/* Action */}
                     {variant === 'modification' && (
                         <td className={classesTable_object['table__cellule--action']}>
-                            < Button variant="primary" title="Modifier" idElement={liste.id_ticket} action={DelModViewResa['modifyResa']}>Modifier</Button>
+                            < Button variant="primary" title="Modifier" action={() => DelModViewResa['modifyResa'](liste.id_ticket, "reservation")}>Modifier</Button>
 
-                            < Button format="icon" title="Suprimer" icon="trash" idElement={liste.id_ticket} action={DelModViewResa['deleteResa']}>
+                            < Button format="icon" title="Suprimer" icon="trash" action={() => DelModViewResa['deleteResa'](liste.id_ticket, "reservation")}>
                                 <span className='icon_alt'>Supprimer</span>
                             </Button>
 
-                            < Button format="icon" title="Voir" icon="eye" idElement={liste.id_ticket} action={DelModViewResa['viewResa']}>
+                            < Button format="icon" title="Voir" icon="eye" action={() => DelModViewResa['viewResa'](liste.id_ticket, "reservation")}>
                                 <span className='icon_alt'>Voir</span>
                             </Button>
                         </td>
@@ -136,13 +136,13 @@ const Table_object = ({ liste, variant, DelModViewResa }) => {
 
                     {/* Action */}
                     <td className={classesTable_object['table__cellule--action']}>
-                        < Button variant="primary" title="Modifier" idElement={liste.id_ticket} action={DelModViewResa['modifyResa']}>Modifier</Button>
+                        < Button variant="primary" title="Modifier" action={() => DelModViewResa['modifyResa'](liste.id_user, "user")}>Modifier</Button>
 
-                        < Button format="icon" title="Suprimer" icon="trash" idElement={liste.id_ticket} action={DelModViewResa['deleteResa']}>
+                        < Button format="icon" title="Suprimer" icon="trash" action={() => DelModViewResa['deleteResa'](liste.id_user, "user")}>
                             <span className='icon_alt'>Supprimer</span>
                         </Button>
 
-                        < Button format="icon" title="Voir" icon="eye" idElement={liste.id_ticket} action={DelModViewResa['viewResa']}>
+                        < Button format="icon" title="Voir" icon="eye" action={() => DelModViewResa['viewResa'](liste.id_user, "user")}>
                             <span className='icon_alt'>Voir</span>
                         </Button>
                     </td>
