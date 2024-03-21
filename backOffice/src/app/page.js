@@ -47,32 +47,37 @@ export default function Home() {
     setPopupClosed(true);
   }
 
-  const deleteResa = (id) => {
-    console.log('Suppresion de la réservation n°', id);
+  const deleteResa = (id, type) => {
 
-    fetch(`https://api.sinyart.fr/reservations/${id}`, {
-      method: 'DELETE',
-      headers: {
-        'Authorization': user.token
-      }
-    })
-      .then(response => response.json())
-      .then(data => {
-        console.log(data)
-        //data contient le message de confirmation
+    if (type === 'reservation') {
+      console.log('Suppresion de la réservation n°', id);
+
+      fetch(`https://api.sinyart.fr/reservations/${id}`, {
+        method: 'DELETE',
+        headers: {
+          'Authorization': user.token
+        }
       })
-      .catch((error) => {
-        console.error('Error:', error);
-      });
+        .then(response => response.json())
+        .then(data => {
+          console.log(data)
+          //data contient le message de confirmation
+        })
+        .catch((error) => {
+          console.error('Error:', error);
+        });
+      setModificationFlag(modificationFlag + 1);
 
-    setModificationFlag(modificationFlag + 1);
+    } else if (type === 'user') {
+      console.log('Suppresion de l\'utilisateur n°', id);
+    }
   }
 
-  const modifyResa = (id) => {
+  const modifyResa = (id, type) => {
     console.log('Modification de la réservation n°', id);
   }
 
-  const viewResa = (id) => {
+  const viewResa = (id, type) => {
     console.log('Visualisation de la réservation n°', id);
     const reservation = reservationData.find(resa => resa.id_ticket == id);
     console.log('Données réservation', reservation);
@@ -186,7 +191,7 @@ export default function Home() {
 
         < Section id="stat" nom="Statistiques" type="stat" donnee={loadReservation ? (reservationData) : (reservation)} />
         < Section id="resa" nom="Réservations" donnee={loadReservation ? (reservationData) : (reservation)} type="table" contentSearch="Rechercher une reservation..." DelModViewResa={DelModViewResa} modification />
-        < Section id="user" utilisateur nom="Utilisateurs" donnee={loadUserList ? (userList) : (reservation)} type="table" contentSearch="Rechercher un utilisateur..." DelModViewResa='' />
+        < Section id="user" utilisateur nom="Utilisateurs" donnee={loadUserList ? (userList) : (reservation)} type="table" contentSearch="Rechercher un utilisateur..." DelModViewResa={DelModViewResa} />
         < Section id="arch" nom="Archives" donnee={loadArchived ? (archivedData) : (reservation)} type="table" contentSearch="Rechercher une reservation archivé..." DelModViewResa='' />
         < Pop_up data={popupDonnee != null ? popupDonnee : ''} close={popupClosed} closeAction={closePopUp} />
       </main>
