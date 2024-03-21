@@ -70,6 +70,21 @@ export default function Home() {
 
     } else if (type === 'user') {
       console.log('Suppresion de l\'utilisateur n°', id);
+
+      fetch(`https://api.sinyart.fr/users/${id}`, {
+        method: 'DELETE',
+        headers: {
+          'Authorization': user.token
+        }
+      })
+        .then(response => response.json())
+        .then(data => {
+          console.log(data)
+          //data contient le message de confirmation
+        })
+        .catch((error) => {
+          console.error('Error:', error);
+        });
     }
   }
 
@@ -101,6 +116,9 @@ export default function Home() {
 
   useEffect(() => {
     const fetchReservation = async () => {
+
+      console.log('--- Chargement des données réservations...');
+
       await fetch('https://api.sinyart.fr/reservations', {
         method: 'GET',
         headers: {
@@ -113,7 +131,7 @@ export default function Home() {
           setReservation(data);
           setLoadReservation(true);
           // console.log('reservation', reservationData);
-          console.log('Données réservations chargées')
+          console.log('--- Données réservations chargées')
 
         }).catch((error) => {
           console.error('Error:', error);
@@ -122,7 +140,10 @@ export default function Home() {
     };
 
     const fetchArchived = async () => {
-      fetch("https://api.sinyart.fr/archives", {
+
+      console.log('--- Chargement des données archives...');
+
+      await fetch("https://api.sinyart.fr/archives", {
         method: 'GET',
         headers: {
           'Authorization': user.token
@@ -135,7 +156,7 @@ export default function Home() {
           setArchived(data);
           setLoadArchived(true);
           // console.log('archives', archivedData);
-          console.log('Données archives chargées')
+          console.log('--- Données archives chargées')
 
 
         })
@@ -145,7 +166,10 @@ export default function Home() {
     };
 
     const fetchUser = async () => {
-      fetch("https://api.sinyart.fr/users", {
+
+      console.log('--- Chargement des données utilisateurs...');
+
+      await fetch("https://api.sinyart.fr/users", {
         method: 'GET',
         headers: {
           'Authorization': user.token
@@ -156,7 +180,7 @@ export default function Home() {
           console.log('données utilisateurs', data);
           setUserList(data);
           setLoadUserList(true);
-          console.log('Données utilisateurs chargées')
+          console.log('--- Données utilisateurs chargées')
         })
         .catch((error) => {
           console.error('Error:', error);
@@ -171,6 +195,7 @@ export default function Home() {
   useEffect(() => {
     if (loadReservation && loadArchived && loadUserList) {
       setLoadEnd(true);
+      console.log('--- Chargement terminé');
     }
   }, [loadReservation, loadArchived, loadUserList]);
 
