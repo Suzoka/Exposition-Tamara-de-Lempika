@@ -21,29 +21,29 @@
                 <img src="../img/icons/scroll.svg" alt="scroll">
             </a>
         </section>
-        <section <?php if (!isset ($_SESSION['user'])) {
-            echo 'class="notLoged"';
-        } ?>>
+        <section <?php //if (!isset ($_SESSION['user'])) {
+            //echo 'class="notLoged"';
+        //} ?>>
             <div class="ariane" id="ariane">
                 <button class="etat step1 active" data-goto="1">
-                    <h3>1</h3>
-                    <p>Etape 1 : Heure et date</p>
+                    <p>1</p>
+                    <h3>Etape 1 : Heure et date</h3>
                 </button>
                 <button class="etat step2" data-goto="2">
-                    <h3>2</h3>
-                    <p>Etape 2 : Les formules</p>
+                    <p>2</p>
+                    <h3>Etape 2 : Les formules</h3>
                 </button>
                 <button class="etat step3" data-goto="3">
-                    <h3>3</h3>
-                    <p>Etape 3 : Coordonnées</p>
+                    <p>3</p>
+                    <h3>Etape 3 : Coordonnées</h3>
                 </button>
                 <button class="etat step4" data-goto="4">
-                    <h3>4</h3>
-                    <p>Etape 4 : Confirmation</p>
+                    <p>4</p>
+                    <h3>Etape 4 : Confirmation</h3>
                 </button>
             </div>
             <div class="etape">
-                <?php if (!isset ($_SESSION['user'])) { ?>
+                <!--<?php //if (!isset ($_SESSION['user'])) { ?>
                     <div class="popup">
                         <h2>Connectez-vous ou inscrivez-vous pour commander</h2>
                         <div class="link">
@@ -51,7 +51,7 @@
                             <a href="./inscription">Inscription</a>
                         </div>
                     </div>
-                <?php } ?>
+                <?php //} ?>-->
                 <form action="./test.php" method="post">
                     <div id="step1" class="current">
                         <h2 class="title"><span>1</span>Etape 1 : Sélection de l’heure et la date </h2>
@@ -125,6 +125,7 @@
                                     </div>
                                     <p class="description">
                                         <?php echo $value->getExplication_formule() ?>
+                                        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Saepe atque minima ipsa deleniti possimus! Asperiores error, soluta est ab saepe maxime quisquam iste dignissimos ut illo ipsum, tempora excepturi incidunt.
                                     </p>
                                 </div>
                             <?php } ?>
@@ -169,11 +170,21 @@
                             <div class="resume">
                                 <div class="resumeChamp">
                                     <p>Date : <span class="dateResume"></span></p>
-                                    <button type="button" data-goto="1" class="edit"><img src="../img/icons/edit.svg"
-                                            alt="">modifier</button>
+                                    <button id="buttonDate" type="button" data-goto="1" class="edit">
+                                        <img class="noHover" src="../img/icons/editG.svg"
+                                            alt="">
+                                        <img class="Hover" src="../img/icons/editW.svg"
+                                            alt="">
+                                        modifier</button>
                                 </div>
                                 <div class="resumeChamp">
                                     <p>Heure : <span class="heureResume"></span></p>
+                                    <button id="buttonHour" type="button" data-goto="3" class="edit">
+                                        <img class="noHover" src="../img/icons/editG.svg"
+                                            alt="">
+                                        <img class="Hover" src="../img/icons/editW.svg"
+                                            alt="">
+                                        modifier</button>
                                 </div>
                             </div>
 
@@ -181,25 +192,39 @@
                             <div class="formulesResume">
                                 <ul class="formuleResumeDynamique">
                                 </ul>
-                                <button type="button" data-goto="2" class="edit"><img src="../img/icons/edit.svg"
-                                        alt="">modifier</button>
+                                <button type="button" data-goto="2" class="edit">
+                                    <img class="noHover" src="../img/icons/editG.svg"
+                                            alt="">
+                                    <img class="Hover" src="../img/icons/editW.svg"
+                                            alt="">
+                                    modifier</button>
                             </div>
 
 
                             <h3>Vos coordonnées</h3>
-                            <div class="resume">
-                                <div class="resumeChamp">
+                            <div class="resume coordoResume">
+                                <div class="resumeChamp rCp">
                                     <p>Prénom : <span class="prenomResume"></span></p>
-                                    <button type="button" data-goto="3" class="edit"><img src="../img/icons/edit.svg"
-                                            alt="">modifier</button>
+                                    <button id="buttonName" type="button" data-goto="3" class="edit">
+                                        <img class="noHover" src="../img/icons/editG.svg"
+                                            alt="">
+                                        <img class="Hover" src="../img/icons/editW.svg"
+                                            alt="">
+                                        modifier</button>
                                 </div>
 
-                                <div class="resumeChamp">
+                                <div class="resumeChamp rCn">
                                     <p>Nom : <span class="nomResume"></span></p>
                                 </div>
 
-                                <div class="resumeChamp">
+                                <div class="resumeChamp rCm">
                                     <p>Adresse mail : <span class="mailResume"></span></p>
+                                    <button id="buttonMail" type="button" data-goto="3" class="edit">
+                                        <img class="noHover" src="../img/icons/editG.svg"
+                                            alt="">
+                                        <img class="Hover" src="../img/icons/editW.svg"
+                                            alt="">
+                                        modifier</button>
                                 </div>
                             </div>
                         </div>
