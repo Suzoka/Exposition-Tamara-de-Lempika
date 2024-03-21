@@ -11,7 +11,7 @@ import { Pop_up } from '@/components/pop_up/pop_up';
 console.log('---------');
 
 const user = {
-  'token': 'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJsb2dpbiI6InN1em9rYSIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTcxMDgzNjU5NCwiZXhwIjoxNzEwOTIyOTk0fQ.aVogAbbGk65vXeyxtrUItWyJv9T2RfvAilPE_GaLpvM'
+  'token': 'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJsb2dpbiI6InN1em9rYSIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTcxMTAyODYzNCwiZXhwIjoxNzExMTE1MDM0fQ.HoYSWn7CfrxC5PvB-qkGXYOhf48bxDYtpwEV630H3eg'
 };
 
 // fetch("https://api.sinyart.fr/adminLogin", {
