@@ -3,15 +3,59 @@
 }
 
 .pop_up__container--open {
-    display: block;
+    display: grid;
+    grid-template-columns: 5fr 4fr;
+
     position: fixed;
     transform: translate(-50%, -50%);
     top: 50vh;
     left: 50vw;
     background-color: #fff;
     border: 1px solid var(--light-grey);
-    border-radius: 10px;
-    width: 50vw;
-    height: 60vh;
+    border-radius: 30px;
+    width: 800px;
+    height: 400px;
     z-index: 200;
+
+    overflow: hidden;
+}
+
+.pop_up__content {
+    padding: 20px;
+}
+
+.pop_up__codeBox {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+    background-color: var(--white);
+    padding: 50px 20px 20px;
+}
+
+.pop_up__QR {
+    padding: 10px 10px 0px;
+    border-radius: 10px 10px 0 0;
+    background-color: #fff;
+}
+
+.pop_up__code {
+    margin: 0;
+    width: 276px;
+    text-align: center;
+    padding: 0px 10px 10px;
+    background-color: #fff;
+    border-radius: 0 0 10px 10px;
+}
+
+.pop_up__content--formule::first-letter {
+    text-transform: uppercase;
+}
+
+.pop_up__button {
+    position: absolute;
+    right: 20px;
+    top: 20px;
 }
