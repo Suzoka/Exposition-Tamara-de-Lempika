@@ -7,7 +7,7 @@ export const Label = ({ children, variant }) => {
         : variant === 'jeune' ? 'label__container--green' 
         : variant === 'handicap' ? 'label__container--yellow' 
         : ''
-    }`;
+    } firstletter`;
 
     return (
         <p className={className}>

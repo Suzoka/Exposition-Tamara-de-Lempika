@@ -61,3 +61,7 @@
 .button__icon--eye::before {
     mask-image: url("../../../public/asset/icon/Eye.svg") ;
 }
+
+.button__icon--cross::before {
+    mask-image: url("../../../public/asset/icon/Cross.svg") ;
+}
