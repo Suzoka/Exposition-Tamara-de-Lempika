@@ -123,6 +123,19 @@ img#compte {
     margin-left: 10px;
 }
 
+    /* ---- INFORMATIONS RESPONSIVE ---- */
+    @media (max-width: 899px) {
+        .infos {
+            width: 70vw;
+        }
+    }
+
+    @media (max-width: 420px) {
+        .infos {
+            width: 85vw;
+        }
+    }
+
 /* ---- RESERVATIONS ---- */
 .reservations {
     margin-top: 45px;
@@ -315,6 +328,8 @@ p.price {
 
 /* ---- Edit button ---- */
 .edit {
+    width: -webkit-fit-content;
+    width: -moz-fit-content;
     width: fit-content;
     margin-left: auto;
     text-decoration: none;
@@ -328,6 +343,10 @@ p.price {
     font-family: 'Carambola', sans-serif;
     color: #21594F;
     cursor: pointer;
+}
+
+.edit input:hover {
+    color: #FFFFFF;
 }
 
 label.edit img {

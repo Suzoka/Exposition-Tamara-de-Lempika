@@ -56,7 +56,12 @@
                             <p>Adresse mail :
                                 <?php echo $_SESSION['user']->getMail() ?>
                             </p>
-                            <a class="edit" href="./compte?page=edit"><img src="../img/icons/edit.svg" alt="">Modifier mes
+                            <a class="edit" href="./compte?page=edit">
+                                <img class="noHover" src="../img/icons/editG.svg"
+                                            alt="">
+                                <img class="Hover" src="../img/icons/editW.svg"
+                                            alt="">
+                                Modifier mes
                         informations</a>
                         <?php } else { ?>
                             <form action="./editCompteInfos" method="POST">
@@ -74,7 +79,10 @@
                                     <input type="email" name="mail" id="mail" value="<?php echo $_SESSION['user']->getMail() ?>" required>
                                 </div>
                                 <?php if (isset($_GET["error"])) {echo "<p class=\"error\">Une erreur s'est produite</p>";} ?>
-                                <label class="edit" for="save"><img src="../img/icons/save.svg" alt=""><input type="submit" value="Enregistrer les modifications" id="save"></label>
+                                <label class="edit" for="save">
+                                    <img class="noHover" src="../img/icons/saveG.svg" alt="">
+                                    <img class="Hover" src="../img/icons/saveW.svg" alt="">
+                                    <input type="submit" value="Enregistrer les modifications" id="save"></label>
                             </form>
                         <?php }
                     } ?>
