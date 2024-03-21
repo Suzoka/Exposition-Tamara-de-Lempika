@@ -42,6 +42,7 @@ export default function Home() {
 
   const [popupClosed, setPopupClosed] = useState(true);
   const [popupDonnee, setPopupDonnee] = useState(null);
+  const [popupType, setPopupType] = useState('');
 
   const closePopUp = () => {
     setPopupClosed(true);
@@ -93,11 +94,23 @@ export default function Home() {
   }
 
   const viewResa = (id, type) => {
-    console.log('Visualisation de la réservation n°', id);
-    const reservation = reservationData.find(resa => resa.id_ticket == id);
-    console.log('Données réservation', reservation);
-    setPopupDonnee(reservation);
-    setPopupClosed(false);
+    if (type === 'reservation') {
+
+      console.log('Visualisation de la réservation n°', id);
+      const reservation = reservationData.find(resa => resa.id_ticket == id);
+      console.log('Données réservation', reservation);
+      setPopupType('reservation');
+      setPopupDonnee(reservation);
+      setPopupClosed(false);
+
+    } else if (type === 'user') {
+      console.log('Visualisation de l\'utilisateur n°', id);
+      const utilisateur = userList.find(user => user.id_user == id);
+      console.log('Données utilisateur', utilisateur);
+      setPopupType('user');
+      setPopupDonnee(utilisateur);
+      setPopupClosed(false);
+    }
   }
 
   const DelModViewResa = {
@@ -218,7 +231,7 @@ export default function Home() {
         < Section id="resa" nom="Réservations" donnee={loadReservation ? (reservationData) : (reservation)} type="table" contentSearch="Rechercher une reservation..." DelModViewResa={DelModViewResa} modification />
         < Section id="user" utilisateur nom="Utilisateurs" donnee={loadUserList ? (userList) : (reservation)} type="table" contentSearch="Rechercher un utilisateur..." DelModViewResa={DelModViewResa} />
         < Section id="arch" nom="Archives" donnee={loadArchived ? (archivedData) : (reservation)} type="table" contentSearch="Rechercher une reservation archivé..." DelModViewResa='' />
-        < Pop_up data={popupDonnee != null ? popupDonnee : ''} close={popupClosed} closeAction={closePopUp} />
+        < Pop_up data={popupDonnee != null ? popupDonnee : ''} close={popupClosed} closeAction={closePopUp} type={popupType} />
       </main>
       < Footer />
     </div>
