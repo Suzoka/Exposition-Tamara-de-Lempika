@@ -222,4 +222,43 @@ function updateUserRole($id, $role)
     $stmt->bindValue(':id', $id, PDO::PARAM_INT);
     $stmt->execute();
 }
+
+function getStats() {
+    global $db;
+
+    $stmt = $db->prepare("SELECT f.nom_formule, SUM(quantite) as count FROM reservations r inner join formules f on f.id_formule = r.ext_id_formule GROUP BY f.nom_formule");
+    $stmt->execute();
+    $formuleCounts = $stmt->fetchAll(PDO::FETCH_KEY_PAIR);
+
+    $stmt = $db->prepare("SELECT COUNT(*) FROM reservations");
+    $stmt->execute();
+    $nbBillet = $stmt->fetchColumn();
+
+    $stmt = $db->prepare("SELECT SUM(quantite) FROM reservations");
+    $stmt->execute();
+    $nbReservation = $stmt->fetchColumn();
+
+    $stmt = $db->prepare("SELECT DAYNAME(date), COUNT(*) as count FROM reservations GROUP BY DAYNAME(date)");
+    $stmt->execute();
+    $reservationsByDay = $stmt->fetchAll(PDO::FETCH_KEY_PAIR);
+
+    $result = [
+        "formule" => array_map(function($count) {
+            return $count ?? 0;
+        }, $formuleCounts),
+        "nbBillet" => $nbBillet,
+        "nbReservation" => $nbReservation,
+        "reservationsByDay" => [
+            "Lundi" => $reservationsByDay['Monday'] ?? 0,
+            "Mardi" => $reservationsByDay['Tuesday'] ?? 0,
+            "Mercredi" => $reservationsByDay['Wednesday'] ?? 0,
+            "Jeudi" => $reservationsByDay['Thursday'] ?? 0,
+            "Vendredi" => $reservationsByDay['Friday'] ?? 0,
+            "Samedi" => $reservationsByDay['Saturday'] ?? 0,
+            "Dimanche" => $reservationsByDay['Sunday'] ?? 0
+        ]
+    ];
+
+    return $result;
+}
 ?>
