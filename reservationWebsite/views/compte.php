@@ -79,7 +79,10 @@
                                     <input type="email" name="mail" id="mail" value="<?php echo $_SESSION['user']->getMail() ?>" required>
                                 </div>
                                 <?php if (isset($_GET["error"])) {echo "<p class=\"error\">Une erreur s'est produite</p>";} ?>
-                                <label class="edit" for="save"><img src="../img/icons/save.svg" alt=""><input type="submit" value="Enregistrer les modifications" id="save"></label>
+                                <label class="edit" for="save">
+                                    <img class="noHover" src="../img/icons/saveG.svg" alt="">
+                                    <img class="Hover" src="../img/icons/saveW.svg" alt="">
+                                    <input type="submit" value="Enregistrer les modifications" id="save"></label>
                             </form>
                         <?php }
                     } ?>

@@ -345,6 +345,10 @@ p.price {
     cursor: pointer;
 }
 
+.edit input:hover {
+    color: #FFFFFF;
+}
+
 label.edit img {
     width: 20px;
 }
