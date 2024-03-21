@@ -54,3 +54,11 @@ p {
 .bold {
     font-weight: 700;
 }
+
+.uppercase {
+    text-transform: uppercase;
+}
+
+.firstletter::first-letter {
+    text-transform: uppercase;
+}
