@@ -460,7 +460,6 @@ p.error {
     background-color: #0000007d;
 }
 
-
 /* ---- For screan reader only ---- */
 .sr-only {
     border: 0 !important;
@@ -473,4 +472,18 @@ p.error {
     position: absolute !important;
     width: 1px !important;
     white-space: nowrap !important;
+}
+
+/* ---- Edit button ---- */
+.edit {
+    background-color: #ECE9DE;
+    color: #21594F;
+    border: #21594F 2px solid;
+    font-size: 1rem;
+    padding: 5px 12px;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    border-radius: 10px;
+    font-family: 'Carambola', sans-serif;
 }

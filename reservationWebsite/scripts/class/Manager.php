@@ -106,6 +106,26 @@ class Manager
         $stmt->execute();
         return $stmt;
     }
+
+    function editUserInfos($datas, $id)
+    {
+        global $db;
+        $stmt = $this->db->prepare("UPDATE `utilisateurs` SET `nom` = :nom, `prenom` = :prenom, `mail` = :mail WHERE `id_user` = :id");
+        $stmt->bindValue(':nom', $datas['nom'], PDO::PARAM_STR);
+        $stmt->bindValue(':prenom', $datas['prenom'], PDO::PARAM_STR);
+        $stmt->bindValue(':mail', $datas['mail'], PDO::PARAM_STR);
+        $stmt->bindValue(':id', $id, PDO::PARAM_INT);
+        return $stmt->execute();
+    }
+
+    function updateSession($id)
+    {
+        global $db;
+        $stmt = $this->db->prepare("SELECT * FROM `utilisateurs` WHERE `id_user` = :id");
+        $stmt->bindValue(':id', $id, PDO::PARAM_INT);
+        $stmt->execute();
+        return new User($stmt->fetch(PDO::FETCH_ASSOC));
+    }
 }
 
 ?>

@@ -55,7 +55,7 @@
     <?php include './views/components/footer.php'; ?>
 
     <script src="../scripts/inscription.js" type="module"></script>
-    <script src="../scripts/swhoPassword.js"></script>
+    <script src="../scripts/showPassword.js"></script>
 </body>
 
 </html>

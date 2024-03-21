@@ -70,6 +70,15 @@ switch ($page) {
         include ("./views/compte.php");
         break;
 
+    case "editCompteInfos":
+        if ($manager->editUserInfos($_POST, $_SESSION["user"]->getId_user())) {
+            $_SESSION["user"] = $manager->updateSession($_SESSION["user"]->getId_user());
+            header("Location: ./compte?page=infos");
+        } else {
+            header("Location: ./compte?page=edit&error=1");
+        }
+        break;
+
     case "languageFR" :
         $_SESSION["lang"] = "fr";
         header("Location: ./" . $_GET["from"]);

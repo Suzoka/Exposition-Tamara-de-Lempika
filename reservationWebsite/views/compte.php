@@ -33,28 +33,51 @@
         <?php } ?>
         <section class="change">
             <div class="boutons">
-                <a class="<?php if ($activePage == "infos") {
+                <a class="<?php if ($activePage == "infos" || $activePage == "edit") {
                     echo "active";
                 } ?>" href="./compte?page=infos">Mes
                     informations</a>
-                <a class="<?php if ($activePage == "reserv") {
+                <a class="<?php if ($activePage != "infos" && $activePage != "edit") {
                     echo "active";
                 } ?>" href="./compte?page=reserv">Mes
                     réservations</a>
             </div>
-            <?php if ($activePage == "infos") { ?>
+            <?php if ($activePage == "infos" || $activePage == "edit") { ?>
                 <div class="infos">
-                    <?php if (isset ($_SESSION['user'])) { ?>
-                        <p>Nom :
-                            <?php echo $_SESSION['user']->getNom() ?>
-                        </p>
-                        <p>Prénom :
-                            <?php echo $_SESSION['user']->getPrenom() ?>
-                        </p>
-                        <p>Adresse mail :
-                            <?php echo $_SESSION['user']->getMail() ?>
-                        </p>
-                    <?php } ?>
+                    <?php if (isset ($_SESSION['user'])) {
+                        if ($activePage == "infos") {
+                            ?>
+                            <p>Prénom :
+                                <?php echo $_SESSION['user']->getPrenom() ?>
+                            </p>
+                            <p>Nom :
+                                <?php echo $_SESSION['user']->getNom() ?>
+                            </p>
+                            <p>Adresse mail :
+                                <?php echo $_SESSION['user']->getMail() ?>
+                            </p>
+                            <a class="edit" href="./compte?page=edit"><img src="../img/icons/edit.svg" alt="">Modifier mes
+                        informations</a>
+                        <?php } else { ?>
+                            <form action="./editCompteInfos" method="POST">
+                                <div class="formElement">
+                                    <label for="prenom">Prénom : </label>
+                                    <input type="text" name="prenom" id="prenom"
+                                        value="<?php echo $_SESSION['user']->getPrenom() ?>" required>
+                                </div>
+                                <div class="formElement">
+                                    <label for="nom">Nom : </label>
+                                    <input type="text" name="nom" id="nom" value="<?php echo $_SESSION['user']->getNom() ?>" required>
+                                </div>
+                                <div class="formElement">
+                                    <label for="mail">Adresse mail : </label>
+                                    <input type="email" name="mail" id="mail" value="<?php echo $_SESSION['user']->getMail() ?>" required>
+                                </div>
+                                <?php if (isset($_GET["error"])) {echo "<p class=\"error\">Une erreur s'est produite</p>";} ?>
+                                <label class="edit" for="save"><img src="../img/icons/save.svg" alt=""><input type="submit" value="Enregistrer les modifications" id="save"></label>
+                            </form>
+                        <?php }
+                    } ?>
                 </div>
             <?php } else { ?>
                 <div class="reservations">

@@ -547,17 +547,6 @@ p.ticket {
     margin-bottom: 7px;
 }
 
-.resumes button {
-    background-color: #ECE9DE;
-    color: #21594F;
-    border: #21594F 2px solid;
-    font-size: 1rem;
-    padding: 5px 12px;
-    display: flex;
-    align-items: center;
-    gap: 5px;
-}
-
 #step4 .boutons {
     width: 85%;
     margin: auto;
