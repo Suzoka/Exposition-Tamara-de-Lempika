@@ -18,12 +18,13 @@
         <form action="./checkConnection" method="POST">
             <div class="formulaire">
                 <div class="relative">
-                    <label for="login"><span class="required">*</span> Login</label><input type="text" name="login"
-                        id="login" required>
+                    <label for="login"><span class="required">*</span> Login</label>
+                    <input type="text" name="login" id="login" required>
                 </div>
                 <div class="relative">
-                    <label for="password"><span class="required">*</span> Mot de passe</label><input type="password"
-                        name="password" id="password" required>
+                    <label for="password"><span class="required">*</span> Mot de passe</label>
+                    <input type="password" name="password" id="password" required>
+                    <button class="hide-show" type="button"><span class="sr-only">Afficher le mot de passe</span></button>
                 </div>
                 <?php if (isset ($_GET['error'])) {
                     echo "<p class=\"error\">Login ou mot de passe incorrect</p>";
@@ -37,6 +38,8 @@
         </form>
     </main>
     <?php include './views/components/footer.php'; ?>
+
+    <script src="../scripts/showPassword.js"></script>
 </body>
 
 </html>
