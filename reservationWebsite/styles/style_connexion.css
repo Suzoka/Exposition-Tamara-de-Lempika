@@ -9,7 +9,7 @@ main {
     position: relative;
     flex-grow: 1;
     color: white;
-    background-color: rgba(0, 0, 0, 0.2); 
+    background-color: rgba(0, 0, 0, 0.2);
 }
 
 main::before {
@@ -22,7 +22,7 @@ main::before {
     background-image: url("../img/Lempicka_PortraitDArletteBoucard.png");
     background-repeat: no-repeat;
     background-size: cover;
-    z-index: -1; 
+    z-index: -1;
 }
 
 h1 {
@@ -111,7 +111,40 @@ div.formulaire a {
 }
 
 div.formulaire .signUp {
-    color : #BA181B;
+    color: #BA181B;
+}
+
+.hide-show {
+    position: absolute;
+    z-index: 5;
+    width: fit-content;
+    background: none;
+    border: none;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 1rem;
+    padding: 0.5rem;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.hide-show::after {
+    content: "";
+    display: block;
+    width: 30px;
+    height: 30px;
+    background: url("data:image/svg+xml; base64, PHN2ZyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnIHdpZHRoPScyOCcgaGVpZ2h0PScyMicgdmlld0JveD0nMCAwIDI4IDIyJyBmaWxsPSdub25lJz48cGF0aCBmaWxsLXJ1bGU9J2V2ZW5vZGQnIGNsaXAtcnVsZT0nZXZlbm9kZCcgZD0nTTEzLjk5OTggNy44NTQ5OEMxMi4yMjY1IDcuODU0OTggMTAuNzg1MiA5LjI5NzY1IDEwLjc4NTIgMTEuMDcxQzEwLjc4NTIgMTIuODQzIDEyLjIyNjUgMTQuMjg0MyAxMy45OTk4IDE0LjI4NDNDMTUuNzczMiAxNC4yODQzIDE3LjIxNTggMTIuODQzIDE3LjIxNTggMTEuMDcxQzE3LjIxNTggOS4yOTc2NSAxNS43NzMyIDcuODU0OTggMTMuOTk5OCA3Ljg1NDk4TTEzLjk5OTggMTYuMjg0M0MxMS4xMjM4IDE2LjI4NDMgOC43ODUxNiAxMy45NDU2IDguNzg1MTYgMTEuMDcxQzguNzg1MTYgOC4xOTQ5OCAxMS4xMjM4IDUuODU0OTggMTMuOTk5OCA1Ljg1NDk4QzE2Ljg3NTggNS44NTQ5OCAxOS4yMTU4IDguMTk0OTggMTkuMjE1OCAxMS4wNzFDMTkuMjE1OCAxMy45NDU2IDE2Ljg3NTggMTYuMjg0MyAxMy45OTk4IDE2LjI4NDMnIGZpbGw9J2JsYWNrJy8+PG1hc2sgaWQ9J21hc2swXzExOTRfNjg0Nicgc3R5bGU9J21hc2stdHlwZTpsdW1pbmFuY2UnIG1hc2tVbml0cz0ndXNlclNwYWNlT25Vc2UnIHg9JzAnIHk9JzAnIHdpZHRoPScyOCcgaGVpZ2h0PScyMic+PHBhdGggZmlsbC1ydWxlPSdldmVub2RkJyBjbGlwLXJ1bGU9J2V2ZW5vZGQnIGQ9J00wLjY2Njk5MiAwLjMzMzQ5NkgyNy4zMzM1VjIxLjgwNjhIMC42NjY5OTJWMC4zMzM0OTZaJyBmaWxsPSd3aGl0ZScvPjwvbWFzaz48ZyBtYXNrPSd1cmwoI21hc2swXzExOTRfNjg0NiknPjxwYXRoIGZpbGwtcnVsZT0nZXZlbm9kZCcgY2xpcC1ydWxlPSdldmVub2RkJyBkPSdNMi43NTk5OSAxMS4wN0M1LjIzOTk5IDE2LjU0ODcgOS40MTczMyAxOS44MDYgMTQgMTkuODA3M0MxOC41ODI3IDE5LjgwNiAyMi43NiAxNi41NDg3IDI1LjI0IDExLjA3QzIyLjc2IDUuNTkyNjggMTguNTgyNyAyLjMzNTM0IDE0IDIuMzM0MDFDOS40MTg2NiAyLjMzNTM0IDUuMjM5OTkgNS41OTI2OCAyLjc1OTk5IDExLjA3VjExLjA3Wk0xNC4wMDI3IDIxLjgwNzNIMTMuOTk3M0gxMy45OTZDOC40ODEzMyAyMS44MDMzIDMuNTI5MzMgMTcuOTM4IDAuNzQ3OTkyIDExLjQ2NDdDMC42Mzk5OTIgMTEuMjEyNyAwLjYzOTk5MiAxMC45MjczIDAuNzQ3OTkyIDEwLjY3NTNDMy41MjkzMyA0LjIwMzM0IDguNDgyNjYgMC4zMzgwMDggMTMuOTk2IDAuMzM0MDA4QzEzLjk5ODcgMC4zMzI2NzQgMTMuOTk4NyAwLjMzMjY3NCAxNCAwLjMzNDAwOEMxNC4wMDI3IDAuMzMyNjc0IDE0LjAwMjcgMC4zMzI2NzQgMTQuMDA0IDAuMzM0MDA4QzE5LjUxODcgMC4zMzgwMDggMjQuNDcwNyA0LjIwMzM0IDI3LjI1MiAxMC42NzUzQzI3LjM2MTMgMTAuOTI3MyAyNy4zNjEzIDExLjIxMjcgMjcuMjUyIDExLjQ2NDdDMjQuNDcyIDE3LjkzOCAxOS41MTg3IDIxLjgwMzMgMTQuMDA0IDIxLjgwNzNIMTQuMDAyN1onIGZpbGw9J2JsYWNrJy8+PC9nPjwvc3ZnPg==");
+    background-size: 100%;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.hide-show.displayed::after {
+    background: url("data:image/svg+xml; base64, PHN2ZyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnIHdpZHRoPSc2MCcgaGVpZ2h0PSc2MCcgdmlld0JveD0nMCAwIDYwIDYwJyBmaWxsPSdub25lJz48cGF0aCBkPSdNOS45OTk3MyAxMEw0OS45OTk4IDUwTTQxLjI0OTggNDEuODg5N0MzNy44NjgzIDQzLjcxMTIgMzQuMDQ2MyA0NC45OTk4IDI5Ljk5OTggNDQuOTk5OEMyMS4xNzMxIDQ0Ljk5OTggMTMuNDE1NiAzOC44Njk1IDguOTY3IDM0LjQ0N0M3Ljc5Mjc1IDMzLjI3OTggNy4yMDU3MyAzMi42OTYgNi44MzIgMzEuNTUwM0M2LjU2NTQ4IDMwLjczMzMgNi41NjU0IDI5LjI2NjUgNi44MzIgMjguNDQ5MkM3LjIwNTgzIDI3LjMwMzcgNy43OTQwOCAyNi43MTg3IDguOTcwNjggMjUuNTQ5MkMxMS4yMTI5IDIzLjMyMDUgMTQuMjk1IDIwLjY1OSAxNy45MzA1IDE4LjU2NjlNNDguNzQ5OCAzNi41ODM4QzQ5LjU4MjMgMzUuODUxMyA1MC4zNDUgMzUuMTMwOCA1MS4wMjkyIDM0LjQ1MDhMNTEuMDM2NSAzNC40NDNDNTIuMjA4IDMzLjI3ODUgNTIuNzk1NSAzMi42OTQ3IDUzLjE2ODUgMzEuNTUxNUM1My40MzUgMzAuNzM0NSA1My40MzQ1IDI5LjI2NyA1My4xNjggMjguNDVDNTIuNzk0NSAyNy4zMDQ4IDUyLjIwNjcgMjYuNzE5MiA1MS4wMzMyIDI1LjU1MjdDNDYuNTg0NSAyMS4xMzAyIDM4LjgyNjMgMTUgMjkuOTk5OCAxNUMyOS4xNTYgMTUgMjguMzIyIDE1LjA1NiAyNy40OTk4IDE1LjE2MTJNMzMuMzA3IDMzLjc1QzMyLjQyNTUgMzQuNTI4IDMxLjI2NzggMzUgMjkuOTk5OCAzNUMyNy4yMzgzIDM1IDI0Ljk5OTcgMzIuNzYxNSAyNC45OTk3IDMwQzI0Ljk5OTcgMjguNjUxMyAyNS41MzM4IDI3LjQyNzggMjYuNDAyIDI2LjUyODMnIHN0cm9rZT0nYmxhY2snIHN0cm9rZS13aWR0aD0nNScgc3Ryb2tlLWxpbmVjYXA9J3JvdW5kJyBzdHJva2UtbGluZWpvaW49J3JvdW5kJy8+PC9zdmc+");
+    background-size: cover;
 }
 
 /* ---- RESPONSIVE ---- */

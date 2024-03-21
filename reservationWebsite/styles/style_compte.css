@@ -313,6 +313,34 @@ p.price {
     text-align: center;
 }
 
+/* ---- Edit button ---- */
+.edit {
+    width: fit-content;
+    margin-left: auto;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.edit input {
+    background: none;
+    border: none;
+    font-size: 1.05rem;
+    font-family: 'Carambola', sans-serif;
+    color: #21594F;
+    cursor: pointer;
+}
+
+label.edit img {
+    width: 20px;
+}
+
+
+/* ---- Edit form ---- */
+.formElement {
+    margin: 1rem 10px;
+}
+
+
 /* ---- LOCALISATION RESPONSIVE ---- */
 @media (max-width: 899px) {
     .infosAccess {

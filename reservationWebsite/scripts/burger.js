@@ -20,7 +20,6 @@ function burger() {
             etat = 0;
         }   
     });
-    console.log(etat);
 };
 
 document.addEventListener('DOMContentLoaded', function () {

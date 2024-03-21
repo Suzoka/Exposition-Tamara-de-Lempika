@@ -25,13 +25,15 @@
                     } ?>
                 </div>
                 <div class="relative">
-                    <label for="password"><span class="required">*</span> Mot de passe</label><input type="password"
-                        name="password" id="password" required>
+                    <label for="password"><span class="required">*</span> Mot de passe</label>
+                    <input type="password" name="password" id="password" required>
+                    <button class="hide-show" type="button"><span class="sr-only">Afficher le mot de passe</span></button>
                 </div>
                 <div class="relative">
-                    <label for="passwordCheck"><span class="required">*</span> Vérifier le mot de passe</label><input
-                        type="password" name="passwordCheck" id="passwordCheck" required>
-                        <p class="error hidden">Veillez rentrer deux mot de passe identiques</p>
+                    <label for="passwordCheck"><span class="required">*</span> Vérifier le mot de passe</label>
+                    <input type="password" name="passwordCheck" id="passwordCheck" required>
+                    <button class="hide-show" type="button"><span class="sr-only">Afficher le mot de passe</span></button>
+                    <p class="error hidden">Veillez rentrer deux mot de passe identiques</p>
                 </div>
                 <div class="relative">
                     <label for="mail"><span class="required">*</span> Adresse mail</label><input type="email"
@@ -53,6 +55,7 @@
     <?php include './views/components/footer.php'; ?>
 
     <script src="../scripts/inscription.js" type="module"></script>
+    <script src="../scripts/showPassword.js"></script>
 </body>
 
 </html>

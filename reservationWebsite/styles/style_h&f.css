@@ -85,108 +85,119 @@ header nav {
 }
 
 .burger {
-    display: none;;
+    display: none;
+    ;
 }
 
 .language {
     width: 30px;
 }
 
-    /* ---- HEADER RESPONSIVE ---- */
-    @media (max-width: 899px) {
-        header nav {
-            grid-template-columns: 15% 1fr 10%;
-            grid-template-areas: 
-                "Logo MenuUser Burger";
-        }
-        .logo { grid-area: Logo; }
-        .burger { grid-area: Burger; }
-        .menu-user { grid-area: MenuUser; }
-
-        .menu-user {
-            margin-right: 0;
-        }
-
-        .burger {
-            display: block;
-            cursor: pointer;
-
-            background-color: #000000;
-            border: none;
-            width: -webkit-fit-content;
-            width: -moz-fit-content;
-            width: fit-content;
-            padding: 10px;
-        }
-
-        .burger img {
-            width: 5vw;
-            height: 5vw;
-        }
-
-        .burgerClose {
-            display: none;
-        }
-
-        .menu {
-            display: none;
-            z-index: 3;
-            flex-direction: column;
-            align-items: start;
-            background-color: #FFFFFF;
-            width: 100vw;
-            padding: 10px 0;
-            box-shadow: 0 2px 28px 3px rgba(0,0,0,0.75);
-            -webkit-box-shadow: 0 2px 28px 3px rgba(0,0,0,0.75);
-            -moz-box-shadow: 0 2px 28px 3px rgba(0,0,0,0.75);
-            text-align: start;
-        }
-
-        .menu a {
-            color: #000000;
-            font-family: 'Carambola', sans-serif;
-            font-size: 1.5rem;
-            margin-left: 15vw;
-            width: 37vw;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            gap: 10px;
-        }
-
-        .menu a img {
-            display: block;
-            width: 3vw;
-            height: 3vw;
-        }
+/* ---- HEADER RESPONSIVE ---- */
+@media (max-width: 899px) {
+    header nav {
+        grid-template-columns: 15% 1fr 10%;
+        grid-template-areas:
+            "Logo MenuUser Burger";
     }
 
-    @media (max-width: 569px) {
-        .menu a img{
-            width: 4vw;
-            height: 4vw;
-        }
+    .logo {
+        grid-area: Logo;
     }
 
-    @media (max-width: 449px) {
-        header nav {
-            grid-template-columns: 15% 1fr 12%;
-        }
-        .menu a {
-            width: 63vw;
-            font-size: 1rem;
-        }
-        
-        .menu a img{
-            width: 6vw;
-            height: 6vw;
-        }
-
-        .menu-user a {
-            padding: 7px;
-            font-size: 0.9rem;
-        }
+    .burger {
+        grid-area: Burger;
     }
+
+    .menu-user {
+        grid-area: MenuUser;
+    }
+
+    .menu-user {
+        margin-right: 0;
+    }
+
+    .burger {
+        display: block;
+        cursor: pointer;
+
+        background-color: #000000;
+        border: none;
+        width: -webkit-fit-content;
+        width: -moz-fit-content;
+        width: fit-content;
+        padding: 10px;
+    }
+
+    .burger img {
+        width: 5vw;
+        height: 5vw;
+    }
+
+    .burgerClose {
+        display: none;
+    }
+
+    .menu {
+        display: none;
+        z-index: 3;
+        flex-direction: column;
+        align-items: start;
+        background-color: #FFFFFF;
+        width: 100vw;
+        padding: 10px 0;
+        box-shadow: 0 2px 28px 3px rgba(0, 0, 0, 0.75);
+        -webkit-box-shadow: 0 2px 28px 3px rgba(0, 0, 0, 0.75);
+        -moz-box-shadow: 0 2px 28px 3px rgba(0, 0, 0, 0.75);
+        text-align: start;
+    }
+
+    .menu a {
+        color: #000000;
+        font-family: 'Carambola', sans-serif;
+        font-size: 1.5rem;
+        margin-left: 15vw;
+        width: 37vw;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 10px;
+    }
+
+    .menu a img {
+        display: block;
+        width: 3vw;
+        height: 3vw;
+    }
+}
+
+@media (max-width: 569px) {
+    .menu a img {
+        width: 4vw;
+        height: 4vw;
+    }
+}
+
+@media (max-width: 449px) {
+    header nav {
+        grid-template-columns: 15% 1fr 12%;
+    }
+
+    .menu a {
+        width: 63vw;
+        font-size: 1rem;
+    }
+
+    .menu a img {
+        width: 6vw;
+        height: 6vw;
+    }
+
+    .menu-user a {
+        padding: 7px;
+        font-size: 0.9rem;
+    }
+}
 
 
 
@@ -246,87 +257,101 @@ footer .logo {
 
 
 /* ---- FOOTER RESPONSIVE ---- */
-    @media (max-width: 899px) {
-        footer {
-            grid-template-columns: 1fr 1fr;
-            justify-content: center;
-        }
-
-        .test {
-            justify-content: flex-end;
-        }
-
-        .adress {
-            width: 25vw;
-        }
-
-        .reseaux {
-            order: 1;
-            justify-content: center;
-        } 
-
-        .apropos, .planSite {
-            order: 2;
-        }
+@media (max-width: 899px) {
+    footer {
+        grid-template-columns: 1fr 1fr;
+        justify-content: center;
     }
 
-    @media (max-width: 645px) {
-        footer {
-            grid-template-columns: 1fr 1fr;
-            grid-template-areas: 
-                "Adress Adress"
-                "Reseaux Reseaux"
-                "Prop Plan";
-            gap: 10px;
-        }
-        .test { grid-area: Adress; }
-        .apropos { grid-area: Prop; }
-        .planSite { grid-area: Plan; }
-        .reseaux { grid-area: Reseaux; }
-
-        .test {
-            justify-content: center;
-        }
-
-        .adress {
-            width: 40vw;
-        }
-
-        .reseaux {
-            gap: 20px;
-        }
-
-        .reseaux img {
-            width: 100%;
-        }
+    .test {
+        justify-content: flex-end;
     }
 
-    @media (max-width: 299px) {
-        .adress {
-            width: 41vw;
-        }
-
-        footer p, footer a{
-            font-size: 0.7rem;
-        }
-
-        footer h3 {
-            font-size: 1rem;
-        }
-
-        .reseaux {
-            gap: 10px;
-            margin-right: 0;
-        }
-
-        .reseaux a {
-            text-align: center;
-        }
-
-        .reseaux img{
-            width: 70%;
-        }
+    .adress {
+        width: 25vw;
     }
+
+    .reseaux {
+        order: 1;
+        justify-content: center;
+    }
+
+    .apropos,
+    .planSite {
+        order: 2;
+    }
+}
+
+@media (max-width: 645px) {
+    footer {
+        grid-template-columns: 1fr 1fr;
+        grid-template-areas:
+            "Adress Adress"
+            "Reseaux Reseaux"
+            "Prop Plan";
+        gap: 10px;
+    }
+
+    .test {
+        grid-area: Adress;
+    }
+
+    .apropos {
+        grid-area: Prop;
+    }
+
+    .planSite {
+        grid-area: Plan;
+    }
+
+    .reseaux {
+        grid-area: Reseaux;
+    }
+
+    .test {
+        justify-content: center;
+    }
+
+    .adress {
+        width: 40vw;
+    }
+
+    .reseaux {
+        gap: 20px;
+    }
+
+    .reseaux img {
+        width: 100%;
+    }
+}
+
+@media (max-width: 299px) {
+    .adress {
+        width: 41vw;
+    }
+
+    footer p,
+    footer a {
+        font-size: 0.7rem;
+    }
+
+    footer h3 {
+        font-size: 1rem;
+    }
+
+    .reseaux {
+        gap: 10px;
+        margin-right: 0;
+    }
+
+    .reseaux a {
+        text-align: center;
+    }
+
+    .reseaux img {
+        width: 70%;
+    }
+}
 
 
 
@@ -346,7 +371,8 @@ p.error {
 }
 
 /* ---- Bouton de réservation ---- */
-.infoTeaser, #reservation {
+.infoTeaser,
+#reservation {
     display: flex;
     color: white;
     padding: 0 13px;
@@ -356,11 +382,13 @@ p.error {
     border-radius: 10px;
 }
 
-.infoTeaser img, #reservation img {
+.infoTeaser img,
+#reservation img {
     margin-right: 10px;
 }
 
-.infoTeaser p, #reservation p {
+.infoTeaser p,
+#reservation p {
     margin-top: 13px;
     margin-bottom: 13px;
 }
@@ -370,4 +398,92 @@ p.error {
     text-decoration: none;
     font-family: 'Carambola', sans-serif;
     float: right;
+}
+
+/* ---- Popup ---- */
+.popup {
+    display: block;
+    position: absolute;
+    top: 32%;
+    left: 50%;
+    transform: translate(-50%, 0);
+    z-index: 1;
+    width: 60vw;
+    height: 40vh;
+    margin: auto;
+    background-color: #ECE9DE;
+    border-radius: 10px;
+    box-shadow: 0px 0px 40px 11px rgba(0, 0, 0, 0.409);
+    -webkit-box-shadow: 0px 0px 40px 11px rgba(0, 0, 0, 0.409);
+    -moz-box-shadow: 0px 0px 40px 11px rgba(0, 0, 0, 0.409);
+    cursor: auto;
+}
+
+.popup h2 {
+    font-family: 'Lucida', serif;
+    font-size: 1.5rem;
+    text-align: center;
+    margin-top: 60px;
+    margin-bottom: 9vh;
+}
+
+.popup .link {
+    display: flex;
+    justify-content: center;
+    gap: 4vw;
+}
+
+.popup a {
+    font-family: 'Carambola', sans-serif;
+    font-size: 2rem;
+    color: #21594F;
+    text-decoration: none;
+}
+
+.popup a:hover {
+    text-decoration: underline;
+}
+
+.notLoged {
+    position: relative;
+    cursor: not-allowed;
+}
+
+.notLoged::after {
+    content: "";
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #0000007d;
+}
+
+/* ---- For screan reader only ---- */
+.sr-only {
+    border: 0 !important;
+    clip: rect(1px, 1px, 1px, 1px) !important;
+    -webkit-clip-path: inset(50%) !important;
+    clip-path: inset(50%) !important;
+    height: 1px !important;
+    overflow: hidden !important;
+    padding: 0 !important;
+    position: absolute !important;
+    width: 1px !important;
+    white-space: nowrap !important;
+}
+
+/* ---- Edit button ---- */
+.edit {
+    background-color: #ECE9DE;
+    color: #21594F;
+    border: #21594F 2px solid;
+    font-size: 1rem;
+    padding: 5px 12px;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    border-radius: 10px;
+    font-family: 'Carambola', sans-serif;
 }
