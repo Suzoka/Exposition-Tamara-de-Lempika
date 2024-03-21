@@ -29,7 +29,7 @@ class Manager
     {
         try {
             foreach ($datas as $key => $value) {
-                if (strpos($key, 'formule') !== false) {
+                if (strpos($key, 'formule') !== false && $value != 0) {
                     $stmt = $this->db->prepare("INSERT INTO `reservations` (`ext_id_user`, `ext_id_formule`, `date`, `quantite`, `nom`, `prenom`, `mail`) VALUES (:ext_id_user, :ext_id_formule, :date, :quantite, :nom, :prenom, :mail)");
                     $stmt->bindValue(':ext_id_user', $_SESSION['user']->getId_user(), PDO::PARAM_INT);
                     $stmt->bindValue(':ext_id_formule', substr($key, 7), PDO::PARAM_INT);
