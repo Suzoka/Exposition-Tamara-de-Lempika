@@ -52,7 +52,7 @@
                         </div>
                     </div>
                 <?php } ?>
-                <form action="./test.php" method="post">
+                <form action="./newReservation" method="post">
                     <div id="step1" class="current">
                         <h2 class="title"><span>1</span>Etape 1 : Sélection de l’heure et la date </h2>
                         <div class="calendar">
@@ -139,6 +139,7 @@
                     <div id="step3">
                         <h2 class="title"><span>3</span>Etape 3 : Entrez vos coordonnées</h2>
                         <div class="coordo">
+                            <?php if (isset($_SESSION['user'])) { ?>
                             <div class="firstname">
                                 <label for="prenom"><img src="../img/icons/profil.svg" alt=""> Prénom</label>
                                 <input type="text" name="prenom" id="prenom" required
@@ -157,6 +158,7 @@
                                     value="<?php echo $_SESSION["user"]->getMail() ?>">
                                     <p class="error hidden" id="errorMail">Veillez renseigner un mail</p>
                             </div>
+                            <?php } ?>
                         </div>
                         <div class="boutons">
                             <button class="retour" type="button" data-goto="2">Retour</button>

@@ -2,3 +2,6 @@ database.php
 .DS_Store
 api_controller-pattern.php
 config.php
+node_modules/
+.next/
+package-lock.json
