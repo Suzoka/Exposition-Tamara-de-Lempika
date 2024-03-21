@@ -270,6 +270,7 @@ form h3 {
 
 /* ---- STEP 1 ---- */
 #step1 {
+    display: grid;
     grid-template-columns: 1fr 1fr;
     grid-template-areas:
         "Titre Titre"
