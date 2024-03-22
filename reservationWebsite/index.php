@@ -31,12 +31,14 @@ switch ($page) {
         break;
     case "inscription":
         include ("./views/inscription.php");
+        $_SESSION['form_values'] = [];
         break;
 
     case "checkInscription":
         if ($manager->createUser(new User(['username' => $_POST["login"], 'mail' => $_POST["mail"], 'password' => password_hash($_POST["password"], PASSWORD_DEFAULT), 'role' => '0', 'nom' => $_POST["nom"], 'prenom' => $_POST["prenom"]]))) {
             header("Location: ./" . $_SESSION["from"]);
         } else {
+            $_SESSION['form_values'] = $_POST;
             header("Location: ./inscription?error=1");
         }
         break;
