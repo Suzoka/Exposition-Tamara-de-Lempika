@@ -139,14 +139,14 @@
                                     </div>
                                     <p class="description">
                                         <?php 
-                                        $method = "getExplication_formule_".$_SESION['lang'];
+                                        $method = "getExplication_formule_".$_SESSION['lang'];
                                         echo $value->$method() 
                                         ?>
-                                        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Saepe atque minima ipsa deleniti possimus! Asperiores error, soluta est ab saepe maxime quisquam iste dignissimos ut illo ipsum, tempora excepturi incidunt.
                                     </p>
                                 </div>
                             <?php } ?>
                             <p class="error hidden" id="errorFormule">Veillez choisir au moins une formule</p>
+                            <p class="error hidden" id="errorFormuleMax">Le nombre maximal de personnes pour un créneau est de 10</p>
                         </div>
                         <div class="boutons">
                             <button class="retour" type="button" data-goto="1">Retour</button>
