@@ -9,8 +9,9 @@
     </head>
 
     <body>
+        <a href="#content" class="skip-link">Aller au contenu</a>
         <?php include 'components/header.php'; ?>
-        <main>
+        <main id="content">
                 <h1>Merci <?php echo $_POST['prenom'] ?> <?php echo $_POST['nom'] ?> pour votre réservation !</h1>
                 <p>Elle a bien été prise en compte. Vous pouvez la retrouver dans votre espace <a href="./compte">"Mon compte"</a>.</p>
                 <img src="../img/validation.png" alt="">

@@ -10,8 +10,9 @@
 </head>
 
 <body>
+    <a href="#content" class="skip-link">Aller au contenu</a>
     <?php include './views/components/header.php'; ?>
-    <main>
+    <main id="content">
         <h1>inscription</h1>
         <p>Veuillez renseignez vos informations pour créer votre compte <br>
             Les champs précédés d’un astérisque <span class="required">*</span> doivent être remplis</p>

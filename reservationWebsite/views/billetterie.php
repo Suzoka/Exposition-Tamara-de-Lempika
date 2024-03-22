@@ -11,9 +11,10 @@
 </head>
 
 <body>
+    <a href="#content" class="skip-link">Aller au contenu</a>
     <?php include 'components/header.php'; ?>
     <main>
-        <section class="banniere">
+        <section class="banniere" id="content">
             <h1>Exposition
                 <br><span>Billetterie</span>
             </h1>

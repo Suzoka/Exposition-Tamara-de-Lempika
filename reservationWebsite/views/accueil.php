@@ -10,8 +10,9 @@
 </head>
 
 <body>
+    <a href="#content" class="skip-link">Aller au contenu</a>
     <?php include './views/components/header.php'; ?>
-    <main>
+    <main id="content">
         <section class="banniere">
             <div class="text">
                 <h1><span id="tam">Tamara</span>
