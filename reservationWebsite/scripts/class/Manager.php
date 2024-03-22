@@ -28,6 +28,7 @@ class Manager
     public function createReservation($datas)
     {
         try {
+            $reservations = "";
             foreach ($datas as $key => $value) {
                 if (strpos($key, 'formule') !== false && $value != 0) {
                     $stmt = $this->db->prepare("INSERT INTO `reservations` (`ext_id_user`, `ext_id_formule`, `date`, `quantite`, `nom`, `prenom`, `mail`) VALUES (:ext_id_user, :ext_id_formule, :date, :quantite, :nom, :prenom, :mail)");
@@ -39,8 +40,22 @@ class Manager
                     $stmt->bindValue(':prenom', $datas['prenom'], PDO::PARAM_STR);
                     $stmt->bindValue(':mail', $datas['mail'], PDO::PARAM_STR);
                     $stmt->execute();
+
+                    $stmt = $this->db->prepare("SELECT * FROM `formules` WHERE `id_formule` = :id");
+                    $stmt->bindValue(':id', substr($key, 7), PDO::PARAM_INT);
+                    $stmt->execute();
+                    $formule = $stmt->fetch(PDO::FETCH_ASSOC);
+                    $reservations .= "- " . $formule['nom_formule'] . " : x".$value ."\n";
                 }
             }
+
+            $formatter = new IntlDateFormatter('fr-FR', IntlDateFormatter::LONG, IntlDateFormatter::NONE);
+
+            mail(
+                $datas['mail'],
+                "Réservation(s) effectuée(s)",
+                "Bonjour " . $datas['prenom'] . " " . $datas['nom'] . ",\n\nNous vous confirmons la réservation de : \n" . $reservations . "\nNous vous attendons le " . $formatter->format(new DateTime($datas['datePicker'])) . " à " . $datas['heure'] . " pour profiter de votre séjour.\n\nCordialement,\nL'équipe de chez Siny'art"
+            );
             return true;
         } catch (Exception $e) {
             return false;
@@ -83,6 +98,12 @@ class Manager
             $stmt->bindValue(':username', $user->getUsername(), PDO::PARAM_STR);
             $stmt->execute();
             $_SESSION['user'] = new User($stmt->fetch(PDO::FETCH_ASSOC));
+
+            mail(
+                $user->getMail(),
+                "Inscription réussie",
+                "Bonjour " . $user->getPrenom() . " " . $user->getNom() . ",\n\nNous vous confirmons votre inscription sur notre site.\nVous pouvez dès à présent réserver vos places pour l'exposition \"Tamara de Lempicka - Les années folles\".\n\nCordialement,\nL'équipe de chez Siny'art\n\nSi vous n'êtes pas à l'origine de cette inscription, veuillez nous contacter."
+            );
             return true;
         } else {
             return false;
@@ -115,7 +136,15 @@ class Manager
         $stmt->bindValue(':prenom', $datas['prenom'], PDO::PARAM_STR);
         $stmt->bindValue(':mail', $datas['mail'], PDO::PARAM_STR);
         $stmt->bindValue(':id', $id, PDO::PARAM_INT);
-        return $stmt->execute();
+        if ($stmt->execute()) {
+            mail(
+                $datas['mail'],
+                "Modification de vos informations de compte",
+                "Bonjour " . $datas['prenom'] . " " . $datas['nom'] . ",\n\nNous vous confirmons de la modification d'informations sur votre compte.\n\nCordialement,\nL'équipe de chez Siny'art");
+            return true;
+        } else {
+            return false;
+        }
     }
 
     function updateSession($id)
