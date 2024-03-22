@@ -32,6 +32,7 @@ if ($_SERVER['HTTP_AUTHORIZATION'] != null) {
             case 'DELETE':
                 if (isset($parts[4]) && $parts[4] != null) {
                     $id = $parts[4];
+                    deletedReservationMail($id);
                     if (deleteReservation($id)) {
                         echo json_encode(["message" => "Réservation supprimée"], JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE);
                     } else {
@@ -46,35 +47,43 @@ if ($_SERVER['HTTP_AUTHORIZATION'] != null) {
                     $id = $parts[4];
                     $data = json_decode(file_get_contents('php://input'));
                     if (checkId($id)) {
+                        $modifs = [];
                         foreach ($data as $key => $value) {
                             switch ($key) {
                                 case 'date':
                                     updateDate($id, $value);
+                                    $modifs[] = "date=>".$value;
                                     break;
                                 case 'quantite':
                                     if ($value < 1) {
+                                        deletedReservationMail($id);
                                         deleteReservation($id);
                                         break;
                                     }
                                     updateQuantite($id, $value);
+                                    $modifs[] = "quantite=>".$value;
                                     break;
                                 case 'nom':
                                     updateNom($id, $value);
+                                    $modifs[] = "nom=>".$value;
                                     break;
                                 case 'prenom':
                                     updatePrenom($id, $value);
+                                    $modifs[] = "prenom=>".$value;
                                     break;
                                 case 'mail':
                                     updateMail($id, $value);
-                                    //TODO : Renvoyer le mail
+                                    $modifs[] = "mail=>".$value;
                                     break;
                                 case 'reservationType':
                                     updateExtIdFormule($id, $value);
+                                    $modifs[] = "Type%20de%20formule=>".getReservationType($value);
                                     break;
                                 default:
                                     break;
                             }
                         }
+                        sendMailReservations($id ,$modifs);
                         echo json_encode(["message" => "Réservation modifiée"], JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE);
                     } else {
                         echo json_encode(["message" => "ID inconnu"], JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE);

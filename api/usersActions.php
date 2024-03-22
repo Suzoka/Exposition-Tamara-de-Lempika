@@ -32,6 +32,7 @@ if ($_SERVER['HTTP_AUTHORIZATION'] != null) {
             case 'DELETE':
                 if (isset ($parts[4]) && $parts[4] != null) {
                     $id = $parts[4];
+                    deletedUserMail($id);
                     if (deleteUser($id)) {
                         echo json_encode(["message" => "utilisateur supprimé"], JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE);
                     } else {
@@ -46,27 +47,34 @@ if ($_SERVER['HTTP_AUTHORIZATION'] != null) {
                     $id = $parts[4];
                     $data = json_decode(file_get_contents('php://input'));
                     if (checkIdUser($id)) {
+                        $modifs = [];
                         foreach ($data as $key => $value) {
                             switch ($key) {
                                 case "username":
                                     updateUsername($id, $value);
+                                    $modifs[] = "Nom%20d'utilisateur=>" . $value;
                                     break;
                                 case "mail":
                                     updateUserMail($id, $value);
+                                    $modifs[] = "Mail=>" . $value;
                                     break;
                                 case "nom":
                                     updateUserNom($id, $value);
+                                    $modifs[] = "Nom=>" . $value;
                                     break;
                                 case "prenom":
                                     updateUserPrenom($id, $value);
+                                    $modifs[] = "Prénom=>" . $value;
                                     break;
                                 case "role":
                                     updateUserRole($id, $value);
+                                    $modifs[] = "Role=>" . $value==1?"Administrateur":"Client";
                                     break;
                                 default:
                                     break;
                             }
                         }
+                        sendMailUser($id ,$modifs);
                         echo json_encode(["message" => "Utilisateur modifié"], JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE);
                     } else {
                         echo json_encode(["message" => "ID inconnu"], JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE);
