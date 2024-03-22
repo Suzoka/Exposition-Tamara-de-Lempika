@@ -23,6 +23,8 @@
         </section>
         <section <?php if (!isset ($_SESSION['user'])) {
             echo 'class="notLoged"';
+        } if (isset($_GET['error'])){
+            echo 'class="serverError"';
         } ?>>
             <div class="ariane" id="ariane">
                 <button class="etat step1 active" data-goto="1">
@@ -52,6 +54,14 @@
                         </div>
                     </div>
                 <?php } ?>
+
+                    <div class="popup erreur <?php if (!isset ($_GET['error'])) echo "hidden" ?>">
+                        <h2>Une erreur est survenue au niveau du serveur.</h2>
+                        <p>Veuillez réessayer plus tard, nous nous excusons pour le désagrément.</p>
+                        <button type="button" class="closePopup">Fermer le popup</button>
+                    </div>
+                
+
                 <form action="./newReservation" method="post">
                     <div id="step1" class="current">
                         <h2 class="title"><span>1</span>Etape 1 : Sélection de l’heure et la date </h2>

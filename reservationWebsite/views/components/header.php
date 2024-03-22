@@ -9,8 +9,8 @@
             <a href="./billetterie">Billetterie <img src="../img/icons/arrow.svg" alt="Allez à la section"></a>
         </div>
         <div class="menu-user">
-            <?php echo isset ($_SESSION["user"]) ? "<a href=\"./deconnexion\">Se déconnecter</a><a id=\"compte\" href=\"./compte\"><img src=\"\" alt=\"Mon compte\"></a>" : "<a href=\"./connexion\">Se connecter</a>
-                <a href=\"./inscription\">S'inscrire</a>" ?>
+            <?php echo isset ($_SESSION["user"]) ? "<a href=\"./deconnexion\">". ($_SESSION["lang"]=="fr" ? "Se déconnecter" : "Sign out") . "</a><a id=\"compte\" href=\"./compte\"><img src=\"\" alt=\"".($_SESSION["lang"]=="fr" ? "Mon compte" : "My account")."\"></a>" : "<a href=\"./connexion\">".($_SESSION["lang"]=="fr" ? "Se connecter" : "Sign in")."</a>
+                <a href=\"./inscription\">".($_SESSION["lang"]=="fr" ? "S'inscrire" : "Register now")."</a>" ?>
             <?php if ($_SESSION["lang"] == "fr") { ?>
                 <a href="./languageEN?from=<?php echo $page ?>"><img class="language" src="../img/icons/en.svg" alt="change language into english" lang="en"></a>
             <?php } else { ?>

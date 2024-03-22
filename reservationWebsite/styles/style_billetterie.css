@@ -889,7 +889,7 @@ button.etat {
 
 button.confirmer,
 button.retour,
-input[type="submit"] {
+input[type="submit"], .closePopup {
     background-color: #FFFFFF;
     color: #000000;
     border: #000000 2px solid;
@@ -897,7 +897,7 @@ input[type="submit"] {
 
 button.confirmer:hover,
 button.retour:hover,
-input[type="submit"]:hover {
+input[type="submit"]:hover, .closePopup:hover {
     background-color: #000000;
     color: #FFFFFF;
 }
@@ -906,10 +906,21 @@ button.retour {
     margin-right: auto;
 }
 
-.notLoged {
+button.closePopup {
+    margin-right: auto;
+    margin-left: auto;
+    display: block;
+    margin-top: 60px;
+}
+
+.notLoged, .serverError {
     padding-top: 30px;
 }
 
-.notLoged .ariane {
+.notLoged .ariane, .serverError .ariane {
     margin-top: 0;
+}
+
+.notLoged::after, .serverError::after {
+    height: calc(100% + 30px);
 }
