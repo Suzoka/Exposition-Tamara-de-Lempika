@@ -68,6 +68,9 @@ if ($_SERVER['HTTP_AUTHORIZATION'] != null) {
                                     updateMail($id, $value);
                                     //TODO : Renvoyer le mail
                                     break;
+                                case 'reservationType':
+                                    updateExtIdFormule($id, $value);
+                                    break;
                                 default:
                                     break;
                             }

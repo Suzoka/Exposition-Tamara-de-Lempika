@@ -517,6 +517,7 @@ p.error {
 .edit:hover {
     background-color: #21594F;
     color: #FFFFFF;
+    cursor: pointer;
 }
 
 .edit:hover img.Hover {

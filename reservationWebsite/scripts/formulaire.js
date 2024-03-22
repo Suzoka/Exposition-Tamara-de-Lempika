@@ -51,14 +51,23 @@ document.querySelectorAll("button.retour, button.edit").forEach(button => {
 });
 
 const formules = document.querySelectorAll('#step2 input[type="number"]')
+
+const checkSum = (input) => {
+    let cumul = 0;
+    formules.forEach(input => {
+        cumul += parseInt(input.value);
+    });
+    if (cumul > 10) {
+        input.value = input.value - (cumul - 10);
+        document.getElementById('errorFormuleMax').classList.remove('hidden');
+    }
+};
+
 formules.forEach(input => {
-    input.addEventListener('change', function () {
-        let cumul = 0;
-        formules.forEach(input => {
-            cumul += parseInt(input.value);
-        });
-        if (cumul > 10) {
-            input.value = input.value - (cumul - 10);
+    input.addEventListener('change', () => checkSum(input));
+    input.addEventListener('keydown', function (event) {
+        if (event.key === 'Enter') {
+            event.preventDefault();
         }
     });
 });
@@ -131,12 +140,14 @@ const updateAriane = () => {
 }
 
 let date;
-const mois = ["Janvier", "Février", "Mars", "Avril", "Mai", "Juin", "Juillet", "Août", "Septembre", "Octobre", "Novembre", "Décembre"];
-
+let lang = document.documentElement.getAttribute('lang') == "fr" ? 'fr-FR' : 'en-US';
 
 const updateResume = () => {
+
     date = new Date(hiddenInput.value);
-    document.querySelector('.dateResume').innerHTML = date.getDate() + " " + mois[date.getMonth()] + " " + date.getFullYear();
+    let options = { year: 'numeric', month: 'long', day: 'numeric' };
+    document.querySelector('.dateResume').innerHTML = date.toLocaleDateString(lang, options);
+
     document.querySelector('.heureResume').innerHTML = document.querySelector('input[name="heure"]:checked').nextElementSibling.innerHTML;
     document.querySelector('.formuleResumeDynamique').innerHTML = "";
 
@@ -164,10 +175,11 @@ document.querySelectorAll('.ticket .info button').forEach(element => {
                 input.value--;
             }
         }
+        checkSum(input);
     })
 });
 
-document.querySelector('.closePopup').addEventListener('click', ()=>{
+document.querySelector('.closePopup').addEventListener('click', () => {
     document.querySelector('.popup.erreur').classList.add('hidden');
     document.querySelector('.serverError').classList.remove('serverError');
 })

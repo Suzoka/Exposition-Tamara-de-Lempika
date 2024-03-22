@@ -783,6 +783,10 @@ p.ticket {
     margin-bottom: 7px;
 }
 
+#step4 li::first-letter {
+    text-transform: uppercase;
+}
+
 #buttonMail, #buttonHour {
     display: none;
 }
@@ -903,6 +907,7 @@ input[type="submit"]:hover, button.confirmer:focus, button.retour:focus,
 input[type="submit"]:focus, .closePopup:hover {
     background-color: #000000;
     color: #FFFFFF;
+    cursor: pointer;
 }
 
 button.retour {
