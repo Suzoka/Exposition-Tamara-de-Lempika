@@ -7,11 +7,12 @@ import { Section } from '@/components/section/section';
 import { Footer } from '@/components/footer/footer';
 import { reservation } from '@/components/reservation';
 import { Pop_up } from '@/components/pop_up/pop_up';
+import { Connexion } from '@/components/connexion/connexion';
 
 console.log('---------');
 
 const user = {
-  'token': 'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJsb2dpbiI6InN1em9rYSIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTcxMTAyODYzNCwiZXhwIjoxNzExMTE1MDM0fQ.HoYSWn7CfrxC5PvB-qkGXYOhf48bxDYtpwEV630H3eg'
+  'token': 'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJsb2dpbiI6InN1em9rYSIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTcxMTE0MDA0NiwiZXhwIjoxNzExMjI2NDQ2fQ.qCVJALQ-Qx9KHhuab9F__LikvbirsQMg9Ue07j0v8Uk'
 };
 
 // fetch("https://api.sinyart.fr/adminLogin", {
@@ -39,6 +40,20 @@ const user = {
 export default function Home() {
 
   const [modificationFlag, setModificationFlag] = useState(0);
+  const [connexionFlag, setConnexionFlag] = useState();
+
+  useEffect(() => {
+    if (sessionStorage.getItem('token')) {
+      console.log('Connexion réussie');
+      setConnexionFlag(true);
+    }
+  }, []);
+
+  const deconnexion = () => {
+    console.log('Déconnexion');
+    sessionStorage.removeItem('token');
+    setConnexionFlag(false);
+  }
 
   const [popupClosed, setPopupClosed] = useState(true);
   const [popupDonnee, setPopupDonnee] = useState(null);
@@ -56,7 +71,7 @@ export default function Home() {
       fetch(`https://api.sinyart.fr/reservations/${id}`, {
         method: 'DELETE',
         headers: {
-          'Authorization': user.token
+          'Authorization': sessionStorage.getItem('token')
         }
       })
         .then(response => response.json())
@@ -75,7 +90,7 @@ export default function Home() {
       fetch(`https://api.sinyart.fr/users/${id}`, {
         method: 'DELETE',
         headers: {
-          'Authorization': user.token
+          'Authorization': sessionStorage.getItem('token')
         }
       })
         .then(response => response.json())
@@ -135,7 +150,7 @@ export default function Home() {
       await fetch('https://api.sinyart.fr/reservations', {
         method: 'GET',
         headers: {
-          'Authorization': user.token
+          'Authorization': sessionStorage.getItem('token')
         }
       }).then(response => response.json())
         .then(data => {
@@ -159,7 +174,7 @@ export default function Home() {
       await fetch("https://api.sinyart.fr/archives", {
         method: 'GET',
         headers: {
-          'Authorization': user.token
+          'Authorization': sessionStorage.getItem('token')
         }
       })
         .then(response => response.json())
@@ -185,7 +200,7 @@ export default function Home() {
       await fetch("https://api.sinyart.fr/users", {
         method: 'GET',
         headers: {
-          'Authorization': user.token
+          'Authorization': sessionStorage.getItem('token')
         }
       })
         .then(response => response.json())
@@ -200,10 +215,12 @@ export default function Home() {
         });
     };
 
-    fetchReservation();
-    fetchArchived();
-    fetchUser();
-  }, [modificationFlag]);
+    if (connexionFlag) {
+      fetchReservation();
+      fetchArchived();
+      fetchUser();
+    }
+  }, [connexionFlag, modificationFlag]);
 
   useEffect(() => {
     if (loadReservation && loadArchived && loadUserList) {
@@ -215,25 +232,33 @@ export default function Home() {
   // console.log('reservationData', reservationData);
 
   return (
-    <div>
-      < Header />
-      <main id='main'>
-        <h1>Bienvenue sur votre Back office.</h1>
-        <p>Ici vous pouvez consulter et gérer les réservations et les utilisateurs, ainsi que visualiser les statistiques de votre exposition <span className='bold'>Tamara de Lempicka, les années folles</span>.</p>
+    <>
+      {connexionFlag ? (
+        <>
+          < Header />
+          <main id='main'>
+            <h1>Bienvenue sur votre Back office.</h1>
+            <p>Ici vous pouvez consulter et gérer les réservations et les utilisateurs, ainsi que visualiser les statistiques de votre exposition <span className='bold'>Tamara de Lempicka, les années folles</span>.</p>
 
-        {loadEnd ? (
-          <p>Données chargées</p>
-        ) : (
-          <p>Chargement des données...</p>
-        )}
+            {loadEnd ? (
+              <p>Données chargées</p>
+            ) : (
+              <p>Chargement des données...</p>
+            )}
 
-        < Section id="stat" nom="Statistiques" type="stat" donnee={loadReservation ? (reservationData) : (reservation)} />
-        < Section id="resa" nom="Réservations" donnee={loadReservation ? (reservationData) : (reservation)} type="table" contentSearch="Rechercher une reservation..." DelModViewResa={DelModViewResa} modification />
-        < Section id="user" utilisateur nom="Utilisateurs" donnee={loadUserList ? (userList) : (reservation)} type="table" contentSearch="Rechercher un utilisateur..." DelModViewResa={DelModViewResa} />
-        < Section id="arch" nom="Archives" donnee={loadArchived ? (archivedData) : (reservation)} type="table" contentSearch="Rechercher une reservation archivé..." DelModViewResa='' />
-        < Pop_up data={popupDonnee != null ? popupDonnee : ''} close={popupClosed} closeAction={closePopUp} type={popupType} />
-      </main>
-      < Footer />
-    </div>
+            < Section id="stat" nom="Statistiques" type="stat" donnee={loadReservation ? (reservationData) : (reservation)} />
+            < Section id="resa" nom="Réservations" donnee={loadReservation ? (reservationData) : (reservation)} type="table" contentSearch="Rechercher une reservation..." DelModViewResa={DelModViewResa} modification />
+            < Section id="user" utilisateur nom="Utilisateurs" donnee={loadUserList ? (userList) : (reservation)} type="table" contentSearch="Rechercher un utilisateur..." DelModViewResa={DelModViewResa} />
+            < Section id="arch" nom="Archives" donnee={loadArchived ? (archivedData) : (reservation)} type="table" contentSearch="Rechercher une reservation archivé..." DelModViewResa='' />
+            < Pop_up data={popupDonnee != null ? popupDonnee : ''} close={popupClosed} closeAction={closePopUp} type={popupType} />
+          </main>
+          < Footer deconnexion={deconnexion} />
+        </>
+      ) : (
+        <>
+          < Connexion setFlag={(text) => setConnexionFlag(text)} />
+        </>
+      )}
+    </>
   );
 }
