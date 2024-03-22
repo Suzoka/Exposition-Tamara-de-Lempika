@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="<?php echo $_SESSION["lang"] == "fr" ? "fr" : "en" ?>">
 
 <head>
     <meta charset="UTF-8">

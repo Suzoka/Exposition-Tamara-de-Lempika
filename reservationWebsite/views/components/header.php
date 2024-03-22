@@ -10,7 +10,7 @@
         </div>
         <div class="menu-user">
             <?php echo isset ($_SESSION["user"]) ? "<a href=\"./deconnexion\">". ($_SESSION["lang"]=="fr" ? "Se déconnecter" : "Sign out") . "</a><a id=\"compte\" href=\"./compte\"><img src=\"../img/compte.png\" alt=\"".($_SESSION["lang"]=="fr" ? "Mon compte" : "My account")."\"></a>" : "<a href=\"./connexion\">".($_SESSION["lang"]=="fr" ? "Se connecter" : "Sign in")."</a>
-                <a href=\"./inscription\">".($_SESSION["lang"]=="fr" ? "S'inscrire" : "Register now")."</a>" ?>
+                <a href=\"./inscription\">".($_SESSION["lang"]=="fr" ? "S'inscrire" : "Sign up")."</a>" ?>
             <?php if ($_SESSION["lang"] == "fr") { ?>
                 <a href="./languageEN?from=<?php echo $page ?>"><img class="language" src="../img/icons/en.svg" alt="change language to english" lang="en"></a>
             <?php } else { ?>
