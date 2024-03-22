@@ -68,9 +68,11 @@ header nav {
 }
 
 #compte img {
-    width: 35px;
-    height: 35px;
+    width: 30px;
+    height: 30px;
     border-radius: 50%;
+    padding: 2px;
+    border: #FFFFFF 2px solid;
 }
 
 .menu a,
