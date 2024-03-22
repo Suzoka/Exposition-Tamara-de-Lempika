@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="<?php echo $_SESSION["lang"] == "fr" ? "fr" : "en" ?>">
 
 <head>
     <meta charset="UTF-8">
@@ -7,24 +7,37 @@
     <link rel="stylesheet" href="../styles/style_h&f.css">
     <link rel="stylesheet" href="../styles/style_compte.css">
     <title>Mon compte - Expo Tamara de Lempicka - Les années folles</title>
+    <title>
+        <?php echo $_SESSION["lang"] == "fr" ? "Mon compte - Expo Tamara de Lempicka - Les années folles" : "My account - Expo Tamara de Lempicka - The Roaring Twenties" ?>
+    </title>
 </head>
 
 <body>
-    <a href="#content" class="skip-link">Aller au contenu</a>
+    <a href="#content" class="skip-link">
+        <?php echo $_SESSION["lang"] == "fr" ? "Aller au contenu" : "Go to content" ?>
+    </a>
     <?php include 'components/header.php'; ?>
     <main id="content" <?php if (!isset ($_SESSION['user'])) {
         echo 'class="notLoged"';
     } ?>>
         <?php if (!isset ($_SESSION['user'])) { ?>
             <div class="popup">
-                <h2>Connectez-vous ou inscrivez-vous pour accéder à votre compte</h2>
+                <h2>
+                    <?php echo $_SESSION["lang"] == "fr" ? "Connectez-vous ou inscrivez-vous pour accéder à votre compte" : "Log in or sign in to access your account" ?>
+                </h2>
                 <div class="link">
-                    <a href="./connexion">Connexion</a>
-                    <a href="./inscription">Inscription</a>
+                    <a href="./connexion">
+                        <?php echo $_SESSION["lang"] == "fr" ? "Connexion" : "Log in" ?>
+                    </a>
+                    <a href="./inscription">
+                        <?php echo $_SESSION["lang"] == "fr" ? "Inscription" : "Sign in" ?>
+                    </a>
                 </div>
             </div>
         <?php } ?>
-        <h1>Mon compte</h1>
+        <h1>
+            <?php echo $_SESSION["lang"] == "fr" ? "Mon compte" : "My account" ?>
+        </h1>
         <img id="compte" src="../img/compte.png" alt="">
         <?php if (isset ($_SESSION['user'])) { ?>
             <h2>
@@ -36,99 +49,121 @@
             <div class="boutons">
                 <a class="<?php if ($activePage == "infos" || $activePage == "edit") {
                     echo "active";
-                } ?>" href="./compte?page=infos">Mes
-                    informations</a>
+                } ?>" href="./compte?page=infos">
+                    <?php echo $_SESSION["lang"] == "fr" ? "Mes
+                    informations" : "My informations" ?>
+                </a>
                 <a class="<?php if ($activePage != "infos" && $activePage != "edit") {
                     echo "active";
-                } ?>" href="./compte?page=reserv">Mes
-                    réservations</a>
+                } ?>" href="./compte?page=reserv">
+                    <?php echo $_SESSION["lang"] == "fr" ? "Mes
+                    réservations" : "My reservations" ?>
+                </a>
             </div>
             <?php if ($activePage == "infos" || $activePage == "edit") { ?>
                 <div class="infos">
                     <?php if (isset ($_SESSION['user'])) {
                         if ($activePage == "infos") {
                             ?>
-                            <p>Prénom :
+                            <p>
+                                <?php echo $_SESSION["lang"] == "fr" ? "Prénom" : "First name" ?> :
                                 <?php echo $_SESSION['user']->getPrenom() ?>
                             </p>
-                            <p>Nom :
+                            <p>
+                                <?php echo $_SESSION["lang"] == "fr" ? "Nom" : "Last name" ?> :
                                 <?php echo $_SESSION['user']->getNom() ?>
                             </p>
-                            <p>Adresse mail :
+                            <p>
+                                <?php echo $_SESSION["lang"] == "fr" ? "Adresse mail" : "E-mail adress" ?> :
                                 <?php echo $_SESSION['user']->getMail() ?>
                             </p>
                             <a class="edit" href="./compte?page=edit">
-                                <img class="noHover" src="../img/icons/editG.svg"
-                                            alt="">
-                                <img class="Hover" src="../img/icons/editW.svg"
-                                            alt="">
-                                Modifier mes informations</a>
+                                <img class="noHover" src="../img/icons/editG.svg" alt="">
+                                <img class="Hover" src="../img/icons/editW.svg" alt="">
+                                <?php echo $_SESSION["lang"] == "fr" ? "Modifier mes informations" : "Edit my informations" ?>
+                            </a>
                         <?php } else { ?>
                             <form action="./editCompteInfos" method="POST">
                                 <div class="formElement">
-                                    <label for="prenom">Prénom : </label>
+                                    <label for="prenom">
+                                        <?php echo $_SESSION["lang"] == "fr" ? "Prénom" : "First name" ?> :
+                                    </label>
                                     <input type="text" name="prenom" id="prenom"
                                         value="<?php echo $_SESSION['user']->getPrenom() ?>" required>
                                 </div>
                                 <div class="formElement">
-                                    <label for="nom">Nom : </label>
-                                    <input type="text" name="nom" id="nom" value="<?php echo $_SESSION['user']->getNom() ?>" required>
+                                    <label for="nom">
+                                        <?php echo $_SESSION["lang"] == "fr" ? "Nom" : "Last name" ?> :
+                                    </label>
+                                    <input type="text" name="nom" id="nom" value="<?php echo $_SESSION['user']->getNom() ?>"
+                                        required>
                                 </div>
                                 <div class="formElement">
-                                    <label for="mail">Adresse mail : </label>
-                                    <input type="email" name="mail" id="mail" value="<?php echo $_SESSION['user']->getMail() ?>" required>
+                                    <label for="mail">
+                                        <?php echo $_SESSION["lang"] == "fr" ? "Adresse mail" : "E-mail adress" ?> :
+                                    </label>
+                                    <input type="email" name="mail" id="mail" value="<?php echo $_SESSION['user']->getMail() ?>"
+                                        required>
                                 </div>
-                                <?php if (isset($_GET["error"])) {echo "<p class=\"error\">Une erreur s'est produite</p>";} ?>
+                                <?php if (isset ($_GET["error"])) {
+                                    echo "<p class=\"error\">" . ($_SESSION["lang"] == "fr" ? "Une erreur s'est produite." : "An error has occurred") . "</p>";
+                                } ?>
                                 <label class="edit" for="save">
                                     <img class="noHover" src="../img/icons/saveG.svg" alt="">
                                     <img class="Hover" src="../img/icons/saveW.svg" alt="">
-                                    <input type="submit" value="Enregistrer les modifications" id="save"></label>
+                                    <input type="submit"
+                                        value="<?php echo $_SESSION["lang"] == "fr" ? "Enregistrer les modifications" : "Save changes" ?>"
+                                        id="save"></label>
                             </form>
                         <?php }
                     } ?>
                 </div>
             <?php } else { ?>
                 <div class="reservations">
-                    <h3>Tamara de Lempicka - Les années folles</h3>
+                    <h3>
+                        <?php echo $_SESSION["lang"] == "fr" ? "Tamara de Lempicka - Les années folles" : "Tamara de Lempicka - The Roaring Twenties" ?>
+                    </h3>
                     <div class="billets">
 
                         <?php
                         if (isset ($_SESSION['user'])) {
                             $tickets = $manager->getReservationsOfUser($_SESSION['user']->getId_user());
-                            if ($tickets->rowCount() == 0) {
-                                echo "<p>Vous n'avez pas encore de réservation</p>
-                            <a id=\"reservation\" href=\"./billetterie\">
-                            <img src=\"../img/icons/ticket.svg\" alt=\"\">
-                            <p>Réserver maintenant</p>
-                        </a>";
-                            } else {
+                            if ($tickets->rowCount() == 0) { ?>
+                                <p><?php echo $_SESSION["lang"] == "fr" ? "Vous n'avez pas encore de réservations" : "You don't have any reservations yet"?></p>
+                                <a id=\"reservation\" href=\"./billetterie\">
+                                    <img src=\"../img/icons/ticket.svg\" alt=\"\">
+                                    <p><?php echo $_SESSION["lang"] == "fr" ? "Réserver maintenant" : "Book now" ?></p>
+                                </a>";
+                            <?php } else {
                                 foreach ($tickets->fetchAll(PDO::FETCH_ASSOC) as $key => $value) {
                                     ?>
                                     <div class="billet">
                                         <div class="timeDates">
                                             <div class="date">
-                                                <p>le
+                                                <p><?php if ($_SESSION["lang"]=="fr") echo "le" ?>
                                                     <?php $date = new DateTime($value['date']);
-                                                    $formatter = new IntlDateFormatter('fr_FR', IntlDateFormatter::LONG, IntlDateFormatter::NONE);
+                                                    $format = $_SESSION["lang"] == "fr" ? "fr_FR" : "en_EN";
+                                                    $formatter = new IntlDateFormatter($format, IntlDateFormatter::LONG, IntlDateFormatter::NONE);
                                                     echo $formatter->format($date); ?>
                                                 </p>
                                             </div>
                                             <div class="time">
-                                                <p>à
-                                                    <?php echo str_replace(":", "h", $date->format('H:i')) ?>
+                                                <p><?php echo $_SESSION["lang"] == "fr" ? "à" : "at" ?>
+                                                    <?php echo $_SESSION['lang'] == "fr" ? str_replace(":", "h", $date->format('H:i')) : $date->format('h:i A') ?>
                                                 </p>
                                             </div>
                                         </div>
-                                        <h4>Billet
-                                            <?php echo $value['nom_formule'] ?>
+                                        <h4><?php if ($_SESSION['lang'] == "fr") echo "Billet" ?>
+                                            <?php echo $value['nom_formule_'.$_SESSION['lang']] ?>
+                                            <?php if ($_SESSION['lang'] == "en") echo "reservation" ?>
                                             x
                                             <?php echo $value['quantite'] ?>
                                         </h4>
                                         <p>
-                                            <?php echo $value['explication_formule'] ?>
+                                            <?php echo $value['explication_formule_'.$_SESSION['lang']] ?>
                                         </p>
                                         <p class="price">
-                                            <?php echo $value['tarif'] == 0 ? "Gratuit" : $value['tarif'] * $value['quantite'] ?>
+                                            <?php echo $value['tarif'] == 0 ? ($_SESSION["lang"]=="fr" ? "Gratuit" : "Free") : $value['tarif'] * $value['quantite']."€" ?>
                                         </p>
                                     </div>
 
@@ -139,7 +174,7 @@
 
                     </div>
                     <div class="place">
-                        <h3>Localisation</h3>
+                        <h3><?php echo $_SESSION["lang"] == "fr" ? "Localisation" : "Localization" ?></h3>
                         <div class="infosAccess">
                             <div class="infoAccess">
                                 <img src="../img/icons/transport.svg" alt="Transport en commun">

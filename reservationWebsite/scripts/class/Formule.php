@@ -1,8 +1,10 @@
 <?php
 class Formule {
     private $id_formule;
-    private $nom_formule;
-    private $explication_formule;
+    private $nom_formule_fr;
+    private $nom_formule_en;
+    private $explication_formule_fr;
+    private $explication_formule_en;
     private $tarif;
 
     public function getId_formule()
@@ -15,24 +17,44 @@ class Formule {
         $this->id_formule = $id_formule;
     }
 
-    public function getNom_formule()
+    public function getNom_formule_fr()
     {
-        return $this->nom_formule;
+        return $this->nom_formule_fr;
     }
 
-    public function setNom_formule($nom_formule)
+    public function setNom_formule_fr($nom_formule_fr)
     {
-        $this->nom_formule = $nom_formule;
+        $this->nom_formule_fr = $nom_formule_fr;
     }
 
-    public function getExplication_formule()
+    public function getNom_formule_en()
     {
-        return $this->explication_formule;
+        return $this->nom_formule_en;
     }
 
-    public function setExplication_formule($explication_formule)
+    public function setNom_formule_en($nom_formule_en)
     {
-        $this->explication_formule = $explication_formule;
+        $this->nom_formule_en = $nom_formule_en;
+    }
+
+    public function getExplication_formule_fr()
+    {
+        return $this->explication_formule_fr;
+    }
+
+    public function setExplication_formule_fr($explication_formule_fr)
+    {
+        $this->explication_formule_fr = $explication_formule_fr;
+    }
+
+    public function getExplication_formule_en()
+    {
+        return $this->explication_formule_en;
+    }
+
+    public function setExplication_formule_en($explication_formule_en)
+    {
+        $this->explication_formule_en = $explication_formule_en;
     }
 
     public function getTarif()
