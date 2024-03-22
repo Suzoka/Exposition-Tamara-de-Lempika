@@ -119,7 +119,10 @@
                                 <div class="ticket">
                                     <div class="info">
                                         <label for="formule<?php echo $value->getId_formule() ?>">
-                                            <?php echo $value->getNom_formule() ?>
+                                            <?php 
+                                            $method = 'getNom_formule_'.$_SESSION['lang'];
+                                            echo $value->$method() 
+                                            ?>
                                         </label>
                                         <p class="price">
                                             <?php echo $value->getTarif() == 0 ? "Gratuit" : $value->getTarif() . " €" ?>
@@ -135,7 +138,10 @@
                                         </div>
                                     </div>
                                     <p class="description">
-                                        <?php echo $value->getExplication_formule() ?>
+                                        <?php 
+                                        $method = "getExplication_formule_".$_SESION['lang'];
+                                        echo $value->$method() 
+                                        ?>
                                         Lorem, ipsum dolor sit amet consectetur adipisicing elit. Saepe atque minima ipsa deleniti possimus! Asperiores error, soluta est ab saepe maxime quisquam iste dignissimos ut illo ipsum, tempora excepturi incidunt.
                                     </p>
                                 </div>
