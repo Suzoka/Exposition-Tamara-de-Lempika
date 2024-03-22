@@ -783,6 +783,10 @@ p.ticket {
     margin-bottom: 7px;
 }
 
+#step4 li::first-letter {
+    text-transform: uppercase;
+}
+
 #buttonMail, #buttonHour {
     display: none;
 }

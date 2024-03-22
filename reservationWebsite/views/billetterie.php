@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="<?php echo $_SESSION["lang"] == "fr" ? "fr" : "en" ?>">
 
 <head>
     <meta charset="UTF-8">
@@ -125,7 +125,7 @@
                                             ?>
                                         </label>
                                         <p class="price">
-                                            <?php echo $value->getTarif() == 0 ? "Gratuit" : $value->getTarif() . " €" ?>
+                                            <?php echo $value->getTarif() == 0 ? ($_SESSION["lang"]=="fr" ? "Gratuit" : "Free") : $value->getTarif() . " €" ?>
                                         </p>
                                         <div class="quantity">
                                             <button class="minus" id="minus<?php echo $value->getId_formule() ?>"
@@ -146,7 +146,7 @@
                                 </div>
                             <?php } ?>
                             <p class="error hidden" id="errorFormule"><?php echo $_SESSION["lang"] == "fr" ? "Veillez choisir au moins une formule" : "Please choose at least one option." ?></p>
-                            <p class="error hidden" id="errorFormuleMax">Le nombre maximal de personnes pour un créneau est de 10</p>
+                            <p class="error hidden" id="errorFormuleMax"><?php echo $_SESSION["lang"] == "fr" ? "Le nombre maximal de personnes pour un créneau est de 10" : "You can't choose more than 10 persons at a same time slot" ?></p>
                         </div>
                         <div class="boutons">
                             <button class="retour" type="button" data-goto="1"><?php echo $_SESSION["lang"] == "fr" ? "Retour" : "Go back" ?></button>

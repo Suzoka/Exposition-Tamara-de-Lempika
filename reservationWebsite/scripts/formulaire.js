@@ -140,12 +140,14 @@ const updateAriane = () => {
 }
 
 let date;
-const mois = ["Janvier", "Février", "Mars", "Avril", "Mai", "Juin", "Juillet", "Août", "Septembre", "Octobre", "Novembre", "Décembre"];
-
+let lang = document.documentElement.getAttribute('lang') == "fr" ? 'fr-FR' : 'en-US';
 
 const updateResume = () => {
+
     date = new Date(hiddenInput.value);
-    document.querySelector('.dateResume').innerHTML = date.getDate() + " " + mois[date.getMonth()] + " " + date.getFullYear();
+    let options = { year: 'numeric', month: 'long', day: 'numeric' };
+    document.querySelector('.dateResume').innerHTML = date.toLocaleDateString(lang, options);
+
     document.querySelector('.heureResume').innerHTML = document.querySelector('input[name="heure"]:checked').nextElementSibling.innerHTML;
     document.querySelector('.formuleResumeDynamique').innerHTML = "";
 
