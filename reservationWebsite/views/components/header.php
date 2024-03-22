@@ -14,7 +14,7 @@
             <?php if ($_SESSION["lang"] == "fr") { ?>
                 <a href="./languageEN?from=<?php echo $page ?>"><img class="language" src="../img/icons/en.svg" alt="change language to english" lang="en"></a>
             <?php } else { ?>
-                <a href="./languageFR?from=<?php echo $page ?>"><img class="language" src="../img/icons/fr.svg" alt="changer la langue en français"></a>
+                <a href="./languageFR?from=<?php echo $page ?>"><img class="language" src="../img/icons/fr.svg" alt="changer la langue en français" lang="fr"></a>
             <?php } ?>
         </div>
         <button class="burger">
