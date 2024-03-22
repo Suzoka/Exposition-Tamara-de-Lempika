@@ -51,14 +51,23 @@ document.querySelectorAll("button.retour, button.edit").forEach(button => {
 });
 
 const formules = document.querySelectorAll('#step2 input[type="number"]')
+
+const checkSum = (input) => {
+    let cumul = 0;
+    formules.forEach(input => {
+        cumul += parseInt(input.value);
+    });
+    if (cumul > 10) {
+        input.value = input.value - (cumul - 10);
+        document.getElementById('errorFormuleMax').classList.remove('hidden');
+    }
+};
+
 formules.forEach(input => {
-    input.addEventListener('change', function () {
-        let cumul = 0;
-        formules.forEach(input => {
-            cumul += parseInt(input.value);
-        });
-        if (cumul > 10) {
-            input.value = input.value - (cumul - 10);
+    input.addEventListener('change', () => checkSum(input));
+    input.addEventListener('keydown', function (event) {
+        if (event.key === 'Enter') {
+            event.preventDefault();
         }
     });
 });
@@ -164,10 +173,11 @@ document.querySelectorAll('.ticket .info button').forEach(element => {
                 input.value--;
             }
         }
+        checkSum(input);
     })
 });
 
-document.querySelector('.closePopup').addEventListener('click', ()=>{
+document.querySelector('.closePopup').addEventListener('click', () => {
     document.querySelector('.popup.erreur').classList.add('hidden');
     document.querySelector('.serverError').classList.remove('serverError');
 })
