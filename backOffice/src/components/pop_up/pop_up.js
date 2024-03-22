@@ -52,7 +52,7 @@ export const Pop_up = ({ data, close, closeAction, type }) => {
                     <p>{date.getHours().toString().padStart(2, '0')}:{date.getMinutes().toString().padStart(2, '0')}</p>
                     <p>Quantité : {data.quantite}</p>
                     <p>Prix : {data.prix === 0 ? "Gratuit" : data.prix + '€'}</p>
-                    <p className="firstletter">{data.nom_formule}</p>
+                    <p className="firstletter">{data.nom_formule_fr}</p>
                 </div>
                 <div className='pop_up__codeBox'>
                     <img className="pop_up__QR" src={qr_code} alt="" />
