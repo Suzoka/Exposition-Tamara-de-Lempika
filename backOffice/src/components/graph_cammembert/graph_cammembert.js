@@ -5,7 +5,7 @@ import './graph_cammembert.css';
 
 export const Graph_Camembert = ({ data }) => {
     const ref = useRef();
-
+    console.log(data);
     useEffect(() => {
         const svg = d3.select(ref.current);
         svg.selectAll("g").remove();

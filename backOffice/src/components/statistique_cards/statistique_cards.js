@@ -31,9 +31,9 @@ export const StatistiqueCards = ({ donnee, type, titre, total }) => {
                     </div>
 
                 ) : type === "barJOUR" ? (
-                    <div>
-                        < Graph_Bar data={donnee} total={total} />
-                    </div>
+                    <>
+                        < Graph_Bar data={Object.entries(donnee).map(([key, value]) => ({ key, value }))} total={total} />
+                    </>
                 ) : ''
 
             }

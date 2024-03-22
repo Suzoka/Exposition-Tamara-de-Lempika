@@ -26,6 +26,11 @@
     --secondary-yellow: #f5c983;
     --secondary-blue: #aebafd;
 
+    --graph-primary: hsl(137, 100%, 74%);
+    --graph-blue: hsl(231, 100%, 74%);
+    --graph-green: hsl(141, 100%, 74%);
+    --graph-yellow: hsl(36, 100%, 74%);
+
     --dark-red: #660708;
     --dark-blue: #1328A7;
     --dark-green: #23511b;

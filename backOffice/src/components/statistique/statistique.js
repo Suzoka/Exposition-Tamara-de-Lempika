@@ -10,52 +10,21 @@ export const Statistique = ({ donnee }) => {
 
     useEffect(() => {
         const trie = async () => {
-            // console.log(donnee);
 
-            const nbFormAdulte = donnee.reduce((total, i) => i.nom_formule === "adulte" ? total + i.quantite : total, 0);
-            const nbFormJeune = donnee.reduce((total, i) => i.nom_formule === "jeune" ? total + i.quantite : total, 0);
-            const nbFormHandicap = donnee.reduce((total, i) => i.nom_formule === "handicap" ? total + i.quantite : total, 0);
-            const nbBillet = donnee.reduce((total, i) => total + i.quantite, 0);
-            const nbReservation = donnee.length;
+            await fetch("https://api.sinyart.fr/stats", {
+                method: 'GET'
+            })
+                .then(response => response.json())
+                .then(data => {
+                    // console.log(data)
+                    //Actions à faire avec la réponse de l'API dans la variable data
+                    setStat(data);
+                    setLoadStat(true);
+                })
+                .catch((error) => {
+                    console.error('Error:', error);
+                });
 
-            // console.log("Adulte : ", nbFormAdulte, "| Jeune : ", nbFormJeune, "| Handicap : ", nbFormHandicap);
-
-            const days = ['Lundi', 'Mardi', 'Mercredi', 'Jeudi', 'Vendredi', 'Samedi', 'Dimanche'];
-
-            const reservationsByDay = donnee.reduce((total, i) => {
-                const date = new Date(i.date);
-                const dayOfWeek = date.getDay();
-
-                if (!total[days[dayOfWeek]]) {
-                    total[days[dayOfWeek]] = 0;
-                }
-
-                total[days[dayOfWeek]] += i.quantite;
-
-                return total;
-            }, {});
-
-
-            const reservationsByDayOrder = Object.entries(reservationsByDay)
-                .sort(([keyA], [keyB]) => days.indexOf(keyA) - days.indexOf(keyB))
-                .map(([key, value]) => ({ key, value }));
-
-            // console.log(reservationsByDay);
-
-            setStat({
-                "formule": {
-                    "adulte": nbFormAdulte,
-                    "jeune": nbFormJeune,
-                    "handicap": nbFormHandicap
-                },
-                "nbBillet": nbBillet,
-                "nbReservation": nbReservation,
-                "reservationsByDay": reservationsByDayOrder
-            });
-
-            // console.log(stat);
-
-            setLoadStat(true);
         }
 
         trie();
@@ -68,7 +37,7 @@ export const Statistique = ({ donnee }) => {
             {loadStat ? (
                 <div className={classes['statistique__container']}>
                     < StatistiqueCards donnee={stat.formule} type="cammembert" titre="Répartition des formules" />
-                    < StatistiqueCards donnee={stat.reservationsByDay} total={stat.nbBillet} type="barJOUR" titre="Réservation par jour de la semaine" />
+                    < StatistiqueCards donnee={stat.reservationsByDay} type="barJOUR" titre="Réservation par jour de la semaine" />
                 </div>
             ) : ''}
         </div>

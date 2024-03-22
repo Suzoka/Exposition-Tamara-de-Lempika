@@ -1,0 +1,27 @@
+.graph__container {
+    display: grid;
+    gap: 0px;
+    margin-top: -20px;
+}
+
+.graph__bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    /* background-color: green; */
+    /* text-align: right; */
+    gap: 10px;
+}
+
+.graph__bar::before {
+    content: '';
+    display: inline-block;
+    height: 40px;
+    width: var(--width);
+    background-color: var(--graph-primary);
+    border-radius: 0px 10px 10px 0px;
+}
+
+.graph__label {
+    margin: 0px;
+}

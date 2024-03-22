@@ -1,27 +1,29 @@
-import React, { useEffect, useRef } from 'react';
+import { useEffect, useRef } from 'react';
 import * as d3 from 'd3';
 
-export const Graph_Bar = ({ data, total }) => {
+import './graph_bar.css';
+
+export const Graph_Bar = ({ data }) => {
 
     console.log(data);
 
-    const ref = useRef();
+    const container = useRef(null);
 
     useEffect(() => {
-        const divs = d3.select(ref.current)
+        const divs = d3.select(container.current)
             .selectAll("div")
-            .attr("class", "graphBar__container")
             .data(data)
-            .enter()
-            .append("div");
-
-        divs.style("width", d => `${(d.value/total) * 100}%`)
-            .attr("class", "graphBar__element")
-            .style("height", "20px")
-            .style("background-color", "steelblue")
-            .select("::after")
-            .style("content", d => d.key);
+            .join("div")
+            .attr("class", "graph__bar")
+            .style("--width", d => `${d.value * 10}%`);
+        
+        divs.selectAll("p")
+            .remove();
+            
+        divs.append("p")
+            .attr("class", "graph__label")
+            .text(d => d.key);
     }, [data]);
 
-    return <div ref={ref}></div>;
+    return <div ref={container} className='graph__container'></div>;
 };
