@@ -166,3 +166,8 @@ document.querySelectorAll('.ticket .info button').forEach(element => {
         }
     })
 });
+
+document.querySelector('.closePopup').addEventListener('click', ()=>{
+    document.querySelector('.popup.erreur').classList.add('hidden');
+    document.querySelector('.serverError').classList.remove('serverError');
+})

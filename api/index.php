@@ -11,7 +11,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') {
 
 $parts = explode('/', $_SERVER['REQUEST_URI']);
 
-switch ($parts[3]) {
+switch ($parts[1]) {
     case 'reservations':
         include "reservationsActions.php";
         break;

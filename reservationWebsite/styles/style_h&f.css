@@ -365,7 +365,7 @@ p.error {
 }
 
 .hidden {
-    display: none;
+    display: none !important;
 }
 
 /* ---- Bouton de réservation ---- */
@@ -442,25 +442,30 @@ p.error {
 .popup a:hover {
     text-decoration: underline;
 }
-    /* ---- POPUP RESPONSIVE ---- */
-    @media (max-width: 635px) {
-        .popup .link {
-            flex-direction: column;
-            align-items: center;   
-        }
 
-        .popup h2 {
-            margin-top: 45px;
-            margin-bottom: 30px;
-        }
+.popup p {
+    text-align: center;
+}
+
+/* ---- POPUP RESPONSIVE ---- */
+@media (max-width: 635px) {
+    .popup .link {
+        flex-direction: column;
+        align-items: center;
     }
 
-.notLoged {
+    .popup h2 {
+        margin-top: 45px;
+        margin-bottom: 30px;
+    }
+}
+
+.notLoged, .serverError {
     position: relative;
     cursor: not-allowed;
 }
 
-.notLoged::after {
+.notLoged::after, .serverError::after {
     content: "";
     display: block;
     position: absolute;
