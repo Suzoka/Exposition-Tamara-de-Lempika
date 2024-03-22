@@ -65,7 +65,7 @@
 
                 <form action="./newReservation" method="post">
                     <div id="step1" class="current">
-                        <h2 class="title"><span>1</span><?php echo $_SESSION["lang"] == "fr" ? "Etape 1 : Sélection de l'heure et la date" : "Step 1 : Selection of time and date" ?></h2>
+                        <h2 class="title"><span>1</span><?php echo $_SESSION["lang"] == "fr" ? "Etape 1 : Sélection de l'heure et la date" : "Step 1 : Select time and date" ?></h2>
                         <div class="calendar">
                             <h3><?php echo $_SESSION["lang"] == "fr" ? "Choisissez la date de votre visite" : "Please select the date of your visit." ?></h3>
                             <div id="date"></div>

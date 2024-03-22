@@ -441,10 +441,15 @@ input[name="heure"]:checked+label {
             margin-top: 25px;
             margin-bottom: 0;
             text-align: center;
+            width: 90%;
         }
 
         #step1 h3 {
             text-align: center;
+        }
+
+        input[name="heure"]+label {
+            padding: 8px 12px;
         }
     }
     
