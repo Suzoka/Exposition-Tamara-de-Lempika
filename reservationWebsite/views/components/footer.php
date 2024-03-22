@@ -10,17 +10,18 @@
         </div>
     </div>
     <nav class="apropos">
-        <h3> A propos </h3>
-        <a href="https://sinyart.fr/">🔗 Agence</a>
-        <a href="./accueil">Exposition</a>
-        <a href="">Mentions légales</a>
+        <h3><?php echo $_SESSION["lang"] == "fr" ? "A propos" : "About us" ?></h3>
+        <a href="https://sinyart.fr/"><?php echo $_SESSION["lang"] == "fr" ? "🔗 Agence" : "🔗 Agency" ?></a>
+        <a href="./accueil"><?php echo $_SESSION["lang"] == "fr" ? "Exposition" : "Exhibition" ?></a>
+        <a href=""><?php echo $_SESSION["lang"] == "fr" ? "Mentions légales" : "GCU" ?></a>
     </nav>
     <nav class="planSite">
-        <h3>Plan du site</h3>
-        <a href="./accueil">Accueil</a>
-        <a href="./billetterie">Billetterie</a>
-        <a href="./connexion">Se connecter</a>
-        <a href="./inscription">S'inscrire</a>
+        <h3><?php echo $_SESSION["lang"] == "fr" ? "Plan du site" : "Site map" ?></h3>
+        <a href="./accueil"><?php echo $_SESSION["lang"] == "fr" ? "Accueil" : "Homepage" ?></a>
+        <a href="./billetterie"><?php echo $_SESSION["lang"] == "fr" ? "Billetterie" : "Ticketing" ?></a>
+        <a href="./connexion"><?php echo $_SESSION["lang"] == "fr" ? "Se connecter" : "Log in" ?></a>
+        <a href="./inscription"><?php echo $_SESSION["lang"] == "fr" ? "S'inscrire" : "Sign up" ?></a>
+        <a href="./compte"><?php echo $_SESSION["lang"] == "fr" ? "Mon compte" : "My account" ?></a>
     </nav>
     <nav class="reseaux">
         <a href="https://www.instagram.com/sinyart_off?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="><img src="../img/icons/insta.png" alt="Instagram"></a>

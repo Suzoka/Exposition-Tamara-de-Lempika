@@ -71,6 +71,8 @@ header nav {
     width: 30px;
     height: 30px;
     border-radius: 50%;
+    padding: 2px;
+    border: #FFFFFF 2px solid;
 }
 
 .menu a,
@@ -398,6 +400,10 @@ p.error {
     float: right;
 }
 
+#reservation:focus, #reservation:hover {
+    background-color: #21594F;
+}
+
 /* ---- Popup ---- */
 .popup {
     display: block;
@@ -519,4 +525,29 @@ p.error {
 
 .edit:hover img.noHover {
     display: none;
+}
+
+
+/* ---- Skip link ---- */
+.skip-link {
+    position: absolute;
+    top: auto;
+    left: -10000px;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+}
+
+.skip-link:focus {
+    left: 2px;
+    top: 5px;
+    width: auto;
+    height: auto;
+    overflow: visible;
+    background-color: #FFFFFF;
+    color: #000000;
+    padding: 10px;
+    z-index: 1000;
+    border: #21594F solid 3px;
+    border-radius: 7px;
 }

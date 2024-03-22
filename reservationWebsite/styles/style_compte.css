@@ -353,6 +353,23 @@ label.edit img {
     width: 20px;
 }
 
+.edit:focus, label.edit:focus-within {
+    background-color: #21594F;
+    color: #FFFFFF;
+}
+
+input[type="submit"]:focus {
+    color: #FFFFFF;
+}
+
+.edit:focus img.Hover, label.edit:focus-within img.Hover {
+    display: block;
+}
+
+.edit:focus img.noHover, label.edit:focus-within img.noHover {
+    display: none;
+}
+
 
 /* ---- Edit form ---- */
 .formElement {

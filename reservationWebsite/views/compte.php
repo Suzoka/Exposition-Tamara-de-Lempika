@@ -10,8 +10,9 @@
 </head>
 
 <body>
+    <a href="#content" class="skip-link">Aller au contenu</a>
     <?php include 'components/header.php'; ?>
-    <main <?php if (!isset ($_SESSION['user'])) {
+    <main id="content" <?php if (!isset ($_SESSION['user'])) {
         echo 'class="notLoged"';
     } ?>>
         <?php if (!isset ($_SESSION['user'])) { ?>
@@ -61,8 +62,7 @@
                                             alt="">
                                 <img class="Hover" src="../img/icons/editW.svg"
                                             alt="">
-                                Modifier mes
-                        informations</a>
+                                Modifier mes informations</a>
                         <?php } else { ?>
                             <form action="./editCompteInfos" method="POST">
                                 <div class="formElement">

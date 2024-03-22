@@ -270,6 +270,7 @@ form h3 {
 
 /* ---- STEP 1 ---- */
 #step1 {
+    display: grid;
     grid-template-columns: 1fr 1fr;
     grid-template-areas:
         "Titre Titre"
@@ -392,7 +393,7 @@ input[name="heure"]+label {
     border-radius: 30px;
 }
 
-input[name="heure"]:hover+label {
+input[name="heure"]:hover+label, input[name="heure"]+label:focus {
     background-color: #21594F;
     color: #fff;
 }
@@ -516,7 +517,8 @@ input[name="heure"]:checked+label {
     padding: 9px 19px;
     display: flex;
     align-items: center;
-    justify-content: space-around;
+    justify-content: center;
+    justify-content: center;
     cursor: pointer;
 }
 
@@ -897,7 +899,8 @@ input[type="submit"], .closePopup {
 
 button.confirmer:hover,
 button.retour:hover,
-input[type="submit"]:hover, .closePopup:hover {
+input[type="submit"]:hover, button.confirmer:focus, button.retour:focus,
+input[type="submit"]:focus, .closePopup:hover {
     background-color: #000000;
     color: #FFFFFF;
 }
@@ -920,7 +923,20 @@ button.closePopup {
 .notLoged .ariane, .serverError .ariane {
     margin-top: 0;
 }
-
 .notLoged::after, .serverError::after {
     height: calc(100% + 30px);
+}
+
+/* ---- button focus ---- */
+.edit:focus {
+    background-color: #21594F;
+    color: #FFFFFF;
+}
+
+.edit:focus img.Hover {
+    display: block;
+}
+
+.edit:focus img.noHover {
+    display: none;
 }

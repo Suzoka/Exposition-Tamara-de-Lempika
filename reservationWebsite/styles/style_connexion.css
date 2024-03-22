@@ -98,6 +98,10 @@ input[type="submit"] {
     cursor: pointer;
 }
 
+input[type="submit"]:hover, input[type="submit"]:focus {
+    background-color: #21594F;
+}
+
 .link {
     display: flex;
     flex-direction: row;
@@ -117,6 +121,8 @@ div.formulaire .signUp {
 .hide-show {
     position: absolute;
     z-index: 5;
+    width: -webkit-fit-content;
+    width: -moz-fit-content;
     width: fit-content;
     background: none;
     border: none;
@@ -125,8 +131,6 @@ div.formulaire .signUp {
     transform: translateY(-50%);
     font-size: 1rem;
     padding: 0.5rem;
-    -webkit-border-radius: 5px;
-    -moz-border-radius: 5px;
     border-radius: 5px;
     cursor: pointer;
 }
