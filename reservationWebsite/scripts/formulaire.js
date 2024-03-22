@@ -1,6 +1,6 @@
 const datepicker = new Datepicker(document.querySelector('div#date'), {
     inline: true,
-    language: 'fr',
+    language: document.documentElement.getAttribute('lang'),
     minDate: new Date(),
     maxDate: new Date('2024-04-28')
 });
