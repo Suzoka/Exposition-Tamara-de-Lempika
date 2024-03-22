@@ -1,8 +1,10 @@
-import { useRef } from "react";
+import { useRef, useState } from "react";
 
 import classes from './connexion.module.css';
 
 export const Connexion = ({ setFlag }) => {
+
+    const [erreur, setErreur] = useState(false);
 
     const login = useRef(null);
     const password = useRef(null);
@@ -31,6 +33,7 @@ export const Connexion = ({ setFlag }) => {
                         setFlag(true);
                     } else {
                         console.log('Authentication failed');
+                        setErreur(true);
                     }
                 })
                 .catch((error) => {
@@ -46,20 +49,27 @@ export const Connexion = ({ setFlag }) => {
 
     return (
         <section className={classes["connexion__container"]}>
-            <div>
-                <h1>Connexion</h1>
-                <form onSubmit={fctConnexion}>
-                    <label htmlFor="login">Login</label>
-                    <input type="text" name="login" ref={login} required />
-                    <label htmlFor="password">Mot de passe</label>
-                    <input type="password" name="password" ref={password} required />
-                    <button>Connexion</button>
+
+            <div className={classes["connexion__cards"]}>
+
+                <h1 className={classes["connexion__title"]}>Connexion</h1>
+                <form onSubmit={fctConnexion} className={classes["connexion__form"]}>
+                    <label htmlFor="login" className={classes["connexion__label"]}>Login</label>
+                    <input type="text" name="login" ref={login} className={classes["connexion__input"]} required />
+                    <label htmlFor="password" className={classes["connexion__label"]}>Mot de passe</label>
+                    <input type="password" name="password" ref={password} className={classes["connexion__input"]} required />
+                    <button type="submit"className={classes["connexion__submit"]}>Connexion</button>
                 </form>
+
+                {erreur ? <p className={classes["connexion__erreur"]}>Login ou mot de passe incorrect</p> : ''}
+
             </div>
+
             <div className={classes["connexion__logo"]}>
                 <img src="./asset/logoSiny.svg" alt="logo" className={classes['connexion__logo--img']} />
                 <p className={classes['connexion__logo--txt']}>Back office TDL</p>
             </div>
+
         </section>
     )
 
