@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../styles/style_h&f.css">
     <link rel="stylesheet" href="../styles/style_accueil.css">
-    <title><?php echo $_SESSION["lang"] == "fr" ? "Expo Tamara de Lempicka - Les années folles" : "Expo Tamara de Lempicka - The Roaring Twenties" ?></title>
+    <title><?php echo $_SESSION["lang"] == "fr" ? "Expo Tamara de Lempicka - Les années folles" : "Exhibition Tamara de Lempicka - The Roaring Twenties" ?></title>
 </head>
 
 <body>
