@@ -80,7 +80,7 @@
                             <a class="edit" href="./compte?page=edit">
                                 <img class="noHover" src="../img/icons/editG.svg" alt="">
                                 <img class="Hover" src="../img/icons/editW.svg" alt="">
-                                <?php echo $_SESSION["lang"] == "fr" ? "Modifier mes informations" : "Edit my informations" ?>
+                                <?php echo $_SESSION["lang"] == "fr" ? "Modifier" : "Edit" ?>
                             </a>
                         <?php } else { ?>
                             <form action="./editCompteInfos" method="POST">
