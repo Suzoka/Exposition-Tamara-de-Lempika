@@ -903,6 +903,7 @@ input[type="submit"]:hover, button.confirmer:focus, button.retour:focus,
 input[type="submit"]:focus, .closePopup:hover {
     background-color: #000000;
     color: #FFFFFF;
+    cursor: pointer;
 }
 
 button.retour {

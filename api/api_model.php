@@ -127,6 +127,15 @@ function updateMail($id, $mail)
     $stmt->execute();
 }
 
+function updateExtIdFormule($id, $newId)
+{
+    global $db;
+    $stmt = $db->prepare("UPDATE `reservations` SET ext_id_formule = :newType where id_ticket = :id");
+    $stmt->bindValue(':newType', $newId, PDO::PARAM_INT);
+    $stmt->bindValue(':id', $id, PDO::PARAM_INT);
+    $stmt->execute();
+}
+
 function getAllUsers()
 {
     global $db;
