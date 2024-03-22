@@ -4,7 +4,10 @@
                 alt="Accueil site de l'Exposition Tamara de Lempicka: Les années folles"></a>
         <div class="menu">
             <a href="./accueil#teaser"><?php echo $_session["lang"] == "fr" ? "Exposition virtuelle" : "Virtual exhibition" ?><img src="../img/icons/arrow.svg"
+            <a href="./accueil#teaser"><?php echo $_session["lang"] == "fr" ? "Exposition virtuelle" : "Virtual exhibition" ?><img src="../img/icons/arrow.svg"
                     alt="Allez à la section"></a>
+            <a href="./accueil#access"><?php echo $_session["lang"] == "fr" ? "Infos pratiques" : "Useful info" ?><img src="../img/icons/arrow.svg" alt="Allez à la section"></a>
+            <a href="./billetterie"><?php echo $_session["lang"] == "fr" ? "Billetterie" : "Ticketing" ?><img src="../img/icons/arrow.svg" alt="Allez à la section"></a>
             <a href="./accueil#access"><?php echo $_session["lang"] == "fr" ? "Infos pratiques" : "Useful info" ?><img src="../img/icons/arrow.svg" alt="Allez à la section"></a>
             <a href="./billetterie"><?php echo $_session["lang"] == "fr" ? "Billetterie" : "Ticketing" ?><img src="../img/icons/arrow.svg" alt="Allez à la section"></a>
         </div>
