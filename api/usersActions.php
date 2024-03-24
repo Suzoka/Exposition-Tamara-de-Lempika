@@ -52,23 +52,23 @@ if ($_SERVER['HTTP_AUTHORIZATION'] != null) {
                             switch ($key) {
                                 case "username":
                                     updateUsername($id, $value);
-                                    $modifs[] = "Nom%20d'utilisateur=>" . $value;
+                                    $modifs[] = "Nom%20d'utilisateur : " . $value;
                                     break;
                                 case "mail":
                                     updateUserMail($id, $value);
-                                    $modifs[] = "Mail=>" . $value;
+                                    $modifs[] = "Mail : " . $value;
                                     break;
                                 case "nom":
                                     updateUserNom($id, $value);
-                                    $modifs[] = "Nom=>" . $value;
+                                    $modifs[] = "Nom : " . $value;
                                     break;
                                 case "prenom":
                                     updateUserPrenom($id, $value);
-                                    $modifs[] = "Prénom=>" . $value;
+                                    $modifs[] = "Prénom : " . $value;
                                     break;
                                 case "role":
                                     updateUserRole($id, $value);
-                                    $modifs[] = "Role=>" . $value==1?"Administrateur":"Client";
+                                    $modifs[] = "Role : " . $value==1?"Administrateur":"Client";
                                     break;
                                 default:
                                     break;

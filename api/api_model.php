@@ -154,7 +154,7 @@ function sendMailReservations($id, $modifs)
 
     $modifications = "";
     foreach ($modifs as $key => $value) {
-        $modifications .= str_replace("%20", " ", "- " . $key . " : " . $value . "\n");
+        $modifications .= str_replace("%20", " ", "- " . $value . "\n");
     }
 
     mail(
@@ -285,7 +285,7 @@ function sendMailUser($id, $modifs)
 
     $modifications = "";
     foreach ($modifs as $key => $value) {
-        $modifications .= str_replace("%20", " ", "- " . $key . " : " . $value . "\n");
+        $modifications .= str_replace("%20", " ", "- " . $value . "\n");
     }
 
     mail(

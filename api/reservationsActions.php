@@ -52,7 +52,7 @@ if ($_SERVER['HTTP_AUTHORIZATION'] != null) {
                             switch ($key) {
                                 case 'date':
                                     updateDate($id, $value);
-                                    $modifs[] = "date=>".$value;
+                                    $modifs[] = "date : ".$value;
                                     break;
                                 case 'quantite':
                                     if ($value < 1) {
@@ -61,19 +61,19 @@ if ($_SERVER['HTTP_AUTHORIZATION'] != null) {
                                         break;
                                     }
                                     updateQuantite($id, $value);
-                                    $modifs[] = "quantite=>".$value;
+                                    $modifs[] = "quantite : ".$value;
                                     break;
                                 case 'nom':
                                     updateNom($id, $value);
-                                    $modifs[] = "nom=>".$value;
+                                    $modifs[] = "nom : ".$value;
                                     break;
                                 case 'prenom':
                                     updatePrenom($id, $value);
-                                    $modifs[] = "prenom=>".$value;
+                                    $modifs[] = "prenom : ".$value;
                                     break;
                                 case 'mail':
                                     updateMail($id, $value);
-                                    $modifs[] = "mail=>".$value;
+                                    $modifs[] = "mail : ".$value;
                                     break;
                                 case 'reservationType':
                                     updateExtIdFormule($id, $value);
