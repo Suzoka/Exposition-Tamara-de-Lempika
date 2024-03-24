@@ -129,10 +129,12 @@ class Manager
     public function disconnection()
     {
         $last = $_SESSION["from"];
+        $lang = $_SESSION["lang"];
         $_SESSION = [];
         session_destroy();
         session_start();
         $_SESSION["from"] = $last;
+        $_SESSION["lang"] = $lang;
     }
 
     function getReservationsOfUser($id)

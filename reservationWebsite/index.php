@@ -8,10 +8,16 @@ $segments = explode('/', $path);
 
 $page = explode('?', end($segments))[0];
 
-if (!isset($_SESSION["lang"])) {
+if (!isset ($_SESSION["lang"])) {
     $_SESSION["lang"] = "fr";
 }
+?>
 
+<!DOCTYPE html>
+<html lang="<?php echo $_SESSION["lang"] == "fr" ? "fr" : "en" ?>">
+
+
+<?php
 switch ($page) {
     case "accueil":
     default:
@@ -60,13 +66,12 @@ switch ($page) {
             header("Location: ./billetterie?error=1");
         }
         break;
-    
+
     case "compte":
         $_SESSION["from"] = "compte";
-        if (isset($_GET['page'])) {
+        if (isset ($_GET['page'])) {
             $activePage = $_GET['page'];
-        }
-        else {
+        } else {
             $activePage = "infos";
         }
         include ("./views/compte.php");
@@ -81,12 +86,12 @@ switch ($page) {
         }
         break;
 
-    case "languageFR" :
+    case "languageFR":
         $_SESSION["lang"] = "fr";
         header("Location: ./" . $_GET["from"]);
         break;
 
-    case "languageEN" :
+    case "languageEN":
         $_SESSION["lang"] = "en";
         header("Location: ./" . $_GET["from"]);
         break;

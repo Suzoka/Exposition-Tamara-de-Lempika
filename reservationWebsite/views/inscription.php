@@ -1,6 +1,3 @@
-<!DOCTYPE html>
-<html lang="<?php echo $_SESSION["lang"] == "fr" ? "fr" : "en" ?>">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">

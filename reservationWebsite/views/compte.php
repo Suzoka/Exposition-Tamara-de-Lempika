@@ -1,6 +1,3 @@
-<!DOCTYPE html>
-<html lang="<?php echo $_SESSION["lang"] == "fr" ? "fr" : "en" ?>">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,7 +5,7 @@
     <link rel="stylesheet" href="../styles/style_compte.css">
     <title>Mon compte - Expo Tamara de Lempicka - Les années folles</title>
     <title>
-        <?php echo $_SESSION["lang"] == "fr" ? "Mon compte - Expo Tamara de Lempicka - Les années folles" : "My account - Expo Tamara de Lempicka - The Roaring Twenties" ?>
+        <?php echo $_SESSION["lang"] == "fr" ? "Mon compte - Expo Tamara de Lempicka - Les années folles" : "My account - Exhibition Tamara de Lempicka - The Roaring Twenties" ?>
     </title>
 </head>
 
