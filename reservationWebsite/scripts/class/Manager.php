@@ -49,13 +49,21 @@ class Manager
                 }
             }
 
-            $formatter = new IntlDateFormatter('fr-FR', IntlDateFormatter::LONG, IntlDateFormatter::NONE);
+            $formatter = new IntlDateFormatter($_SESSION['lang'] == "fr" ? 'fr-FR' : 'en-EN', IntlDateFormatter::LONG, IntlDateFormatter::NONE);
 
+            if ($_SESSION['lang'] == "fr"){
             mail(
                 $datas['mail'],
                 mb_encode_mimeheader("Réservation(s) effectuée(s)", 'UTF-8', 'B', "\r\n"),
                 "Bonjour " . $datas['prenom'] . " " . $datas['nom'] . ",\n\nNous vous confirmons la réservation des formules suivantes : \n" . $reservations . "\nNous vous attendons le " . $formatter->format(new DateTime($datas['datePicker'])) . " à " . DateTime::createFromFormat('H:i:s', $datas['heure'])->format('H\hi') . " pour profiter de votre séjour.\n\nCordialement,\nL'équipe de chez Siny'art"
             );
+            } else {
+                mail(
+                    $datas['mail'],
+                    mb_encode_mimeheader("Reservation(s) done", 'UTF-8', 'B', "\r\n"),
+                    "Hello " . $datas['prenom'] . " " . $datas['nom'] . ",\n\nWe confirm you the reservation of the following formules : \n" . $reservations . "\nWe are waiting for you on " . $formatter->format(new DateTime($datas['datePicker'])) . " at " . DateTime::createFromFormat('H:i:s', $datas['heure'])->format('H:i A') . " to enjoy your stay.\n\nBest regards,\nSiny'art team"
+                );
+            }
             return true;
         } catch (Exception $e) {
             return false;
@@ -99,11 +107,19 @@ class Manager
             $stmt->execute();
             $_SESSION['user'] = new User($stmt->fetch(PDO::FETCH_ASSOC));
 
+            if ($_SESSION['lang'] == "fr"){
             mail(
                 $user->getMail(),
                 mb_encode_mimeheader("Inscription réussie", 'UTF-8', 'B', "\r\n"),
                 "Bonjour " . $user->getPrenom() . " " . $user->getNom() . ",\n\nNous vous confirmons votre inscription sur notre site.\nVous pouvez dès à présent réserver vos places pour l'exposition \"Tamara de Lempicka - Les années folles\".\n\nCordialement,\nL'équipe de chez Siny'art\n\nSi vous n'êtes pas à l'origine de cette inscription, veuillez nous contacter."
             );
+            } else {
+                mail(
+                    $user->getMail(),
+                    mb_encode_mimeheader("Registration done", 'UTF-8', 'B', "\r\n"),
+                    "Hello " . $user->getPrenom() . " " . $user->getNom() . ",\n\nWe confirm you your registration on our website.\nYou can now book your places for the exhibition \"Tamara de Lempicka - The Roaring Twenties\".\n\nBest regards,\nSiny'art team\n\nIf you are not the one who registered, please contact us."
+                );
+            }
             return true;
         } else {
             return false;
@@ -137,10 +153,17 @@ class Manager
         $stmt->bindValue(':mail', $datas['mail'], PDO::PARAM_STR);
         $stmt->bindValue(':id', $id, PDO::PARAM_INT);
         if ($stmt->execute()) {
+            if ($_SESSION['lang']== "fr"){
             mail(
                 $datas['mail'],
                 mb_encode_mimeheader("Modification de vos informations de compte", 'UTF-8', 'B', "\r\n"),
                 "Bonjour " . $datas['prenom'] . " " . $datas['nom'] . ",\n\nNous vous confirmons de la modification d'informations sur votre compte.\n\nCordialement,\nL'équipe de chez Siny'art");
+            } else {
+                mail(
+                    $datas['mail'],
+                    mb_encode_mimeheader("Modification of your account informations", 'UTF-8', 'B', "\r\n"),
+                    "Hello " . $datas['prenom'] . " " . $datas['nom'] . ",\n\nWe confirm you the modification of your account informations.\n\nBest regards,\nSiny'art team");
+            }
             return true;
         } else {
             return false;
