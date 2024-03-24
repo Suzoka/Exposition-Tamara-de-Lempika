@@ -54,6 +54,46 @@ switch ($page) {
         header("Location: ./" . $_SESSION["from"]);
         break;
 
+    case "lostPassword";
+        include ("./views/lostPassword.php");
+        break;
+
+    case "checkLostPassword":
+        if ($manager->lostPassword($_POST["mail"], $_POST["username"])) {
+            header("Location: ./lostPasswordSent");
+        } else {
+            header("Location: ./lostPassword?error=1");
+        }
+        break;
+
+    case "lostPasswordSent":
+        include ("./views/lostPasswordSent.php");
+        break;
+
+    case "resetPassword":
+        if (isset ($_GET["key"])) {
+            include ("./views/resetPassword.php");
+        } else {
+            header("Location: ./connexion");
+        }
+        break;
+
+    case "checkResetPassword":
+        if (isset ($_GET["key"])) {
+            if ($manager->resetPassword($_POST["password"], $_GET["key"])) {
+                header("Location: ./resetPasswordValidation");
+            } else {
+                // header("Location: ./resetPassword?key=" . $_GET["key"] . "&error=1");
+            }
+        } else {
+            header("Location: ./resetPassword?error=1");
+        }
+        break;
+
+    case "resetPasswordValidation":
+        include ("./views/resetPasswordValidation.php");
+        break;
+
     case "billetterie":
         $_SESSION["from"] = "billetterie";
         include ("./views/billetterie.php");

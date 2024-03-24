@@ -82,7 +82,7 @@ div.formulaire {
     padding: 4.25rem 2.25rem;
 }
 
-input[type="submit"] {
+input[type="submit"], a.leave {
     display: block;
     background-color: #000000;
     border-radius: 0.3rem;
@@ -96,6 +96,7 @@ input[type="submit"] {
     margin-bottom: 4.75rem;
     margin-right: 10%;
     cursor: pointer;
+    width: fit-content;
 }
 
 input[type="submit"]:hover, input[type="submit"]:focus {
@@ -112,6 +113,10 @@ div.formulaire a {
     margin-top: 10px;
     color: #000000;
     display: block;
+}
+
+div.formulaire p {
+    color: #000000;
 }
 
 div.formulaire .signUp {
