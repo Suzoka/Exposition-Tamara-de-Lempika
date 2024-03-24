@@ -15,10 +15,10 @@ if ($_SERVER['HTTP_AUTHORIZATION'] != null) {
         switch ($request_method) {
 
             case 'GET':
-                if (!isset ($parts[2]) || $parts[2] == null) {
+                if (!isset ($parts[4]) || $parts[4] == null) {
                     $result = getAllUsers()->fetchAll(PDO::FETCH_ASSOC);
                 } else {
-                    $search = $parts[2];
+                    $search = $parts[4];
                     $result = searchUser($search)->fetch(PDO::FETCH_ASSOC);
                 }
 
@@ -30,8 +30,8 @@ if ($_SERVER['HTTP_AUTHORIZATION'] != null) {
                 }
                 break;
             case 'DELETE':
-                if (isset ($parts[2]) && $parts[2] != null) {
-                    $id = $parts[2];
+                if (isset ($parts[4]) && $parts[4] != null) {
+                    $id = $parts[4];
                     deletedUserMail($id);
                     if (deleteUser($id)) {
                         echo json_encode(["message" => "utilisateur supprimé"], JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE);
@@ -43,8 +43,8 @@ if ($_SERVER['HTTP_AUTHORIZATION'] != null) {
                 }
                 break;
             case 'PUT':
-                if (isset ($parts[2]) && $parts[2] != null) {
-                    $id = $parts[2];
+                if (isset ($parts[4]) && $parts[4] != null) {
+                    $id = $parts[4];
                     $data = json_decode(file_get_contents('php://input'));
                     if (checkIdUser($id)) {
                         $modifs = [];

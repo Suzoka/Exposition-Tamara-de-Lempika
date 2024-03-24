@@ -15,10 +15,10 @@ if ($_SERVER['HTTP_AUTHORIZATION'] != null) {
         switch ($request_method) {
 
             case 'GET':
-                if (!isset($parts[2]) || $parts[2] == null) {
+                if (!isset($parts[4]) || $parts[4] == null) {
                     $result = getAllReservedFormulesNotArchived()->fetchAll(PDO::FETCH_ASSOC);
                 } else {
-                    $search = $parts[2];
+                    $search = $parts[4];
                     $result = searchReservedFormulesNotArchived($search)->fetch(PDO::FETCH_ASSOC);
                 }
 
@@ -30,8 +30,8 @@ if ($_SERVER['HTTP_AUTHORIZATION'] != null) {
                 }
                 break;
             case 'DELETE':
-                if (isset($parts[2]) && $parts[2] != null) {
-                    $id = $parts[2];
+                if (isset($parts[4]) && $parts[4] != null) {
+                    $id = $parts[4];
                     deletedReservationMail($id);
                     if (deleteReservation($id)) {
                         echo json_encode(["message" => "Réservation supprimée"], JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE);
@@ -43,8 +43,8 @@ if ($_SERVER['HTTP_AUTHORIZATION'] != null) {
                 }
                 break;
             case 'PUT':
-                if (isset($parts[2]) && $parts[2] != null) {
-                    $id = $parts[2];
+                if (isset($parts[4]) && $parts[4] != null) {
+                    $id = $parts[4];
                     $data = json_decode(file_get_contents('php://input'));
                     if (checkId($id)) {
                         $modifs = [];
