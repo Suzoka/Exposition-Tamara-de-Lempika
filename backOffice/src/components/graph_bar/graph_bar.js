@@ -5,7 +5,7 @@ import './graph_bar.css';
 
 export const Graph_Bar = ({ data }) => {
 
-    console.log(data);
+    // console.log(data);
 
     const container = useRef(null);
 
