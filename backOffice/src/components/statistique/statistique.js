@@ -33,7 +33,7 @@ export const Statistique = ({ donnee }) => {
     return (
         <div>
             {loadStat ? <p>Nombre de billet : {stat.nbBillet} | Nombre de reservation : {stat.nbReservation}</p> : <p>Chargement des statistiques...</p>}
-            {loadStat ? console.log(stat) : ''}
+            {/* {loadStat ? console.log(stat) : ''} */}
             {loadStat ? (
                 <div className={classes['statistique__container']}>
                     < StatistiqueCards donnee={stat.formule} type="cammembert" titre="Répartition des formules" />
