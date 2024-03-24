@@ -15,10 +15,10 @@ if ($_SERVER['HTTP_AUTHORIZATION'] != null) {
         switch ($request_method) {
 
             case 'GET':
-                if (!isset ($parts[4]) || $parts[4] == null) {
+                if (!isset ($parts[2]) || $parts[2] == null) {
                     $result = getAllUsers()->fetchAll(PDO::FETCH_ASSOC);
                 } else {
-                    $search = $parts[4];
+                    $search = $parts[2];
                     $result = searchUser($search)->fetch(PDO::FETCH_ASSOC);
                 }
 
@@ -30,8 +30,8 @@ if ($_SERVER['HTTP_AUTHORIZATION'] != null) {
                 }
                 break;
             case 'DELETE':
-                if (isset ($parts[4]) && $parts[4] != null) {
-                    $id = $parts[4];
+                if (isset ($parts[2]) && $parts[2] != null) {
+                    $id = $parts[2];
                     deletedUserMail($id);
                     if (deleteUser($id)) {
                         echo json_encode(["message" => "utilisateur supprimé"], JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE);
@@ -43,30 +43,30 @@ if ($_SERVER['HTTP_AUTHORIZATION'] != null) {
                 }
                 break;
             case 'PUT':
-                if (isset ($parts[4]) && $parts[4] != null) {
-                    $id = $parts[4];
+                if (isset ($parts[2]) && $parts[2] != null) {
+                    $id = $parts[2];
                     $data = json_decode(file_get_contents('php://input'));
                     if (checkIdUser($id)) {
                         $modifs = [];
                         foreach ($data as $key => $value) {
                             switch ($key) {
-                                case "username":
+                                case "Username":
                                     updateUsername($id, $value);
                                     $modifs[] = "Nom%20d'utilisateur : " . $value;
                                     break;
-                                case "mail":
+                                case "Mail":
                                     updateUserMail($id, $value);
                                     $modifs[] = "Mail : " . $value;
                                     break;
-                                case "nom":
+                                case "Nom":
                                     updateUserNom($id, $value);
                                     $modifs[] = "Nom : " . $value;
                                     break;
-                                case "prenom":
+                                case "Prenom":
                                     updateUserPrenom($id, $value);
                                     $modifs[] = "Prénom : " . $value;
                                     break;
-                                case "role":
+                                case "Role":
                                     updateUserRole($id, $value);
                                     $modifs[] = "Role : " . $value==1?"Administrateur":"Client";
                                     break;

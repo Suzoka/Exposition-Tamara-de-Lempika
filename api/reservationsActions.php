@@ -15,10 +15,10 @@ if ($_SERVER['HTTP_AUTHORIZATION'] != null) {
         switch ($request_method) {
 
             case 'GET':
-                if (!isset($parts[4]) || $parts[4] == null) {
+                if (!isset($parts[2]) || $parts[2] == null) {
                     $result = getAllReservedFormulesNotArchived()->fetchAll(PDO::FETCH_ASSOC);
                 } else {
-                    $search = $parts[4];
+                    $search = $parts[2];
                     $result = searchReservedFormulesNotArchived($search)->fetch(PDO::FETCH_ASSOC);
                 }
 
@@ -30,8 +30,8 @@ if ($_SERVER['HTTP_AUTHORIZATION'] != null) {
                 }
                 break;
             case 'DELETE':
-                if (isset($parts[4]) && $parts[4] != null) {
-                    $id = $parts[4];
+                if (isset($parts[2]) && $parts[2] != null) {
+                    $id = $parts[2];
                     deletedReservationMail($id);
                     if (deleteReservation($id)) {
                         echo json_encode(["message" => "Réservation supprimée"], JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE);
@@ -43,8 +43,8 @@ if ($_SERVER['HTTP_AUTHORIZATION'] != null) {
                 }
                 break;
             case 'PUT':
-                if (isset($parts[4]) && $parts[4] != null) {
-                    $id = $parts[4];
+                if (isset($parts[2]) && $parts[2] != null) {
+                    $id = $parts[2];
                     $data = json_decode(file_get_contents('php://input'));
                     if (checkId($id)) {
                         $modifs = [];
@@ -52,7 +52,7 @@ if ($_SERVER['HTTP_AUTHORIZATION'] != null) {
                             switch ($key) {
                                 case 'date':
                                     updateDate($id, $value);
-                                    $modifs[] = "date : ".$value;
+                                    $modifs[] = "Date : ".$value;
                                     break;
                                 case 'quantite':
                                     if ($value < 1) {
@@ -61,23 +61,23 @@ if ($_SERVER['HTTP_AUTHORIZATION'] != null) {
                                         break;
                                     }
                                     updateQuantite($id, $value);
-                                    $modifs[] = "quantite : ".$value;
+                                    $modifs[] = "Quantite : ".$value;
                                     break;
                                 case 'nom':
                                     updateNom($id, $value);
-                                    $modifs[] = "nom : ".$value;
+                                    $modifs[] = "Nom : ".$value;
                                     break;
                                 case 'prenom':
                                     updatePrenom($id, $value);
-                                    $modifs[] = "prenom : ".$value;
+                                    $modifs[] = "Prenom : ".$value;
                                     break;
                                 case 'mail':
                                     updateMail($id, $value);
-                                    $modifs[] = "mail : ".$value;
+                                    $modifs[] = "Mail : ".$value;
                                     break;
                                 case 'reservationType':
                                     updateExtIdFormule($id, $value);
-                                    $modifs[] = "Type%20de%20formule=>".getReservationType($value);
+                                    $modifs[] = "Type%20de%20formule : ".getReservationType($value);
                                     break;
                                 default:
                                     break;

@@ -14,10 +14,10 @@ if (isset($_SERVER['HTTP_AUTHORIZATION'])) {
         switch ($request_method) {
 
             case 'GET':
-                if (!isset($parts[4]) || $parts[4] == null) {
+                if (!isset($parts[2]) || $parts[2] == null) {
                     $result = getAllArchives()->fetchAll(PDO::FETCH_ASSOC);
                 } else {
-                    $search = $parts[4];
+                    $search = $parts[2];
                     $result = searchArchives($search)->fetch(PDO::FETCH_ASSOC);
                 }
 
