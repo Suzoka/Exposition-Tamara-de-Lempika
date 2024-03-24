@@ -8,34 +8,9 @@ import { Footer } from '@/components/footer/footer';
 import { reservation } from '@/components/reservation';
 import { Pop_up } from '@/components/pop_up/pop_up';
 import { Connexion } from '@/components/connexion/connexion';
+import { ModificationPop } from '@/components/modfication_pop/modification_pop';
 
 console.log('---------');
-
-const user = {
-  'token': 'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJsb2dpbiI6InN1em9rYSIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTcxMTE0MDA0NiwiZXhwIjoxNzExMjI2NDQ2fQ.qCVJALQ-Qx9KHhuab9F__LikvbirsQMg9Ue07j0v8Uk'
-};
-
-// fetch("https://api.sinyart.fr/adminLogin", {
-//   method: 'POST',
-//   headers: {
-//     'Content-Type': 'application/json'
-//   },
-//   body: JSON.stringify({
-//     'login': 'suzoka',
-//     'password': 'azerty'
-//   })
-// })
-// .then(response => response.json())
-// .then(data => {
-//   if (data.auth === "true") {
-//     console.log(data.token);
-//   } else {
-//     console.log('Authentication failed');
-//   }
-// })
-// .catch((error) => {
-//   console.error('Error:', error);
-// });
 
 export default function Home() {
 
@@ -58,6 +33,8 @@ export default function Home() {
   const [popupClosed, setPopupClosed] = useState(true);
   const [popupDonnee, setPopupDonnee] = useState(null);
   const [popupType, setPopupType] = useState('');
+  const [modificationPopupOpen, setmodificationPopupOpen] = useState(false);
+  const [modificationData, setModificationData] = useState([]);
 
   const closePopUp = () => {
     setPopupClosed(true);
@@ -106,6 +83,11 @@ export default function Home() {
 
   const modifyResa = (id, type) => {
     console.log('Modification de la réservation n°', id);
+    const reservation = reservationData.find(resa => resa.id_ticket == id);
+    console.log('Données réservation', reservation);
+    // setPopupType('reservation');
+    setModificationData(reservation);
+    setmodificationPopupOpen(true);
   }
 
   const viewResa = (id, type) => {
@@ -250,6 +232,11 @@ export default function Home() {
             < Section id="resa" nom="Réservations" donnee={loadReservation ? (reservationData) : (reservation)} type="table" contentSearch="Rechercher une reservation..." DelModViewResa={DelModViewResa} modification />
             < Section id="user" utilisateur nom="Utilisateurs" donnee={loadUserList ? (userList) : (reservation)} type="table" contentSearch="Rechercher un utilisateur..." DelModViewResa={DelModViewResa} />
             < Section id="arch" nom="Archives" donnee={loadArchived ? (archivedData) : (reservation)} type="table" contentSearch="Rechercher une reservation archivé..." DelModViewResa='' />
+
+            {modificationPopupOpen && (
+              < ModificationPop open={modificationPopupOpen} setOpen={setmodificationPopupOpen} data={modificationData} setModificationFlag={() => setModificationFlag(modificationFlag + 1)} />
+            )}
+
             < Pop_up data={popupDonnee != null ? popupDonnee : ''} close={popupClosed} closeAction={closePopUp} type={popupType} />
           </main>
           < Footer deconnexion={deconnexion} />
