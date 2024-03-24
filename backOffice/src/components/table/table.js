@@ -54,22 +54,9 @@ export const Table = ({ donnee, DelModViewResa, variant }) => {
 
 const Table_object = ({ liste, variant, DelModViewResa }) => {
 
-    const [modificationObjectFlag, setModificationObjectFlag] = useState(false);
-
-    const modifyObject = () => {
-        if (modificationObjectFlag) {
-            setModificationObjectFlag(false);
-            console.log('Valider');
-        } else {
-            console.log('Modifier');
-            setModificationObjectFlag(true);
-        }
-    }
-
     let formattedId = '# ' + (liste.id_ticket ? liste.id_ticket : liste.id_user);
     const date = new Date(liste.date);
     let Jour = `${date.getDate().toString().padStart(2, '0')}/${(date.getMonth() + 1).toString().padStart(2, '0')}/${date.getFullYear()}`;
-    let formDay = `${date.getFullYear()}-${(date.getMonth() + 1).toString().padStart(2, '0')}-${date.getDate().toString().padStart(2, '0')}`;
     let Heure = `${date.getHours().toString().padStart(2, '0')}:${date.getMinutes().toString().padStart(2, '0')}`;
 
     return (
@@ -83,23 +70,15 @@ const Table_object = ({ liste, variant, DelModViewResa }) => {
                     <td className={classesTable_object['table__cellule--user']}>
                         {/* Utilisateur */}
                         <img src={liste.img} className={classesTable_object['user__icon']} alt="" />
-                        {
-                            modificationObjectFlag ? <input type="text" name="prenom" defaultValue={liste.prenom} placeholder="Prénom" required /> : liste.prenom
-                        } {
-                            modificationObjectFlag ? <input type="text" name="nom" defaultValue={liste.nom} placeholder="Nom" required /> : liste.nom
-                        }
+                        {liste.prenom} {liste.nom}
                     </td>
                     <td>
                         {/* Date de la réservation */}
-                        {
-                            modificationObjectFlag ? <input type="date" name="date" defaultValue={formDay} min="2024-03-28" max="2024-04-28" required /> : < DatePills variant="day">{Jour}</DatePills>
-                        }
+                        < DatePills variant="day">{Jour}</DatePills>
                     </td>
                     <td>
                         {/* Créneau réservé */}
-                        {
-                            modificationObjectFlag ? <input type="time" name="heure" defaultValue={Heure} min="10:00" max="17:30" required /> : < DatePills variant="hour">{Heure}</DatePills>
-                        }
+                        < DatePills variant="hour">{Heure}</DatePills>
                     </td>
                     <td>
                         {/* Formule choisie */}
@@ -107,9 +86,7 @@ const Table_object = ({ liste, variant, DelModViewResa }) => {
                     </td>
                     <td>
                         {/* Mail */}
-                        {
-                            modificationObjectFlag ? <input type="url" name="mail" defaultValue={liste.mail} placeholder="exemple@mail.com" pattern="*@*.*" required /> : liste.mail
-                        }
+                        {liste.mail}
                     </td>
                     <td>
                         {/* Prix */}
@@ -117,15 +94,13 @@ const Table_object = ({ liste, variant, DelModViewResa }) => {
                     </td>
                     <td>
                         {/* Quantité */}
-                        x {
-                            modificationObjectFlag ? <input type="number" name="quantite" defaultValue={liste.quantite} min="1" required /> : liste.quantite
-                        }
+                        x {liste.quantite}
                     </td>
 
                     {/* Action */}
                     {variant === 'modification' && (
                         <td className={classesTable_object['table__cellule--action']}>
-                            < Button variant="primary" title="Modifier" action={() => modifyObject()}>Modifier</Button>
+                            < Button variant="primary" title="Modifier" action={() => DelModViewResa['modifyResa'](liste.id_ticket, "reservation")}>Modifier</Button>
 
                             < Button format="icon" title="Suprimer" icon="trash" action={() => DelModViewResa['deleteResa'](liste.id_ticket, "reservation")}>
                                 <span className='icon_alt'>Supprimer</span>

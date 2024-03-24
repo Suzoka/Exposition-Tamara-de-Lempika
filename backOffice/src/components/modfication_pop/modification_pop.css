@@ -1,0 +1,21 @@
+.modification__container {
+    position: fixed;
+    transform: translate(-50%, -50%);
+    top: 50vh;
+    left: 50vw;
+    background-color: #fff;
+    border: 1px solid var(--light-grey);
+    border-radius: 30px;
+    width: 800px;
+    height: 400px;
+    z-index: 200;
+    overflow: hidden;
+}
+
+.modification__container--close {
+    display: none;
+}
+
+.modification__container--open {
+    display: grid;
+}
