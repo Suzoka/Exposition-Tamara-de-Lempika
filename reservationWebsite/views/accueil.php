@@ -4,6 +4,7 @@
     <link rel="stylesheet" href="../styles/style_h&f.css">
     <link rel="stylesheet" href="../styles/style_accueil.css">
     <title><?php echo $_SESSION["lang"] == "fr" ? "Expo Tamara de Lempicka - Les années folles" : "Exhibition Tamara de Lempicka - The Roaring Twenties" ?></title>
+    <link rel="icon" type="image/png" href="../img/favicon.png">
 </head>
 
 <body>

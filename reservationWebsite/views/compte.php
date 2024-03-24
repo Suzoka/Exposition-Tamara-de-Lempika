@@ -7,6 +7,7 @@
     <title>
         <?php echo $_SESSION["lang"] == "fr" ? "Mon compte - Expo Tamara de Lempicka - Les années folles" : "My account - Exhibition Tamara de Lempicka - The Roaring Twenties" ?>
     </title>
+    <link rel="icon" type="image/png" href="../img/favicon.png">
 </head>
 
 <body>

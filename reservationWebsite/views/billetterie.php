@@ -5,6 +5,7 @@
     <link rel="stylesheet" href="../styles/style_h&f.css">
     <link rel="stylesheet" href="../styles/style_billetterie.css">
     <title><?php echo $_SESSION["lang"] == "fr" ? "Billetterie - Expo Tamara de Lempicka - Les années folles" : "Ticketing - Exhibition Tamara de Lempicka - The Roaring Twenties" ?></title>
+    <link rel="icon" type="image/png" href="../img/favicon.png">
 </head>
 
 <body>
