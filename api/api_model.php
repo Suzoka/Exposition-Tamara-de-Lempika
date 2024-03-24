@@ -159,7 +159,7 @@ function sendMailReservations($id, $modifs)
 
     mail(
         $reservation['mail'],
-        "Des modifications ont été effectuées sur l'une de vos réservations",
+        mb_encode_mimeheader("Des modifications ont été effectuées sur l'une de vos réservations", 'UTF-8', 'B', "\r\n"),
         "Bonjour " . $reservation['prenom'] . " " . $reservation['nom'] . ",\n\n" . "Certaines modifications ont été faites sur l'une de vos réservation pour notre exposition.\n\n Voici les informations qui ont été modifiées :\n" . $modifications . "\n\nCordialement,\nL'équipe de chez Siny'art"
     );
 }
@@ -176,7 +176,7 @@ function deletedReservationMail($id)
 
     mail(
         $reservation['mail'],
-        "Annulation de votre réservation",
+        mb_encode_mimeheader("Annulation de votre réservation", 'UTF-8', 'B', "\r\n"),
         "Bonjour " . $reservation['prenom'] . " " . $reservation['nom'] . ",\n\n" . "Nous vous informons que votre réservation du " . $formatter->format(new DateTime($reservation['date'])) . " pour notre exposition a été annulée.\n\nCordialement,\nL'équipe de chez Siny'art\n\nSi vous n'êtes pas à l'origine de cette annulation, veuillez nous contacter au plus vite."
     );
 }
@@ -290,7 +290,7 @@ function sendMailUser($id, $modifs)
 
     mail(
         $user['mail'],
-        "Des modifications ont été effectuées sur votre compte",
+        mb_encode_mimeheader("Des modifications ont été effectuées sur votre compte", 'UTF-8', 'B', "\r\n"),
         "Bonjour " . $user['prenom'] . " " . $user['nom'] . ",\n\n" . "Certaines modifications ont été faites sur votre compte utilisateur pour l'exposition \"Tamara de Lempika - Les années folles\".\n\n Voici les informations qui ont été modifiées :\n" . $modifications . "\n\nCordialement,\nL'équipe de chez Siny'art"
     );
 }
@@ -305,7 +305,7 @@ function deletedUserMail($id)
 
     mail(
         $user['mail'],
-        "Suppressions de votre compte utilisateur",
+        mb_encode_mimeheader("Suppressions de votre compte utilisateur", 'UTF-8', 'B', "\r\n"),
         "Bonjour " . $user['prenom'] . " " . $user['nom'] . ",\n\n" . "Nous vous informons que votre compte utilisateur pour notre exposition a bien été supprimé.\n\nCordialement,\nL'équipe de chez Siny'art\n\nSi vous n'êtes pas à l'origine de cette annulation, veuillez nous contacter au plus vite."
     );
 }

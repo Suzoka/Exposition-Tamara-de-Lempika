@@ -45,7 +45,7 @@ class Manager
                     $stmt->bindValue(':id', substr($key, 7), PDO::PARAM_INT);
                     $stmt->execute();
                     $formule = $stmt->fetch(PDO::FETCH_ASSOC);
-                    $reservations .= "- " . $formule['nom_formule'] . " : x".$value ."\n";
+                    $reservations .= "- " . $formule['nom_formule_fr'] . " : x".$value ."\n";
                 }
             }
 
@@ -53,8 +53,8 @@ class Manager
 
             mail(
                 $datas['mail'],
-                "Réservation(s) effectuée(s)",
-                "Bonjour " . $datas['prenom'] . " " . $datas['nom'] . ",\n\nNous vous confirmons la réservation de : \n" . $reservations . "\nNous vous attendons le " . $formatter->format(new DateTime($datas['datePicker'])) . " à " . $datas['heure'] . " pour profiter de votre séjour.\n\nCordialement,\nL'équipe de chez Siny'art"
+                mb_encode_mimeheader("Réservation(s) effectuée(s)", 'UTF-8', 'B', "\r\n"),
+                "Bonjour " . $datas['prenom'] . " " . $datas['nom'] . ",\n\nNous vous confirmons la réservation des formules suivantes : \n" . $reservations . "\nNous vous attendons le " . $formatter->format(new DateTime($datas['datePicker'])) . " à " . DateTime::createFromFormat('H:i:s', $datas['heure'])->format('H\hi') . " pour profiter de votre séjour.\n\nCordialement,\nL'équipe de chez Siny'art"
             );
             return true;
         } catch (Exception $e) {
@@ -101,7 +101,7 @@ class Manager
 
             mail(
                 $user->getMail(),
-                "Inscription réussie",
+                mb_encode_mimeheader("Inscription réussie", 'UTF-8', 'B', "\r\n"),
                 "Bonjour " . $user->getPrenom() . " " . $user->getNom() . ",\n\nNous vous confirmons votre inscription sur notre site.\nVous pouvez dès à présent réserver vos places pour l'exposition \"Tamara de Lempicka - Les années folles\".\n\nCordialement,\nL'équipe de chez Siny'art\n\nSi vous n'êtes pas à l'origine de cette inscription, veuillez nous contacter."
             );
             return true;
@@ -139,7 +139,7 @@ class Manager
         if ($stmt->execute()) {
             mail(
                 $datas['mail'],
-                "Modification de vos informations de compte",
+                mb_encode_mimeheader("Modification de vos informations de compte", 'UTF-8', 'B', "\r\n"),
                 "Bonjour " . $datas['prenom'] . " " . $datas['nom'] . ",\n\nNous vous confirmons de la modification d'informations sur votre compte.\n\nCordialement,\nL'équipe de chez Siny'art");
             return true;
         } else {
