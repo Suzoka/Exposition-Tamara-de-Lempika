@@ -193,7 +193,7 @@ function deletedReservationMail($id)
 function getAllUsers()
 {
     global $db;
-    $stmt = $db->prepare("SELECT id_user, username, mail, nom, prenom, role FROM `utilisateurs` order by id_user");
+    $stmt = $db->prepare("SELECT id_user, username, mail, nom, prenom, role FROM `utilisateurs` order by role asc , nom");
     $stmt->execute();
     return $stmt;
 }
