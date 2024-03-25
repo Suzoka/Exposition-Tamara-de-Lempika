@@ -1,0 +1,155 @@
+.modification__bck {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 100vw;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 150;
+}
+
+.modification__bck--close {
+    display: none;
+}
+
+.modification__bck--open {
+    display: block;
+}
+
+.modification__container {
+    position: fixed;
+    top: 50vh;
+    left: 50vw;
+    transform: translate(-50%, -50%);
+    background-color: #fff;
+    border: 1px solid var(--light-grey);
+    border-radius: 30px;
+    width: 800px;
+    height: 400px;
+    padding: 20px;
+    overflow: hidden;
+    z-index: 200;
+}
+
+.modification__container--close {
+    display: none;
+}
+
+.modification__container--open {
+    display: block;
+}
+
+.modification__close {
+    position: absolute;
+    right: 20px;
+    top: 20px;
+}
+
+.modification__form {
+    display: grid;
+    grid-template-columns: repeat(9, 1fr);
+    grid-template-rows: repeat(4, 1fr);
+
+    grid-template-areas:
+        "p p p n n n m m m"
+        "d d d h h . . . ."
+        "s s x q . . . . ."
+        "b b b . . . . . .";
+
+    gap: 10px;
+    width: 100%;
+}
+
+.modification__input {
+    width: 100%;
+    padding: 10px;
+    border-radius: 10px;
+    border: 1px solid var(--light-grey);
+    background-color: var(--white);
+    font-size: 1rem;
+    font-family: 'Inter', sans-serif;
+}
+
+.modification__input:focus {
+    outline-color: var(--dark-primary);
+}
+
+.modification__input--prenom {
+    grid-area: p;
+}
+
+.modification__input--nom {
+    grid-area: n;
+}
+
+.modification__input--mail {
+    grid-area: m;
+}
+
+.modification__input--date {
+    grid-area: d;
+}
+
+.modification__input--heure {
+    grid-area: h;
+}
+
+.modification__label {
+    grid-area: x;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+.modification__input--quantite {
+    grid-area: q;
+}
+
+.modification__select {
+    grid-area: s;
+    /* appearance: none; */
+    width: 100%;
+    padding: 10px;
+    border-radius: 10px;
+    border: 1px solid var(--light-grey);
+    background-color: var(--white);
+    font-size: 1rem;
+    font-family: 'Inter', sans-serif;
+}
+
+.modification__select:focus {
+    outline-color: var(--dark-primary);
+}
+
+.modification__select--adulte {
+    background-color: var(--light-blue);
+}
+
+.modification__select--jeune {
+    background-color: var(--light-green);
+}
+
+.modification__select--handicap {
+    background-color: var(--light-yellow);
+}
+
+.modification__submit {
+    grid-area: b;
+    width: -webkit-fit-content;
+    width: -moz-fit-content;
+    width: fit-content;
+    height: -webkit-fit-content;
+    height: -moz-fit-content;
+    height: fit-content;
+}
+
+::-webkit-calendar-picker-indicator{
+    background-color: var(--light-primary);
+    padding: 5px;
+    cursor: pointer;
+    border-radius: 3px;
+}
+
+::-webkit-calendar-picker-indicator:hover{
+    background-color: var(--secondary);
+}

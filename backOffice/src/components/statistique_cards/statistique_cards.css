@@ -1,0 +1,31 @@
+.statCards__container {
+    display: grid;
+    grid-template-rows: fit-content(100%) 1fr;
+    height: 400px;
+    gap: 20px;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    border: 1px solid var(--light-grey);
+}
+
+.statCards__container:last-child {
+    width: 70%;
+}
+
+.statCards__content--cammembert {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 20px;
+    height: 280px;
+}
+
+.statCards__Graph {
+    height: 280px;
+}
+
+.legend__element {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}

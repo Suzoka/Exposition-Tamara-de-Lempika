@@ -1,0 +1,112 @@
+.connexion__container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    width: 100vw;
+}
+
+.connexion__logo {
+    position: absolute;
+    top: 0.5vw;
+    left: 0.5vw;
+    display: flex;
+    align-items: center;
+    padding: 10px 20px;
+    gap: 8px;
+    background-color: var(--light-primary);
+    border-radius: 30px;
+    text-decoration: none;
+    color: var(--black);
+}
+
+.connexion__logo--txt {
+    font-size: 1.250rem;
+    font-weight: 600;
+}
+
+.connexion__logo--img {
+    height: 50px;
+    width: 50px;
+}
+
+.connexion__cards {
+    display: grid;
+    align-items: center;
+    gap: 30px;
+    background-color: #fff;
+    border-radius: 30px;
+    border: 1px solid var(--light-grey);
+    padding: 20px;
+    /* height: 350px; */
+    width: 400px;
+}
+
+.connexion__title {
+    margin: 0;
+}
+
+.connexion__form {
+    display: grid;
+    gap: 20px;
+}
+
+.connexion__label {
+    font-size: 1rem;
+    color: var(--black);
+    margin-bottom: -15px;
+}
+
+.connexion__input {
+    padding: 10px;
+    border-radius: 10px;
+    border: 1px solid var(--light-grey);
+    background-color: var(--white);
+    font-size: 1rem;
+    font-family: 'Inter', sans-serif;
+}
+
+.connexion__input:focus {
+    outline-color: var(--dark-primary);
+}
+
+.connexion__submit {
+    color: var(--black);
+    display: flex;
+    gap: 5px;
+    padding: 13px 15px;
+    font-size: 1rem;
+    border-radius: 10px;
+    background-color: var(--light-primary);
+    color: var(--dark-primary);
+    border: none;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    font-family: 'Inter', sans-serif;
+}
+
+.connexion__submit:hover {
+    background-color: var(--secondary);
+}
+
+.connexion__submit::before {
+    content: "";
+    display: inline-block;
+    width: 19px;
+    height: 19px;
+    background-color: currentColor;
+    -webkit-mask: no-repeat center center;
+            mask: no-repeat center center;
+    -webkit-mask-size: contain;
+            mask-size: contain;
+    -webkit-mask-image: url("../../../public/asset/icon/Log-in.svg");
+            mask-image: url("../../../public/asset/icon/Log-in.svg");
+}
+
+
+.connexion__erreur {
+    color: var(--dark-red);
+    font-size: 0.875rem;
+    margin: 0;
+}

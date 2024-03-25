@@ -1,0 +1,38 @@
+.table__ligne {
+    border-bottom: 1px solid var(--light-grey);
+}
+
+.table__ligne:hover {
+    background-color: var(--bkg-primary); ;
+}
+
+.table__ligne > * {
+    text-align: left;
+    height: 60px;
+}
+.table__ligne > :nth-child(1) {
+    padding-left: 10px;
+}
+
+.table__cellule--action {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 10px;
+    padding-right: 10px;
+}
+
+.table__cellule--user {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 5px;
+}
+
+.user__icon {
+    width: 25px;
+    height: 25px;
+    border-radius: 100px;
+    -o-object-fit: cover;
+       object-fit: cover;
+}

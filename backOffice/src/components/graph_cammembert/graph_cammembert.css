@@ -1,0 +1,11 @@
+.cammembert__arc--adulte {
+    fill: var(--graph-blue);
+}
+
+.cammembert__arc--jeune {
+    fill: var(--graph-green);
+}
+
+.cammembert__arc--handicap {
+    fill: var(--graph-yellow);
+}

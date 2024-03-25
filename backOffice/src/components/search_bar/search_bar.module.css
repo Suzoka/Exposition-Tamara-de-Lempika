@@ -1,0 +1,62 @@
+.searchbar__container {
+    display: flex;
+    border: 1px solid var(--light-primary);
+    border-radius: 10px;
+    padding: 8px;
+    gap: 8px;
+    background-color: #fff;
+    width: 300px;
+}
+
+.searchbar__container:hover {
+    background-color: var(--white);
+}
+
+.searchbar__container::before {
+    content: "";
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    color: var(--dark-primary);
+    background-color: currentColor;
+    -webkit-mask: no-repeat center center;
+            mask: no-repeat center center;
+    -webkit-mask-size: contain;
+            mask-size: contain;
+    -webkit-mask-image: url("../../../public/asset/icon/Search.svg");
+            mask-image: url("../../../public/asset/icon/Search.svg");
+}
+
+.searchbar__input {
+    border: none;
+    outline: none;
+    width: 100%;
+    font-size: 0.812rem;
+    color: var(--black);
+    background-color: #ffffff00;
+    font-family: 'Inter', sans-serif;
+}
+
+.searchbar__input::-webkit-input-placeholder {
+    color: var(--dark-grey);
+}
+
+.searchbar__input::-moz-placeholder {
+    color: var(--dark-grey);
+}
+
+.searchbar__input:-ms-input-placeholder {
+    color: var(--dark-grey);
+}
+
+.searchbar__input::-ms-input-placeholder {
+    color: var(--dark-grey);
+}
+
+.searchbar__input::placeholder {
+    color: var(--dark-grey);
+}
+
+.searchbar__input:focus  {
+    color: var(--dark-primary);
+}

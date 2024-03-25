@@ -1,0 +1,81 @@
+.table__container {
+    background-color: #fff;
+    border: 1px solid var(--light-grey);
+    border-radius: 10px;
+    max-height: 500px;
+    /* padding: 20px; */
+    width: 100%;
+    overflow-x: hidden;
+    overflow-y: scroll;
+}
+
+.table__container::-webkit-scrollbar {
+    width: 5px;
+    background-color: #ffffff00;
+}
+
+.table__container::-webkit-scrollbar-thumb {
+    border-radius: 5px;
+    background-color: var(--light-grey);
+}
+
+.table__object {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.table__head {
+    height: 40px;
+    z-index: 2;
+    position: -webkit-sticky;
+    position: sticky;
+    top: 0;
+    border-bottom: 1px solid var(--dark-grey);
+    color: var(--dark-grey);
+    text-align: left;
+    background-color: #fff;
+}
+
+/* .table__head > * {
+    border-bottom: 1px solid var(--dark-grey);
+    color: var(--dark-grey);
+    text-align: left;
+} */
+
+.table__head--Id {
+    padding-left: 10px;
+    width: 100px;
+}
+
+.table__head--User {
+    width: 230px;
+}
+
+.table__head--Date {
+    width: 125px;
+}
+
+.table__head--Creneau {
+    width: 85px;
+}
+
+.table__head--Formule {
+    width: 110px;
+}
+
+.table__head--Mail {
+    width: 300px;
+}
+
+.table__head--Prix {
+    width: 50px;
+}
+
+.table__head--Quantite {
+    width: 80px;
+}
+
+.table__head--Action {
+    width: 200px;
+    padding-right: 10px;
+}
