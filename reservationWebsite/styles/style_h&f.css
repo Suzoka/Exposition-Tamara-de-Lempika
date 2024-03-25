@@ -361,7 +361,7 @@ footer .logo {
 }
 
 p.error {
-    color: #c62424;
+    color: #c62424 !important;
     margin-left: 10px;
     font-weight: 700;
 }
@@ -400,7 +400,8 @@ p.error {
     float: right;
 }
 
-#reservation:focus, #reservation:hover {
+#reservation:focus,
+#reservation:hover {
     background-color: #21594F;
 }
 
@@ -466,12 +467,14 @@ p.error {
     }
 }
 
-.notLoged, .serverError {
+.notLoged,
+.serverError {
     position: relative;
     cursor: not-allowed;
 }
 
-.notLoged::after, .serverError::after {
+.notLoged::after,
+.serverError::after {
     content: "";
     display: block;
     position: absolute;
