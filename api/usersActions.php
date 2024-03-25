@@ -50,25 +50,25 @@ if ($_SERVER['HTTP_AUTHORIZATION'] != null) {
                         $modifs = [];
                         foreach ($data as $key => $value) {
                             switch ($key) {
-                                case "Username":
+                                case "username":
                                     updateUsername($id, $value);
                                     $modifs[] = "Nom%20d'utilisateur : " . $value;
                                     break;
-                                case "Mail":
+                                case "mail":
                                     updateUserMail($id, $value);
                                     $modifs[] = "Mail : " . $value;
                                     break;
-                                case "Nom":
+                                case "nom":
                                     updateUserNom($id, $value);
                                     $modifs[] = "Nom : " . $value;
                                     break;
-                                case "Prenom":
+                                case "prenom":
                                     updateUserPrenom($id, $value);
                                     $modifs[] = "Prénom : " . $value;
                                     break;
-                                case "Role":
+                                case "role":
                                     updateUserRole($id, $value);
-                                    $modifs[] = "Role : " . $value==1?"Administrateur":"Client";
+                                    $modifs[] = "Role : " . (intval($value)==1 ? "Administrateur" : "Client");
                                     break;
                                 default:
                                     break;
