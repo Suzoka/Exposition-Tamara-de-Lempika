@@ -157,7 +157,8 @@ function sendMailReservations($id, $modifs)
         $modifications .= str_replace("%20", " ", "- " . $value . "\n");
     }
 
-    $headers = "MIME-Version: 1.0\r\n";
+    $headers = "From: L'équipe Siny'art <exposition@sinyart.fr>\r\n";
+    $headers .= "MIME-Version: 1.0\r\n";
     $headers .= "Content-Type: text/plain; charset=UTF-8\r\n";
 
     mail(
@@ -178,7 +179,8 @@ function deletedReservationMail($id)
 
     $formatter = new IntlDateFormatter('fr-FR', IntlDateFormatter::LONG, IntlDateFormatter::NONE);
 
-    $headers = "MIME-Version: 1.0\r\n";
+    $headers = "From: L'équipe Siny'art <exposition@sinyart.fr>\r\n";
+    $headers .= "MIME-Version: 1.0\r\n";
     $headers .= "Content-Type: text/plain; charset=UTF-8\r\n";
 
     mail(
@@ -296,7 +298,8 @@ function sendMailUser($id, $modifs)
         $modifications .= str_replace("%20", " ", "- " . $value . "\n");
     }
 
-    $headers = "MIME-Version: 1.0\r\n";
+    $headers = "From: L'équipe Siny'art <exposition@sinyart.fr>\r\n";
+    $headers .= "MIME-Version: 1.0\r\n";
     $headers .= "Content-Type: text/plain; charset=UTF-8\r\n";
 
     mail(
@@ -315,7 +318,8 @@ function deletedUserMail($id)
     $stmt->execute();
     $user = $stmt->fetch(PDO::FETCH_ASSOC);
 
-    $headers = "MIME-Version: 1.0\r\n";
+    $headers = "From: L'équipe Siny'art <exposition@sinyart.fr>\r\n";
+    $headers .= "MIME-Version: 1.0\r\n";
     $headers .= "Content-Type: text/plain; charset=UTF-8\r\n";
 
     mail(

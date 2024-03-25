@@ -511,6 +511,7 @@ p.error {
     gap: 5px;
     border-radius: 10px;
     font-family: 'Carambola', sans-serif;
+    margin-bottom: 10px;
 }
 
 .edit img.Hover {

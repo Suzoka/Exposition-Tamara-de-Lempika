@@ -21,14 +21,14 @@
         <?php if (!isset ($_SESSION['user'])) { ?>
             <div class="popup">
                 <h2>
-                    <?php echo $_SESSION["lang"] == "fr" ? "Connectez-vous ou inscrivez-vous pour accéder à votre compte" : "Log in or sign in to access your account" ?>
+                    <?php echo $_SESSION["lang"] == "fr" ? "Connectez-vous ou inscrivez-vous pour accéder à votre compte" : "Log in or sign up to access your account" ?>
                 </h2>
                 <div class="link">
                     <a href="./connexion">
                         <?php echo $_SESSION["lang"] == "fr" ? "Connexion" : "Log in" ?>
                     </a>
                     <a href="./inscription">
-                        <?php echo $_SESSION["lang"] == "fr" ? "Inscription" : "Sign in" ?>
+                        <?php echo $_SESSION["lang"] == "fr" ? "Inscription" : "Sign up" ?>
                     </a>
                 </div>
             </div>
@@ -78,7 +78,17 @@
                             <a class="edit" href="./compte?page=edit">
                                 <img class="noHover" src="../img/icons/editG.svg" alt="">
                                 <img class="Hover" src="../img/icons/editW.svg" alt="">
-                                <?php echo $_SESSION["lang"] == "fr" ? "Modifier" : "Edit" ?>
+                                <?php echo $_SESSION["lang"] == "fr" ? "Modifier mes informations" : "Edit my personnal informations" ?>
+                            </a>
+                            <a class="edit" href="./checkLostPassword">
+                                <img class="noHover" src="../img/icons/editG.svg" alt="">
+                                <img class="Hover" src="../img/icons/editW.svg" alt="">
+                                <?php echo $_SESSION["lang"] == "fr" ? "Changer mon mot de passe" : "Reset my password" ?>
+                            </a>
+                            <a class="edit delete" href="./deleteCompte">
+                                <img class="noHover" src="../img/icons/editG.svg" alt="">
+                                <img class="Hover" src="../img/icons/editW.svg" alt="">
+                                <?php echo $_SESSION["lang"] == "fr" ? "Supprimer mon compte" : "Delete my account" ?>
                             </a>
                         <?php } else { ?>
                             <form action="./editCompteInfos" method="POST">
@@ -226,6 +236,8 @@
 
     </main>
     <?php include 'components/footer.php'; ?>
+
+    <script src="../scripts/deleteConfirmation.js"></script>
 </body>
 
 </html>
