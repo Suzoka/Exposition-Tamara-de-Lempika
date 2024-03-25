@@ -1,12 +1,10 @@
-<!DOCTYPE html>
-<html lang="<?php echo $_SESSION["lang"] == "fr" ? "fr" : "en" ?>">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../styles/style_h&f.css">
     <link rel="stylesheet" href="../styles/style_connexion.css">
     <title><?php echo $_SESSION["lang"] == "fr" ? "Inscription - Expo Tamara de Lempicka - Les années folles" : "Sign up - Exhibition Tamara de Lempicka - The Roaring Twenties" ?></title>
+    <link rel="icon" type="image/png" href="../img/favicon.png">
 </head>
 
 <body>
@@ -20,33 +18,32 @@
             <div class="formulaire">
                 <div class="relative">
                     <label for="login"><span class="required">*</span> Login</label><input type="text" name="login"
-                        id="login" required>
+                        id="login" value="<?php echo isset($_SESSION['form_values']['login']) ? $_SESSION['form_values']['login'] : ''; ?>" required>
                     <?php if (isset ($_GET['error'])) {
                         echo "<p class=\"error\">".($_SESSION["lang"]=="fr" ? "Ce nom d'utilisateur est déjà utilisé" : "This username is already in use")."</p>";
                     } ?>
                 </div>
                 <div class="relative">
                     <label for="password"><span class="required">*</span> <?php echo $_SESSION["lang"] == "fr" ? "Mot de passe" : "Password" ?></label>
-                    <input type="password" name="password" id="password" required>
+                    <input type="password" name="password" id="password" value="<?php echo isset($_SESSION['form_values']['password']) ? $_SESSION['form_values']['password'] : ''; ?>" required>
                     <button class="hide-show" type="button"><span class="sr-only"><?php echo $_SESSION["lang"] == "fr" ? "Afficher le mot de passe" : "Show password" ?></span></button>
                 </div>
                 <div class="relative">
                     <label for="passwordCheck"><span class="required">*</span> <?php echo $_SESSION["lang"] == "fr" ? "Vérifier le mot de passe" : "Verify the password" ?></label>
-                    <input type="password" name="passwordCheck" id="passwordCheck" required>
+                    <input type="password" name="passwordCheck" id="passwordCheck" value="<?php echo isset($_SESSION['form_values']['passwordCheck']) ? $_SESSION['form_values']['passwordCheck'] : ''; ?>" required>
                     <button class="hide-show" type="button"><span class="sr-only"><?php echo $_SESSION["lang"] == "fr" ? "Afficher le mot de passe" : "Show password" ?></span></button>
                     <p class="error hidden"><?php echo $_SESSION["lang"] == "fr" ? "Veillez rentrer deux mot de passe identiques" : "Please enter two identical passwords" ?></p>
                 </div>
                 <div class="relative">
                     <label for="mail"><span class="required">*</span> <?php echo $_SESSION["lang"] == "fr" ? "Adresse mail" : "Email" ?></label><input type="email"
-                        name="mail" id="mail" required>
+                        name="mail" id="mail" value="<?php echo isset($_SESSION['form_values']['mail']) ? $_SESSION['form_values']['mail'] : ''; ?>" required>
                 </div>
                 <div class="relative">
-                    <label for="nom"><span class="required">*</span> <?php echo $_SESSION["lang"] == "fr" ? "Nom" : "Last Name" ?></label><input type="text" name="nom" id="nom"
-                        required>
+                    <label for="nom"><span class="required">*</span> <?php echo $_SESSION["lang"] == "fr" ? "Nom" : "Last Name" ?></label><input type="text" name="nom" id="nom" value="<?php echo isset($_SESSION['form_values']['nom']) ? $_SESSION['form_values']['nom'] : ''; ?>" required>
                 </div>
                 <div class="relative">
                     <label for="prenom"><span class="required">*</span> <?php echo $_SESSION["lang"] == "fr" ? "Prénom" : "First name" ?></label><input type="text" name="prenom"
-                        id="prenom" required>
+                        id="prenom" value="<?php echo isset($_SESSION['form_values']['prenom']) ? $_SESSION['form_values']['prenom'] : ''; ?>" required>
                 </div>
                 <a href="./connexion"><?php echo $_SESSION["lang"] == "fr" ? "Vous avez déjà un compte ? Se connecter" : "Already have an account? Log in" ?></a>
             </div>

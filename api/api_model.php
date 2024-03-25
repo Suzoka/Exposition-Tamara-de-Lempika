@@ -5,7 +5,7 @@ include './database.php';
 function getAllReservedFormulesNotArchived()
 {
     global $db;
-    $stmt = $db->prepare("select r.date, r.id_ticket, r.nom, r.prenom, f.nom_formule_fr, r.mail, r.quantite, (f.tarif*r.quantite) as prix from `reservations` r inner join `utilisateurs` u on r.ext_id_user = u.id_user inner join `formules` f on r.ext_id_formule = f.id_formule where r.date>NOW() GROUP BY u.id_user, r.date, r.ext_id_formule order by r.date;");
+    $stmt = $db->prepare("select r.date, r.id_ticket, r.nom, r.prenom, f.nom_formule_fr, r.mail, r.quantite, (f.tarif*r.quantite) as prix from `reservations` r inner join `utilisateurs` u on r.ext_id_user = u.id_user inner join `formules` f on r.ext_id_formule = f.id_formule where r.date>NOW() GROUP BY u.id_user, r.date, r.ext_id_formule order by r.date, r.nom, r.prenom, f.id_formule;");
     $stmt->execute();
     return $stmt;
 }
@@ -13,7 +13,7 @@ function getAllReservedFormulesNotArchived()
 function searchReservedFormulesNotArchived($search)
 {
     global $db;
-    $stmt = $db->prepare("select r.date, r.id_ticket, r.nom, r.prenom, f.nom_formule_fr, r.mail, r.quantite, (f.tarif*r.quantite) as prix from `reservations` r inner join `utilisateurs` u on r.ext_id_user = u.id_user inner join `formules` f on r.ext_id_formule = f.id_formule WHERE r.date>NOW() AND (u.username LIKE :search OR u.mail like :search OR r.id_ticket like :search OR u.nom like :search OR u.prenom like :search OR r.nom like :search OR r.prenom like :search OR r.mail like :search) GROUP BY u.id_user, r.date, r.ext_id_formule order by r.date;");
+    $stmt = $db->prepare("select r.date, r.id_ticket, r.nom, r.prenom, f.nom_formule_fr, r.mail, r.quantite, (f.tarif*r.quantite) as prix from `reservations` r inner join `utilisateurs` u on r.ext_id_user = u.id_user inner join `formules` f on r.ext_id_formule = f.id_formule WHERE r.date>NOW() AND (u.username LIKE :search OR u.mail like :search OR r.id_ticket like :search OR u.nom like :search OR u.prenom like :search OR r.nom like :search OR r.prenom like :search OR r.mail like :search) GROUP BY u.id_user, r.date, r.ext_id_formule order by r.date, r.nom, r.prenom, f.id_formule;");
     $stmt->bindValue(':search', "%$search%", PDO::PARAM_STR);
     $stmt->execute();
     return $stmt;
@@ -21,7 +21,7 @@ function searchReservedFormulesNotArchived($search)
 function getAllArchives()
 {
     global $db;
-    $stmt = $db->prepare("select r.date, r.id_ticket, r.nom, r.prenom, f.nom_formule_fr, r.mail, r.quantite, (f.tarif*r.quantite) as prix from `reservations` r inner join `utilisateurs` u on r.ext_id_user = u.id_user inner join `formules` f on r.ext_id_formule = f.id_formule where r.date<NOW() GROUP BY u.id_user, r.date, r.ext_id_formule order by r.date desc;");
+    $stmt = $db->prepare("select r.date, r.id_ticket, r.nom, r.prenom, f.nom_formule_fr, r.mail, r.quantite, (f.tarif*r.quantite) as prix from `reservations` r inner join `utilisateurs` u on r.ext_id_user = u.id_user inner join `formules` f on r.ext_id_formule = f.id_formule where r.date<NOW() GROUP BY u.id_user, r.date, r.ext_id_formule order by r.date desc, r.nom, r.prenom, f.id_formule;");
     $stmt->execute();
     return $stmt;
 }
@@ -29,7 +29,7 @@ function getAllArchives()
 function searchArchives($search)
 {
     global $db;
-    $stmt = $db->prepare("select r.date, r.id_ticket, r.nom, r.prenom, f.nom_formule_fr, r.mail, r.quantite, (f.tarif*r.quantite) as prix from `reservations` r inner join `utilisateurs` u on r.ext_id_user = u.id_user inner join `formules` f on r.ext_id_formule = f.id_formule WHERE r.date<NOW() AND (u.username LIKE :search OR u.mail like :search OR r.id_ticket like :search OR u.nom like :search OR u.prenom like :search OR r.nom like :search OR r.prenom like :search OR r.mail like :search) GROUP BY u.id_user, r.date, r.ext_id_formule order by r.date desc;");
+    $stmt = $db->prepare("select r.date, r.id_ticket, r.nom, r.prenom, f.nom_formule_fr, r.mail, r.quantite, (f.tarif*r.quantite) as prix from `reservations` r inner join `utilisateurs` u on r.ext_id_user = u.id_user inner join `formules` f on r.ext_id_formule = f.id_formule WHERE r.date<NOW() AND (u.username LIKE :search OR u.mail like :search OR r.id_ticket like :search OR u.nom like :search OR u.prenom like :search OR r.nom like :search OR r.prenom like :search OR r.mail like :search) GROUP BY u.id_user, r.date, r.ext_id_formule order by r.date desc, r.nom, r.prenom, f.id_formule;");
     $stmt->bindValue(':search', "%$search%", PDO::PARAM_STR);
     $stmt->execute();
     return $stmt;
@@ -45,8 +45,7 @@ function deleteReservation($id)
         $stmt = $db->prepare("DELETE FROM `reservations` WHERE id_ticket = :id AND date>NOW()");
         $stmt->bindValue(':id', $id, PDO::PARAM_INT);
         return $stmt->execute();
-    }
-    else {
+    } else {
         return false;
     }
 }
@@ -136,6 +135,59 @@ function updateExtIdFormule($id, $newId)
     $stmt->execute();
 }
 
+function getReservationType($id)
+{
+    global $db;
+    $stmt = $db->prepare("SELECT nom_formule_fr FROM `formules` WHERE id_formule = :id");
+    $stmt->bindValue(':id', $id, PDO::PARAM_INT);
+    $stmt->execute();
+    return $stmt->fetchColumn();
+}
+
+function sendMailReservations($id, $modifs)
+{
+    global $db;
+    $stmt = $db->prepare("SELECT * FROM `reservations` WHERE id_ticket = :id");
+    $stmt->bindValue(':id', $id, PDO::PARAM_INT);
+    $stmt->execute();
+    $reservation = $stmt->fetch(PDO::FETCH_ASSOC);
+
+    $modifications = "";
+    foreach ($modifs as $key => $value) {
+        $modifications .= str_replace("%20", " ", "- " . $value . "\n");
+    }
+
+    $headers = "MIME-Version: 1.0\r\n";
+    $headers .= "Content-Type: text/plain; charset=UTF-8\r\n";
+
+    mail(
+        $reservation['mail'],
+        mb_encode_mimeheader("Des modifications ont été effectuées sur l'une de vos réservations", 'UTF-8', 'B', "\r\n"),
+        "Bonjour " . $reservation['prenom'] . " " . $reservation['nom'] . ",\n\n" . "Certaines modifications ont été faites sur l'une de vos réservation pour notre exposition.\n\n Voici les informations qui ont été modifiées :\n" . $modifications . "\n\nCordialement,\nL'équipe de chez Siny'art",
+        $headers
+    );
+}
+
+function deletedReservationMail($id)
+{
+    global $db;
+    $stmt = $db->prepare("SELECT * FROM `reservations` WHERE id_ticket = :id");
+    $stmt->bindValue(':id', $id, PDO::PARAM_INT);
+    $stmt->execute();
+    $reservation = $stmt->fetch(PDO::FETCH_ASSOC);
+
+    $formatter = new IntlDateFormatter('fr-FR', IntlDateFormatter::LONG, IntlDateFormatter::NONE);
+
+    $headers = "MIME-Version: 1.0\r\n";
+    $headers .= "Content-Type: text/plain; charset=UTF-8\r\n";
+
+    mail(
+        $reservation['mail'],
+        mb_encode_mimeheader("Annulation de votre réservation", 'UTF-8', 'B', "\r\n"),
+        "Bonjour " . $reservation['prenom'] . " " . $reservation['nom'] . ",\n\n" . "Nous vous informons que votre réservation du " . $formatter->format(new DateTime($reservation['date'])) . " pour notre exposition a été annulée.\n\nCordialement,\nL'équipe de chez Siny'art\n\nSi vous n'êtes pas à l'origine de cette annulation, veuillez nous contacter au plus vite.",
+        $headers
+    );
+}
 function getAllUsers()
 {
     global $db;
@@ -160,8 +212,7 @@ function deleteUser($id)
     $stmt->bindValue(':id', $id, PDO::PARAM_INT);
     if ($stmt->execute()) {
         return deleteAllTicketOfUser($id);
-    }
-    else {
+    } else {
         return false;
     }
 }
@@ -232,7 +283,51 @@ function updateUserRole($id, $role)
     $stmt->execute();
 }
 
-function getStats() {
+function sendMailUser($id, $modifs)
+{
+    global $db;
+    $stmt = $db->prepare("SELECT * FROM `utilisateurs` WHERE id_user = :id");
+    $stmt->bindValue(':id', $id, PDO::PARAM_INT);
+    $stmt->execute();
+    $user = $stmt->fetch(PDO::FETCH_ASSOC);
+
+    $modifications = "";
+    foreach ($modifs as $key => $value) {
+        $modifications .= str_replace("%20", " ", "- " . $value . "\n");
+    }
+
+    $headers = "MIME-Version: 1.0\r\n";
+    $headers .= "Content-Type: text/plain; charset=UTF-8\r\n";
+
+    mail(
+        $user['mail'],
+        mb_encode_mimeheader("Des modifications ont été effectuées sur votre compte", 'UTF-8', 'B', "\r\n"),
+        "Bonjour " . $user['prenom'] . " " . $user['nom'] . ",\n\n" . "Certaines modifications ont été faites sur votre compte utilisateur pour l'exposition \"Tamara de Lempika - Les années folles\".\n\n Voici les informations qui ont été modifiées :\n" . $modifications . "\n\nCordialement,\nL'équipe de chez Siny'art",
+        $headers
+    );
+}
+
+function deletedUserMail($id)
+{
+    global $db;
+    $stmt = $db->prepare("SELECT * FROM `utilisateurs` WHERE id_user = :id");
+    $stmt->bindValue(':id', $id, PDO::PARAM_INT);
+    $stmt->execute();
+    $user = $stmt->fetch(PDO::FETCH_ASSOC);
+
+    $headers = "MIME-Version: 1.0\r\n";
+    $headers .= "Content-Type: text/plain; charset=UTF-8\r\n";
+
+    mail(
+        $user['mail'],
+        mb_encode_mimeheader("Suppressions de votre compte utilisateur", 'UTF-8', 'B', "\r\n"),
+        "Bonjour " . $user['prenom'] . " " . $user['nom'] . ",\n\n" . "Nous vous informons que votre compte utilisateur pour notre exposition a bien été supprimé.\n\nCordialement,\nL'équipe de chez Siny'art\n\nSi vous n'êtes pas à l'origine de cette annulation, veuillez nous contacter au plus vite.",
+        $headers
+    );
+}
+
+function getStats()
+{
     global $db;
 
     $stmt = $db->prepare("SELECT f.nom_formule_fr, SUM(quantite) as count FROM reservations r inner join formules f on f.id_formule = r.ext_id_formule GROUP BY f.nom_formule_fr");
@@ -252,7 +347,7 @@ function getStats() {
     $reservationsByDay = $stmt->fetchAll(PDO::FETCH_KEY_PAIR);
 
     $result = [
-        "formule" => array_map(function($count) {
+        "formule" => array_map(function ($count) {
             return $count ?? 0;
         }, $formuleCounts),
         "nbBillet" => $nbBillet,

@@ -8,10 +8,16 @@ $segments = explode('/', $path);
 
 $page = explode('?', end($segments))[0];
 
-if (!isset($_SESSION["lang"])) {
+if (!isset ($_SESSION["lang"])) {
     $_SESSION["lang"] = "fr";
 }
+?>
 
+<!DOCTYPE html>
+<html lang="<?php echo $_SESSION["lang"] == "fr" ? "fr" : "en" ?>">
+
+
+<?php
 switch ($page) {
     case "accueil":
     default:
@@ -31,12 +37,14 @@ switch ($page) {
         break;
     case "inscription":
         include ("./views/inscription.php");
+        $_SESSION['form_values'] = [];
         break;
 
     case "checkInscription":
         if ($manager->createUser(new User(['username' => $_POST["login"], 'mail' => $_POST["mail"], 'password' => password_hash($_POST["password"], PASSWORD_DEFAULT), 'role' => '0', 'nom' => $_POST["nom"], 'prenom' => $_POST["prenom"]]))) {
             header("Location: ./" . $_SESSION["from"]);
         } else {
+            $_SESSION['form_values'] = $_POST;
             header("Location: ./inscription?error=1");
         }
         break;
@@ -44,6 +52,46 @@ switch ($page) {
     case "deconnexion":
         $manager->disconnection();
         header("Location: ./" . $_SESSION["from"]);
+        break;
+
+    case "lostPassword";
+        include ("./views/lostPassword.php");
+        break;
+
+    case "checkLostPassword":
+        if ($manager->lostPassword($_POST["mail"], $_POST["username"])) {
+            header("Location: ./lostPasswordSent");
+        } else {
+            header("Location: ./lostPassword?error=1");
+        }
+        break;
+
+    case "lostPasswordSent":
+        include ("./views/lostPasswordSent.php");
+        break;
+
+    case "resetPassword":
+        if (isset ($_GET["key"])) {
+            include ("./views/resetPassword.php");
+        } else {
+            header("Location: ./connexion");
+        }
+        break;
+
+    case "checkResetPassword":
+        if (isset ($_GET["key"])) {
+            if ($manager->resetPassword($_POST["password"], $_GET["key"])) {
+                header("Location: ./resetPasswordValidation");
+            } else {
+                // header("Location: ./resetPassword?key=" . $_GET["key"] . "&error=1");
+            }
+        } else {
+            header("Location: ./resetPassword?error=1");
+        }
+        break;
+
+    case "resetPasswordValidation":
+        include ("./views/resetPasswordValidation.php");
         break;
 
     case "billetterie":
@@ -58,13 +106,12 @@ switch ($page) {
             header("Location: ./billetterie?error=1");
         }
         break;
-    
+
     case "compte":
         $_SESSION["from"] = "compte";
-        if (isset($_GET['page'])) {
+        if (isset ($_GET['page'])) {
             $activePage = $_GET['page'];
-        }
-        else {
+        } else {
             $activePage = "infos";
         }
         include ("./views/compte.php");
@@ -79,12 +126,12 @@ switch ($page) {
         }
         break;
 
-    case "languageFR" :
+    case "languageFR":
         $_SESSION["lang"] = "fr";
         header("Location: ./" . $_GET["from"]);
         break;
 
-    case "languageEN" :
+    case "languageEN":
         $_SESSION["lang"] = "en";
         header("Location: ./" . $_GET["from"]);
         break;
