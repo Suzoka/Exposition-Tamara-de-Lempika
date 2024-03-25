@@ -151,14 +151,17 @@ const updateResume = () => {
     document.querySelector('.heureResume').innerHTML = document.querySelector('input[name="heure"]:checked').nextElementSibling.innerHTML;
     document.querySelector('.formuleResumeDynamique').innerHTML = "";
 
+    let total = 0;
     document.querySelectorAll('#step2 input[type="number"]').forEach(input => {
         if (input.value > 0) {
             let formule = document.createElement('li');
-            formule.innerHTML = document.querySelector('label[for="' + input.getAttribute('id') + '"]').innerHTML + " : " + input.value;
+            formule.innerHTML = document.querySelector('label[for="' + input.getAttribute('id') + '"]').innerHTML + " : " + input.value+ " x"+ document.querySelector('label[for="' + input.getAttribute('id') + '"]+.price').innerHTML.replace('Gratuit', '0').replace('Free', '0') +"€";
             document.querySelector('.formuleResumeDynamique').appendChild(formule);
+            total += parseInt(input.value) * parseFloat(document.querySelector('label[for="' + input.getAttribute('id') + '"]+.price').innerHTML.replace('Gratuit', '0').replace('Free', '0'));
         }
     });
 
+    document.querySelector('span.total').innerHTML = total
     document.querySelector('.prenomResume').innerHTML = document.querySelector('input[name="prenom"]').value;
     document.querySelector('.nomResume').innerHTML = document.querySelector('input[name="nom"]').value;
     document.querySelector('.mailResume').innerHTML = document.querySelector('input[name="mail"]').value;
