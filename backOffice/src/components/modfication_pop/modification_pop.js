@@ -1,6 +1,7 @@
 import { useRef } from 'react';
 
 import './modification_pop.css';
+import { Button } from '../button/button.js';
 
 export const ModificationPop = ({ open, setOpen, data, setModificationFlag }) => {
 
@@ -66,14 +67,14 @@ export const ModificationPop = ({ open, setOpen, data, setModificationFlag }) =>
     return (
         <div className={open ? 'modification__container modification__container--open' : 'modification__container modification__container--close'}>
             <h2>Modification de la réservation #{data.id_ticket}</h2>
-            < button className='modification__close' onClick={() => setOpen(false)}>X</button>
+            < Button classe='modification__close' format='icon' icon='back' action={() => setOpen(false)} title='annuler' />
             <form className="modification__form" onSubmit={fetchmodification}>
-                <input type="text" ref={formPrenom} name="prenom" defaultValue={data.prenom} placeholder="Prénom" required />
-                <input type="text" ref={formNom} name="nom" defaultValue={data.nom} placeholder="Nom" required />
-                <input type="date" ref={formDate} name="date" defaultValue={formDay} min="2024-03-28" max="2024-04-28" required />
-                <input type="time" ref={formHeure} name="heure" defaultValue={Heure} min="10:00" max="17:30" required />
-                <input type="text" ref={formMail} name="mail" defaultValue={data.mail} placeholder="exemple@mail.com" required />
-                <select ref={formFormule} name="formule" required>
+                <input className='modification__input modification__input--prenom' type="text" ref={formPrenom} name="prenom" defaultValue={data.prenom} placeholder="Prénom" required />
+                <input className='modification__input modification__input--nom' type="text" ref={formNom} name="nom" defaultValue={data.nom} placeholder="Nom" required />
+                <input className='modification__input modification__input--date' type="date" ref={formDate} name="date" defaultValue={formDay} min="2024-03-28" max="2024-04-28" required />
+                <input className='modification__input modification__input--heure' type="time" ref={formHeure} name="heure" defaultValue={Heure} min="10:00" max="17:30" required />
+                <input className='modification__input modification__input--mail' type="text" ref={formMail} name="mail" defaultValue={data.mail} placeholder="exemple@mail.com" required />
+                <select className='modification__select' ref={formFormule} name="formule" required>
                     {
                         data.nom_formule_fr === "adulte" ? <option value="1" selected>Adulte</option> : <option value="1">Adulte</option>
                     }
@@ -84,8 +85,9 @@ export const ModificationPop = ({ open, setOpen, data, setModificationFlag }) =>
                         data.nom_formule_fr === "handicap" ? <option value="3" selected>Handicap</option> : <option value="3">Handicap</option>
                     }          
                 </select>
-                <input type="number" ref={formQuantite} name="quantite" defaultValue={data.quantite} min="1" required />
-                <button type="submit">Valider</button>
+                <label className='modification__label' htmlFor="quantite">x</label>
+                <input className='modification__input modification__input--quantite' type="number" ref={formQuantite} name="quantite" defaultValue={data.quantite} min="1" required />
+                < Button classe='modification__submit' type='submit' title='Valider'>Valider</Button>
             </form>
         </div>
     );
