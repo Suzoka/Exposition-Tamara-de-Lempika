@@ -20,6 +20,7 @@ if (!isset ($_SESSION["lang"])) {
 <?php
 switch ($page) {
     case "accueil":
+    case "":
         $_SESSION["from"] = "accueil";
         include ("./views/accueil.php");
         break;
