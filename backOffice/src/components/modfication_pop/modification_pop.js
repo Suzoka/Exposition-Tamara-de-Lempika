@@ -3,7 +3,7 @@ import { useRef } from 'react';
 import './modification_pop.css';
 import { Button } from '../button/button.js';
 
-export const ModificationPop = ({ open, setOpen, data, setModificationFlag }) => {
+export const ModificationPop = ({ open, setOpen, data, setModificationFlag, type }) => {
 
     const date = new Date(data.date);
     let formDay = `${date.getFullYear()}-${(date.getMonth() + 1).toString().padStart(2, '0')}-${date.getDate().toString().padStart(2, '0')}`;
@@ -16,49 +16,82 @@ export const ModificationPop = ({ open, setOpen, data, setModificationFlag }) =>
     const formMail = useRef(null);
     const formFormule = useRef(null);
     const formQuantite = useRef(null);
+    const formLogin = useRef(null);
+    const formRole = useRef(null);
 
     const fetchmodification = (e) => {
         e.preventDefault();
 
-        console.log('Modification de la réservation');
-        console.log(formPrenom.current.value, typeof formPrenom.current.value);
-        console.log(formNom.current.value, typeof formNom.current.value);
-        console.log(formDate.current.value, typeof formDate.current.value);
-        console.log(formHeure.current.value, typeof formHeure.current.value);
-        console.log(formMail.current.value, typeof formMail.current.value);
-        console.log(formFormule.current.value, typeof formFormule.current.value);
-        console.log(formQuantite.current.value, typeof formQuantite.current.value);
-        console.log("----- Ici on envoie la requête de modification -----");
+        if (type === 'reservation') {
 
-        const fetchDate = formDate.current.value + ' ' + formHeure.current.value + ':00';
+            console.log('Modification de la réservation');
+            // console.log(formPrenom.current.value, typeof formPrenom.current.value);
+            // console.log(formNom.current.value, typeof formNom.current.value);
+            // console.log(formDate.current.value, typeof formDate.current.value);
+            // console.log(formHeure.current.value, typeof formHeure.current.value);
+            // console.log(formMail.current.value, typeof formMail.current.value);
+            // console.log(formFormule.current.value, typeof formFormule.current.value);
+            // console.log(formQuantite.current.value, typeof formQuantite.current.value);
+            // console.log("----- Ici on envoie la requête de modification -----");
 
-        fetch(`https://api.sinyart.fr/reservations/${data.id_ticket}`, {
-            method: 'PUT',
-            headers: {
-                'Authorization': sessionStorage.getItem('token'),
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({
-                'prenom': formPrenom.current.value,
-                'nom': formNom.current.value,
-                'date': fetchDate,
-                'mail': formMail.current.value,
-                'reservationType': parseInt(formFormule.current.value),
-                'quantite': parseInt(formQuantite.current.value)
-                // Ajoutez ici d'autres champs que vous souhaitez modifier
+            const fetchDate = formDate.current.value + ' ' + formHeure.current.value + ':00';
+
+            fetch(`https://api.sinyart.fr/reservations/${data.id_ticket}`, {
+                method: 'PUT',
+                headers: {
+                    'Authorization': sessionStorage.getItem('token'),
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    'prenom': formPrenom.current.value,
+                    'nom': formNom.current.value,
+                    'date': fetchDate,
+                    'mail': formMail.current.value,
+                    'reservationType': parseInt(formFormule.current.value),
+                    'quantite': parseInt(formQuantite.current.value)
+                    // Ajoutez ici d'autres champs que vous souhaitez modifier
+                })
             })
-        })
-            .then(response => response.json())
-            .then(data => {
-                console.log(data)
-                console.log('Modification effectuée');
-                setOpen(false);
-                setModificationFlag();
-            })
-            .catch((error) => {
-                console.error('Error:', error);
-            });
+                .then(response => response.json())
+                .then(data => {
+                    console.log(data)
+                    console.log('Modification effectuée');
+                    setOpen(false);
+                    setModificationFlag();
+                })
+                .catch((error) => {
+                    console.error('Error:', error);
+                });
 
+        } else if (type === 'user') {
+
+            console.log('Modification de l\'utilisateur');
+
+            fetch(`https://api.sinyart.fr/users/${data.id_user}`, {
+                method: 'PUT',
+                headers: {
+                    'Authorization': sessionStorage.getItem('token'),
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    'prenom': formPrenom.current.value,
+                    'nom': formNom.current.value,
+                    'mail': formMail.current.value,
+                    'role': parseInt(formRole.current.value),
+                    'username': formLogin.current.value
+                })
+            })
+                .then(response => response.json())
+                .then(data => {
+                    console.log(data)
+                    console.log('Modification effectuée');
+                    setOpen(false);
+                    setModificationFlag();
+                })
+                .catch((error) => {
+                    console.error('Error:', error);
+                });
+        }
 
     };
 
@@ -67,23 +100,45 @@ export const ModificationPop = ({ open, setOpen, data, setModificationFlag }) =>
     return (
         <>
             <div className={open ? 'modification__container modification__container--open' : 'modification__container modification__container--close'}>
-                <h2>Modification de la réservation #{data.id_ticket}</h2>
-                < Button classe='modification__close' format='icon' icon='back' action={() => setOpen(false)} title='annuler' />
-                <form className="modification__form" onSubmit={fetchmodification}>
-                    <input className='modification__input modification__input--prenom' type="text" ref={formPrenom} name="prenom" defaultValue={data.prenom} placeholder="Prénom" required />
-                    <input className='modification__input modification__input--nom' type="text" ref={formNom} name="nom" defaultValue={data.nom} placeholder="Nom" required />
-                    <input className='modification__input modification__input--date' type="date" ref={formDate} name="date" defaultValue={formDay} min="2024-03-28" max="2024-04-28" required />
-                    <input className='modification__input modification__input--heure' type="time" ref={formHeure} name="heure" defaultValue={Heure} min="10:00" max="17:30" required />
-                    <input className='modification__input modification__input--mail' type="text" ref={formMail} name="mail" defaultValue={data.mail} placeholder="exemple@mail.com" required />
-                    <select className='modification__select' ref={formFormule} name="formule" defaultValue={data.nom_formule_fr === "adulte" ? "1" : data.nom_formule_fr === "jeune" ? "2" : "3"} required>
-                        <option value="1">Adulte</option>
-                        <option value="2">Jeune</option>
-                        <option value="3">Handicap</option>
-                    </select>
-                    <label className='modification__label' htmlFor="quantite">x</label>
-                    <input className='modification__input modification__input--quantite' type="number" ref={formQuantite} name="quantite" defaultValue={data.quantite} min="1" required />
-                    < Button classe='modification__submit' type='submit' title='Valider'>Valider</Button>
-                </form>
+
+                {type === 'reservation' ? (
+
+                    <>
+                        <h2>Modification de la réservation #{data.id_ticket}</h2>
+                        < Button classe='modification__close' format='icon' icon='back' action={() => setOpen(false)} title='annuler' />
+                        <form className="modification__form" onSubmit={fetchmodification}>
+                            <input className='modification__input modification__input--prenom' type="text" ref={formPrenom} name="prenom" defaultValue={data.prenom} placeholder="Prénom" required />
+                            <input className='modification__input modification__input--nom' type="text" ref={formNom} name="nom" defaultValue={data.nom} placeholder="Nom" required />
+                            <input className='modification__input modification__input--date' type="date" ref={formDate} name="date" defaultValue={formDay} min="2024-03-28" max="2024-04-28" required />
+                            <input className='modification__input modification__input--heure' type="time" ref={formHeure} name="heure" defaultValue={Heure} min="10:00" max="17:30" required />
+                            <input className='modification__input modification__input--mail' type="text" ref={formMail} name="mail" defaultValue={data.mail} placeholder="exemple@mail.com" required />
+                            <select className='modification__select' ref={formFormule} name="formule" defaultValue={data.nom_formule_fr === "adulte" ? "1" : data.nom_formule_fr === "jeune" ? "2" : "3"} required>
+                                <option value="1">Adulte</option>
+                                <option value="2">Jeune</option>
+                                <option value="3">Handicap</option>
+                            </select>
+                            <label className='modification__label' htmlFor="quantite">x</label>
+                            <input className='modification__input modification__input--quantite' type="number" ref={formQuantite} name="quantite" defaultValue={data.quantite} min="1" required />
+                            < Button classe='modification__submit' type='submit' title='Valider'>Valider</Button>
+                        </form>
+                    </>
+                ) : type === "user" ? (
+                    <>
+                        <h2>Modification de l'utilisateur #{data.id_user}</h2>
+                        < Button classe='modification__close' format='icon' icon='back' action={() => setOpen(false)} title='annuler' />
+                        <form className="modification__form" onSubmit={fetchmodification}>
+                            <input className='modification__input modification__input--prenom' type="text" ref={formPrenom} name="prenom" defaultValue={data.prenom} placeholder="Prénom" required />
+                            <input className='modification__input modification__input--nom' type="text" ref={formNom} name="nom" defaultValue={data.nom} placeholder="Nom" required />
+                            <input className='modification__input modification__input--mail' type="text" ref={formMail} name="mail" defaultValue={data.mail} placeholder="exemple@mail.com" required />
+                            <input className='modification__input modification__input--login' type="login" ref={formLogin} name="login" defaultValue={data.username} placeholder="Login" required />
+                            <select className='modification__select' ref={formRole} name="formule" defaultValue={data.role === 0 ? "0" : data.role === 1 ? "1" : ""} required>
+                                <option value="0">Client</option>
+                                <option value="1">Admin</option>
+                            </select>
+                            < Button classe='modification__submit' type='submit' title='Valider'>Valider</Button>
+                        </form>
+                    </>
+                ) : ''}
             </div>
             <div className={open ? 'modification__bck modification__bck--open' : 'modification__bck modification__bck--close'} onClick={() => setOpen(false)}>
             </div>
