@@ -19,9 +19,12 @@
     height: 20px;
     color: var(--dark-primary);
     background-color: currentColor;
-    mask: no-repeat center center;
-    mask-size: contain;
-    mask-image: url("../../../public/asset/icon/Search.svg");
+    -webkit-mask: no-repeat center center;
+            mask: no-repeat center center;
+    -webkit-mask-size: contain;
+            mask-size: contain;
+    -webkit-mask-image: url("../../../public/asset/icon/Search.svg");
+            mask-image: url("../../../public/asset/icon/Search.svg");
 }
 
 .searchbar__input {
@@ -32,6 +35,22 @@
     color: var(--black);
     background-color: #ffffff00;
     font-family: 'Inter', sans-serif;
+}
+
+.searchbar__input::-webkit-input-placeholder {
+    color: var(--dark-grey);
+}
+
+.searchbar__input::-moz-placeholder {
+    color: var(--dark-grey);
+}
+
+.searchbar__input:-ms-input-placeholder {
+    color: var(--dark-grey);
+}
+
+.searchbar__input::-ms-input-placeholder {
+    color: var(--dark-grey);
 }
 
 .searchbar__input::placeholder {

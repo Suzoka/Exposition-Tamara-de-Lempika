@@ -33,5 +33,6 @@
     width: 25px;
     height: 25px;
     border-radius: 100px;
-    object-fit: cover;
+    -o-object-fit: cover;
+       object-fit: cover;
 }
