@@ -20,7 +20,6 @@ if (!isset ($_SESSION["lang"])) {
 <?php
 switch ($page) {
     case "accueil":
-    default:
         $_SESSION["from"] = "accueil";
         include ("./views/accueil.php");
         break;
@@ -59,7 +58,10 @@ switch ($page) {
         break;
 
     case "checkLostPassword":
-        if ($manager->lostPassword($_POST["mail"], $_POST["username"])) {
+        $mail = isset($_SESSION["user"]) ? $_SESSION["user"]->getMail() : $_POST["mail"];
+        $username = isset($_SESSION["user"]) ? $_SESSION["user"]->getUsername() : $_POST["username"];
+
+        if ($manager->lostPassword($mail, $username)) {
             header("Location: ./lostPasswordSent");
         } else {
             header("Location: ./lostPassword?error=1");
@@ -83,7 +85,7 @@ switch ($page) {
             if ($manager->resetPassword($_POST["password"], $_GET["key"])) {
                 header("Location: ./resetPasswordValidation");
             } else {
-                // header("Location: ./resetPassword?key=" . $_GET["key"] . "&error=1");
+                header("Location: ./resetPassword?key=" . $_GET["key"] . "&error=1");
             }
         } else {
             header("Location: ./resetPassword?error=1");
@@ -92,6 +94,11 @@ switch ($page) {
 
     case "resetPasswordValidation":
         include ("./views/resetPasswordValidation.php");
+        break;
+
+    case "deleteCompte" :
+        $manager->deleteUser($_SESSION["user"]->getId_user(), $_SESSION["user"]->getMail());
+        header("Location: ./deconnexion");
         break;
 
     case "billetterie":
@@ -134,6 +141,9 @@ switch ($page) {
     case "languageEN":
         $_SESSION["lang"] = "en";
         header("Location: ./" . $_GET["from"]);
+        break;
+    default:
+        include ("./views/404.php");
         break;
 }
 ?>

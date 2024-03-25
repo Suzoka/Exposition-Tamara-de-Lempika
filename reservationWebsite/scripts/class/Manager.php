@@ -51,7 +51,8 @@ class Manager
 
             $formatter = new IntlDateFormatter($_SESSION['lang'] == "fr" ? 'fr-FR' : 'en-EN', IntlDateFormatter::LONG, IntlDateFormatter::NONE);
 
-            $headers = "MIME-Version: 1.0\r\n";
+            $headers = "From: L'équipe Siny'art <exposition@sinyart.fr>\r\n";
+            $headers .= "MIME-Version: 1.0\r\n";
             $headers .= "Content-Type: text/plain; charset=UTF-8\r\n";
 
             if ($_SESSION['lang'] == "fr") {
@@ -112,7 +113,8 @@ class Manager
             $stmt->execute();
             $_SESSION['user'] = new User($stmt->fetch(PDO::FETCH_ASSOC));
 
-            $headers = "MIME-Version: 1.0\r\n";
+            $headers = "From: L'équipe Siny'art <exposition@sinyart.fr>\r\n";
+            $headers .= "MIME-Version: 1.0\r\n";
             $headers .= "Content-Type: text/plain; charset=UTF-8\r\n";
 
             if ($_SESSION['lang'] == "fr") {
@@ -171,7 +173,9 @@ class Manager
 
             $link = "https://tamara.sinyart.fr/resetPassword?key=" . $key;
 
-            $headers = "MIME-Version: 1.0" . "\r\n";
+
+            $headers = "From: L'équipe Siny'art <exposition@sinyart.fr>\r\n";
+            $headers .= "MIME-Version: 1.0\r\n";
             $headers .= "Content-type:text/html;charset=UTF-8" . "\r\n";
 
             if ($_SESSION['lang'] == "fr") {
@@ -226,7 +230,8 @@ class Manager
             $stmt->bindValue(':reset_key', $key, PDO::PARAM_STR);
             $stmt->execute();
 
-            $headers = "MIME-Version: 1.0\r\n";
+            $headers = "From: L'équipe Siny'art <exposition@sinyart.fr>\r\n";
+            $headers .= "MIME-Version: 1.0\r\n";
             $headers .= "Content-Type: text/plain; charset=UTF-8\r\n";
 
             if ($_SESSION['lang'] == "fr") {
@@ -269,7 +274,8 @@ class Manager
         $stmt->bindValue(':id', $id, PDO::PARAM_INT);
         if ($stmt->execute()) {
 
-            $headers = "MIME-Version: 1.0\r\n";
+            $headers = "From: L'équipe Siny'art <exposition@sinyart.fr>\r\n";
+            $headers .= "MIME-Version: 1.0\r\n";
             $headers .= "Content-Type: text/plain; charset=UTF-8\r\n";
 
             if ($_SESSION['lang'] == "fr") {
@@ -290,6 +296,36 @@ class Manager
             return true;
         } else {
             return false;
+        }
+    }
+
+    function deleteUser($id, $mail) {
+        $stmt = $this->db->prepare("DELETE FROM `reservations` WHERE `ext_id_user` = :id");
+        $stmt->bindValue(':id', $id, PDO::PARAM_INT);
+        $stmt->execute();
+
+        $stmt = $this->db->prepare("DELETE FROM `utilisateurs` WHERE `id_user` = :id");
+        $stmt->bindValue(':id', $id, PDO::PARAM_INT);
+        $stmt->execute();
+
+        $headers = "From: L'équipe Siny'art <exposition@sinyart.fr>\r\n";
+        $headers .= "MIME-Version: 1.0\r\n";
+        $headers .= "Content-Type: text/plain; charset=UTF-8\r\n";
+
+        if ($_SESSION['lang']== "fr") {
+            mail(
+                $mail,
+                mb_encode_mimeheader("Confirmation de la suppression de votre compte", 'UTF-8', 'B', "\r\n"),
+                "Bonjour,\n\nNous vous confirmons la suppression de votre compte.\n\nCordialement,\nL'équipe de chez Siny'art\n\nSi vous n'êtes pas à l'origine de cette demande, veuillez nous contacter.",
+                $headers
+            );
+        } else {
+            mail(
+                $mail,
+                mb_encode_mimeheader("Confirmation of the deletion of your account", 'UTF-8', 'B', "\r\n"),
+                "Hello,\n\nWe confirm you the deletion of your account.\n\nBest regards,\nSiny'art team\n\nIf you are not the one who asked for this, please contact us.",
+                $headers
+            );
         }
     }
 
