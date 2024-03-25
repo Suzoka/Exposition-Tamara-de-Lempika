@@ -65,3 +65,16 @@
 .button__icon--cross::before {
     mask-image: url("../../../public/asset/icon/Cross.svg") ;
 }
+
+.button__icon--back {
+    background-color: var(--light-yellow);
+    color: var(--dark-yellow);
+}
+
+.button__icon--back:hover {
+    background-color: var(--secondary-yellow);
+}
+
+.button__icon--back::before {
+    mask-image: url("../../../public/asset/icon/Corner-up-left.svg") ;
+}

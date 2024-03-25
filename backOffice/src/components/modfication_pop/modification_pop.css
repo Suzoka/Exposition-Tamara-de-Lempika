@@ -8,6 +8,7 @@
     border-radius: 30px;
     width: 800px;
     height: 400px;
+    padding: 20px;
     z-index: 200;
     overflow: hidden;
 }
@@ -17,5 +18,70 @@
 }
 
 .modification__container--open {
+    display: block;
+}
+
+.modification__close {
+    position: absolute;
+    right: 20px;
+    top: 20px;
+}
+
+.modification__form {
     display: grid;
+    grid-template-columns: repeat(9, 1fr);
+    grid-template-rows: repeat(4, 1fr);
+
+    grid-template-areas:
+        "p p p n n n m m m"
+        "d d d h h . . . ."
+        "s s x q . . . . ."
+        "b b b . . . . . .";
+
+    gap: 10px;
+    width: 100%;
+}
+
+.modification__input {
+    width: 100%;
+}
+
+.modification__input--prenom {
+    grid-area: p;
+}
+
+.modification__input--nom {
+    grid-area: n;
+}
+
+.modification__input--mail {
+    grid-area: m;
+}
+
+.modification__input--date {
+    grid-area: d;
+}
+
+.modification__input--heure {
+    grid-area: h;
+}
+
+.modification__label {
+    grid-area: x;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+.modification__input--quantite {
+    grid-area: q;
+}
+
+.modification__select {
+    grid-area: s;
+}
+
+.modification__submit {
+    grid-area: b;
+    width: fit-content;
 }

@@ -82,6 +82,7 @@ export default function Home() {
   }
 
   const modifyResa = (id, type) => {
+    setmodificationPopupOpen(false);
     console.log('Modification de la réservation n°', id);
     const reservation = reservationData.find(resa => resa.id_ticket == id);
     console.log('Données réservation', reservation);
