@@ -3,7 +3,7 @@ import * as d3 from 'd3';
 
 import './graph_bar.css';
 
-export const Graph_Bar = ({ data }) => {
+export const Graph_Bar = ({ data, nbBillet }) => {
 
     // console.log(data);
 
@@ -15,14 +15,14 @@ export const Graph_Bar = ({ data }) => {
             .data(data)
             .join("div")
             .attr("class", "graph__bar")
-            .style("--width", d => `${d.value * 10}%`);
+            .style("--width", d => `${(d.value/nbBillet)*100}%`);
         
         divs.selectAll("p")
             .remove();
             
         divs.append("p")
             .attr("class", "graph__label")
-            .text(d => d.key);
+            .text(d => `${d.key}: ${d.value}`);
     }, [data]);
 
     return <div ref={container} className='graph__container'></div>;
