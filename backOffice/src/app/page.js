@@ -188,7 +188,7 @@ export default function Home() {
       })
         .then(response => response.json())
         .then(data => {
-          console.log('données utilisateurs', data);
+          // console.log('données utilisateurs', data);
           setUserList(data);
           setLoadUserList(true);
           console.log('--- Données utilisateurs chargées')

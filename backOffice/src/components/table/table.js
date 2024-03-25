@@ -138,7 +138,7 @@ const Table_object = ({ liste, variant, DelModViewResa }) => {
 
                     {/* Action */}
                     <td className={classesTable_object['table__cellule--action']}>
-                        < Button variant="primary" title="Modifier" action={() => DelModViewResa['modifyResa'](liste.id_user, "user")}>Modifier</Button>
+                        {/* < Button variant="primary" title="Modifier" action={() => DelModViewResa['modifyResa'](liste.id_user, "user")}>Modifier</Button> */}
 
                         < Button format="icon" title="Suprimer" icon="trash" action={() => DelModViewResa['deleteResa'](liste.id_user, "user")}>
                             <span className='icon_alt'>Supprimer</span>
