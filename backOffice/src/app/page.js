@@ -35,6 +35,7 @@ export default function Home() {
   const [popupType, setPopupType] = useState('');
   const [modificationPopupOpen, setmodificationPopupOpen] = useState(false);
   const [modificationData, setModificationData] = useState([]);
+  const [modificationPopupType, setModificationPopupType] = useState('');
 
   const closePopUp = () => {
     setPopupClosed(true);
@@ -82,12 +83,26 @@ export default function Home() {
   }
 
   const modifyResa = (id, type) => {
+
     setmodificationPopupOpen(false);
-    console.log('Modification de la réservation n°', id);
-    const reservation = reservationData.find(resa => resa.id_ticket == id);
-    console.log('Données réservation', reservation);
-    // setPopupType('reservation');
-    setModificationData(reservation);
+
+    if (type === 'reservation') {
+
+      console.log('Modification de la réservation n°', id);
+      const reservation = reservationData.find(resa => resa.id_ticket == id);
+      console.log('Données réservation', reservation);
+      setModificationPopupType('reservation');
+      setModificationData(reservation);
+
+    } else if (type === 'user') {
+      
+      console.log('Modification de l\'utilisateur n°', id);
+      const utilisateur = userList.find(user => user.id_user == id);
+      console.log('Données utilisateur', utilisateur);
+      setModificationPopupType('user');
+      setModificationData(utilisateur);
+    }
+
     setmodificationPopupOpen(true);
   }
 
@@ -235,7 +250,7 @@ export default function Home() {
             < Section id="arch" nom="Archives" donnee={loadArchived ? (archivedData) : (reservation)} type="table" contentSearch="Rechercher une reservation archivé..." DelModViewResa='' />
 
             {modificationPopupOpen && (
-              < ModificationPop open={modificationPopupOpen} setOpen={setmodificationPopupOpen} data={modificationData} setModificationFlag={() => setModificationFlag(modificationFlag + 1)} />
+              < ModificationPop open={modificationPopupOpen} setOpen={setmodificationPopupOpen} data={modificationData} setModificationFlag={() => setModificationFlag(modificationFlag + 1)} type={modificationPopupType}/>
             )}
 
             < Pop_up data={popupDonnee != null ? popupDonnee : ''} close={popupClosed} closeAction={closePopUp} type={popupType} />

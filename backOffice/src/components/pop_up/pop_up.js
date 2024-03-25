@@ -27,39 +27,47 @@ export const Pop_up = ({ data, close, closeAction, type }) => {
 
     if (type === 'user') {
         return (
-            <div className={close ? 'pop_up__container--close' : 'pop_up__container--open'}>
-                <div className='pop_up__content'>
-                    <h2>{data.prenom} <span className="uppercase">{data.nom}</span></h2>
-                    <p className="bold">Utilisateur #{data.id_user}</p>
-                    <p>{data.username} - {data.mail}</p>
-                    <p className="bold">{data.role === 1 ? 'Admin' : data.role === 0 ? 'Client' : ''}</p>
+            <>
+                <div className={close ? 'pop_up__container--close' : 'pop_up__container--open'}>
+                    <div className='pop_up__content'>
+                        <h2>{data.prenom} <span className="uppercase">{data.nom}</span></h2>
+                        <p className="bold">Utilisateur #{data.id_user}</p>
+                        <p>{data.username} - {data.mail}</p>
+                        <p className="bold">{data.role === 1 ? 'Admin' : data.role === 0 ? 'Client' : ''}</p>
+                    </div>
+                    <div className='pop_up__photoBox'>
+                        <img className="pop_up__photo" src={data.img} alt="" />
+                    </div>
+                    < Button classe='pop_up__button' format='icon' icon='cross' action={closeAction} title='Fermer' />
                 </div>
-                <div className='pop_up__photoBox'>
-                    <img className="pop_up__photo" src={data.img} alt="" />
+                <div className={close ? 'pop_up__bck pop_up__bck--close' : 'pop_up__bck pop_up__bck--open'} onClick={closeAction}>
                 </div>
-                < Button classe='pop_up__button' format='icon' icon='cross' action={closeAction} title='Fermer' />
-            </div>
+            </>
         )
     } else if (type === 'reservation') {
 
         return (
-            <div className={close ? 'pop_up__container--close' : 'pop_up__container--open'}>
-                <div className='pop_up__content'>
-                    <h2>Reservation #{data.id_ticket}</h2>
-                    <p className="bold">{data.prenom} <span className="uppercase">{data.nom}</span></p>
-                    <p>{data.mail}</p>
-                    <p>{date.getDate().toString().padStart(2, '0')}/{(date.getMonth() + 1).toString().padStart(2, '0')}/{date.getFullYear()}</p>
-                    <p>{date.getHours().toString().padStart(2, '0')}:{date.getMinutes().toString().padStart(2, '0')}</p>
-                    <p>Quantité : {data.quantite}</p>
-                    <p>Prix : {data.prix === 0 ? "Gratuit" : data.prix + '€'}</p>
-                    <p className="firstletter">{data.nom_formule_fr}</p>
+            <>
+                <div className={close ? 'pop_up__container--close' : 'pop_up__container--open'}>
+                    <div className='pop_up__content'>
+                        <h2>Reservation #{data.id_ticket}</h2>
+                        <p className="bold">{data.prenom} <span className="uppercase">{data.nom}</span></p>
+                        <p>{data.mail}</p>
+                        <p>{date.getDate().toString().padStart(2, '0')}/{(date.getMonth() + 1).toString().padStart(2, '0')}/{date.getFullYear()}</p>
+                        <p>{date.getHours().toString().padStart(2, '0')}:{date.getMinutes().toString().padStart(2, '0')}</p>
+                        <p>Quantité : {data.quantite}</p>
+                        <p>Prix : {data.prix === 0 ? "Gratuit" : data.prix + '€'}</p>
+                        <p className="firstletter">{data.nom_formule_fr}</p>
+                    </div>
+                    <div className='pop_up__codeBox'>
+                        <img className="pop_up__QR" src={qr_code} alt="" />
+                        <p className="pop_up__code">{code}</p>
+                    </div>
+                    < Button classe='pop_up__button' format='icon' icon='cross' action={closeAction} title='Fermer' />
                 </div>
-                <div className='pop_up__codeBox'>
-                    <img className="pop_up__QR" src={qr_code} alt="" />
-                    <p className="pop_up__code">{code}</p>
+                <div className={close ? 'pop_up__bck pop_up__bck--close' : 'pop_up__bck pop_up__bck--open'} onClick={closeAction}>
                 </div>
-                < Button classe='pop_up__button' format='icon' icon='cross' action={closeAction} title='Fermer' />
-            </div>
+            </>
         )
 
     }
