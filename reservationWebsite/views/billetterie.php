@@ -211,6 +211,7 @@
                             <div class="formulesResume">
                                 <ul class="formuleResumeDynamique">
                                 </ul>
+                                <p>Total : <span class="total"></span>€</p>
                                 <button type="button" data-goto="2" class="edit">
                                     <img class="noHover" src="../img/icons/editG.svg"
                                             alt="">
