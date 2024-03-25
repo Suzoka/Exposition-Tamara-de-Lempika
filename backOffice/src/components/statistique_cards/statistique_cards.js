@@ -32,7 +32,7 @@ export const StatistiqueCards = ({ donnee, type, titre, total }) => {
 
                 ) : type === "barJOUR" ? (
                     <>
-                        < Graph_Bar data={Object.entries(donnee).map(([key, value]) => ({ key, value }))} total={total} />
+                        < Graph_Bar data={Object.entries(donnee).map(([key, value]) => ({ key, value }))} nbBillet={total} />
                     </>
                 ) : ''
 

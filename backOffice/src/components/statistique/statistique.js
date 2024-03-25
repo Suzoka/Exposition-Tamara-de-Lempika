@@ -37,7 +37,7 @@ export const Statistique = ({ donnee }) => {
             {loadStat ? (
                 <div className={classes['statistique__container']}>
                     < StatistiqueCards donnee={stat.formule} type="cammembert" titre="Répartition des formules" />
-                    < StatistiqueCards donnee={stat.reservationsByDay} type="barJOUR" titre="Réservation par jour de la semaine" />
+                    < StatistiqueCards donnee={stat.reservationsByDay} total={stat.nbBillet} type="barJOUR" titre="Réservation par jour de la semaine" />
                 </div>
             ) : ''}
         </div>

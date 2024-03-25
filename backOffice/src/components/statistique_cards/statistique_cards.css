@@ -9,6 +9,10 @@
     border: 1px solid var(--light-grey);
 }
 
+.statCards__container:last-child {
+    width: 70%;
+}
+
 .statCards__content--cammembert {
     display: grid;
     grid-template-columns: 2fr 1fr;
@@ -19,6 +23,7 @@
 .statCards__Graph {
     height: 280px;
 }
+
 .legend__element {
     display: flex;
     align-items: center;
