@@ -31,8 +31,10 @@
     width: 19px;
     height: 19px;
     background-color: currentColor;
-    mask: no-repeat center center;
-    mask-size: contain;
+    -webkit-mask: no-repeat center center;
+            mask: no-repeat center center;
+    -webkit-mask-size: contain;
+            mask-size: contain;
     /* margin-right: 8px; */
 }
 
@@ -46,7 +48,8 @@
 }
 
 .button__icon--trash::before {
-    mask-image: url("../../../public/asset/icon/Trash-2.svg");
+    -webkit-mask-image: url("../../../public/asset/icon/Trash-2.svg");
+            mask-image: url("../../../public/asset/icon/Trash-2.svg");
 }
 
 .button__icon--eye {
@@ -59,11 +62,13 @@
 }
 
 .button__icon--eye::before {
-    mask-image: url("../../../public/asset/icon/Eye.svg") ;
+    -webkit-mask-image: url("../../../public/asset/icon/Eye.svg") ;
+            mask-image: url("../../../public/asset/icon/Eye.svg") ;
 }
 
 .button__icon--cross::before {
-    mask-image: url("../../../public/asset/icon/Cross.svg") ;
+    -webkit-mask-image: url("../../../public/asset/icon/Cross.svg") ;
+            mask-image: url("../../../public/asset/icon/Cross.svg") ;
 }
 
 .button__icon--back {
@@ -76,5 +81,6 @@
 }
 
 .button__icon--back::before {
-    mask-image: url("../../../public/asset/icon/Corner-up-left.svg") ;
+    -webkit-mask-image: url("../../../public/asset/icon/Corner-up-left.svg") ;
+            mask-image: url("../../../public/asset/icon/Corner-up-left.svg") ;
 }

@@ -96,9 +96,12 @@
     width: 19px;
     height: 19px;
     background-color: currentColor;
-    mask: no-repeat center center;
-    mask-size: contain;
-    mask-image: url("../../../public/asset/icon/Log-in.svg");
+    -webkit-mask: no-repeat center center;
+            mask: no-repeat center center;
+    -webkit-mask-size: contain;
+            mask-size: contain;
+    -webkit-mask-image: url("../../../public/asset/icon/Log-in.svg");
+            mask-image: url("../../../public/asset/icon/Log-in.svg");
 }
 
 

@@ -1,4 +1,6 @@
 .date__container {
+    width: -webkit-fit-content;
+    width: -moz-fit-content;
     width: fit-content;
     padding: 3px 10px;
     border-radius: 30px;

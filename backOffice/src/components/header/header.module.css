@@ -73,23 +73,29 @@
     width: 19px;
     height: 19px;
     background-color: currentColor;
-    mask: no-repeat center center;
-    mask-size: contain;
+    -webkit-mask: no-repeat center center;
+            mask: no-repeat center center;
+    -webkit-mask-size: contain;
+            mask-size: contain;
     /* margin-right: 8px; */
 }
 
 .header__link--cart::before {
-    mask-image: url("../../../public/asset/icon/Shopping-basket.svg");
+    -webkit-mask-image: url("../../../public/asset/icon/Shopping-basket.svg");
+            mask-image: url("../../../public/asset/icon/Shopping-basket.svg");
 }
 
 .header__link--user::before {
-    mask-image: url("../../../public/asset/icon/Users-2.svg") ;
+    -webkit-mask-image: url("../../../public/asset/icon/Users-2.svg") ;
+            mask-image: url("../../../public/asset/icon/Users-2.svg") ;
 }
 
 .header__link--stat::before {
-    mask-image: url("../../../public/asset/icon/Bar-chart-4.svg") ;
+    -webkit-mask-image: url("../../../public/asset/icon/Bar-chart-4.svg") ;
+            mask-image: url("../../../public/asset/icon/Bar-chart-4.svg") ;
 }
 
 .header__link--arch::before {
-    mask-image: url("../../../public/asset/icon/Archive.svg") ;
+    -webkit-mask-image: url("../../../public/asset/icon/Archive.svg") ;
+            mask-image: url("../../../public/asset/icon/Archive.svg") ;
 }
