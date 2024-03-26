@@ -262,6 +262,10 @@ footer a {
     margin: 3px;
 }
 
+.apropos a:visited,
+.planSite a:visited {
+    color: #7ACDB4;
+}
 .reseaux {
     display: flex;
     justify-content: flex-end;
