@@ -143,6 +143,12 @@ switch ($page) {
         $_SESSION["lang"] = "en";
         header("Location: ./" . $_GET["from"]);
         break;
+
+    case "mentionsLegales":
+        $_SESSION["from"] = "mentionsLegales";
+        include ("./views/mentionsLegales.php");
+        break;
+
     default:
         include ("./views/404.php");
         break;

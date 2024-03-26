@@ -79,7 +79,13 @@ header nav {
 .menu-user a {
     color: white;
     text-decoration: none;
-    padding: 10px;
+    padding: 5px;
+    margin-left: 5px;
+}
+
+.menu a:hover, .menu-user a:hover {
+    border-bottom: #FFFFFF solid 2px;
+    padding-bottom: 2px;
 }
 
 .menu a img {
@@ -207,7 +213,7 @@ footer {
     color: #FFFFFF;
 
     display: grid;
-    grid-template-columns: 45% 1fr 1fr 1fr;
+    grid-template-columns: 40% 1fr 1fr 1fr;
     padding-top: 15px;
     padding-bottom: 25px;
     z-index: 4;
@@ -216,6 +222,18 @@ footer {
 footer .logo {
     width: 17vh;
 }
+
+footer ul {
+    list-style-type: none;
+    text-align: center;
+    padding-left: 0;
+    margin-top: 0;
+}
+
+footer li {
+    padding: 4px;
+}
+
 
 .apropos,
 .planSite {
@@ -238,8 +256,7 @@ footer .logo {
     width: fit-content;
 }
 
-.apropos a,
-.planSite a {
+footer a {
     color: #FFFFFF;
     text-decoration: none;
     margin: 3px;
@@ -247,13 +264,24 @@ footer .logo {
 
 .reseaux {
     display: flex;
+    justify-content: flex-end;
+    gap: 20px;
+    margin-right: 20px;
+}
+
+.reseaux ul {
+    display: flex;
     align-items: center;
-    margin-right: 10px;
 }
 
 .reseaux img {
-    width: 85%;
+    width: 90%;
 }
+
+footer a:hover {
+    text-decoration: underline;
+}
+
 
 
 /* ---- FOOTER RESPONSIVE ---- */

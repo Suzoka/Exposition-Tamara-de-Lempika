@@ -33,7 +33,7 @@ h1 {
     margin-bottom: 2.8rem;
 }
 
-p {
+main p {
     width: -webkit-fit-content;
     width: -moz-fit-content;
     width: fit-content;

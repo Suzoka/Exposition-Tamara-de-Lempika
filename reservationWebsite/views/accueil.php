@@ -1,4 +1,6 @@
 <head>
+    <meta name="description" content="Découvrez l'exposition Tamara de Lempicka - les années folles : une immersion dans les années folles à travers les tableaux de Tamara de Lempicka. Explorez les œuvres uniques de l'artiste dans cette exposition immersive unique jusqu'au 28 Avril 2024.">
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../styles/style_h&f.css">
@@ -30,16 +32,18 @@
         <section class="tamara">
             <h2>Tamara de Lempicka</h2>
             <div class="contentTamara">
-                <p class="t1"><?php echo $_SESSION["lang"] == "fr" ? "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-                <br>reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id" : "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-                <br>reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id" ?>
+                <p class="t1"><?php echo $_SESSION["lang"] == "fr" ? "Tamara Rozalia Gurwick-Gorska, plus connue sous le nom de Tamara de Lempicka, a marqué l'histoire de l'art du XXe siècle par son talent artistique original et sa vie hors du commun. Née le 16 mai 1898 à Varsovie, elle est élevée dans un milieu aisé et cultivé, partageant son temps entre Saint-Pétersbourg et Lausanne. 
+                <br>En 1914 elle entreprend une réelle carrière artistique en s'inscrivant à l'Académie des Beaux-Arts de Saint-Pétersbourg. En 1916 elle épouse l'avocat Tadeusz Lempicki et donne naissance à leur fille Marie-Chrisitine. En 1917 elle fuit la révolution d'octobre et se rend à Paris où elle est accueilli par ses cousins." : "Tamara Rozalia Gurwick-Gorska, better known as Tamara de Lempicka, left her mark on twentieth-century art history with her orignal artistic talent and her extraordinary life. 
+                Born in Warsaw on May 16, 1898, she grew up in an affluent and cultured environment, dividing her time between St Petersburg and Lausanne. 
+                <br>In 1914 she begin a real artistic career, by registering at the  Saint Petersburg Academy of Fine Arts. In 1916 she married the lawyer Tadeusz Lempicki and had her daughter Marie-Christine.
+                In 1917 she fled the October Revolution and went to Paris where she was welcomed by her cousins." ?>
                 </p>
-                <img class="imgBig" src="../img/tamaraAccueil2.png" alt="<?php echo $_SESSION["lang"] == "fr" ? "Peinture d'une femme en tunique rouge de Tamara" : "Painting of a woman in a red tunic by Tamara" ?>">
-                <img class="imgSmall s1" src="../img/tamara.png" alt="<?php echo $_SESSION["lang"] == "fr" ? "Photo de Tamara" : "Photo of Tamara" ?>">
-                <img class="imgSmall s2" src="../img/tamaraAccueil.png" alt="<?php echo $_SESSION["lang"] == "fr" ? "Autoportrait de Tamara dans une Bugatti verte" : "Self-portrait of Tamara in a green Bugatti" ?>">
-                <p class="t2"><?php echo $_SESSION["lang"] == "fr" ? "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. 
-                <br>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sin velit esse cillum dolore eu " : "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. 
-                <br>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sin velit esse cillum dolore eu " ?>
+                <img class="imgBig" src="../img/tamaraAccueil2.png" alt="">
+                <img class="imgSmall s1" src="../img/tamara.png" alt="">
+                <img class="imgSmall s2" src="../img/tamaraAccueil.png" alt="">
+                <p class="t2"><?php echo $_SESSION["lang"] == "fr" ? "Sous la tutelle de Maurice Denis et André Lhote, Tamara de Lempicka trouve un précieux soutien à l'Académie Ranson et de la Grande Chaumière. Fusionnant la Renaissance et le néo-cubisme, elle crée un style novateur, évoquant l'élégance des Années folles.
+                <br>Sa première exposition en 1923, \"Perspective (ou les deux amies)\", lance sa renommée et l'essor de l'Art Déco." : "Under the tutelage of Maurice Denis and André Lhote, Tamara de Lempicka found support at the Ranson Academy and the Grande Chaumière. Mixing the Renaissance and neo-Cubism, she created an innovative style, evoking the elegance of the Roaring Twenties.
+                <br>Her 1rst exhbition in 1923 \"Perspective (ou les deux amies)\", propelled her reputation and the rise of Art Deco." ?>
                 </p>
             </div>
         </section>
@@ -48,7 +52,9 @@
             <h2>Teaser</h2>
             <div class="contentTeaser">
                 <div class="iframeResponsive">
-                    <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ"></iframe>
+                    <iframe src="https://www.youtube.com/embed/0AwAFKBY-Uo?si=6qMXA8hfmywyXxjk">
+                        <p>Ceci est un lien vers le teaser video de l'exposition que vous pouvez retrouver sur ce lien Youtube : <a href="https://youtu.be/0AwAFKBY-Uo?si=wH2p-N0rZnrZrEOA"></a></p>
+                    </iframe>
                 </div>
                 <div class="presentation">
                     <div class="infosTeaser">
@@ -83,7 +89,9 @@
                     <iframe
                         src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d5252.201070809865!2d2.582695076449555!3d48.83722100219615!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47e60e33dd9a3fdd%3A0x7e5ced48ab7fc8df!2sIUT%20de%20Marne-la-Vall%C3%A9e%20-%20Universit%C3%A9%20Gustave%20Eiffel!5e0!3m2!1sfr!2sfr!4v1709888116532!5m2!1sfr!2sfr"
                         width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
-                        referrerpolicy="no-referrer-when-downgrade"></iframe>
+                        referrerpolicy="no-referrer-when-downgrade">
+                        <p>Voici l'adresse de l'expo : 2 rue Albert Einstein, 77420 Champs-sur-Marne en France.</p>
+                    </iframe>
                 </div>
                 <div class="infosAccess">
                     <div class="infoAccess">

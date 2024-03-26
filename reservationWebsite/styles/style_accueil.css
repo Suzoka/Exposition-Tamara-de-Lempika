@@ -76,9 +76,6 @@ h1 {
 
     /* ---- BANNIERE RESPONSIVE ---- */
     @media (max-width: 990px) {
-        .banniere {
-            height: 88vh;
-        }
         .text {
             justify-content: initial;
             margin-left: 7%;
@@ -145,6 +142,10 @@ h1 {
             font-size: 1rem;
         }
 
+        .banniere {
+            height: 80vh;
+        }
+
         .imgBanniere {
             top: 54%;
             width: 85%;
@@ -204,7 +205,6 @@ h1 {
 
 .tamara h2 {
     color: #21594F;
-    border-bottom: #21594F 3px solid;
     margin-top: 0;
 }
 
@@ -305,7 +305,6 @@ img.imgBig {
 
 .teaser h2 {
     color: #FFFFFF;
-    border-bottom: #FFFFFF 3px solid;
     margin-top: 0;
 }
 
@@ -416,7 +415,6 @@ img.imgBig {
 
 .access h2 {
     color: #21594F;
-    border-bottom: #21594F 3px solid;
     margin: auto;
     margin-bottom: 4%;
 }

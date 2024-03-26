@@ -1,4 +1,6 @@
 <head>
+    <meta name="description" content="Réserver votre place pour l'exposition Tamara de Lempicka - les années folles : une immersion dans les années folles à travers les tableaux de Tamara de Lempicka. Explorez les œuvres uniques de l'artiste dans cette exposition immersive unique jusqu'au 28 Avril.">
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/vanillajs-datepicker@1.3.4/dist/css/datepicker.min.css">
@@ -27,20 +29,20 @@
         } ?>>
             <div class="ariane" id="ariane">
                 <button class="etat step1 active" data-goto="1">
-                    <p>1</p>
-                    <h3><?php echo $_SESSION["lang"] == "fr" ? "Etape 1 : Heure et date" : "Step 1 : Time et date" ?></h3>
+                    <p class="numberAriane">1</p>
+                    <p class="etatAriane"><?php echo $_SESSION["lang"] == "fr" ? "Etape 1 : Heure et date" : "Step 1 : Time et date" ?></p>
                 </button>
                 <button class="etat step2" data-goto="2">
-                    <p>2</p>
-                    <h3><?php echo $_SESSION["lang"] == "fr" ? "Etape 2 : Les formules" : "Step 2 : Options" ?></h3>
+                    <p class="numberAriane">2</p>
+                    <p class="etatAriane"><?php echo $_SESSION["lang"] == "fr" ? "Etape 2 : Les formules" : "Step 2 : Options" ?></p>
                 </button>
                 <button class="etat step3" data-goto="3">
-                    <p>3</p>
-                    <h3><?php echo $_SESSION["lang"] == "fr" ? "Etape 3 : Coordonnées" : "Step 3 : Personal Details" ?></h3>
+                    <p class="numberAriane">3</p>
+                    <p class="etatAriane"><?php echo $_SESSION["lang"] == "fr" ? "Etape 3 : Coordonnées" : "Step 3 : Personal Details" ?></p>
                 </button>
                 <button class="etat step4" data-goto="4">
-                    <p>4</p>
-                    <h3><?php echo $_SESSION["lang"] == "fr" ? "Etape 4 : Confirmation" : "Step 4 : Validation" ?></h3>
+                    <p class="numberAriane">4</p>
+                    <p class="etatAriane"><?php echo $_SESSION["lang"] == "fr" ? "Etape 4 : Confirmation" : "Step 4 : Validation" ?></p>
                 </button>
             </div>
             <div class="etape">
@@ -48,7 +50,7 @@
                     <div class="popup">
                         <h2><?php echo $_SESSION["lang"] == "fr" ? "Connectez-vous ou inscrivez-vous pour commander" : "Log in or register to order" ?></h2>
                         <div class="link">
-                            <a href="./connexion"><?php echo $_SESSION["lang"] == "fr" ? "Connection" : "Log in" ?></a>
+                            <a href="./connexion"><?php echo $_SESSION["lang"] == "fr" ? "Connexion" : "Log in" ?></a>
                             <a href="./inscription"><?php echo $_SESSION["lang"] == "fr" ? "Inscription" : "Sign up" ?></a>
                         </div>
                     </div>

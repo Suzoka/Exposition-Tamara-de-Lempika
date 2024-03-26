@@ -1,0 +1,22 @@
+main {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 59vh;
+    background-color: #f5f5f5;
+}
+
+h1 {
+    font-size: 3rem;
+    font-family: 'Carambola', sans-serif;
+}
+
+main p {
+    margin-bottom: 55px;
+}
+
+a {
+    text-decoration: none;
+    font-weight: bold;
+}
