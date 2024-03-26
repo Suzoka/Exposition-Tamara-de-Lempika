@@ -1,6 +1,5 @@
-header a#lienBillet {
-    border-bottom: #FFFFFF solid 2px;
-    padding-bottom: 2px;
+header a#lienBillet::after {
+    width: 100%;
 }
 
 .banniere {
