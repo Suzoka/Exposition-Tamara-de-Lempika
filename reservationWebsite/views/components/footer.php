@@ -14,7 +14,7 @@
         <ul>
             <li><a href="https://sinyart.fr/"><?php echo $_SESSION["lang"] == "fr" ? "🔗 Agence" : "🔗 Agency" ?></a></li>
             <li><a href="./accueil"><?php echo $_SESSION["lang"] == "fr" ? "Exposition" : "Exhibition" ?></a></li>
-            <li><a href=""><?php echo $_SESSION["lang"] == "fr" ? "Mentions légales" : "GCU" ?></a></li>
+            <li><a href="./mentionsLegales"><?php echo $_SESSION["lang"] == "fr" ? "Mentions légales" : "GCU" ?></a></li>
         </ul>  
     </nav>
     <nav class="planSite">

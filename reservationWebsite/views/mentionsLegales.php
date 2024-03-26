@@ -19,11 +19,7 @@
         <h1>
             <?php echo $_SESSION["lang"] == "fr" ? "Mentions Légales" : "GCU" ?>
         </h1>
-        <p>
-            <?php echo $_SESSION["lang"] == "fr" ? "Elle a bien été prise en compte. Vous pouvez la retrouver dans votre espace <a href=\"./compte\">\"Mon compte\"</a>." : "It have correctly registered. You can find it in <a href=\"./compte\">\"My account\"</a> space." ?>
-        </p>
-        <img src="../img/validation.png" alt="">
-        <a id="accueil" href=""><?php echo $_SESSION["lang"] == "fr" ? "Retour à l'accueil" : "Come back to homepage"?></a>
+        
     </main>
     <?php include 'components/footer.php'; ?>
 </body>
