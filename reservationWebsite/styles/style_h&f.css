@@ -245,6 +245,10 @@ footer .logo {
     margin: 3px;
 }
 
+.apropos a:visited,
+.planSite a:visited {
+    color: #7ACDB4;
+}
 .reseaux {
     display: flex;
     align-items: center;
