@@ -1,6 +1,5 @@
-header a#lienBillet {
-    border-bottom: #FFFFFF solid 2px;
-    padding-bottom: 2px;
+header a#lienBillet::after {
+    width: 100%;
 }
 
 .banniere {
@@ -917,7 +916,7 @@ input[type="submit"], .closePopup {
 button.confirmer:hover,
 button.retour:hover,
 input[type="submit"]:hover, button.confirmer:focus, button.retour:focus,
-input[type="submit"]:focus, .closePopup:hover {
+input[type="submit"]:focus, .closePopup:hover, .closePopup:focus {
     background-color: #000000;
     color: #FFFFFF;
     cursor: pointer;

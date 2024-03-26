@@ -5,6 +5,12 @@ const datepicker = new Datepicker(document.querySelector('div#date'), {
     maxDate: new Date('2024-04-28')
 });
 
+window.addEventListener("beforeunload", function (e) {
+    e.preventDefault();
+    e.returnValue = '';
+});
+
+
 let step = 1;
 
 let hiddenInput = document.createElement('input');
@@ -155,7 +161,7 @@ const updateResume = () => {
     document.querySelectorAll('#step2 input[type="number"]').forEach(input => {
         if (input.value > 0) {
             let formule = document.createElement('li');
-            formule.innerHTML = document.querySelector('label[for="' + input.getAttribute('id') + '"]').innerHTML + " : " + input.value+ " x"+ document.querySelector('label[for="' + input.getAttribute('id') + '"]+.price').innerHTML.replace('Gratuit', '0').replace('Free', '0') +"€";
+            formule.innerHTML = document.querySelector('label[for="' + input.getAttribute('id') + '"]').innerHTML + " : " + input.value + " x" + document.querySelector('label[for="' + input.getAttribute('id') + '"]+.price').innerHTML.replace('Gratuit', '0').replace('Free', '0') + "€";
             document.querySelector('.formuleResumeDynamique').appendChild(formule);
             total += parseInt(input.value) * parseFloat(document.querySelector('label[for="' + input.getAttribute('id') + '"]+.price').innerHTML.replace('Gratuit', '0').replace('Free', '0'));
         }
@@ -185,4 +191,18 @@ document.querySelectorAll('.ticket .info button').forEach(element => {
 document.querySelector('.closePopup').addEventListener('click', () => {
     document.querySelector('.popup.erreur').classList.add('hidden');
     document.querySelector('.serverError').classList.remove('serverError');
+
+    document.querySelectorAll('div button[tabindex="-1"], .popup a').forEach((element) => {
+        if (!element.closest('.notLoged')) {
+            element.removeAttribute('tabindex');
+        }
+    });
+
+    document.querySelectorAll('#step1 label').forEach((element) => {
+        if (!element.closest('.notLoged')) {
+            element.setAttribute('tabindex', '0');
+        }
+    });
+
+    try { document.querySelector('.popup a').focus() } catch {}
 })
