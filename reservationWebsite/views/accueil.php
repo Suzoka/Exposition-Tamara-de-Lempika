@@ -34,9 +34,9 @@
                 <br>reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id" : "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
                 <br>reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id" ?>
                 </p>
-                <img class="imgBig" src="../img/tamaraAccueil2.png" alt="<?php echo $_SESSION["lang"] == "fr" ? "Peinture d'une femme en tunique rouge de Tamara" : "Painting of a woman in a red tunic by Tamara" ?>">
-                <img class="imgSmall s1" src="../img/tamara.png" alt="<?php echo $_SESSION["lang"] == "fr" ? "Photo de Tamara" : "Photo of Tamara" ?>">
-                <img class="imgSmall s2" src="../img/tamaraAccueil.png" alt="<?php echo $_SESSION["lang"] == "fr" ? "Autoportrait de Tamara dans une Bugatti verte" : "Self-portrait of Tamara in a green Bugatti" ?>">
+                <img class="imgBig" src="../img/tamaraAccueil2.png" alt="">
+                <img class="imgSmall s1" src="../img/tamara.png" alt="">
+                <img class="imgSmall s2" src="../img/tamaraAccueil.png" alt="">
                 <p class="t2"><?php echo $_SESSION["lang"] == "fr" ? "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. 
                 <br>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sin velit esse cillum dolore eu " : "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. 
                 <br>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sin velit esse cillum dolore eu " ?>

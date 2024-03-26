@@ -204,7 +204,6 @@ h1 {
 
 .tamara h2 {
     color: #21594F;
-    border-bottom: #21594F 3px solid;
     margin-top: 0;
 }
 
@@ -305,7 +304,6 @@ img.imgBig {
 
 .teaser h2 {
     color: #FFFFFF;
-    border-bottom: #FFFFFF 3px solid;
     margin-top: 0;
 }
 
@@ -416,7 +414,6 @@ img.imgBig {
 
 .access h2 {
     color: #21594F;
-    border-bottom: #21594F 3px solid;
     margin: auto;
     margin-bottom: 4%;
 }

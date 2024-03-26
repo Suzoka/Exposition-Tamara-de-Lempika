@@ -1,3 +1,8 @@
+header a#lienBillet {
+    border-bottom: #FFFFFF solid 2px;
+    padding-bottom: 2px;
+}
+
 .banniere {
     margin: 0;
     background-image: url("../img/TamaraPaint2.png");

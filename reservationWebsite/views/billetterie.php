@@ -48,7 +48,7 @@
                     <div class="popup">
                         <h2><?php echo $_SESSION["lang"] == "fr" ? "Connectez-vous ou inscrivez-vous pour commander" : "Log in or register to order" ?></h2>
                         <div class="link">
-                            <a href="./connexion"><?php echo $_SESSION["lang"] == "fr" ? "Connection" : "Log in" ?></a>
+                            <a href="./connexion"><?php echo $_SESSION["lang"] == "fr" ? "Connexion" : "Log in" ?></a>
                             <a href="./inscription"><?php echo $_SESSION["lang"] == "fr" ? "Inscription" : "Sign up" ?></a>
                         </div>
                     </div>
