@@ -1,4 +1,9 @@
-document.querySelector("form").addEventListener("submit", function(e) {
+window.addEventListener("beforeunload", function (e) {
+    e.preventDefault();
+    e.returnValue = '';
+});
+
+document.querySelector("form").addEventListener("submit", function (e) {
     e.preventDefault();
     if (document.querySelector("input[name='password']").value !== document.querySelector("input[name='passwordCheck']").value) {
         document.querySelector(".error.hidden").classList.remove("hidden");
@@ -10,6 +15,6 @@ document.querySelector("form").addEventListener("submit", function(e) {
     }
 });
 
-document.querySelector("input[name='login']").addEventListener("change", function() {
+document.querySelector("input[name='login']").addEventListener("change", function () {
     document.querySelector("input[name='login']+.error").style.display = "none";
 });

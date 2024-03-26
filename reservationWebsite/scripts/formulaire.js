@@ -5,6 +5,12 @@ const datepicker = new Datepicker(document.querySelector('div#date'), {
     maxDate: new Date('2024-04-28')
 });
 
+window.addEventListener("beforeunload", function (e) {
+    e.preventDefault();
+    e.returnValue = '';
+});
+
+
 let step = 1;
 
 let hiddenInput = document.createElement('input');
