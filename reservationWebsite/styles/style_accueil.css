@@ -113,6 +113,10 @@ h1 {
             width: 70vw;
         }
 
+        .banniere {
+            height: 87.5svh;
+        }
+
         .imgBanniere {
             top: 60%;
             width: 70%;
@@ -142,14 +146,10 @@ h1 {
             font-size: 1rem;
         }
 
-        .banniere {
-            height: 80vh;
-        }
-
         .imgBanniere {
             top: 54%;
             width: 85%;
-            height: 46.5%;
+            height: 46%;
         }
     }
 
