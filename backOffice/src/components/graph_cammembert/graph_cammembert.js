@@ -27,6 +27,7 @@ export const Graph_Camembert = ({ data }) => {
 
         g.append("path")
             .attr("d", arc)
+            .attr("title", d => d.data.key)
             // .style("fill", d => color(d.data.key))
             .attr("class", d => `cammembert__arc--${d.data.key}`);
 

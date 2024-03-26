@@ -32,7 +32,9 @@
 .user__icon {
     width: 25px;
     height: 25px;
+    background-color: var(--white);
+    border: 1px solid var(--light-grey);
     border-radius: 100px;
     -o-object-fit: cover;
-       object-fit: cover;
+        object-fit: cover;
 }

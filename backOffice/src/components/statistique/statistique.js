@@ -32,7 +32,18 @@ export const Statistique = ({ donnee }) => {
 
     return (
         <div>
-            {loadStat ? <p>Nombre de billet : {stat.nbBillet} | Nombre de reservation : {stat.nbReservation}</p> : <p>Chargement des statistiques...</p>}
+            {loadStat ? (
+                <div className={classes['stats__nbContainer']}>
+                    <div className={classes['stats__nbObject']}>
+                        <img src="./asset/ticket.png" alt="" className={classes['stats__emote']} />
+                        <p><span className='bold'>{stat.nbReservation}</span> Billets</p>
+                    </div>
+                    <div className={classes['stats__nbObject']}>
+                        <img src="./asset/spiral-calendar.png" alt="" className={classes['stats__emote']} />
+                        <p><span className='bold'>{stat.nbBillet}</span> Réservations</p>
+                    </div>
+                </div>
+            ) : <p>Chargement des statistiques...</p>}
             {/* {loadStat ? console.log(stat) : ''} */}
             {loadStat ? (
                 <div className={classes['statistique__container']}>

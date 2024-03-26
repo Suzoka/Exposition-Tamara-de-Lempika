@@ -69,8 +69,8 @@ const Table_object = ({ liste, variant, DelModViewResa }) => {
                     </td>
                     <td className={classesTable_object['table__cellule--user']}>
                         {/* Utilisateur */}
-                        <img src={liste.img} className={classesTable_object['user__icon']} alt="" />
-                        {liste.prenom} {liste.nom}
+                        <img src="./asset/silhouette.png" className={classesTable_object['user__icon']} alt="" />
+                        {liste.prenom} <span className="uppercase">{liste.nom}</span>
                     </td>
                     <td>
                         {/* Date de la réservation */}
@@ -120,8 +120,8 @@ const Table_object = ({ liste, variant, DelModViewResa }) => {
                     </td>
                     <td className={classesTable_object['table__cellule--user']}>
                         {/* Utilisateur */}
-                        <img src={liste.img} className={classesTable_object['user__icon']} alt="" />
-                        {liste.prenom} {liste.nom}
+                        <img src="./asset/silhouette.png" className={classesTable_object['user__icon']} alt="" />
+                        {liste.prenom} <span className="uppercase">{liste.nom}</span>
                     </td>
                     <td>
                         {/* Login */}

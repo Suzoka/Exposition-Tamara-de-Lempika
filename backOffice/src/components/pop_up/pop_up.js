@@ -30,7 +30,7 @@ export const Pop_up = ({ data, close, closeAction, type }) => {
             <>
                 <div className={close ? 'pop_up__container--close' : 'pop_up__container--open'}>
                     <div className='pop_up__content'>
-                        <h2>{data.prenom} <span className="uppercase">{data.nom}</span></h2>
+                        <h2>👤 {data.prenom} <span className="uppercase">{data.nom}</span></h2>
                         <p className="bold">Utilisateur #{data.id_user}</p>
                         <p>{data.username} - {data.mail}</p>
                         <p className="bold">{data.role === 1 ? 'Admin' : data.role === 0 ? 'Client' : ''}</p>
@@ -50,7 +50,7 @@ export const Pop_up = ({ data, close, closeAction, type }) => {
             <>
                 <div className={close ? 'pop_up__container--close' : 'pop_up__container--open'}>
                     <div className='pop_up__content'>
-                        <h2>Reservation #{data.id_ticket}</h2>
+                        <h2>🗓️ Reservation #{data.id_ticket}</h2>
                         <p className="bold">{data.prenom} <span className="uppercase">{data.nom}</span></p>
                         <p>{data.mail}</p>
                         <p>{date.getDate().toString().padStart(2, '0')}/{(date.getMonth() + 1).toString().padStart(2, '0')}/{date.getFullYear()}</p>
