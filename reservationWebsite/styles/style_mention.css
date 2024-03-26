@@ -1,0 +1,31 @@
+main section {
+    width: 80vw;
+    margin: auto;
+}
+
+h1 {
+    font-family: 'Carambola', sans-serif;
+    color: #21594F;
+    font-size: 3.2rem;
+    text-align: center;
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+
+h2 {
+    font-family: 'Carambola', sans-serif;
+    color: #21594F;
+    font-size: 2rem;
+    margin: auto;
+    margin-top: 20px;
+}
+
+main p, main ul {
+    margin-left: 3vw;
+    line-height: 25px;
+    margin-bottom: 30px;
+}
+
+main li {
+    margin-bottom: 5px;
+}
