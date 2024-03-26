@@ -1,4 +1,6 @@
 <head>
+    <meta name="description" content="Incrivez-vous pour prendre vos billets pour l'exposition Tamara de Lempicka - les années folles : une immersion dans les années folles à travers les tableaux de Tamara de Lempicka. Venez explorer les œuvres uniques de l'artiste dans cette exposition immersive unique jusqu'au 28 Avril 2024.">
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../styles/style_h&f.css">

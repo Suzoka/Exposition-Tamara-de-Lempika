@@ -83,6 +83,11 @@ header nav {
     margin-left: 5px;
 }
 
+.menu a:hover, .menu-user a:hover {
+    border-bottom: #FFFFFF solid 2px;
+    padding-bottom: 2px;
+}
+
 .menu a img {
     display: none;
 }
