@@ -81,11 +81,23 @@ header nav {
     text-decoration: none;
     padding: 5px;
     margin-left: 5px;
+    position: relative;
 }
 
-.menu a:hover, .menu-user a:hover {
-    border-bottom: #FFFFFF solid 2px;
-    padding-bottom: 2px;
+.menu a::after, .menu-user a::after{
+    content: "";
+    display: block;
+    position: absolute;
+    width: 0;
+    height: 2px;
+    background: #FFFFFF;
+    transition: width 0.3s;
+    left: 0;
+    bottom: 0;
+}
+
+.menu a:hover::after, .menu a.active::after, .menu-user a:hover::after, .menu-user a.active::after {
+    width: 100%;
 }
 
 .menu a img {
