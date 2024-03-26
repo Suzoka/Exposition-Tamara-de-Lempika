@@ -81,8 +81,8 @@
 }
 
 .header__link--cart::before {
-    -webkit-mask-image: url("../../../public/asset/icon/Shopping-basket.svg");
-            mask-image: url("../../../public/asset/icon/Shopping-basket.svg");
+    -webkit-mask-image: url("../../../public/asset/icon/Calendar-days.svg");
+            mask-image: url("../../../public/asset/icon/Calendar-days.svg");
 }
 
 .header__link--user::before {

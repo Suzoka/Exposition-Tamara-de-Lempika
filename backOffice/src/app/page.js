@@ -235,19 +235,19 @@ export default function Home() {
         <>
           < Header />
           <main id='main'>
-            <h1>Bienvenue sur votre Back office.</h1>
-            <p>Ici vous pouvez consulter et gérer les réservations et les utilisateurs, ainsi que visualiser les statistiques de votre exposition <span className='bold'>Tamara de Lempicka, les années folles</span>.</p>
+            <h1>Bienvenue sur votre Back office ! 👋</h1>
+            <p>Ici vous pouvez consulter et gérer les réservations et les utilisateurs, ainsi que visualiser les statistiques de votre exposition <span className='bold'>Tamara de Lempicka, les années folles</span>. ✨</p>
 
             {loadEnd ? (
-              <p>Données chargées</p>
+              <p>✅ Données chargées</p>
             ) : (
-              <p>Chargement des données...</p>
+              <p>⌛ Chargement des données...</p>
             )}
 
-            < Section id="stat" nom="Statistiques" type="stat" donnee={loadReservation ? (reservationData) : (reservation)} />
-            < Section id="resa" nom="Réservations" donnee={loadReservation ? (reservationData) : (reservation)} type="table" contentSearch="Rechercher une reservation..." DelModViewResa={DelModViewResa} modification />
-            < Section id="user" utilisateur nom="Utilisateurs" donnee={loadUserList ? (userList) : (reservation)} type="table" contentSearch="Rechercher un utilisateur..." DelModViewResa={DelModViewResa} />
-            < Section id="arch" nom="Archives" donnee={loadArchived ? (archivedData) : (reservation)} type="table" contentSearch="Rechercher une reservation archivé..." DelModViewResa='' />
+            < Section id="stat" nom="📊 Statistiques" type="stat" donnee={loadReservation ? (reservationData) : (reservation)} />
+            < Section id="resa" nom="🗓️ Réservations" donnee={loadReservation ? (reservationData) : (reservation)} type="table" contentSearch="Rechercher une reservation..." DelModViewResa={DelModViewResa} modification />
+            < Section id="user" utilisateur nom="👥 Utilisateurs" donnee={loadUserList ? (userList) : (reservation)} type="table" contentSearch="Rechercher un utilisateur..." DelModViewResa={DelModViewResa} />
+            < Section id="arch" nom="🗃️ Archives" donnee={loadArchived ? (archivedData) : (reservation)} type="table" contentSearch="Rechercher une reservation archivé..." DelModViewResa='' />
 
             {modificationPopupOpen && (
               < ModificationPop open={modificationPopupOpen} setOpen={setmodificationPopupOpen} data={modificationData} setModificationFlag={() => setModificationFlag(modificationFlag + 1)} type={modificationPopupType}/>

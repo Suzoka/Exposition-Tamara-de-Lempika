@@ -104,7 +104,7 @@ export const ModificationPop = ({ open, setOpen, data, setModificationFlag, type
                 {type === 'reservation' ? (
 
                     <>
-                        <h2>Modification de la réservation #{data.id_ticket}</h2>
+                        <h2>📝 Modification de la réservation #{data.id_ticket}</h2>
                         < Button classe='modification__close' format='icon' icon='back' action={() => setOpen(false)} title='annuler' />
                         <form className="modification__form" onSubmit={fetchmodification}>
                             <input className='modification__input modification__input--prenom' type="text" ref={formPrenom} name="prenom" defaultValue={data.prenom} placeholder="Prénom" required />
@@ -124,7 +124,7 @@ export const ModificationPop = ({ open, setOpen, data, setModificationFlag, type
                     </>
                 ) : type === "user" ? (
                     <>
-                        <h2>Modification de l'utilisateur #{data.id_user}</h2>
+                        <h2>📝 Modification de l'utilisateur #{data.id_user}</h2>
                         < Button classe='modification__close' format='icon' icon='back' action={() => setOpen(false)} title='annuler' />
                         <form className="modification__form" onSubmit={fetchmodification}>
                             <input className='modification__input modification__input--prenom' type="text" ref={formPrenom} name="prenom" defaultValue={data.prenom} placeholder="Prénom" required />
