@@ -3,7 +3,9 @@ import { GLTFLoader } from 'plugin/loaders/GLTFLoader.js';
 import { PointerLockControls } from 'plugin/controls/PointerLockControls.js';
 
 //? --- Load ---
-const load = document.querySelector('.loader');
+const progress__container = document.querySelector('.js_progress__container');
+const progress__bar = document.querySelector('.js_progress__bar');
+const progress__number = document.querySelector('.js_progress__number');
 
 //? --- Scene ---
 const scene = new THREE.Scene();
@@ -14,14 +16,15 @@ const loader = new GLTFLoader();
 // loader.load("./asset/tamaravrfinal.glb",
 loader.load("./asset/tamarafinalv2.glb",
     (gltf) => {
-        load.style.display = "none";
+        progress__container.classList.remove("progress__container--open");
+        progress__container.classList.add("progress__container--close");
         scene.add(gltf.scene);
         render();
     },
     (xhr) => {
         // console.log( ( xhr.loaded / xhr.total * 100 ) + '%');
-        load.style.setProperty("--load", `${xhr.loaded / xhr.total * 100}%`);
-        console.log(load.style["--load"]);
+        progress__bar.style.setProperty("--load", `${xhr.loaded / xhr.total * 100}%`);
+        progress__number.textContent = `${Math.floor(xhr.loaded / xhr.total * 100)}%`;
     },
     (error) => {
         console.log('An error happened', error);
