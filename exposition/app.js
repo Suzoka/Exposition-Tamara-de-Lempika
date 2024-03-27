@@ -24,8 +24,8 @@ loader.load("./asset/tamarafinal.glb",
     },
     (xhr) => {
         // console.log( ( xhr.loaded / xhr.total * 100 ) + '%');
-        progress__bar.style.setProperty("--load", `${xhr.loaded / xhr.total * 100}%`);
-        progress__number.textContent = `${Math.floor(xhr.loaded / xhr.total * 100)}%`;
+        progress__bar.style.setProperty("--load", `${xhr.loaded / 168861820 * 100}%`);
+        progress__number.textContent = `${Math.floor(xhr.loaded / 168861820 * 100)}%`;
     },
     (error) => {
         console.log('An error happened', error);

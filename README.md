@@ -85,4 +85,9 @@ La documentation complète de l'API est disponible à [cette adresse (https://sh
 #### **<span style="color: #dc3545">Warning : Si vous faites en sorte d'utiliser l'API locale avec le backoffice, aucun mail ne sera envoyé, car l'envoie de mail n'est pas possible avec un serveur local.</span>**
 
 ## Pour accéder à l'exposition virtuelle :
-//TODO : Ajouter les instructions pour accéder à l'exposition virtuelle.
+
+- Ouvrez le fichier `model3D.md` qui se trouve dans le dossier assets du dossier `exposition`.
+
+- Suivez les instructions pour télécharger le model 3D de l'exposition.
+
+- Allez à l'adresse [http://localhost/resaexpo/exposition/](http://localhost/resaexpo/exposition/) dans votre navigateur pour arriver sur l'exposition virtuelle.
