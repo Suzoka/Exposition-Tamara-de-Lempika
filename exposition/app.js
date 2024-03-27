@@ -1,44 +1,25 @@
 import * as THREE from 'three';
 import { GLTFLoader } from 'plugin/loaders/GLTFLoader.js';
-import { OrbitControls } from 'plugin/controls/OrbitControls.js';
-
-// console.log(THREE);
-// console.log(GLTFLoader);
+import { PointerLockControls } from 'plugin/controls/PointerLockControls.js';
 
 //? --- Scene ---
 const scene = new THREE.Scene();
 scene.background = new THREE.Color(0X1e1eee);
 
 
-// //? --- Cube ---
-// const geometry = new THREE.BoxGeometry( 3, 3, 3 );
-// let cube;
-
-// const loader = new THREE.TextureLoader();
-// loader.load('./beluga.jpg', (texture) => {
-
-//     const material = new THREE.MeshBasicMaterial({
-//         map: texture
-//     });
-
-//     cube = new THREE.Mesh( geometry, material );
-//     scene.add( cube );
-//     render();
-// });
-
 const loader = new GLTFLoader();
 // loader.load("./asset/tamaravrfinal.glb",
 loader.load("./asset/tamarafinalv2.glb",
-( gltf )=> {
-		scene.add( gltf.scene );
+    (gltf) => {
+        scene.add(gltf.scene);
         render();
-},
-( xhr )=> {
-		console.log( ( xhr.loaded / xhr.total * 100 ) + '%');
-	},
-( error )=> {
-		console.log( 'An error happened' );
-	});
+    },
+    (xhr) => {
+        console.log((xhr.loaded / xhr.total * 100) + '%');
+    },
+    (error) => {
+        console.log('An error happened', error);
+    });
 
 
 
@@ -51,43 +32,133 @@ scene.add(ambient);
 
 //? --- Camera ---
 const aspect = window.innerWidth / window.innerHeight;
-const camera = new THREE.PerspectiveCamera( 75, aspect, 0.1, 5000 );
-// camera.position.set( 5, 1, 1 );
-camera.position.set( 3.5, 1.5, 0 );
-// camera.lookAt( 3.5 , 1.5, 0);
+const camera = new THREE.PerspectiveCamera(75, aspect, 0.1, 5000);
+// //camera.position.set( 5, 1, 1 );
+camera.position.set(3.5, 1.3, 0);
+// //camera.lookAt( 3.5 , 1.5, 0);
+
+
+//? --- PointerLockControls ---
+const controls = new PointerLockControls(camera, document.body);
+
+document.addEventListener('click', function () {
+    controls.lock();
+});
+
+controls.addEventListener('lock', function () {
+    console.log('Pointer is locked');
+    //Masquer UI menu
+});
+
+controls.addEventListener('unlock', function () {
+    console.log('Pointer is unlocked');
+    //Afficher UI menu
+});
+
+//? --- Déplacements ---
+let moveForward = false;
+let moveBackward = false;
+let moveLeft = false;
+let moveRight = false;
+
+let prevTime = performance.now();
+const velocity = new THREE.Vector3();
+const direction = new THREE.Vector3();
+
+const onKeyDown = function (event) {
+
+    switch (event.code) {
+
+        case 'ArrowUp':
+        case 'KeyW':
+            moveForward = true;
+            break;
+
+        case 'ArrowLeft':
+        case 'KeyA':
+            moveLeft = true;
+            break;
+
+        case 'ArrowDown':
+        case 'KeyS':
+            moveBackward = true;
+            break;
+
+        case 'ArrowRight':
+        case 'KeyD':
+            moveRight = true;
+            break;
+    }
+
+};
+
+const onKeyUp = function (event) {
+
+    switch (event.code) {
+
+        case 'ArrowUp':
+        case 'KeyW':
+            moveForward = false;
+            break;
+
+        case 'ArrowLeft':
+        case 'KeyA':
+            moveLeft = false;
+            break;
+
+        case 'ArrowDown':
+        case 'KeyS':
+            moveBackward = false;
+            break;
+
+        case 'ArrowRight':
+        case 'KeyD':
+            moveRight = false;
+            break;
+
+    }
+
+};
+
+document.addEventListener('keydown', onKeyDown);
+document.addEventListener('keyup', onKeyUp);
 
 //? --- Renderer
 const renderer = new THREE.WebGLRenderer({
     antialias: true
 });
 renderer.setSize(window.innerWidth, window.innerHeight);
-document.body.appendChild( renderer.domElement );
-
-//? --- Control
-
-// const controls = new OrbitControls(camera, renderer.domElement);
+document.body.appendChild(renderer.domElement);
 
 //? --- Rendu ---
 
 function render() {
 
-    // cube.rotation.x += 0.01;
-    // cube.rotation.y += 0.01;
-    // cube.rotation.z += 0.01;
+    const time = performance.now();
 
-    // controls.update();
-    // renderer.setSize(window.innerWidth, window.innerHeight);
-    renderer.render( scene, camera );
+    if (controls.isLocked === true) {
+
+        const delta = (time - prevTime) / 1000;
+
+        velocity.x -= velocity.x * 10.0 * delta;
+        velocity.z -= velocity.z * 10.0 * delta;
+
+        velocity.y -= 9.8 * 100.0 * delta; // 100.0 = mass
+
+        direction.z = Number(moveForward) - Number(moveBackward);
+        direction.x = Number(moveRight) - Number(moveLeft);
+        direction.normalize(); // this ensures consistent movements in all directions
+
+        if (moveForward || moveBackward) velocity.z -= direction.z * 30.0 * delta;
+        if (moveLeft || moveRight) velocity.x -= direction.x * 30.0 * delta;
+
+        controls.moveRight(- velocity.x * delta);
+        controls.moveForward(- velocity.z * delta);
+
+    }
+
+    prevTime = time;
+
+    renderer.render(scene, camera);
     requestAnimationFrame(render);
 }
-
-addEventListener('keydown', (e)=> {
-    if (e.key == 'ArrowUp' || e.key == 'z') {
-        camera.position.z -= 0.1;
-    } else if (e.key == 'ArrowDown' || e.key == 's') {
-        camera.position.z += 0.1;
-    }
-})
-
-// renderer.render( scene, camera );
-// render();
