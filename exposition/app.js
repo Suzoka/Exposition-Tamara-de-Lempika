@@ -15,8 +15,7 @@ scene.background = new THREE.Color(0X13261E);
 
 
 const loader = new GLTFLoader();
-// loader.load("./asset/tamaravrfinal.glb",
-loader.load("./asset/tamarafinalv2.glb",
+loader.load("./asset/tamarafinal.glb",
     (gltf) => {
         progress__container.classList.remove("progress__container--open");
         progress__container.classList.add("progress__container--close");
