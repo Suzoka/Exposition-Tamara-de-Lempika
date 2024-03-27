@@ -174,7 +174,7 @@ function createCube(w, l, x, z) {
 const invisibleElements = [
     createCube(0.2, 15, 5, -4.5),
     createCube(0.2, 15, 2, -4.5),
-    createCube(8, 0.2, 4, -8),
+    createCube(8, 0.2, 4, -7),
     createCube(8, 0.2, -1, -12.15),
     createCube(8, 0.2, 8, -12.15),
     createCube(15, 0.2, 1, -21.95),
