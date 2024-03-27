@@ -11,7 +11,7 @@ const button = document.querySelector('.js_menu__button');
 
 //? --- Scene ---
 const scene = new THREE.Scene();
-scene.background = new THREE.Color(0X1e1eee);
+scene.background = new THREE.Color(0X13261E);
 
 
 const loader = new GLTFLoader();
