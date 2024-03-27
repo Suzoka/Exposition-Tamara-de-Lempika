@@ -40,7 +40,7 @@ scene.add(ambient);
 const aspect = window.innerWidth / window.innerHeight;
 const camera = new THREE.PerspectiveCamera(75, aspect, 0.1, 5000);
 // //camera.position.set( 5, 1, 1 );
-camera.position.set(3.5, 1.3, 0);
+camera.position.set(3.5, 1.3, -9);
 // //camera.lookAt( 3.5 , 1.5, 0);
 
 
@@ -62,6 +62,9 @@ controls.addEventListener('unlock', function () {
 });
 
 //? --- Déplacements ---
+
+const raycaster = new THREE.Raycaster();
+
 let moveForward = false;
 let moveBackward = false;
 let moveLeft = false;
@@ -107,27 +110,51 @@ const onKeyUp = function (event) {
             moveForward = false;
             break;
 
-        case 'ArrowLeft':
-        case 'KeyA':
-            moveLeft = false;
-            break;
-
         case 'ArrowDown':
         case 'KeyS':
             moveBackward = false;
             break;
-
-        case 'ArrowRight':
-        case 'KeyD':
-            moveRight = false;
-            break;
-
     }
 
 };
 
 document.addEventListener('keydown', onKeyDown);
 document.addEventListener('keyup', onKeyUp);
+
+//? --- Collision Elements ---
+
+function createCube(w, l, x, z) {
+    const cube = new THREE.Mesh(
+        new THREE.BoxGeometry(w, 12, l),
+        new THREE.MeshBasicMaterial({
+            visible: false,
+            color: 0x00ff00
+        })
+    );
+    cube.position.set(x, 0, z);
+    return cube;
+}
+
+const invisibleElements = [
+    createCube(0.2, 15, 5, -4.5),
+    createCube(0.2, 15, 2, -4.5),
+    createCube(8, 0.2, 4, -8),
+    createCube(8, 0.2, -1, -12.15),
+    createCube(8, 0.2, 8, -12.15),
+    createCube(15, 0.2, 1, -21.95),
+    createCube(0.2, 25, -1.5, -10),
+    createCube(0.2, 25, 8.4, -10),
+    createCube(1.5, 2, 3.45, -17),
+    createCube(1, 1.5, 8, -18.75),
+    createCube(0.5, 0.5, 7, -18.75),
+    createCube(1, 1, 7.5, -21),
+    createCube(0.75, 0.75, 6, -21.25),
+    createCube(1.25, 0.4, 3.5, -21.65),
+];
+
+for (const collision of invisibleElements) {
+    scene.add(collision);
+}
 
 //? --- Renderer
 const renderer = new THREE.WebGLRenderer({
@@ -146,20 +173,40 @@ function render() {
 
         const delta = (time - prevTime) / 1000;
 
-        velocity.x -= velocity.x * 10.0 * delta;
-        velocity.z -= velocity.z * 10.0 * delta;
-
-        velocity.y -= 9.8 * 100.0 * delta; // 100.0 = mass
-
         direction.z = Number(moveForward) - Number(moveBackward);
         direction.x = Number(moveRight) - Number(moveLeft);
         direction.normalize(); // this ensures consistent movements in all directions
 
-        if (moveForward || moveBackward) velocity.z -= direction.z * 30.0 * delta;
-        if (moveLeft || moveRight) velocity.x -= direction.x * 30.0 * delta;
+        const cameraDirection = new THREE.Vector3();
+        controls.getDirection(cameraDirection);
 
-        controls.moveRight(- velocity.x * delta);
-        controls.moveForward(- velocity.z * delta);
+        let rayCasterDirection = cameraDirection.clone();
+
+        if (moveBackward) { rayCasterDirection.negate(); }
+
+        raycaster.set(camera.position, rayCasterDirection);
+        const intersections = raycaster.intersectObjects(invisibleElements);
+
+        if (intersections.length > 0 && intersections[0].distance < 1) {
+            const collisionNormal = new THREE.Vector3();
+            collisionNormal.copy(intersections[0].face.normal);
+        
+            const relativeVelocity = new THREE.Vector3();
+            relativeVelocity.copy(velocity).normalize();
+        
+            if (collisionNormal.dot(relativeVelocity) < 0) {
+                velocity.x = 0;
+                velocity.z = 0;
+            }
+        } else {
+
+            velocity.z -= velocity.z * 10.0 * delta;
+
+
+            if (moveForward || moveBackward) velocity.z -= direction.z * 30.0 * delta;
+
+            controls.moveForward(- velocity.z * delta);
+        }
 
     }
 
