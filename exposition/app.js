@@ -37,8 +37,37 @@ loader.load("./asset/tamarafinalv2.glb",
 //? --- Light ---
 
 //* - Ambient -
-const ambient = new THREE.AmbientLight(0xffffff, 1);
+const HemisphereLight = new THREE.HemisphereLight( 0xfff0FF, 0xDAE1F9, 0.5 );
+scene.add(HemisphereLight);
+const HemisphereLight2 = new THREE.HemisphereLight( 0xFFF6D7, 0xAAAAAA, 0.7 );
+scene.add(HemisphereLight2);
+const ambient = new THREE.AmbientLight(0xffffff, 0.5);
 scene.add(ambient);
+const point1 = new THREE.PointLight(0xFFF6D7, 1, 8, 1);
+point1.position.set(3.5, 2.8, -8);
+scene.add(point1);
+// const helper1 = new THREE.PointLightHelper(point1);
+// scene.add( helper1 );
+
+const point2 = new THREE.PointLight(0xFFF6D7, 1, 8, 1);
+point2.position.set(3.5, 2.8, -11);
+scene.add(point2);
+
+const point3 = new THREE.PointLight(0xFFF6D7, 1, 8, 1);
+point3.position.set(6.5, 2.8, -14);
+scene.add(point3);
+
+const point6 = new THREE.PointLight(0xFFF6D7, 1, 8, 1);
+point6.position.set(6.5, 2.8, -20);
+scene.add(point6);
+
+const point4 = new THREE.PointLight(0xFFF6D7, 1, 8, 1);
+point4.position.set(0.5, 2.8, -14);
+scene.add(point4);
+
+const point5 = new THREE.PointLight(0xFFF6D7, 1, 8, 1);
+point5.position.set(0.5, 2.8, -20);
+scene.add(point5);
 
 
 //? --- Camera ---
