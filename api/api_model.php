@@ -193,7 +193,7 @@ function deletedReservationMail($id)
 function getAllUsers()
 {
     global $db;
-    $stmt = $db->prepare("SELECT id_user, username, mail, nom, prenom, role FROM `utilisateurs` order by role asc , nom");
+    $stmt = $db->prepare("SELECT id_user, username, mail, nom, prenom, role FROM `utilisateurs` order by role desc, nom");
     $stmt->execute();
     return $stmt;
 }
@@ -201,7 +201,7 @@ function getAllUsers()
 function searchUser($search)
 {
     global $db;
-    $stmt = $db->prepare("SELECT id_user, username, mail, nom, prenom, role FROM `utilisateurs` WHERE username LIKE :search OR mail like :search OR id_user like :search OR nom like :search OR prenom like :search order by id_user");
+    $stmt = $db->prepare("SELECT id_user, username, mail, nom, prenom, role FROM `utilisateurs` WHERE username LIKE :search OR mail like :search OR id_user like :search OR nom like :search OR prenom like :search order by role desc, nom");
     $stmt->bindValue(':search', "%$search%", PDO::PARAM_STR);
     $stmt->execute();
     return $stmt;

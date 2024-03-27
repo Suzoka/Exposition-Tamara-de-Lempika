@@ -42,6 +42,12 @@
 
 ## Pour utiliser l'API :
 
+- Ouvrir le dossier `includes` qui se trouve dans le dossier `api`.
+
+- Ouvrir le fichier `config-sample.php` avec un éditeur de texte quelquonque.
+
+- Renseigner la constante `SECRET` avec une chaîne de caractères de votre choix.
+
 - Envoyez des requêtes à l'adresse [http://localhost/resaexpo/api/](http://localhost/resaexpo/api/).
 
 La documentation complète de l'API est disponible à [cette adresse (https://shrub-persimmon-7df.notion.site/API-c296db2c451c40af9a5b9e6b7f6fd049?pvs=4)](https://shrub-persimmon-7df.notion.site/API-c296db2c451c40af9a5b9e6b7f6fd049?pvs=4).
