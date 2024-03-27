@@ -231,10 +231,10 @@ function render() {
         if (intersections.length > 0 && intersections[0].distance < 1) {
             const collisionNormal = new THREE.Vector3();
             collisionNormal.copy(intersections[0].face.normal);
-        
+
             const relativeVelocity = new THREE.Vector3();
             relativeVelocity.copy(velocity).normalize();
-        
+
             if (collisionNormal.dot(relativeVelocity) < 0) {
                 velocity.x = 0;
                 velocity.z = 0;
