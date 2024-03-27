@@ -139,6 +139,7 @@ export default function Home() {
   const [userList, setUserList] = useState(null);
   const [loadUserList, setLoadUserList] = useState(false);
   const [loadEnd, setLoadEnd] = useState(false);
+  const [errorLoad, setErrorLoad] = useState(false);
 
   useEffect(() => {
     const fetchReservation = async () => {
@@ -161,6 +162,7 @@ export default function Home() {
 
         }).catch((error) => {
           console.error('Error:', error);
+          setErrorLoad(true);
         });
 
     };
@@ -177,7 +179,7 @@ export default function Home() {
       })
         .then(response => response.json())
         .then(data => {
-          // console.log(data)
+          console.log(data)
 
           setArchived(data);
           setLoadArchived(true);
@@ -188,6 +190,7 @@ export default function Home() {
         })
         .catch((error) => {
           console.error('Error:', error);
+          setErrorLoad(true);
         });
     };
 
@@ -210,6 +213,7 @@ export default function Home() {
         })
         .catch((error) => {
           console.error('Error:', error);
+          setErrorLoad(true);
         });
     };
 
@@ -240,6 +244,8 @@ export default function Home() {
 
             {loadEnd ? (
               <p>✅ Données chargées</p>
+            ) : errorLoad ? (
+              <p>❌ Erreur lors du chargement des données</p>
             ) : (
               <p>⌛ Chargement des données...</p>
             )}
