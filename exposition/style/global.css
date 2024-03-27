@@ -1,3 +1,19 @@
+@font-face {
+    font-family: 'Lucida';
+    font-weight: normal;
+    font-style: normal;
+    src: url('../fonts/lucida-bright.woff2') format('woff2'),
+        url('../fonts/lucida-bright.woff') format('woff');
+}
+
+@font-face {
+    font-family: 'Carambola';
+    font-weight: 400;
+    font-style: normal;
+    src: url('../fonts/carambola.woff2') format('woff2'),
+        url('../fonts/carambola.woff') format('woff');
+}
+
 *,
 *::before,
 *::after{
