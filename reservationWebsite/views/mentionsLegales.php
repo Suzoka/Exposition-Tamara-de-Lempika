@@ -19,6 +19,7 @@
         <h1><?php echo $_SESSION["lang"] == "fr" ? "Mentions Légales" : "GCU" ?></h1>
         <section>
             <h2>1. Présentation du site</h2>
+            <p>Ce site est un site fictif créer dans le cadre d'un projet étudiant en BUT MMI (métiers du multimédia et de l'internet) de Champs-sur-Marne. Aucun revenu n'est généré à partir de ce site et aucun produit n'est réellement vendu.</p>
             <p>En vertu de l'article 6 de la loi n° 2004-575 du 21 juin 2004 pour la confiance dans l'économie numérique, il est précisé aux utilisateurs du site Tamara de Lempicka - les années folles l'identité des différents intervenants dans le cadre de sa réalisation et de son suivi :</p>
             <ul>
                 <li>Nom et prénoms des personnes de l'équipe : MEROUANE Idriss, BOIREAU Nahina, VIGIER Robin, BANSRONT Thomas, ZARKA Morgan, DUBILLE Lou-Anne.</li>
@@ -51,13 +52,25 @@
             <h2>7. Gestion des données personnelles</h2>
             <p>En France, les données personnelles sont notamment protégées par la loi n° 78-87 du 6 janvier 1978, la loi n° 2004-801 du 6 août 2004, l'article L. 226-13 du Code pénal et la Directive Européenne du 24 octobre 1995. A l'occasion de l'utilisation du site Expo Tamara de Lempicka - Les années folles, peuvent êtres recueillies : l'URL des liens par l'intermédiaire desquels l'utilisateur a accédé au site Tamara de Lempicka - les années folles, le fournisseur d'accès de l'utilisateur, l'adresse de protocole Internet (IP) de l'utilisateur. En tout état de cause, l'équipe ne collecte des informations personnelles relatives à l'utilisateur que pour le besoin de certains services proposés par le site Expo Tamara de Lempicka - Les années folles. L'utilisateur fournit ces informations en toute connaissance de cause, notamment lorsqu'il procède par lui-même à leur saisie. Il est alors précisé à l'utilisateur du site Expo Tamara de Lempicka - Les années folles l’obligation ou non de fournir ces informations. Conformément aux dispositions des articles 38 et suivants de la loi 78-17 du 6 janvier 1978 relative à l’informatique, aux fichiers et aux libertés, tout utilisateur dispose d’un droit d’accès, de rectification et d’opposition aux données personnelles le concernant, en effectuant sa demande écrite et signée, accompagnée d’une copie du titre d’identité avec signature du titulaire de la pièce, en précisant l’adresse à laquelle la réponse doit être envoyée. Aucune information personnelle de l'utilisateur du site Expo Tamara de Lempicka - Les années folles n'est publiée à l'insu de l'utilisateur, échangée, transférée, cédée ou vendue sur un support quelconque à des tiers. Seule l'hypothèse du rachat de l'équipe et de ses droits permettrait la transmission des dites informations à l'éventuel acquéreur qui serait à son tour tenu de la même obligation de conservation et de modification des données vis à vis de l'utilisateur du site Expo Tamara de Lempicka - Les années folles. Le site n'est pas déclaré à la CNIL car il ne recueille pas d'informations personnelles. Les bases de données sont protégées par les dispositions de la loi du 1er juillet 1998 transposant la directive 96/9 du 11 mars 1996 relative à la protection juridique des bases de données.</p>
 
-            <h2>8. Droit applicable et attribution de juridiction</h2>
+            <h2>8. Conditions de vente et d'utilisation</h2>
+            <p>Les présentes conditions générales d'utilisation s'appliquent à l'utilisation du site Tamara de Lempicka - les années folles. En utilisant ce site, vous acceptez pleinement et sans réserve ces conditions. Nous nous réservons le droit de modifier les présentes conditions générales à tout moment. Les modifications prendront effet dès leur publication sur le site.
+            <br>En utilisant notre site de réservation de billets pour l'exposition Tamara de Lempicka - les années folles, vous acceptez pleinement et sans réserve ces conditions d'utilisation.</p>
+            <h3>8.1. Réservation des billets</h3>
+                <p>La réservation de billets pour l'exposition Tamara de Lempicka - les années folles est gratuite. Cependant, la réservation en ligne est requise pour garantir votre accès à l'exposition aux dates et heures souhaitées.</p>
+            <h3>8.2. Confirmation de réservation</h3>
+                <p>Une fois votre réservation effectuée, vous recevrez une confirmation par e-mail contenant les détails de votre réservation. Assurez-vous de présenter vos billets à l'entrée de l'exposition pour accéder aux installations. Vous pouvez retrouver vos billets dans la page <a href="./compte.php">"Mon compte"</a>.</p>
+            <h3>8.3. Annulation de réservation</h3>
+                <p>Si vous devez annuler votre réservation, veuillez nous en informer dès que possible par mail pour que nos équipes puissent annuler cette réservation. Cela permettra à d'autres visiteurs de profiter de l'exposition.</p>
+            <h3>8.4. Responsabilité</h3>
+                <p>Bien que l'accès à l'exposition soit gratuit, nous nous efforçons de fournir un service de réservation fiable et sécurisé. Cependant, nous déclinons toute responsabilité en cas de problèmes techniques ou d'interruptions du service.</p>
+
+            <h2>9. Droit applicable et attribution de juridiction</h2>
             <p>Tout litige en relation avec l’utilisation du site est soumis au droit français. Il est fait attribution exclusive de juridiction aux tribunaux compétents de Paris.</p>
 
-            <h2>9. Les principales lois concernées</h2>
+            <h2>10. Les principales lois concernées</h2>
             <p>Loi n° 78-17 du 6 janvier 1978, notamment modifiée par la loi n° 2004-801 du 6 août 2004 relative à l'informatique, aux fichiers et aux libertés. Loi n° 2004-575 du 21 juin 2004 pour la confiance dans l'économie numérique.</p>
 
-            <h2>10. Lexique </h2>
+            <h2>11. Lexique </h2>
             <ul>
                 <li>Utilisateur : internaute se connectant, utilisant le site susnommé.</li>
                 <li>Informations personnelles : « les informations qui permettent, sous quelque forme que ce soit, directement ou non, l'identification des personnes physiques auxquelles elles s'appliquent » (article 4 de la loi n° 78-17 du 6 janvier 1978).</li>

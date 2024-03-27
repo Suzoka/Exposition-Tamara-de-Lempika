@@ -20,6 +20,10 @@ h2 {
     margin-top: 20px;
 }
 
+main h3 {
+    margin-left: 3vw;
+}
+
 main p, main ul {
     margin-left: 3vw;
     line-height: 25px;
