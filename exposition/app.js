@@ -17,15 +17,21 @@ scene.background = new THREE.Color(0X13261E);
 const loader = new GLTFLoader();
 loader.load("./asset/tamarafinal.glb",
     (gltf) => {
-        progress__container.classList.remove("progress__container--open");
-        progress__container.classList.add("progress__container--close");
         scene.add(gltf.scene);
         render();
+        progress__bar.style.setProperty("--load", `100%`);
+        progress__number.textContent = `100%`;
+
+        setTimeout(() => {
+            progress__container.classList.remove("progress__container--open");
+            progress__container.classList.add("progress__container--close");
+        }, 200);
+
     },
     (xhr) => {
         // console.log( ( xhr.loaded / xhr.total * 100 ) + '%');
-        progress__bar.style.setProperty("--load", `${xhr.loaded / 168861820 * 100}%`);
-        progress__number.textContent = `${Math.floor(xhr.loaded / 168861820 * 100)}%`;
+        progress__bar.style.setProperty("--load", `${xhr.loaded / 168800000 * 100}%`);
+        progress__number.textContent = `${Math.floor(xhr.loaded / 168800000 * 100)}%`;
     },
     (error) => {
         console.log('An error happened', error);
@@ -36,19 +42,19 @@ loader.load("./asset/tamarafinal.glb",
 //? --- Light ---
 
 //* - Ambient -
-const HemisphereLight = new THREE.HemisphereLight( 0xfff0FF, 0xDAE1F9, 0.5 );
+const HemisphereLight = new THREE.HemisphereLight( 0xfff0FF, 0xDAE1F9, 0.1 );
 scene.add(HemisphereLight);
-const HemisphereLight2 = new THREE.HemisphereLight( 0xFFF6D7, 0xAAAAAA, 0.7 );
+const HemisphereLight2 = new THREE.HemisphereLight( 0xFFF6D7, 0xAAAAAA, 0.2 );
 scene.add(HemisphereLight2);
-const ambient = new THREE.AmbientLight(0xffffff, 0.5);
+const ambient = new THREE.AmbientLight(0xffffff, 0.1);
 scene.add(ambient);
-const point1 = new THREE.PointLight(0xFFF6D7, 1, 8, 1);
+
+//* - Point -
+const point1 = new THREE.PointLight(0xFFF6D7, 1, 8, 0.8);
 point1.position.set(3.5, 2.8, -8);
 scene.add(point1);
-// const helper1 = new THREE.PointLightHelper(point1);
-// scene.add( helper1 );
 
-const point2 = new THREE.PointLight(0xFFF6D7, 1, 8, 1);
+const point2 = new THREE.PointLight(0xFFF6D7, 1, 8, 0.8);
 point2.position.set(3.5, 2.8, -11);
 scene.add(point2);
 
