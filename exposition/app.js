@@ -127,7 +127,7 @@ function createCube(w, l, x, z) {
     const cube = new THREE.Mesh(
         new THREE.BoxGeometry(w, 12, l),
         new THREE.MeshBasicMaterial({
-            visible: true,
+            visible: false,
             color: 0x00ff00
         })
     );
@@ -136,9 +136,20 @@ function createCube(w, l, x, z) {
 }
 
 const invisibleElements = [
-    createCube(0.2, 15, 7, 0),
-    createCube(0.2, 15, 0, 0),
-    createCube(8, 0.2, 4, 6.9),
+    createCube(0.2, 15, 5, -4.5),
+    createCube(0.2, 15, 2, -4.5),
+    createCube(8, 0.2, 4, -8),
+    createCube(8, 0.2, -1, -12.15),
+    createCube(8, 0.2, 8, -12.15),
+    createCube(15, 0.2, 1, -21.95),
+    createCube(0.2, 25, -1.5, -10),
+    createCube(0.2, 25, 8.4, -10),
+    createCube(1.5, 2, 3.45, -17),
+    createCube(1, 1.5, 8, -18.75),
+    createCube(0.5, 0.5, 7, -18.75),
+    createCube(1, 1, 7.5, -21),
+    createCube(0.75, 0.75, 6, -21.25),
+    createCube(1.25, 0.4, 3.5, -21.65),
 ];
 
 for (const collision of invisibleElements) {
