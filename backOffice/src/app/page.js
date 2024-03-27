@@ -10,7 +10,19 @@ import { Pop_up } from '@/components/pop_up/pop_up';
 import { Connexion } from '@/components/connexion/connexion';
 import { ModificationPop } from '@/components/modfication_pop/modification_pop';
 
-console.log('---------');
+console.log(
+  "---------------------\n" +
+  "🚀 Project Etudiant\n" +
+  "💾 Exposition TDL - Back Office\n" +
+  "📅 février - mars 2024\n" +
+  "\n" +
+  "Back Office d'un site de reservation pour une exposition fictive sur Tamara de Lempicka et les années folles.\n" +
+  "Made by : 🧙Robin VIGIER, 🤿Morgan ZARKA, 🎵Lou-Anne DUBILLE\n" +
+  "Thanks to : 👽Arthur ZACHARY, ✨Isabelle ROUAS\n" +
+  "\n" +
+  "👩‍🎨 Sinyart : Idriss, Nahina, Thomas, Robin, Morgan, Lou-Anne\n" +
+  "---------------------\n"
+);
 
 export default function Home() {
 
@@ -144,7 +156,7 @@ export default function Home() {
   useEffect(() => {
     const fetchReservation = async () => {
 
-      console.log('--- Chargement des données réservations...');
+      // console.log('--- Chargement des données réservations...');
 
       await fetch('https://api.sinyart.fr/reservations', {
         method: 'GET',
@@ -169,7 +181,7 @@ export default function Home() {
 
     const fetchArchived = async () => {
 
-      console.log('--- Chargement des données archives...');
+      // console.log('--- Chargement des données archives...');
 
       await fetch("https://api.sinyart.fr/archives", {
         method: 'GET',
@@ -196,7 +208,7 @@ export default function Home() {
 
     const fetchUser = async () => {
 
-      console.log('--- Chargement des données utilisateurs...');
+      // console.log('--- Chargement des données utilisateurs...');
 
       await fetch("https://api.sinyart.fr/users", {
         method: 'GET',
