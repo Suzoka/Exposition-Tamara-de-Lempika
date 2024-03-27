@@ -2,10 +2,12 @@ import * as THREE from 'three';
 import { GLTFLoader } from 'plugin/loaders/GLTFLoader.js';
 import { PointerLockControls } from 'plugin/controls/PointerLockControls.js';
 
-//? --- Load ---
+//? --- DOM ---
 const progress__container = document.querySelector('.js_progress__container');
 const progress__bar = document.querySelector('.js_progress__bar');
 const progress__number = document.querySelector('.js_progress__number');
+const menu = document.querySelector('.js_menu');
+const button = document.querySelector('.js_menu__button');
 
 //? --- Scene ---
 const scene = new THREE.Scene();
@@ -50,17 +52,19 @@ camera.position.set(3.5, 1.3, 0);
 //? --- PointerLockControls ---
 const controls = new PointerLockControls(camera, document.body);
 
-document.addEventListener('click', function () {
+button.addEventListener('click', function () {
     controls.lock();
 });
 
 controls.addEventListener('lock', function () {
     console.log('Pointer is locked');
+    menu.style.opacity = 0;
     //Masquer UI menu
 });
 
 controls.addEventListener('unlock', function () {
     console.log('Pointer is unlocked');
+    menu.style.opacity = 1;
     //Afficher UI menu
 });
 
@@ -167,6 +171,10 @@ function render() {
     }
 
     prevTime = time;
+
+    camera.aspect = window.innerWidth / window.innerHeight;
+    camera.updateProjectionMatrix();
+    renderer.setSize(window.innerWidth, window.innerHeight);
 
     renderer.render(scene, camera);
     requestAnimationFrame(render);
