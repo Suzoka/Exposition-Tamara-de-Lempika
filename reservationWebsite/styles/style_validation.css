@@ -33,7 +33,7 @@ main p {
 
 main img {
     border-radius: 10px;
-    width: 35vw;
+    /*width: 35vw;*/
     margin: auto;
     margin-top: 10px;
     margin-bottom: 15px;
@@ -66,10 +66,10 @@ p a {
             width: 80vw;
         }
         
-        main img {
+        /*main img {
             width: 45vw;
             margin: 20px;
-        }
+        }*/
 
         main p {
             margin-bottom: 20px;
@@ -92,9 +92,9 @@ p a {
             line-height: 45px;
         }
 
-        main img {
+        /*main img {
             width: 55vw;
-        }
+        }*/
 
         main p {
             width: 80vw;

@@ -50,11 +50,19 @@
                 <br>In 1914 she begin a real artistic career, by registering at the  Saint Petersburg Academy of Fine Arts. In 1916 she married the lawyer Tadeusz Lempicki and had her daughter Marie-Christine.
                 In 1917 she fled the October Revolution and went to Paris where she was welcomed by her cousins." ?>
                 </p>
-                <img class="imgBig" src="../img/tamaraAccueil2.png" alt="">
-                <img class="imgSmall s1" src="../img/tamara.png" alt="">
-                <img class="imgSmall s2" src="../img/tamaraAccueil.png" alt="">
-                <p class="t2">
-                    <?php echo $_SESSION["lang"] == "fr" ? "Sous la tutelle de Maurice Denis et André Lhote, Tamara de Lempicka trouve un précieux soutien à l'Académie Ranson et de la Grande Chaumière. Fusionnant la Renaissance et le néo-cubisme, elle crée un style novateur, évoquant l'élégance des Années folles.
+                <img class="imgBig" src="../img/tamaraAccueil2.png"
+                    srcset="../img/tamaraAccueil2330.png 400w"
+                    alt=""
+                >
+                <img class="imgSmall s1" src="../img/tamara.png"
+                    srcset="../img/tamara220.png 440w"
+                    alt=""
+                >
+                <img class="imgSmall s2" src="../img/tamaraAccueil.png"
+                    srcset="../img/tamaraAccueil220.png 440w"
+                    alt=""
+                >
+                <p class="t2"><?php echo $_SESSION["lang"] == "fr" ? "Sous la tutelle de Maurice Denis et André Lhote, Tamara de Lempicka trouve un précieux soutien à l'Académie Ranson et de la Grande Chaumière. Fusionnant la Renaissance et le néo-cubisme, elle crée un style novateur, évoquant l'élégance des Années folles.
                 <br>Sa première exposition en 1923, \"Perspective (ou les deux amies)\", lance sa renommée et l'essor de l'Art Déco." : "Under the tutelage of Maurice Denis and André Lhote, Tamara de Lempicka found support at the Ranson Academy and the Grande Chaumière. Mixing the Renaissance and neo-Cubism, she created an innovative style, evoking the elegance of the Roaring Twenties.
                 <br>Her 1rst exhbition in 1923 \"Perspective (ou les deux amies)\", propelled her reputation and the rise of Art Deco." ?>
                 </p>

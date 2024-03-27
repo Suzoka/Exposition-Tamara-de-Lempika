@@ -38,7 +38,11 @@
         <h1>
             <?php echo $_SESSION["lang"] == "fr" ? "Mon compte" : "My account" ?>
         </h1>
-        <img id="compte" src="../img/compte.png" alt="">
+        <img  src="" alt="">
+        <img id="compte" src="../img/compte.png"
+                    srcset="../img/compte140.png 770w"
+                    alt=""
+                >
         <?php if (isset ($_SESSION['user'])) { ?>
             <h2>
                 <?php echo $_SESSION['user']->getPrenom() ?>

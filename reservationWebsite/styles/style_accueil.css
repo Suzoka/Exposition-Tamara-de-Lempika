@@ -86,6 +86,10 @@ h1 {
             width: 40vw;
         }
 
+        .banniere {
+            height: 87svh;
+        }
+
         .imgBanniere {
             overflow: hidden;
             width: 55%;
@@ -111,10 +115,6 @@ h1 {
 
         .text p {
             width: 70vw;
-        }
-
-        .banniere {
-            height: 87.5svh;
         }
 
         .imgBanniere {
