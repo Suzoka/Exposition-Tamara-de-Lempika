@@ -27,7 +27,8 @@ scene.background = new THREE.Color(0X1e1eee);
 // });
 
 const loader = new GLTFLoader();
-loader.load("./asset/tamaravrfinal.glb",
+// loader.load("./asset/tamaravrfinal.glb",
+loader.load("./asset/tamarafinalv2.glb",
 ( gltf )=> {
 		scene.add( gltf.scene );
         render();
