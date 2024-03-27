@@ -6,7 +6,7 @@ const inter = Inter({ subsets: ["latin"] });
 export const metadata = {
   title: "Back office - TDL exposition",
   favicon: "./favicon.ico",
-  
+
   // description: " ",
 };
 
