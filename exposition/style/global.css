@@ -9,3 +9,20 @@ body {
     margin: 0;
     background-color: #1e1e1e;
 }
+
+.loader__container {
+    /* --load : 60%; */
+    position: fixed;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    width: 100vw;
+    z-index: 100;
+}
+
+.loader {
+    width: var(--load);
+    height: 5px;
+    background-color: #fff;
+}
