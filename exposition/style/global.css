@@ -54,7 +54,7 @@ p {
     background-color: var(--primary);
     color: var(--white);
     z-index: 20;
-    transition: 0.5s all;
+    transition: 0.5s;
     overflow: hidden;
     height: 100vh;
 }
