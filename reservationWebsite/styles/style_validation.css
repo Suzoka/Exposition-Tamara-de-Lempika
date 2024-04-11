@@ -33,10 +33,10 @@ main p {
 
 main img {
     border-radius: 10px;
-    /*width: 35vw;*/
     margin: auto;
     margin-top: 10px;
     margin-bottom: 15px;
+    max-width: 450px;
 }
 
 #accueil {
