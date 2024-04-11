@@ -56,9 +56,6 @@ p {
     z-index: 20;
     transition: 0.5s;
     overflow: hidden;
-}
-
-.progress__container--open {
     height: 100vh;
 }
 
